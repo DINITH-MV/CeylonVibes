@@ -57,7 +57,8 @@ const Admin = () => {
                                         </th>
                                         <th>
                                             <Link to='/AddCatagory' className='border p-[4px] rounded-[7px]'>Add a Catagory</Link>
-                                            <button onClick={() => updateCatagory(items._id)} className='border p-[4px] rounded-[7px]'>Update Catagory</button>
+                                            <button onClick={() => updateCatagory(items._id)} className='border p-[4px] rounded-[7px]'>Update Catagory</button><br />
+                                            <button onClick={() => updateCatagory(items._id)} className='border p-[4px] rounded-[7px]'>Delete Catagory</button>
                                         </th>
                                     </tr>
                                 )) :
