@@ -12,6 +12,7 @@ import ShopInside from "./ShopInside.jsx";
 import CarouselAnimation from "../components/Organic Items/Content/CarouselAnimation.jsx";
 import Banner from "../components/Organic Items/Content/Banner.jsx";
 import GradientClose2 from "../components/Organic Items/Content/GradientClose2.jsx";
+import Footer from "../components/Footer/Footer.jsx";
 
 const Shop = ({catagories, fetchCatagories, offers, fetchOffers}) => {
   // State and useEffect hooks
@@ -34,6 +35,7 @@ const Shop = ({catagories, fetchCatagories, offers, fetchOffers}) => {
           <CarouselAnimation offers={offers} fetchOffers={fetchOffers} />
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
