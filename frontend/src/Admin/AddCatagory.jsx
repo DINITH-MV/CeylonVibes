@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import axios from 'axios';
 
 const AddCatagory = () => {
@@ -6,7 +6,7 @@ const AddCatagory = () => {
     const [name, setName] = useState('');
     const [files, setFiles] = useState(null);
     const inputRef = useRef();
-    console.log(inputRef.current);
+    // console.log(inputRef.current.files[0]);
 
     const handleDragOver = (event) => {
         event.preventDefault();
@@ -38,13 +38,13 @@ const AddCatagory = () => {
         <div>
             <div>
                 <div id="logInBox" className="w-[370px] h-[40%] text-center min-h-67vh my-70px bg-[rgb(225,225,225)] rounded-[20px] mx-auto mt-[70px]">
-                    <div class="mainContent">
-                        <div class="headerAndInputs text-center pt-[20px]">
+                    <div className="mainContent">
+                        <div className="headerAndInputs text-center pt-[20px]">
                             <h3 className="text-[25pt] mb-[10px]">Add a new Catagory</h3>
 
                             <form onSubmit={handleUpload}>
-                                <div class="inputBoxes">
-                                    <input type="text" name="name" for="name"
+                                <div className="inputBoxes">
+                                    <input type="text" name="name" htmlFor="name" 
                                         onChange={(e) => setName(e.target.value)} placeholder="Name of the Catagory" className="border-none pl-[10px] p-y-[40px] text-[12pt] mb-[3px] mt-[10px] rounded-[10px] bg-[rgba(255, 255, 255, 0.6)] h-[40px] w-[320px] hover:bg-[rgb(255,255,255)] transition-duration-70ms" id="name" />
 
                                     <div
@@ -57,15 +57,12 @@ const AddCatagory = () => {
                                         <input
                                             type="file"
                                             multiple
-                                            onChange={(event) => setFiles(event.target.files[0])}
+                                            onChange={(event) => setFiles(event.target.files)}
                                             hidden
                                             accept="image/png, image/jpeg"
                                             ref={inputRef}
                                         />
-                                        <button onClick={(e) => {
-                                            e.preventDefault();
-                                            inputRef.current && inputRef.current.click();
-                                        }}>Select Files</button>
+                                        <button type="button" onClick={() => inputRef.current.click()}>Select Files</button>
                                     </div>
                                 </div>
                                 {files && (

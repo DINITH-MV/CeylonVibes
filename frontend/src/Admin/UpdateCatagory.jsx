@@ -5,7 +5,6 @@ import { useParams } from "react-router";
 const AddCatagory = () => {
 
     const { id } = useParams();
-    const [ID, setID] = useState('');
     const [name, setName] = useState('');
     const [image, setImage] = useState('');
     const [files, setFiles] = useState(null);
@@ -20,11 +19,9 @@ const AddCatagory = () => {
         }
     }, [id]);
 
-
     const fetchCatagory = async () => {
         try {
             const response = await axios.get(`/api/Catagories/${id}`);
-            setID(response.data.data[0]._id);
             setName(response.data.data[0].name);
             setImage(response.data.data[0].image);
         } catch (error) {
@@ -46,7 +43,6 @@ const AddCatagory = () => {
         const formdata = new FormData()
         formdata.append('file', files[0])
         formdata.append('name', name);
-        formdata.append('id', ID);
         try {
             const response = await axios.put(`http://localhost:5010/upload/${id}`, formdata, {
                 headers: {
@@ -75,13 +71,13 @@ const AddCatagory = () => {
         <div>
             <div>
                 <div id="logInBox" className="w-[370px] h-[40%] text-center min-h-67vh my-70px bg-[rgb(225,225,225)] rounded-[20px] mx-auto mt-[70px]">
-                    <div class="mainContent">
-                        <div class="headerAndInputs text-center pt-[20px]">
+                    <div className="mainContent">
+                        <div className="headerAndInputs text-center pt-[20px]">
                             <h3 className="text-[25pt] mb-[10px]">Add a new Catagory</h3>
 
                             <form onSubmit={handleUpload}>
-                                <div class="inputBoxes">
-                                    <input type="text" name="name" for="name" value={name}
+                                <div className="inputBoxes">
+                                    <input type="text" name="name" htmlFor="name" value={name}
                                         onChange={(e) => setName(e.target.value)} placeholder="Name of the Catagory" className="border-none pl-[10px] p-y-[40px] text-[12pt] mb-[3px] mt-[10px] rounded-[10px] bg-[rgba(255, 255, 255, 0.6)] h-[40px] w-[320px] hover:bg-[rgb(255,255,255)] transition-duration-70ms" id="name" />
                                     {isCancelled && (
                                         <div
