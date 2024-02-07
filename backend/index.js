@@ -79,6 +79,19 @@ app.put('/upload/:id', upload.single('file'), (req, res) => {
   .catch(err => console.log(err)) // Use console.log to log errors
 });
 
+app.delete('/upload/:id', (req, res) => {
+  const id = req.params.id; // Use req.params to access route parameters
+  Catagory.findByIdAndDelete(id)
+  .then(result => {
+    if (result) {
+      res.json({ message: 'Category deleted successfully' });
+    } else {
+      res.json({ message: 'No category found with the provided ID' });
+    }
+  })
+  .catch(err => console.log(err)); // Use console.log to log errors
+});
+
 app.get('/getImage', (req, res) => {
   Catagory.find()
   .then(Catagory => res.json(Catagory))

@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 const Admin = () => {
     axios.defaults.baseURL = `http://localhost:5010`;
     const [items, setItems] = useState([]);
+
     const fetchItems = async () => {
         try {
             const response = await axios.get("/api/catagories");
@@ -15,12 +16,34 @@ const Admin = () => {
         }
     };
 
+    const deleteCatagory = async (id) => {
+        try {
+            const response = await axios.delete(`http://localhost:5010/upload/${id}`);
+            fetchItems()
+            console.log(response);
+        } catch (error) {
+            if (error.response) {
+                // The request was made and the server responded with a status code
+                // that falls out of the range of 2xx
+                console.error("Error status:", error.response.status);
+                console.error("Error data:", error.response.data);
+            } else if (error.request) {
+                // The request was made but no response was received
+                console.error("No response received:", error.request);
+            } else {
+                // Something happened in setting up the request that triggered an Error
+                console.error("Error message:", error.message);
+            }
+            console.error("Error config:", error.config);
+        }
+    }
+
     const Navigate = useNavigate();
 
     const updateCatagory = (id) => {
         Navigate(`/updateCatagory/${id}`)
     }
-
+   
     useEffect(() => {
         fetchItems()
     }, [])
@@ -58,7 +81,7 @@ const Admin = () => {
                                         <th>
                                             <Link to='/AddCatagory' className='border p-[4px] rounded-[7px]'>Add a Catagory</Link>
                                             <button onClick={() => updateCatagory(items._id)} className='border p-[4px] rounded-[7px]'>Update Catagory</button><br />
-                                            <button onClick={() => updateCatagory(items._id)} className='border p-[4px] rounded-[7px]'>Delete Catagory</button>
+                                            <button  onClick={() => deleteCatagory(items._id)} className='border p-[4px] rounded-[7px]'>Delete Catagory</button>
                                         </th>
                                     </tr>
                                 )) :
