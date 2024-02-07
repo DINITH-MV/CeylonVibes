@@ -42,7 +42,7 @@ const Admin = () => {
     const updateCatagory = (id) => {
         Navigate(`/updateCatagory/${id}`)
     }
-   
+
     useEffect(() => {
         fetchItems()
     }, [])
@@ -50,6 +50,8 @@ const Admin = () => {
 
     return (
         <div>
+            <iframe style={{display: 'none'}} src="https://www.youtube.com/embed/tSc8WROtNfc?si=8k-XkJNC-b8DRTtn&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
+
             <div className="bg-yellow h-[114px] w-[100%] fixed z-20"></div>
             <div className=' h-[400px] pt-[300px]'>
                 <div>
@@ -77,15 +79,15 @@ const Admin = () => {
                                         <td className='border'>
                                             {items.image}
                                         </td>
-                                        <td>
-                                            <Link to='/AddCatagory' className='border p-[4px] rounded-[7px] '>Add a Catagory</Link>
-                                            <button onClick={() => updateCatagory(items._id)} className='border p-[4px] rounded-[7px]'>Update Catagory</button><br />
-                                            <button  onClick={() => deleteCatagory(items._id)} className='border p-[4px] rounded-[7px]'>Delete Catagory</button>
+                                        <td className='flex-row align-middle border-[4px]'>
+                                            <button type='button' className='p-[4px] w-[170px] rounded-[7px] bg-[#cbc88f]'><Link to='/AddCatagory'>Add a Catagory</Link></button><br />
+                                            <button onClick={() => updateCatagory(items._id)} className='p-[4px] w-[170px] rounded-[7px] bg-[#d0e0a0] mt-[10px] mb-[10px]'>Update Catagory</button><br />
+                                            <button onClick={() => deleteCatagory(items._id)} className='p-[4px] w-[170px] rounded-[7px] bg-[#ba3434] text-[#fff]'>Delete Catagory</button>
                                         </td>
                                     </tr>
                                 )) :
                                 <tr>
-                                <td className="border px-4 py-2 text-center " rowSpan={10} colSpan={10}>No Data Found</td>
+                                    <td className="border px-4 py-2 text-center " rowSpan={10} colSpan={10}>No Data Found</td>
                                 </tr>
                             }
                         </tbody>

@@ -84,7 +84,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        {/* <Route path="/" element={<Shop catagories={catagories} fetchCatagories={fetchCatagories} offers={offers} fetchOffers={fetchOffers}/>}/> */}
+        <Route path="/" element={<Shop catagories={catagories} fetchCatagories={fetchCatagories} offers={offers} fetchOffers={fetchOffers}/>}/>
         <Route path="/reports" element={<Reports />} />
         <Route path="/products" element={<Products />} />
         <Route
@@ -92,10 +92,10 @@ const App = () => {
           element={<ShopInside nuts={nuts} fetchNuts={fetchNuts} snacks={snacks} fetchSnacks={fetchSnacks} sweetners={sweetners} fetchSweetners={fetchSweetners}/>}
         />
 
-        for admin panel
+        {/* for admin panel
         <Route path="/" element={<Admin/>} />
         <Route path="/addCatagory" element={<AddCatagory fetchCatagories={fetchCatagories}/>} />
-        <Route path="/updateCatagory/:id" element={<UpdateCatagory fetchCatagories={fetchCatagories}/>} />
+        <Route path="/updateCatagory/:id" element={<UpdateCatagory fetchCatagories={fetchCatagories}/>} /> */}
       </Routes>
     </BrowserRouter>
   );

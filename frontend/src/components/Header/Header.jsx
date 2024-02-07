@@ -20,7 +20,7 @@ export default function Header({productsInCart, onQuantityChange, onProductRemov
                 <link href="https://fonts.googleapis.com/css2?family=Abel&family=Cantora+One&display=swap" rel="stylesheet" />
                 <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css" />
                 <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-light.css" />
-
+                <iframe style={{display: 'none'}} src="https://www.youtube.com/embed/tSc8WROtNfc?si=8k-XkJNC-b8DRTtn&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
             </div>
             <div className="bg-yellow h-[114px] w-[100%] fixed z-20">
                 <Logo />                

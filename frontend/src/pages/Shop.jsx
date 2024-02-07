@@ -30,7 +30,7 @@ const Shop = ({catagories, fetchCatagories, offers, fetchOffers}) => {
         <GradientOpen2 />
         <Banner />
         <GradientClose2 />
-        <div className="bg-yellow h-[1000px] w-[100%] mb-0 relative">
+        <div className="bg-yellow h-[630px] w-[100%] mb-0 relative">
           <CarouselAnimation offers={offers} fetchOffers={fetchOffers} />
         </div>
       </div>

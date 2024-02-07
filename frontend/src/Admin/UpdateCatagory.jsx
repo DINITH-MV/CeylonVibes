@@ -73,7 +73,7 @@ const AddCatagory = () => {
                 <div id="logInBox" className="w-[370px] h-[40%] text-center min-h-67vh my-70px bg-[rgb(225,225,225)] rounded-[20px] mx-auto mt-[70px]">
                     <div className="mainContent">
                         <div className="headerAndInputs text-center pt-[20px]">
-                            <h3 className="text-[25pt] mb-[10px]">Add a new Catagory</h3>
+                            <h3 className="text-[25pt] mb-[10px]">Update the Catagory</h3>
 
                             <form onSubmit={handleUpload}>
                                 <div className="inputBoxes">
@@ -90,22 +90,19 @@ const AddCatagory = () => {
                                             <input
                                                 type="file"
                                                 multiple
-                                                onChange={(event) => setFiles(event.target.files[0])}
+                                                onChange={(event) => setFiles(event.target.files)}
                                                 hidden
                                                 accept="image/png, image/jpeg"
                                                 ref={inputRef}
                                             />
-                                            <button onClick={(e) => {
-                                                e.preventDefault();
-                                                inputRef.current && inputRef.current.click();
-                                            }}>Select Files</button>
+                                            <button type="button" onClick={(e) => inputRef.current.click()}>Select Files</button>
                                         </div>
                                     )}
                                 </div>
                                 {!isCancelled && (
                                     <div className="uploads">
                                         <ul>
-                                            <img className="h-[160px] text-center mx-auto" src={'http://localhost:5010/catagories/' + image} alt="" />
+                                            <img className="h-[160px] text-center mx-auto mt-[10px]" src={'http://localhost:5010/catagories/' + image} alt="" />
                                             {image}
                                         </ul>
                                         <div className="actions ">
