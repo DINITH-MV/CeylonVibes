@@ -15,6 +15,7 @@ module.exports = {
         Cairo : ['Cairo', "sans-serif"],
         Barlow : ['Barlow', "sans-serif"],
         FiraSans : ['Fira Sans', "sans-serif"],
+        Satisfy: ['Satisfy', "sans-serif"],
       },
     },
     colors: {
