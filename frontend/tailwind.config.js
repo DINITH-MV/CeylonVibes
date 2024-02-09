@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  important:true,
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
@@ -15,7 +16,9 @@ module.exports = {
         Cairo : ['Cairo', "sans-serif"],
         Barlow : ['Barlow', "sans-serif"],
         FiraSans : ['Fira Sans', "sans-serif"],
-        Satisfy: ['Satisfy', "sans-serif"],
+        Satisfy: ['Satisfy', "cursive" ],
+        Sacramento : ['Sacramento', "cursive"],
+        BadScript : ['Bad Script', "cursive"],
       },
     },
     colors: {
@@ -51,4 +54,8 @@ module.exports = {
     }
   },
   plugins: [],
+  // corePlugins: {
+  //   preflight: false,
+  // }
+  
 };

@@ -18,6 +18,9 @@ export default function Header({productsInCart, onQuantityChange, onProductRemov
                 <link href="https://fonts.googleapis.com/css2?family=Coda&family=Fira+Sans&family=Dancing+Script&family=Kay+Pho+Du&family=Spirax&display=swap" rel="stylesheet" />
                 <link href="https://fonts.googleapis.com/css2?family=Barlow&display=swap" rel="stylesheet" />
                 <link href="https://fonts.googleapis.com/css2?family=Abel&family=Cantora+One&display=swap" rel="stylesheet" />
+                <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet"/>
+                <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet"/> 
+
                 <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css" />
                 <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-light.css" />
                 
