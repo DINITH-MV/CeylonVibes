@@ -16,10 +16,7 @@ const catagorySchema = new Schema(
 
 export const Catagory = mongoose.model("catagory", catagorySchema);
 
-const NutsSchema = new Schema({
-  _id: {
-    type: String,
-  },
+const NutsSchema = new Schema({  
   name: {
     type: String,
   },
@@ -32,17 +29,12 @@ const NutsSchema = new Schema({
   image: {
     type: String,
   },
-  imageFolder: {
-    type: String,
-  },
 });
 
 export const Nuts = mongoose.model("Nuts&Seeds", NutsSchema);
 
 const SnacksSchema = new Schema({
-  _id: {
-    type: String,
-  },
+  
   name: {
     type: String,
   },

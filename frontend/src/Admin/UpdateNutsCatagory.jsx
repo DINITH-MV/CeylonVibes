@@ -2,10 +2,12 @@ import { useEffect, useRef, useState } from "react";
 import axios from 'axios';
 import { useParams } from "react-router";
 
-const UpdateCatagory = () => {
+const UpdateNutsCatagory = () => {
 
     const { id } = useParams();
     const [name, setName] = useState('');
+    const [price, setPrice] = useState('');
+    const [discPrice, setDiscPrice] = useState('');
     const [image, setImage] = useState('');
     const [files, setFiles] = useState(null);
     const [isCancelled, setIsCancelled] = useState(false);
@@ -15,17 +17,19 @@ const UpdateCatagory = () => {
     useEffect(() => {
         if (id) {
             console.log('here');
-            fetchCatagory();
+            fetchNutsCatagory();
         }
     }, [id]);
 
-    const fetchCatagory = async () => {
+    const fetchNutsCatagory = async () => {
         try {
-            const response = await axios.get(`/api/Catagories/${id}`);
+            const response = await axios.get(`/api/Nuts&Seeds/${id}`);
             setName(response.data.data[0].name);
             setImage(response.data.data[0].image);
+            setPrice(response.data.data[0].price);
+            setDiscPrice(response.data.data[0].discPrice);
         } catch (error) {
-            console.error('Error fetching Catagories:', error);
+            console.error('Error fetching Nuts&Seeds:', error);
         }
     }
 
@@ -43,8 +47,10 @@ const UpdateCatagory = () => {
         const formdata = new FormData()
         formdata.append('file', files[0])
         formdata.append('name', name);
+        formdata.append('name', price);
+        formdata.append('name', discPrice);
         try {
-            const response = await axios.put(`http://localhost:5010/catagories/${id}`, formdata, {
+            const response = await axios.put(`http://localhost:5010/Nuts&Seeds/${id}`, formdata, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -73,12 +79,16 @@ const UpdateCatagory = () => {
                 <div id="logInBox" className="w-[370px] h-[40%] text-center min-h-67vh my-70px bg-[rgb(225,225,225)] rounded-[20px] mx-auto mt-[70px]">
                     <div className="mainContent">
                         <div className="headerAndInputs text-center pt-[20px]">
-                            <h3 className="text-[25pt] mb-[10px]">Update the Catagory</h3>
+                            <h3 className="text-[25pt] mb-[10px]">Update the item</h3>
 
                             <form onSubmit={handleUpload}>
                                 <div className="inputBoxes">
                                     <input type="text" name="name" htmlFor="name" value={name}
-                                        onChange={(e) => setName(e.target.value)} placeholder="Name of the Catagory" className="border-none pl-[10px] p-y-[40px] text-[12pt] mb-[3px] mt-[10px] rounded-[10px] bg-[rgba(255, 255, 255, 0.6)] h-[40px] w-[320px] hover:bg-[rgb(255,255,255)] transition-duration-70ms" id="name" />
+                                        onChange={(e) => setName(e.target.value)} placeholder="Name of the item" className="border-none pl-[10px] p-y-[40px] text-[12pt] mb-[3px] mt-[10px] rounded-[10px] bg-[rgba(255, 255, 255, 0.6)] h-[40px] w-[320px] hover:bg-[rgb(255,255,255)] transition-duration-70ms" id="name" />
+                                    <input type="text" name="price" htmlFor="price" value={'Rs:' + price}
+                                        onChange={(e) => setPrice(e.target.value)} placeholder="Price of the item" className="border-none pl-[10px] p-y-[40px] text-[12pt] mb-[3px] mt-[10px] rounded-[10px] bg-[rgba(255, 255, 255, 0.6)] h-[40px] w-[320px] hover:bg-[rgb(255,255,255)] transition-duration-70ms" id="name" />
+                                    <input type="text" name="discPrice" htmlFor="discPrice" value={discPrice}
+                                        onChange={(e) => setDiscPrice(e.target.value)} placeholder="Discount Price of the item" className="border-none pl-[10px] p-y-[40px] text-[12pt] mb-[3px] mt-[10px] rounded-[10px] bg-[rgba(255, 255, 255, 0.6)] h-[40px] w-[320px] hover:bg-[rgb(255,255,255)] transition-duration-70ms" id="name" />
                                     {isCancelled && (
                                         <div
                                             className="flex flex-col justify-center h-[300px] border-[5px] border-dashed border-[#282727] mx-[20%] mt-[20px] mb-[20px]"
@@ -102,7 +112,7 @@ const UpdateCatagory = () => {
                                 {!isCancelled && (
                                     <div className="uploads">
                                         <ul>
-                                            <img className="h-[160px] text-center mx-auto mt-[10px]" src={'http://localhost:5010/catagories/' + image} alt="" />
+                                            <img className="h-[160px] text-center mx-auto mt-[10px]" src={'http://localhost:5010/nuts&seeds/' + image} alt="" />
                                             {image}
                                         </ul>
                                         <div className="actions ">
@@ -133,4 +143,4 @@ const UpdateCatagory = () => {
     );
 
 }
-export default UpdateCatagory;
+export default UpdateNutsCatagory;

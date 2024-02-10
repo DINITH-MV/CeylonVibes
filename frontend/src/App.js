@@ -14,6 +14,9 @@ import AddCatagory from "./Admin/AddCatagory.jsx";
 import Image from "./components/Organic Items/Content/image.jsx";
 import "./App.css"
 import UpdateCatagory from "./Admin/UpdateCatagory.jsx";
+import NutsCatagory from "./Admin/NutsCatagory.jsx";
+import AddNutsCatagory from "./Admin/AddNutsCatagory.jsx";
+import UpdateNutsCatagory from "./Admin/UpdateNutsCatagory.jsx";
 
 const App = () => {
   console.disableYellowBox = true;
@@ -66,6 +69,16 @@ const App = () => {
     }
   };
 
+  const fetchNutsCatagory = async () => {
+    try {
+      const response = await axios.get("/api/catagories");
+      setCatagories(response.data.data);
+      console.log(response);
+    } catch (error) {
+      console.error("Error fetching users:", error);
+    }
+  };
+
   const fetchOffers = async () => {
     try {
       const response = await axios.get("/api/offers");
@@ -84,7 +97,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Shop catagories={catagories} fetchCatagories={fetchCatagories} offers={offers} fetchOffers={fetchOffers}/>}/>
+        {/* <Route path="/" element={<Shop catagories={catagories} fetchCatagories={fetchCatagories} offers={offers} fetchOffers={fetchOffers}/>}/> */}
         <Route path="/reports" element={<Reports />} />
         <Route path="/products" element={<Products />} />
         <Route
@@ -92,10 +105,13 @@ const App = () => {
           element={<ShopInside nuts={nuts} fetchNuts={fetchNuts} snacks={snacks} fetchSnacks={fetchSnacks} sweetners={sweetners} fetchSweetners={fetchSweetners}/>}
         />
 
-        {/* for admin panel
+        for admin panel
         <Route path="/" element={<Admin/>} />
         <Route path="/addCatagory" element={<AddCatagory fetchCatagories={fetchCatagories}/>} />
-        <Route path="/updateCatagory/:id" element={<UpdateCatagory fetchCatagories={fetchCatagories}/>} /> */}
+        <Route path="/updateCatagory/:id" element={<UpdateCatagory fetchCatagories={fetchCatagories}/>} />
+        <Route path="/NutsCatagory" element={<NutsCatagory/>} />
+        <Route path="/addNutsCatagory" element={<AddNutsCatagory fetchNutsCatagory={fetchNutsCatagory}/>} />
+        <Route path="/updateNutsCatagory/:id" element={<UpdateNutsCatagory fetchCatagories={fetchCatagories}/>} />
       </Routes>
     </BrowserRouter>
   );

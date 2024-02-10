@@ -2,22 +2,27 @@ import React from 'react';
 import { Button, Input, Space } from 'antd';
 import { StyleProvider } from '@ant-design/cssinjs'
 import { Link } from 'react-router-dom';
-import { SocialIcon } from 'react-social-icons';
 
 const Footer = () => {
-    const Component = <SocialIcon url="https://twitter.com" />
+
     return (
         <div>
             <StyleProvider hashPriority="high">
-                <div className='h-[330px] bg-[#000] grid grid-cols-3 grid-rows-3 grid-flow-col border '>
+                <div className='h-[350px] bg-[#000] grid grid-cols-3 grid-rows-3 grid-flow-col border '>
                     <div className=" mt-[25px] ml-[10px] h-[280px] pt-[20px] bg-[#000000] text-center row-span-3 text-[#fff] w-[400px] ">
-                        <div className='border-[2px] w-[3px] h-[290px] mt-[-25px] ml-[402px] rounded-[6px] absolute'></div>
+                        <div className='border-[2px] w-[3px] h-[300px] mt-[-20px] ml-[402px] rounded-[6px] absolute'></div>
                         <div className=" font-Spirax text-[33pt] pl-[10px]">CeylonVibes
                             <i class="fa-sharp fa-thin fa-copyright text-[6px] ml-[4px]" style={{ color: '#ffffff' }}></i>
                         </div>
                         <div className='font-BadScript mt-[4px] text-[16px] w-[290px] text-justify mx-[auto]'>Discover Sri Lanka, a land of cultural richness and vibrancy, where you can experience its diverse heritage, traditions, arts, cuisine, and natural wonders
                         </div>
-                        <div className="mt-[40px] pd font-Barlow ">GIVE TO CEYLON-VIBES<i class="ml-[7px] fa-duotone fa-arrow-right" style={{ "--fa-primary-color": "#a0f1ac", "--fa-secondary-color": "#a0f1ac" }}></i></div>
+                        <div className="mt-[20px] pd font-Barlow ">
+                            <button> GIVE TO CEYLON-VIBES<i class="fa-duotone fa-arrow-right" style={{ "--fa-primary-color": "#a0f1ac", "--fa-secondary-color": "#a0f1ac" }}></i>
+                            </button>
+                        </div>
+                        <div className='text-[8pt]'>
+                            <i class="fa-sharp fa-thin fa-copyright text-[10px] mr-[2px] mt-[40px]" style={{ color: '#ffffff' }}></i> 2023 CeylonVibes, Inc
+                        </div>
                     </div>
                     <div className=" ml-[-34px] w-[920px] bg-[#000000] col-span-3 text-center font-Barlow text-[12pt]">
                         <button className='pl-[45px] pr-[45px] text-white mt-[25px] border-r-[2px]'>Contact Us</button>
@@ -29,15 +34,22 @@ const Footer = () => {
                     </div>
 
                     <div className="bg-[#000000] row-span-2 ">
-                        <div className='text-[14pt] ml-[20px] text-white font-Barlow'>
+                        <div className='text-[14pt] ml-[20px] mt-[-15px] text-white font-Barlow'>
                             <i class="fa-sharp fa-light fa-phone-arrow-up-right mb-[10px]" style={{ color: "#f7c973" }}></i>
-                            <span>0762174400</span><br/>
-                            <i class="fa-light fa-envelope" style={{color: "#f7c973"}}></i><span>ceylonvibes@gmail.com</span>
+                            <span>076 217 4400</span><br />
+                            <i class="fa-light fa-envelope mb-[12px]" style={{ color: "#f7c973" }}></i><span>ceylonvibes@gmail.com</span><br />
+                            <i class="fa-light fa-location-check text-[15pt] ml-[2px]" style={{ color: "#f7c973" }}></i><span className=' ml-[18px] text-[14pt]'>WTC East Tower, Colombo</span><br />
+                            <div className='mt-[85px] ml-[60px]'>
+                                <button className='text-[14pt] mr-[20px] w-[30px] h-[30px] bg-[#3d3d3d] rounded-[14px]'><i class="fa-brands fa-twitter" style={{ color: "#ffffff" }}></i></button>
+                                <button className='text-[14pt] mr-[20px] w-[30px] h-[30px] bg-[#3d3d3d] rounded-[14px]'><i class="fa-brands fa-linkedin" style={{ color: "#ffffff" }}></i></button>
+                                <button className='text-[14pt] mr-[20px] w-[30px] h-[30px] bg-[#3d3d3d] rounded-[14px]'><i class="fa-brands fa-instagram" style={{ color: "#ffffff" }}></i></button>
+                                <button className='text-[14pt] mr-[20px] w-[30px] h-[30px] bg-[#3d3d3d] rounded-[14px]'><i class="fa-brands fa-facebook" style={{ color: "#ffffff" }}></i></button>
+                                <button className='text-[14pt] mr-[20px] w-[30px] h-[30px] bg-[#3d3d3d] rounded-[14px]'><i class="fa-brands fa-youtube" style={{ color: "#ffffff" }}></i></button>
+                            </div>
                         </div>
-                        {/* <button className='text-[16pt]'><i class="fa-brands fa-facebook" style={{ color: "#ffffff" }}></i></button> */}
                     </div>
 
-                    <div className='bg-[#000]  w-[100%] h-[200%] mt-[-15px] ml-[-20px]'>
+                    <div className='bg-[rgb(0,0,0)]  w-[100%] h-[200%] mt-[0px] ml-[-20px]'>
                         <div className=' p-[40px] pt-[25px] p text-center m-auto w-[420px] h-[195px] border border-[#fff] rounded-[4px]'>
                             <div className='text-[#fff] text-left font-Barlow'>
                                 <p>Get the freshest CEYLON-VIBES News</p>

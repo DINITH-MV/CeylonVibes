@@ -56,17 +56,16 @@ router.get('/api/Nuts&Seeds', (req, res) => {
     });
 });
 
-router.post('/api/Nuts&Seeds', (req, res) => {
-  const newNuts = new Nuts(req.body);
-  console.log(newUser);
-  newUser.save().then(item => {
+router.get('/api/Nuts&Seeds/:id', (req, res) => {
+  const { id } = req.params
+  Nuts.find({_id:id}).then(item => {
     console.log(item);
-    res.status(201).json({ message: 'Item added successfully' });
+    res.status(200).json({ message: 'Item fetched successfully', data: item, });
   })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json({ message: 'Server error' });
-    });
+  .catch (err => {
+     console.log(err);
+     res.status(500).json({ message: 'Server error' });
+  })
 });
 
 // Routes for Snacks
@@ -74,19 +73,6 @@ router.get('/api/Snacks', (req, res) => {
   Snacks.find().then(item => {
     console.log(item);
     res.status(200).json({ message: 'Item fetched successfully', data: item, });
-  })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json({ message: 'Server error' });
-    });
-});
-
-router.post('/api/Snacks', (req, res) => {
-  const newSnacks = new newSnacks(req.body);
-  console.log(newSnacks);
-  newSnacks.save().then(item => {
-    console.log(item);
-    res.status(201).json({ message: 'Item added successfully' });
   })
     .catch(err => {
       console.log(err);

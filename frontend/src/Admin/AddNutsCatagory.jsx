@@ -1,9 +1,11 @@
 import { useRef, useState } from "react";
 import axios from 'axios';
 
-const AddCatagory = () => {
+const AddNutsCatagory = () => {
 
     const [name, setName] = useState('');
+    const [price, setPrice] = useState('');
+    const [discPrice, setDiscPrice] = useState('');
     const [files, setFiles] = useState(null);
     const inputRef = useRef();
     // console.log(inputRef.current.files[0]);
@@ -22,8 +24,10 @@ const AddCatagory = () => {
         const formdata = new FormData()
         formdata.append('file', files[0])
         formdata.append('name', name);
+        formdata.append('price', price);
+        formdata.append('discPrice', discPrice);
         try {
-            const response = await axios.post('http://localhost:5010/catagories', formdata, {
+            const response = await axios.post('http://localhost:5010/Nuts&Seeds', formdata, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -40,12 +44,16 @@ const AddCatagory = () => {
                 <div id="logInBox" className="w-[370px] h-[40%] text-center min-h-67vh my-70px bg-[rgb(225,225,225)] rounded-[20px] mx-auto mt-[70px]">
                     <div className="mainContent">
                         <div className="headerAndInputs text-center pt-[20px]">
-                            <h3 className="text-[25pt] mb-[10px]">Add a new Catagory</h3>
+                            <h3 className="text-[25pt] mb-[10px]">Add a new Item</h3>
 
                             <form onSubmit={handleUpload}>
                                 <div className="inputBoxes">
                                     <input type="text" name="name" htmlFor="name" 
-                                        onChange={(e) => setName(e.target.value)} placeholder="Name of the Catagory" className="border-none pl-[10px] p-y-[40px] text-[12pt] mb-[3px] mt-[10px] rounded-[10px] bg-[rgba(255, 255, 255, 0.6)] h-[40px] w-[320px] hover:bg-[rgb(255,255,255)] transition-duration-70ms" id="name" />
+                                        onChange={(e) => setName(e.target.value)} placeholder="Name of the Item" className="border-none pl-[10px] p-y-[40px] text-[12pt] mb-[3px] mt-[10px] rounded-[10px] bg-[rgba(255, 255, 255, 0.6)] h-[40px] w-[320px] hover:bg-[rgb(255,255,255)]" id="name" />
+                                    <input type="text" name="price" htmlFor="price" 
+                                        onChange={(e) => setPrice(e.target.value)} placeholder="Price of the Item" className="border-none pl-[10px] p-y-[40px] text-[12pt] mb-[3px] mt-[10px] rounded-[10px] bg-[rgba(255, 255, 255, 0.6)] h-[40px] w-[320px] hover:bg-[rgb(255,255,255)]" id="name" />
+                                    <input type="text" name="discPrice" htmlFor="discPrice" 
+                                        onChange={(e) => setDiscPrice(e.target.value)} placeholder="Discount price of the Item" className="border-none pl-[10px] p-y-[40px] text-[12pt] mb-[3px] mt-[10px] rounded-[10px] bg-[rgba(255, 255, 255, 0.6)] h-[40px] w-[320px] hover:bg-[rgb(255,255,255)]" id="name" />
 
                                     <div
                                         className="flex flex-col justify-center h-[300px] border-[5px] border-dashed border-[#282727] mx-[20%] mt-[20px] mb-[20px]"
@@ -87,4 +95,4 @@ const AddCatagory = () => {
     );
 
 }
-export default AddCatagory;
+export default AddNutsCatagory;

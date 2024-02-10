@@ -2,13 +2,13 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-const Admin = () => {
+const NutsCatagory = () => {
     axios.defaults.baseURL = `http://localhost:5010`;
     const [items, setItems] = useState([]);
 
     const fetchItems = async () => {
         try {
-            const response = await axios.get("/api/catagories");
+            const response = await axios.get("/api/Nuts&Seeds");
             setItems(response.data.data);
         } catch (error) {
             console.error("Error fetching users:", error);
@@ -17,7 +17,7 @@ const Admin = () => {
 
     const deleteCatagory = async (id) => {
         try {
-            const response = await axios.delete(`http://localhost:5010/catagories/${id}`);
+            const response = await axios.delete(`http://localhost:5010/upload/${id}`);
             fetchItems()
             console.log(response);
         } catch (error) {
@@ -39,12 +39,8 @@ const Admin = () => {
 
     const Navigate = useNavigate();
 
-    const updateCatagory = (id) => {
-        Navigate(`/updateCatagory/${id}`)
-    }
-
-    const NutsCatagory = () => {
-        Navigate('/NutsCatagory')
+    const updateNutsCatagory = (id) => {
+        Navigate(`/updateNutsCatagory/${id}`)
     }
 
     useEffect(() => {
@@ -78,16 +74,15 @@ const Admin = () => {
                                         <td className='mx-suto'>{items._id}</td>
                                         <td className='border'>{items.name}</td>
                                         <td className='border'>
-                                            <img className="max-h-[120px] transition duration-300 mx-auto" src={'http://localhost:5010/catagories/' + items.image} alt='Catagories' />
+                                            <img className="max-h-[120px] transition duration-300 mx-auto" src={'http://localhost:5010/nuts&seeds/' + items.image} alt='Catagories' />
                                         </td>
                                         <td className='border'>
                                             {items.image}
                                         </td>
                                         <td className='flex-row align-middle border-[4px]'>
-                                            <button type='button' className='p-[4px] w-[170px] mt-[10px] rounded-[7px] bg-[#cbc88f]'><Link to='/AddCatagory'>Add a Catagory</Link></button><br />
-                                            <button onClick={() => updateCatagory(items._id)} className='p-[4px] w-[170px] rounded-[7px] bg-[#d0e0a0] mt-[10px] mb-[10px]'>Update Catagory</button><br />
-                                            <button onClick={() => deleteCatagory(items._id)} className='p-[4px] w-[170px] rounded-[7px] bg-[#ba3434] text-[#fff] mb-[10px]'>Delete Catagory</button>
-                                            <button onClick={() => NutsCatagory()} className='p-[4px] w-[170px] rounded-[7px] bg-[#eae1bf] text-[#000] mb-[10px]'>Go to the Catagory</button>
+                                            <button type='button' className='p-[4px] w-[170px] mt-[10px] rounded-[7px] bg-[#cbc88f]'><Link to='/AddNutsCatagory'>Add Nuts</Link></button><br />
+                                            <button onClick={() => updateNutsCatagory(items._id)} className='p-[4px] w-[170px] rounded-[7px] bg-[#d0e0a0] mt-[10px] mb-[10px]'>Update Catagory</button><br />
+                                            <button onClick={() => deleteCatagory(items._id)} className='p-[4px] w-[170px] rounded-[7px] bg-[#ba3434] text-[#fff] mb-[10px]'>Delete Catagory</button>                                            
                                         </td>
                                     </tr>
                                 )) :
@@ -104,4 +99,4 @@ const Admin = () => {
     );
 }
 
-export default Admin;
+export default NutsCatagory;
