@@ -8,7 +8,6 @@ import { BrowserRouter } from "react-router-dom";
 import Reports from "./pages/Reports.js";
 import Products from "./pages/Products.js";
 import axios from "axios";
-import Popup from "./components/Organic Items/Content/Popup.jsx";
 import Admin from "./Admin/Admin.jsx";
 import AddCatagory from "./Admin/AddCatagory.jsx";
 import Image from "./components/Organic Items/Content/image.jsx";
@@ -109,7 +108,7 @@ const App = () => {
         <Route path="/" element={<Admin/>} />
         <Route path="/addCatagory" element={<AddCatagory fetchCatagories={fetchCatagories}/>} />
         <Route path="/updateCatagory/:id" element={<UpdateCatagory fetchCatagories={fetchCatagories}/>} />
-        <Route path="/NutsCatagory" element={<NutsCatagory/>} />
+        <Route path="/NutsCatagory/:id" element={<NutsCatagory/>} />
         <Route path="/addNutsCatagory" element={<AddNutsCatagory fetchNutsCatagory={fetchNutsCatagory}/>} />
         <Route path="/updateNutsCatagory/:id" element={<UpdateNutsCatagory fetchCatagories={fetchCatagories}/>} />
       </Routes>

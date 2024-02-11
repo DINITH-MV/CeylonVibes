@@ -24,13 +24,13 @@ const FoodCatagory = ({ items, fetchItems }) => {
         <div>
             
             <div>
-                <div className="absolute text-[#87832c] text-center w-[100%] top-[-40px] text-[27pt] font-Barlow">
+                <div className="absolute text-[#000000] transition-shadow text-center font-Protest w-[100%] top-[-10px] text-[36pt] tracking-wide">
                     Natural Food Catagories
                                
                 </div> 
                 <div>
 
-                    <section className="py-16 z-30 font-Barlow font-bold pt-[70px]">
+                    <section className="py-16 z-30 font-Barlow font-bold pt-[120px]">
                         <div className="container mx-auto">
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-[10px] max-w-sm mx-auto md:max-w-none md:max-0">
                                 {/* {filteredProducts.map(product => {

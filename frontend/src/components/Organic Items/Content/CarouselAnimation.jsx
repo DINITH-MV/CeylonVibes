@@ -17,8 +17,8 @@ const CarouselAnimation = ({ offers, fetchOffers }) => {
 
     return (
         <div>
-            <div className='mt-[px] w-[100%] max-w-[1170px] mx-auto space-y-4 py-6 text-center  rounded-[11px] px-[20px] mb-[40px]'>
-                <h2 className='text-center text-[27pt] font-Barlow mb-[40px]'>Special Offers</h2>
+            <div className='w-[100%] max-w-[1170px] mx-auto space-y-4 py-6 text-center  rounded-[11px] px-[20px] mb-[60px]'>
+                <h2 className='text-center text-[36pt] font-Protest mb-[60px] text-[#000000] tracking-wide'>Special Offers</h2>
                 <Swiper navigation={true} modules={[Autoplay, Pagination]} autoplay={{
                     delay: 2000,
                     disableOnInteraction: true,

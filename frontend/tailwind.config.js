@@ -19,6 +19,7 @@ module.exports = {
         Satisfy: ['Satisfy', "cursive" ],
         Sacramento : ['Sacramento', "cursive"],
         BadScript : ['Bad Script', "cursive"],
+        Protest :['Protest Revolution', "sans-serif"]
       },
     },
     colors: {

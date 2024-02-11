@@ -47,8 +47,8 @@ const UpdateNutsCatagory = () => {
         const formdata = new FormData()
         formdata.append('file', files[0])
         formdata.append('name', name);
-        formdata.append('name', price);
-        formdata.append('name', discPrice);
+        formdata.append('price', price);
+        formdata.append('discPrice', discPrice);
         try {
             const response = await axios.put(`http://localhost:5010/Nuts&Seeds/${id}`, formdata, {
                 headers: {

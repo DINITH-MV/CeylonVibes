@@ -13,29 +13,40 @@ import CarouselAnimation from "../components/Organic Items/Content/CarouselAnima
 import Banner from "../components/Organic Items/Content/Banner.jsx";
 import GradientClose2 from "../components/Organic Items/Content/GradientClose2.jsx";
 import Footer from "../components/Footer/Footer.jsx";
+import { motion } from "framer-motion";
 
-const Shop = ({catagories, fetchCatagories, offers, fetchOffers}) => {
+
+const Shop = ({ catagories, fetchCatagories, offers, fetchOffers }) => {
   // State and useEffect hooks
   return (
     <div>
-      <Header />
-      <div>
-        <HeaderText />
-        <div className="bg-yellow h-[520px] w-[100%] mb-0 "></div>
-        <GradientOpen />
-        <TextGrid />
-        <GradientClose />
-        <div className="bg-yellow h-[925px] w-[100%] mb-0 relative">
-          <FoodCatagory items={catagories} fetchItems={fetchCatagories} />
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{
+          duration: 1.5,
+          delay: 1 / 10,
+        }}
+      >
+        <Header />
+        <div>
+          <HeaderText />
+          <div className="bg-yellow h-[570px] w-[100%] mb-0 "></div>
+          <GradientOpen />
+          <TextGrid />
+          <GradientClose />
+          <div className="bg-yellow h-[1010px] w-[100%] mb-0 relative">
+            <FoodCatagory items={catagories} fetchItems={fetchCatagories} />
+          </div>
+          <GradientOpen2 />
+          <Banner />
+          <GradientClose2 />
+          <div className="bg-yellow h-[755px] w-[100%] mb-0 relative">
+            <CarouselAnimation offers={offers} fetchOffers={fetchOffers} />
+          </div>
         </div>
-        <GradientOpen2 />
-        <Banner />
-        <GradientClose2 />
-        <div className="bg-yellow h-[680px] w-[100%] mb-0 relative">
-          <CarouselAnimation offers={offers} fetchOffers={fetchOffers} />
-        </div>
-      </div>
-      <Footer />
+        <Footer />
+      </motion.div>
     </div>
   );
 };
