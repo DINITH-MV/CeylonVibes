@@ -44,12 +44,12 @@ const Admin = () => {
         Navigate(`/updateCatagory/${id}`)
     }
 
-    const NutsCatagory = () => {
-        Navigate('/NutsCatagory')
+    const itemsCatagory = () => {
+        Navigate('/itemsCatagory')
     }
 
     const SnacksCatagory = () => {
-        Navigate('/NutsCatagory')
+        Navigate('/itemsCatagory')
     }
 
     useEffect(() => {
@@ -102,7 +102,7 @@ const Admin = () => {
                                                 <button onClick={() => updateCatagory(items._id)} className='p-[4px] w-[170px] rounded-[7px] bg-[#d0e0a0] mt-[10px] mb-[10px]'>Update Catagory</button><br />
                                                 <button onClick={() => deleteCatagory(items._id)} className='p-[4px] w-[170px] rounded-[7px] bg-[#ba3434] text-[#fff] mb-[10px]'>Delete Catagory</button>
                                                 <button 
-                                                    className='p-[4px] w-[170px] rounded-[7px] bg-[#eae1bf] text-[#000] mb-[10px]'><Link to={'/NutsCatagory/' + items.name}>Go to the Catagory</Link></button>
+                                                    className='p-[4px] w-[170px] rounded-[7px] bg-[#eae1bf] text-[#000] mb-[10px]'><Link to={'/itemsCatagory/' + items.name}>Go to the Catagory</Link></button>
                                             </td>
                                         </tr>
                                     )) :

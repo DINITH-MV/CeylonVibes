@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import axios from 'axios';
 import { useParams } from "react-router";
 
-const UpdateNutsCatagory = () => {
+const UpdateItemsCatagory = () => {
 
     const { id } = useParams();
     const [name, setName] = useState('');
@@ -17,19 +17,58 @@ const UpdateNutsCatagory = () => {
     useEffect(() => {
         if (id) {
             console.log('here');
-            fetchNutsCatagory();
+            fetchItemsCatagory();
         }
     }, [id]);
 
-    const fetchNutsCatagory = async () => {
+    const catagoryName = useParams().id;
+    let value;
+    // For nuts
+    if (catagoryName === "65b3313e3b747259031aeb6c") {
+        value = "nuts&seeds";
+    } else if (catagoryName === "65b331e73b747259031aeb6d") {
+        value = "nuts&seeds";
+    } else if (catagoryName === "65b2dab53b747259031aeb67") {
+        value = "nuts&seeds";
+    } else if (catagoryName === "65b330b93b747259031aeb6a") {
+        value = "nuts&seeds";
+    } else if (catagoryName === "65b333393b747259031aeb72") {
+        value = "nuts&seeds";
+    } else if (catagoryName === "65b2dab53b747259031aeb67") {
+        value = "nuts&seeds";
+    } 
+    // For snacks
+    else if (catagoryName === "65b2dab53b747259031aeb67") {
+        value = "nuts&seeds";
+    } else if (catagoryName === "65b2dab53b747259031aeb67") {
+        value = "nuts&seeds";
+    } else if (catagoryName === "65b2dab53b747259031aeb67") {
+        value = "nuts&seeds";
+    } else if (catagoryName === "65b2dab53b747259031aeb67") {
+        value = "nuts&seeds";
+    } else if (catagoryName === "65b2dab53b747259031aeb67") {
+        value = "nuts&seeds";
+    } else if (catagoryName === "65b2dab53b747259031aeb67") {
+        value = "nuts&seeds";
+    } else if (catagoryName === "65b2dab53b747259031aeb67") {
+        value = "nuts&seeds";
+    } else if (catagoryName === "65b2dab53b747259031aeb67") {
+        value = "nuts&seeds";
+    } else if (catagoryName === "65b2dab53b747259031aeb67") {
+        value = "nuts&seeds";
+    }
+
+    console.log(value);
+
+    const fetchItemsCatagory = async () => {
         try {
-            const response = await axios.get(`/api/Nuts&Seeds/${id}`);
+            const response = await axios.get(`/api/${value}/${id}`);
             setName(response.data.data[0].name);
             setImage(response.data.data[0].image);
             setPrice(response.data.data[0].price);
             setDiscPrice(response.data.data[0].discPrice);
         } catch (error) {
-            console.error('Error fetching Nuts&Seeds:', error);
+            console.error(`Error fetching ${value}:`, error);
         }
     }
 
@@ -50,7 +89,7 @@ const UpdateNutsCatagory = () => {
         formdata.append('price', price);
         formdata.append('discPrice', discPrice);
         try {
-            const response = await axios.put(`http://localhost:5010/Nuts&Seeds/${id}`, formdata, {
+            const response = await axios.put(`http://localhost:5010/${value}/${id}`, formdata, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -112,7 +151,7 @@ const UpdateNutsCatagory = () => {
                                 {!isCancelled && (
                                     <div className="uploads">
                                         <ul>
-                                            <img className="h-[160px] text-center mx-auto mt-[10px]" src={'http://localhost:5010/nuts&seeds/' + image} alt="" />
+                                            <img className="h-[160px] text-center mx-auto mt-[10px]" src={`http://localhost:5010/${value}/` + image} alt="" />
                                             {image}
                                         </ul>
                                         <div className="actions ">
@@ -121,7 +160,7 @@ const UpdateNutsCatagory = () => {
                                         </div>
                                     </div>
                                 )}
-                                 {files && (
+                                {files && (
                                     <div className="uploads">
                                         <ul>
                                             {Array.from(files).map((file, idx) => <li className="font-[12pt]" key={idx}>{file.name}</li>)}
@@ -143,4 +182,4 @@ const UpdateNutsCatagory = () => {
     );
 
 }
-export default UpdateNutsCatagory;
+export default UpdateItemsCatagory;

@@ -4,7 +4,6 @@ import cors from "cors";
 import catagoryRoutes from "./routes/storeRouter.js";
 import React from "react";
 import mongoose from "mongoose";
-import multer from "multer";
 import path from "path";
 import { Catagory, Nuts } from "./models/storeModel.js";
 

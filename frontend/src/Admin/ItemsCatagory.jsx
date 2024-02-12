@@ -3,26 +3,32 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { motion } from "framer-motion";
 
-const NutsCatagory = () => {
+const ItemsCatagory = () => {
     axios.defaults.baseURL = `http://localhost:5010`;
     const [items, setItems] = useState([]);
     const catagoryName = useParams().id;
+    let value;
     if (catagoryName === "Nuts & Seeds") {
-        value = catagoryName;
+        value = "nuts&seeds";
+    } else if (catagoryName === "Snacks") {
+        value = "Snacks";
+    } else if (catagoryName === "Sweetners") {
+        value = "Sweetners";
     }
+    console.log(value);
 
-    const fetchItems = async (catagoryName) => {
+    const fetchItems = async () => {
         try {
-            const response = await axios.get("/api/Nuts&Seeds");
+            const response = await axios.get(`/api/${value}`);
             setItems(response.data.data);
         } catch (error) {
             console.error("Error fetching Nuts catagory:", error);
         }
     };
 
-    const deleteNutsCatagory = async (id) => {
+    const deleteItemsCatagory = async (id) => {
         try {
-            const response = await axios.delete(`http://localhost:5010/Nuts&Seeds/${id}`);
+            const response = await axios.delete(`http://localhost:5010/${value}/${id}`);
             fetchItems()
             console.log(response);
         } catch (error) {
@@ -44,8 +50,8 @@ const NutsCatagory = () => {
 
     const Navigate = useNavigate();
 
-    const updateNutsCatagory = (id) => {
-        Navigate(`/updateNutsCatagory/${id}`)
+    const updateItemsCatagory = (id) => {
+        Navigate(`/updateItemsCatagory/${id}`)
     }
 
     useEffect(() => {
@@ -62,49 +68,49 @@ const NutsCatagory = () => {
                 <div>
 
                     <table className='h-[100px] items-center mx-auto'>
-                            <motion.table
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{
-                                    duration: 1.5,
-                                    delay: 1 / 10,
-                                }}                                
-                            >
-                        <thead>
-                            <tr className='border h-[40px]'>
-                                <th className='border w-[240px]'>ID</th>
-                                <th className='border w-[210px]'>Name of the Catagory</th>
-                                <th className='border w-[190px]'>Image</th>
-                                <th className='border w-[160px]'>Name of the image</th>
-                                <th className='border w-[260px]'>Options</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {items?.length
-                                ?
-                                items.map((items) => (
+                        <motion.table
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{
+                                duration: 1.5,
+                                delay: 1 / 10,
+                            }}
+                        >
+                            <thead>
+                                <tr className='border h-[40px]'>
+                                    <th className='border w-[240px]'>ID</th>
+                                    <th className='border w-[210px]'>Name of the Catagory</th>
+                                    <th className='border w-[190px]'>Image</th>
+                                    <th className='border w-[160px]'>Name of the image</th>
+                                    <th className='border w-[260px]'>Options</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {items?.length
+                                    ?
+                                    items.map((items) => (
                                         <tr key={items._id} className='border h-[160px] text-center'>
                                             <td className='mx-suto'>{items._id}</td>
                                             <td className='border'>{items.name}</td>
                                             <td className='border'>
-                                                <img className="max-h-[120px] transition duration-300 mx-auto" src={'http://localhost:5010/nuts&seeds/' + items.image} alt='Catagories' />
+                                                <img className="max-h-[120px] transition duration-300 mx-auto" src={`http://localhost:5010/${value}/` + items.image} alt='Catagories' />
                                             </td>
                                             <td className='border'>
                                                 {items.image}
                                             </td>
                                             <td className='flex-row align-middle'>
-                                                <button type='button' className='p-[4px] w-[170px] mt-[10px] rounded-[7px] bg-[#cbc88f]'><Link to='/AddNutsCatagory'>Add Nuts</Link></button><br />
-                                                <button onClick={() => updateNutsCatagory(items._id)} className='p-[4px] w-[170px] rounded-[7px] bg-[#d0e0a0] mt-[10px] mb-[10px]'>Update Catagory</button><br />
-                                                <button onClick={() => deleteNutsCatagory(items._id)} className='p-[4px] w-[170px] rounded-[7px] bg-[#ba3434] text-[#fff] mb-[10px]'>Delete Catagory</button>
+                                                <button type='button' className='p-[4px] w-[170px] mt-[10px] rounded-[7px] bg-[#cbc88f]'><Link to='/AddItemsCatagory'>Add Nuts</Link></button><br />
+                                                <button onClick={() => updateItemsCatagory(items._id)} className='p-[4px] w-[170px] rounded-[7px] bg-[#d0e0a0] mt-[10px] mb-[10px]'>Update Catagory</button><br />
+                                                <button onClick={() => deleteItemsCatagory(items._id)} className='p-[4px] w-[170px] rounded-[7px] bg-[#ba3434] text-[#fff] mb-[10px]'>Delete Catagory</button>
                                             </td>
                                         </tr>
-                                )) :
-                                <tr>
-                                    <td className="border px-4 py-2 text-center " rowSpan={10} colSpan={10}>No Data Found</td>
-                                </tr>
-                            }
-                        </tbody>
-                            </motion.table>
+                                    )) :
+                                    <tr>
+                                        <td className="border px-4 py-2 text-center " rowSpan={10} colSpan={10}>No Data Found</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </motion.table>
 
                     </table>
                 </div>
@@ -113,4 +119,4 @@ const NutsCatagory = () => {
     );
 }
 
-export default NutsCatagory;
+export default ItemsCatagory;

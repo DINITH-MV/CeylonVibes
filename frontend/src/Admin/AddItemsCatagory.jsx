@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import axios from 'axios';
 
-const AddNutsCatagory = () => {
+const AddItemsCatagory = () => {
 
     const [name, setName] = useState('');
     const [price, setPrice] = useState('');
@@ -95,4 +95,4 @@ const AddNutsCatagory = () => {
     );
 
 }
-export default AddNutsCatagory;
+export default AddItemsCatagory;

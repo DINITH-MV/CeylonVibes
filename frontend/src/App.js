@@ -13,9 +13,9 @@ import AddCatagory from "./Admin/AddCatagory.jsx";
 import Image from "./components/Organic Items/Content/image.jsx";
 import "./App.css"
 import UpdateCatagory from "./Admin/UpdateCatagory.jsx";
-import NutsCatagory from "./Admin/NutsCatagory.jsx";
-import AddNutsCatagory from "./Admin/AddNutsCatagory.jsx";
-import UpdateNutsCatagory from "./Admin/UpdateNutsCatagory.jsx";
+import ItemsCatagory from "./Admin/ItemsCatagory.jsx";
+import AddItemsCatagory from "./Admin/AddItemsCatagory.jsx";
+import UpdateItemsCatagory from "./Admin/UpdateItemsCatagory.jsx";
 
 const App = () => {
   console.disableYellowBox = true;
@@ -68,7 +68,7 @@ const App = () => {
     }
   };
 
-  const fetchNutsCatagory = async () => {
+  const fetchItemsCatagory = async () => {
     try {
       const response = await axios.get("/api/catagories");
       setCatagories(response.data.data);
@@ -108,9 +108,9 @@ const App = () => {
         <Route path="/" element={<Admin/>} />
         <Route path="/addCatagory" element={<AddCatagory fetchCatagories={fetchCatagories}/>} />
         <Route path="/updateCatagory/:id" element={<UpdateCatagory fetchCatagories={fetchCatagories}/>} />
-        <Route path="/NutsCatagory/:id" element={<NutsCatagory/>} />
-        <Route path="/addNutsCatagory" element={<AddNutsCatagory fetchNutsCatagory={fetchNutsCatagory}/>} />
-        <Route path="/updateNutsCatagory/:id" element={<UpdateNutsCatagory fetchCatagories={fetchCatagories}/>} />
+        <Route path="/ItemsCatagory/:id" element={<ItemsCatagory/>} />
+        <Route path="/addItemsCatagory" element={<AddItemsCatagory fetchItemsCatagory={fetchItemsCatagory}/>} />
+        <Route path="/updateItemsCatagory/:id" element={<UpdateItemsCatagory fetchCatagories={fetchCatagories}/>} />
       </Routes>
     </BrowserRouter>
   );

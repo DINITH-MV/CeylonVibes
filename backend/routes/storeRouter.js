@@ -1,8 +1,9 @@
 import express from "express";
 import { Catagory, Offers } from "../models/storeModel.js";
 import { Nuts, Snacks, Sweetners } from "../models/storeModel.js";
+import multer from "multer";
 
-const router = express.Router();
+const router = express();
 
 // Routes for Catagories
 // for Read
@@ -141,13 +142,13 @@ const storage = multer.diskStorage({
 const upload = multer({
   storage: storage,
 });
-app.post("/catagories", upload.single("file"), (req, res) => {
+router.post("/catagories", upload.single("file"), (req, res) => {
   Catagory.create({ name: req.body.name, image: req.file.filename })
     .then((result) => res.json(result))
     .catch((err) => res.log(err));
 });
 
-app.put("/catagories/:id", upload.single("file"), (req, res) => {
+router.put("/catagories/:id", upload.single("file"), (req, res) => {
   const id = req.params.id; // Use req.params to access route parameters
   Catagory.findByIdAndUpdate(
     id,
@@ -158,7 +159,7 @@ app.put("/catagories/:id", upload.single("file"), (req, res) => {
     .catch((err) => console.log(err)); // Use console.log to log errors
 });
 
-app.delete("/catagories/:id", (req, res) => {
+router.delete("/catagories/:id", (req, res) => {
   const id = req.params.id; // Use req.params to access route parameters
   Catagory.findByIdAndDelete(id)
     .then((result) => {
@@ -188,7 +189,7 @@ const uploadNuts = multer({
   storage: storageForNuts,
 });
 
-app.post("/Nuts&Seeds", uploadNuts.single("file"), (req, res) => {
+router.post("/Nuts&Seeds", uploadNuts.single("file"), (req, res) => {
   console.log(req.body.name);
   Nuts.create({
     name: req.body.name,
@@ -200,7 +201,7 @@ app.post("/Nuts&Seeds", uploadNuts.single("file"), (req, res) => {
     .catch((err) => res.log(err));
 });
 
-app.put("/Nuts&Seeds/:id", uploadNuts.single("file"), (req, res) => {
+router.put("/Nuts&Seeds/:id", uploadNuts.single("file"), (req, res) => {
   const id = req.params.id; // Use req.params to access route parameters
   Nuts.findByIdAndUpdate(
     id,
@@ -216,7 +217,7 @@ app.put("/Nuts&Seeds/:id", uploadNuts.single("file"), (req, res) => {
     .catch((err) => console.log(err)); // Use console.log to log errors
 });
 
-app.delete("/Nuts&Seeds/:id", (req, res) => {
+router.delete("/Nuts&Seeds/:id", (req, res) => {
   const id = req.params.id; // Use req.params to access route parameters
   Nuts.findByIdAndDelete(id)
     .then((result) => {
