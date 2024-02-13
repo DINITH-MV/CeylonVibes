@@ -25,7 +25,7 @@ const AddCatagory = () => {
         try {
             const response = await axios.post('http://localhost:5010/catagories', formdata, {
                 headers: {
-                    'Content-Type': 'multipart/form-data'
+                    'Content-Type': 'multipart/form-data' 
                 }
             });
             console.log(response);
