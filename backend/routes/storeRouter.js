@@ -1,5 +1,5 @@
 import express from "express";
-import { Catagory, Offers } from "../models/storeModel.js";
+import { Catagory, Offers, Products } from "../models/storeModel.js";
 import { Nuts, Snacks, Sweetners } from "../models/storeModel.js";
 import multer from "multer";
 
@@ -39,7 +39,8 @@ router.get("/api/catagories/:id", (req, res) => {
 
 // Routes for Nuts & Seeds
 router.get("/api/Nuts&Seeds", (req, res) => {
-  Nuts.find()
+  const { type } = "nuts&seeds";
+  Products.find({ type: type })
     .then((item) => {
       console.log(item);
       res

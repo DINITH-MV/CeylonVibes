@@ -33,6 +33,26 @@ const NutsSchema = new Schema({
 
 export const Nuts = mongoose.model("Nuts&Seeds", NutsSchema);
 
+const productsSchema = new Schema({  
+  name: {
+    type: String,
+  },
+  price: {
+    type: String,
+  },
+  discPrice: {
+    type: String,
+  },
+  image: {
+    type: String,
+  },
+  type: {
+    type: String,
+  },
+});
+
+export const Products = mongoose.model("products", productsSchema);
+
 const SnacksSchema = new Schema({
   
   name: {
