@@ -16,23 +16,6 @@ const catagorySchema = new Schema(
 
 export const Catagory = mongoose.model("catagory", catagorySchema);
 
-const NutsSchema = new Schema({  
-  name: {
-    type: String,
-  },
-  price: {
-    type: String,
-  },
-  discPrice: {
-    type: String,
-  },
-  image: {
-    type: String,
-  },
-});
-
-export const Nuts = mongoose.model("Nuts&Seeds", NutsSchema);
-
 const productsSchema = new Schema({  
   name: {
     type: String,
@@ -44,6 +27,9 @@ const productsSchema = new Schema({
     type: String,
   },
   image: {
+    type: String,
+  },
+  imageFolder: {
     type: String,
   },
   type: {

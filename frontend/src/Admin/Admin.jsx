@@ -2,10 +2,13 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from "framer-motion";
+import toast, { Toaster } from 'react-hot-toast';
 
 const Admin = () => {
     axios.defaults.baseURL = `http://localhost:5010`;
     const [items, setItems] = useState([]);
+
+    const notify = () => toast.success('Successfully deleted!');
 
     const fetchItems = async () => {
         try {
@@ -100,8 +103,39 @@ const Admin = () => {
                                             <td className='flex-row align-middle'>
                                                 <button type='button' className='p-[4px] w-[170px] mt-[10px] rounded-[7px] bg-[#cbc88f]'><Link to='/AddCatagory'>Add a Catagory</Link></button><br />
                                                 <button onClick={() => updateCatagory(items._id)} className='p-[4px] w-[170px] rounded-[7px] bg-[#d0e0a0] mt-[10px] mb-[10px]'>Update Catagory</button><br />
-                                                <button onClick={() => deleteCatagory(items._id)} className='p-[4px] w-[170px] rounded-[7px] bg-[#ba3434] text-[#fff] mb-[10px]'>Delete Catagory</button>
-                                                <button 
+                                                <div>
+                                                    <button onClick={() => {
+                                                        notify();
+                                                       
+                                                    }} className='p-[4px] w-[170px] rounded-[7px] bg-[#a82a2a] text-[#fff] mb-[10px]'>Delete Catagory</button>
+                                                    <Toaster position="top-center"
+                                                        reverseOrder={false}
+                                                        gutter={13}
+                                                        containerClassName=""
+                                                        containerStyle={{}}
+                                                        toastOptions={{
+                                                            // Define default options
+                                                            className: '',
+                                                            duration: 5000,
+                                                            style: {
+                                                                background: '#882222',
+                                                                color: '#fff',
+                                                                boxShadow: '0px 0px 0px rgba(0, 0, 0, 0.2)', 
+                                                                padding:'4px 4px 4px 8px',
+                                                            },
+
+                                                            // Default options for specific types
+                                                            success: {
+                                                                duration: 3000,
+                                                                theme: {
+                                                                    primary: '#446f21',
+                                                                    secondary: 'red',
+                                                                },
+                                                            },
+                                                        }}
+                                                    />
+                                                </div>
+                                                <button
                                                     className='p-[4px] w-[170px] rounded-[7px] bg-[#eae1bf] text-[#000] mb-[10px]'><Link to={'/itemsCatagory/' + items.name}>Go to the Catagory</Link></button>
                                             </td>
                                         </tr>

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import axios from 'axios';
 import { useParams } from "react-router";
+import { motion } from "framer-motion";
 
 const UpdateItemsCatagory = () => {
 
@@ -9,6 +10,7 @@ const UpdateItemsCatagory = () => {
     const [price, setPrice] = useState('');
     const [discPrice, setDiscPrice] = useState('');
     const [image, setImage] = useState('');
+    const [imageFolder, setImageFolder] = useState('');
     const [files, setFiles] = useState(null);
     const [isCancelled, setIsCancelled] = useState(false);
     const inputRef = useRef();
@@ -21,54 +23,17 @@ const UpdateItemsCatagory = () => {
         }
     }, [id]);
 
-    const catagoryName = useParams().id;
-    let value;
-    // For nuts
-    if (catagoryName === "65b3313e3b747259031aeb6c") {
-        value = "nuts&seeds";
-    } else if (catagoryName === "65b331e73b747259031aeb6d") {
-        value = "nuts&seeds";
-    } else if (catagoryName === "65b2dab53b747259031aeb67") {
-        value = "nuts&seeds";
-    } else if (catagoryName === "65b330b93b747259031aeb6a") {
-        value = "nuts&seeds";
-    } else if (catagoryName === "65b333393b747259031aeb72") {
-        value = "nuts&seeds";
-    } else if (catagoryName === "65b2dab53b747259031aeb67") {
-        value = "nuts&seeds";
-    } 
-    // For snacks
-    else if (catagoryName === "65b2dab53b747259031aeb67") {
-        value = "nuts&seeds";
-    } else if (catagoryName === "65b2dab53b747259031aeb67") {
-        value = "nuts&seeds";
-    } else if (catagoryName === "65b2dab53b747259031aeb67") {
-        value = "nuts&seeds";
-    } else if (catagoryName === "65b2dab53b747259031aeb67") {
-        value = "nuts&seeds";
-    } else if (catagoryName === "65b2dab53b747259031aeb67") {
-        value = "nuts&seeds";
-    } else if (catagoryName === "65b2dab53b747259031aeb67") {
-        value = "nuts&seeds";
-    } else if (catagoryName === "65b2dab53b747259031aeb67") {
-        value = "nuts&seeds";
-    } else if (catagoryName === "65b2dab53b747259031aeb67") {
-        value = "nuts&seeds";
-    } else if (catagoryName === "65b2dab53b747259031aeb67") {
-        value = "nuts&seeds";
-    }
-
-    console.log(value);
-
     const fetchItemsCatagory = async () => {
         try {
-            const response = await axios.get(`/api/${value}/${id}`);
+            const response = await axios.get(`/api/products/${id}`);
             setName(response.data.data[0].name);
             setImage(response.data.data[0].image);
+            setImageFolder(response.data.data[0].imageFolder);
             setPrice(response.data.data[0].price);
             setDiscPrice(response.data.data[0].discPrice);
+            
         } catch (error) {
-            console.error(`Error fetching ${value}:`, error);
+            console.error(`Error fetching products:`, error);
         }
     }
 
@@ -89,7 +54,7 @@ const UpdateItemsCatagory = () => {
         formdata.append('price', price);
         formdata.append('discPrice', discPrice);
         try {
-            const response = await axios.put(`http://localhost:5010/${value}/${id}`, formdata, {
+            const response = await axios.put(`http://localhost:5010/products/${id}`, formdata, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -116,6 +81,13 @@ const UpdateItemsCatagory = () => {
         <div>
             <div>
                 <div id="logInBox" className="w-[370px] h-[40%] text-center min-h-67vh my-70px bg-[rgb(225,225,225)] rounded-[20px] mx-auto mt-[70px]">
+                <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{
+                                duration: 1.5,
+                                delay: 1 / 10,
+                            }}>
                     <div className="mainContent">
                         <div className="headerAndInputs text-center pt-[20px]">
                             <h3 className="text-[25pt] mb-[10px]">Update the item</h3>
@@ -151,7 +123,7 @@ const UpdateItemsCatagory = () => {
                                 {!isCancelled && (
                                     <div className="uploads">
                                         <ul>
-                                            <img className="h-[160px] text-center mx-auto mt-[10px]" src={`http://localhost:5010/${value}/` + image} alt="" />
+                                            <img className="h-[160px] text-center mx-auto mt-[10px]" src={`http://localhost:5010/`+ imageFolder + '/' + image} alt="" />
                                             {image}
                                         </ul>
                                         <div className="actions ">
@@ -176,6 +148,7 @@ const UpdateItemsCatagory = () => {
                             {/* </form> */}
                         </div>
                     </div>
+                    </motion.div>
                 </div>
             </div>
         </div>

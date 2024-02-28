@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import axios from 'axios';
+import { motion } from "framer-motion";
 
 const AddItemsCatagory = () => {
 
@@ -42,6 +43,13 @@ const AddItemsCatagory = () => {
         <div>
             <div>
                 <div id="logInBox" className="w-[370px] h-[40%] text-center min-h-67vh my-70px bg-[rgb(225,225,225)] rounded-[20px] mx-auto mt-[70px]">
+                <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{
+                                duration: .8,
+                                delay: 1 / 10,
+                            }}>
                     <div className="mainContent">
                         <div className="headerAndInputs text-center pt-[20px]">
                             <h3 className="text-[25pt] mb-[10px]">Add a new Item</h3>
@@ -89,6 +97,7 @@ const AddItemsCatagory = () => {
                             {/* </form> */}
                         </div>
                     </div>
+                    </motion.div>
                 </div>
             </div>
         </div>

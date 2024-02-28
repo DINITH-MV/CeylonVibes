@@ -1,6 +1,6 @@
 import express from "express";
 import { Catagory, Offers, Products } from "../models/storeModel.js";
-import { Nuts, Snacks, Sweetners } from "../models/storeModel.js";
+import path from "path";
 import multer from "multer";
 
 const router = express();
@@ -21,7 +21,7 @@ router.get("/api/catagories", (req, res) => {
     });
 });
 
-// For Read part odf Update
+// For update in Read
 router.get("/api/catagories/:id", (req, res) => {
   const { id } = req.params;
   Catagory.find({ _id: id })
@@ -38,9 +38,9 @@ router.get("/api/catagories/:id", (req, res) => {
 });
 
 // Routes for Nuts & Seeds
+// For Read
 router.get("/api/Nuts&Seeds", (req, res) => {
-  const { type } = "nuts&seeds";
-  Products.find({ type: type })
+  Products.find({ type: "nuts&seeds" })
     .then((item) => {
       console.log(item);
       res
@@ -53,9 +53,10 @@ router.get("/api/Nuts&Seeds", (req, res) => {
     });
 });
 
-router.get("/api/Nuts&Seeds/:id", (req, res) => {
+// For update in Read
+router.get("/api/products/:id", (req, res) => {
   const { id } = req.params;
-  Nuts.find({ _id: id })
+  Products.find({ _id: id })
     .then((item) => {
       console.log(item);
       res
@@ -69,8 +70,9 @@ router.get("/api/Nuts&Seeds/:id", (req, res) => {
 });
 
 // Routes for Snacks
+// for Read
 router.get("/api/Snacks", (req, res) => {
-  Snacks.find()
+  Products.find({ type: "snacks" })
     .then((item) => {
       console.log(item);
       res
@@ -84,8 +86,9 @@ router.get("/api/Snacks", (req, res) => {
 });
 
 // Routes for Sweetners
+// for Read
 router.get("/api/Sweetners", (req, res) => {
-  Sweetners.find()
+  Products.find({ type: "sweetners" })
     .then((item) => {
       console.log(item);
       res
@@ -97,22 +100,9 @@ router.get("/api/Sweetners", (req, res) => {
       res.status(500).json({ message: "Server error" });
     });
 });
-router.post("/api/Sweetners", (req, res) => {
-  const newSweetners = new newSweetners(req.body);
-  console.log(newSweetners);
-  newSweetners
-    .save()
-    .then((item) => {
-      console.log(item);
-      res.status(201).json({ message: "Item added successfully" });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({ message: "Server error" });
-    });
-});
 
 // Routes for Offers
+// for Read
 router.get("/api/offers", (req, res) => {
   Offers.find()
     .then((item) => {
@@ -127,7 +117,8 @@ router.get("/api/offers", (req, res) => {
     });
 });
 
-// from index.js
+// For Categories
+// Create a file for save the image
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "public/catagories");
@@ -143,12 +134,15 @@ const storage = multer.diskStorage({
 const upload = multer({
   storage: storage,
 });
+
+// Create new catagoreis
 router.post("/catagories", upload.single("file"), (req, res) => {
   Catagory.create({ name: req.body.name, image: req.file.filename })
     .then((result) => res.json(result))
     .catch((err) => res.log(err));
 });
 
+// Update existing catagories
 router.put("/catagories/:id", upload.single("file"), (req, res) => {
   const id = req.params.id; // Use req.params to access route parameters
   Catagory.findByIdAndUpdate(
@@ -160,6 +154,7 @@ router.put("/catagories/:id", upload.single("file"), (req, res) => {
     .catch((err) => console.log(err)); // Use console.log to log errors
 });
 
+// Delete existing catagories
 router.delete("/catagories/:id", (req, res) => {
   const id = req.params.id; // Use req.params to access route parameters
   Catagory.findByIdAndDelete(id)
@@ -174,7 +169,8 @@ router.delete("/catagories/:id", (req, res) => {
 });
 
 // For Nuts
-const storageForNuts = multer.diskStorage({
+// Create a file for save the image
+const storageForProducts = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "public/nuts&seeds");
   },
@@ -186,13 +182,14 @@ const storageForNuts = multer.diskStorage({
   },
 });
 
-const uploadNuts = multer({
-  storage: storageForNuts,
+const uploadProducts = multer({
+  storage: storageForProducts,
 });
 
-router.post("/Nuts&Seeds", uploadNuts.single("file"), (req, res) => {
+// Create new items
+router.post("/products", uploadProducts.single("file"), (req, res) => {
   console.log(req.body.name);
-  Nuts.create({
+  Products.create({
     name: req.body.name,
     price: req.body.price,
     discPrice: req.body.discPrice,
@@ -202,9 +199,10 @@ router.post("/Nuts&Seeds", uploadNuts.single("file"), (req, res) => {
     .catch((err) => res.log(err));
 });
 
-router.put("/Nuts&Seeds/:id", uploadNuts.single("file"), (req, res) => {
+// Update existing items
+router.put("/products/:id", uploadProducts.single("file"), (req, res) => {
   const id = req.params.id; // Use req.params to access route parameters
-  Nuts.findByIdAndUpdate(
+  Products.findByIdAndUpdate(
     id,
     {
       name: req.body.name,
@@ -218,9 +216,10 @@ router.put("/Nuts&Seeds/:id", uploadNuts.single("file"), (req, res) => {
     .catch((err) => console.log(err)); // Use console.log to log errors
 });
 
-router.delete("/Nuts&Seeds/:id", (req, res) => {
+// Delete existing items
+router.delete("/products/:id", (req, res) => {
   const id = req.params.id; // Use req.params to access route parameters
-  Nuts.findByIdAndDelete(id)
+  Products.findByIdAndDelete(id)
     .then((result) => {
       if (result) {
         res.json({ message: "Category deleted successfully" });
