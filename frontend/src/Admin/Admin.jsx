@@ -106,8 +106,8 @@ const Admin = () => {
                                                 <div>
                                                     <button onClick={() => {
                                                         notify();
-                                                       
-                                                    }} className='p-[4px] w-[170px] rounded-[7px] bg-[#a82a2a] text-[#fff] mb-[10px]'>Delete Catagory</button>
+                                                        deleteCatagory(items._id)
+                                                    }} className='p-[4px] w-[170px] rounded-[7px] bg-[rgb(168,42,42)] text-[#fff] mb-[10px]'>Delete Catagory</button>
                                                     <Toaster position="top-center"
                                                         reverseOrder={false}
                                                         gutter={13}

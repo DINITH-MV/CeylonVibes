@@ -63,7 +63,7 @@ const AddCatagory = () => {
                                 <h3 className="text-[25pt] mb-[10px]">Add a new Catagory</h3>
 
                                 
-                                    <div className="inputBoxes">
+                                    <div className="inputoxes">
                                         <input type="text" name="name" htmlFor="name"
                                             onChange={(e) => setName(e.target.value)} placeholder="Name of the Catagory" className="border-none pl-[10px] p-y-[40px] text-[12pt] mb-[3px] mt-[10px] rounded-[10px] bg-[rgba(255, 255, 255, 0.6)] h-[40px] w-[320px] hover:bg-[rgb(255,255,255)] transition-duration-70ms" id="name" />
 
