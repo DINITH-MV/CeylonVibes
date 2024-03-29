@@ -1,14 +1,30 @@
 import express from "express";
-import { Catagory, Offers, Products } from "../models/storeModel.js";
+import { Catagory, Offers, Products, List } from "../models/storeModel.js";
 import path from "path";
 import multer from "multer";
+import MongoClient from "mongodb";
 
 const router = express();
+
 
 // Routes for Catagories
 // for Read
 router.get("/api/catagories", (req, res) => {
   Catagory.find()
+    .then((item) => {
+      console.log(item);
+      res
+        .status(200)
+        .json({ message: "Item fetched successfully", data: item });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ message: "Server error" });
+    });
+});
+
+router.get("/api/lists", (req, res) => {
+  List.find()
     .then((item) => {
       console.log(item);
       res
@@ -229,5 +245,70 @@ router.delete("/products/:id", (req, res) => {
     })
     .catch((err) => console.log(err)); // Use console.log to log errors
 });
+
+// For Cart
+// router.use(cors())
+// router.get("/list", (req, res) => {
+//   let items = [];
+
+//   db.collection("Items")
+//       .find()
+//       .sort({ name: 1 })
+//       .forEach((item) => items.push(item))
+//       .then(() => {
+//           res.status(200).json(items);
+//       })
+//       .catch(() => {
+//           res.status(500).json({ error: "Could not fetch the documents" });
+//       });
+// });
+
+router.get("/api/lists", (req, res) => {
+  List.find()
+    .then((item) => {
+      console.log(item);
+      res
+        .status(200)
+        .json({ message: "Item fetched successfully", data: item });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ message: "Server error" });
+    });
+});
+
+router.post("/list", (req, res) => {
+  const { productId } = req.body;
+
+  // Create a new cart item
+  const newCartItem = new List({ productId });
+
+  // Save the cart item to the database
+  newCartItem
+    .save()
+    .then((savedCartItem) => {
+      console.log(savedCartItem);
+      res.status(201).json(savedCartItem);
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).json({ error: "Could not create the cart item" });
+    });
+});
+
+
+
+// router.delete("/list/:id", (req, res) => {
+//   db.collection("Items")
+//       .deleteOne({ _id: new ObjectId(req.params.id) })
+//       .then((result) => {
+//           res.status(202).json(result);
+//       })
+//       .catch((err) => {
+//           res.status(500).json({
+//               error: "Could not delete the document",
+//           });
+//       });
+// });
 
 export default router;

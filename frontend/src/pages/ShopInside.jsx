@@ -6,9 +6,10 @@ import GradientOpen3 from "../components/Organic Items/Content/GradientOpen3";
 import { motion } from "framer-motion";
 import "./product.css";
 
-const ShopInside = ({ nuts, fetchNuts, snacks, fetchSnacks, sweetners, fetchSweetners }) => {
+const ShopInside = ({ nuts, fetchNuts, snacks, fetchSnacks, sweetners, fetchSweetners, fetchCartItems, cartItems }) => {
   const param = useParams();
   const [items, setItems] = useState([]);
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -39,76 +40,65 @@ const ShopInside = ({ nuts, fetchNuts, snacks, fetchSnacks, sweetners, fetchSwee
   }, [nuts, snacks, sweetners, param.id]); // nuts, snacks, sweetners as dependencies
 
 
-  // for cart
+  
 
-  const [productsInCart, setProducts] =
-    useState(
-      JSON.parse(
-        localStorage.getItem(
-          "shopping-cart"
-        )
-      ) || []
-    );
-  useEffect(() => {
-    localStorage.setItem(
-      "shopping-cart",
-      JSON.stringify(productsInCart)
-    );
-  }, [productsInCart]);
-  const addProductToCart = (product) => {
-    const newProduct = {
-      ...product,
-      count: 1,
-    };
-    setProducts([
-      ...productsInCart,
-      newProduct,
-    ]);
-  };
-
-  const onQuantityChange = (
-    productId,
-    count
-  ) => {
-    setProducts((oldState) => {
-      const productsIndex =
-        oldState.findIndex(
-          (item) =>
-            item.id === productId
-        );
-      if (productsIndex !== -1) {
-        oldState[productsIndex].count =
-          count;
-      }
-      return [...oldState];
-    });
-  };
-
-  const onProductRemove = (product) => {
-    setProducts((oldState) => {
-      console.log(setProducts)
-
-      const productsIndex =
-        oldState.findIndex(
-          (item) =>
-            item.id === product.id
-        );
+useEffect(() => {
+    fetchCartItems();
+    setCart(cartItems);
+}, []);
 
 
-      if (productsIndex !== -1) {
-        oldState.splice(productsIndex, 1);
-      }
-      return [...oldState];
-    });
-  };
+const handleEnter = (event) => {
+    if (event.code === "Enter") {
+        handleClick();
+    }
+};
+
+const handleClick = (id) => {
+  if (id !== "") {
+      fetch(`http://localhost:5012/list`, {
+          method: "POST",
+          body: JSON.stringify({ productId: id }),
+          headers: {
+              "Content-type": "application/json",
+          },
+      })
+      .then((res) => res.json())
+      .then((data) => {
+          console.log(data);  // Log the response data, not 'id'
+          // Assuming setCart is a function that updates the cart state
+          // Make sure setCart is defined and does what you intend
+          setCart();  
+      })
+      .catch((error) => {
+          console.error(error);
+          // Handle any error that occurred during the fetch
+      });
+  } else {
+      alert("Input is Empty");
+  }
+};
+
+
+// const handleDoubleClick = (id) => {
+//     {
+//         fetch(`http://localhost:5000/list/${id}`, {
+//             method: "DELETE",
+//         })
+//             .then((res) => res.json())
+//             .then((data) => {
+//                 console.log(data);
+//                 getCart();
+//             });
+//     }
+// };
+
 
 
   return (
     <div>
         <Header
-          productsInCart={productsInCart}
-          onQuantityChange={onQuantityChange}
-          onProductRemove={onProductRemove}
+        fetchCart={cartItems}
         />
       <motion.div
         initial={{ opacity: 0 }}
@@ -155,7 +145,7 @@ const ShopInside = ({ nuts, fetchNuts, snacks, fetchSnacks, sweetners, fetchSwee
                             <img
                               className="max-h-[280px] group-hover:scale-110 transition duration-300"
                               src={
-                                "http://localhost:5010/" +
+                                "http://localhost:5012/" +
                                 items.imageFolder +
                                 "/" +
                                 items.image
@@ -165,7 +155,7 @@ const ShopInside = ({ nuts, fetchNuts, snacks, fetchSnacks, sweetners, fetchSwee
                           </div>
                           <div class="overlay-c"></div>
                           <div class="product-desc h-[175px] border-b-[2px] ">
-                            <button onClick={() => addProductToCart(items)}>
+                            <button onClick={() => handleClick(items._id)}>
                               <div className="bg-white w-[50px] h-[50px] pt-[10px] ml-[-65px] mx-auto rounded-[7px] hover:bg-[#efffb5]">
                                 <i
                                   class="fa-duotone fa-cart-circle-plus fa-2xl mt-[20px]"

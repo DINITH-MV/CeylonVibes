@@ -11,7 +11,7 @@ function ShoppingCartBar({
 	onQuantityChange,
 })
  {
-	
+	console.log(products)
 	return (
 		<div
 			className="modal"
@@ -43,7 +43,7 @@ function ShoppingCartBar({
 							className="cart-product"
 							key={product.id}>
 							<img
-								src={'http://localhost:5010/' + product.imageFolder + '/' +
+								src={'http://localhost:5012/' + product.imageFolder + '/' +
 									product.image
 								}
 								alt={product.name}

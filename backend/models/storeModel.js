@@ -57,3 +57,11 @@ const OffersSchema = new Schema({
 });
 
 export const Offers = mongoose.model("offers", OffersSchema);
+
+const ItemsSchema = new Schema({
+  productId: {
+    type: String,
+  }
+});
+
+export const List = mongoose.model("items", ItemsSchema);

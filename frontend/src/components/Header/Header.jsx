@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import Logo from './logo.jsx'
 import Buttons from "./Buttons.jsx"
 import SearchBar from "./SearchBar.jsx"
-import Navbar from "./Navbar.js";
+import Navbar from "./Navbar.jsx";
 import ShoppingCartBar from "./ShoppingCartBar.jsx";
 import ShoppingCart from "./ShoppingCart.jsx";
 
-export default function Header({productsInCart, onQuantityChange, onProductRemove}) {
+export default function Header({productsInCart, onQuantityChange, fetchCart}) {
 
     return (
         <div>
@@ -27,7 +27,7 @@ export default function Header({productsInCart, onQuantityChange, onProductRemov
             </div>
             <div className="bg-yellow h-[114px] w-[100%] fixed z-20">
                 <Logo />                
-                <ShoppingCart productsInCart={productsInCart} onQuantityChange={onQuantityChange} onProductRemove={onProductRemove}/>
+                <ShoppingCart productsInCart={productsInCart} onQuantityChange={onQuantityChange} fetchCart={fetchCart}/>
                 <Buttons />
                 <SearchBar />
                 <Navbar />

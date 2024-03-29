@@ -4,6 +4,7 @@ import cors from "cors";
 import catagoryRoutes from "./routes/storeRouter.js";
 import React from "react";
 import mongoose from "mongoose";
+import { MongoClient } from "mongodb";
 
 import { Catagory } from "./models/storeModel.js";
 
@@ -15,7 +16,7 @@ const mongoDBURL = mongoose.connection;
 mongoose.connect(MONGODB_URL);
 
 const app = express();
-export const port = 5010;
+export const port = 5012;
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -42,12 +43,29 @@ mongoDBURL.once("open", () => {
       //     });
       // });
       
+      
       app.use("/", catagoryRoutes);
       // Add routes for CRUD operations for users and products here
       
       app.listen(port, () => {
         console.log(`Server running on port ${port}`);
       });
+
+      let dbConnection;
+      
+      export const connectToDb = (cb) => {
+        MongoClient.connect('mongodb+srv://root:root@ceylonvibes.dovkt4p.mongodb.net/ceylonVibes?retryWrites=true&w=majority')
+          .then((client) => {
+            dbConnection = client.db();
+            cb();
+          })
+          .catch((err) => {
+            console.log(err);
+            cb(err);
+          });
+      };
+      
+      export const getDb = () => dbConnection;
       
       // For image upload
       
