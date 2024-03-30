@@ -4,7 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { motion } from "framer-motion";
 
 const ItemsCatagory = () => {
-    axios.defaults.baseURL = `http://localhost:5010`;
+    axios.defaults.baseURL = `http://localhost:5012`;
     const [items, setItems] = useState([]);
     const catagoryName = useParams().id;
     let value;
@@ -28,7 +28,7 @@ const ItemsCatagory = () => {
 
     const deleteItemsCatagory = async (id) => {
         try {
-            const response = await axios.delete(`http://localhost:5010/${value}/${id}`);
+            const response = await axios.delete(`http://localhost:5012/${value}/${id}`);
             fetchItems()
             console.log(response);
         } catch (error) {
@@ -93,7 +93,7 @@ const ItemsCatagory = () => {
                                             <td className='mx-suto'>{items._id}</td>
                                             <td className='border'>{items.name}</td>
                                             <td className='border'>
-                                                <img className="max-h-[120px] transition duration-300 mx-auto" src={`http://localhost:5010/${value}/` + items.image} alt='Catagories' />
+                                                <img className="max-h-[120px] transition duration-300 mx-auto" src={`http://localhost:5012/${value}/` + items.image} alt='Catagories' />
                                             </td>
                                             <td className='border'>
                                                 {items.image}

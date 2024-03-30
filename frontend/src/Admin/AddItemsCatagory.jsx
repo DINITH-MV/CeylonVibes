@@ -28,7 +28,7 @@ const AddItemsCatagory = () => {
         formdata.append('price', price);
         formdata.append('discPrice', discPrice);
         try {
-            const response = await axios.post('http://localhost:5010/Nuts&Seeds', formdata, {
+            const response = await axios.post('http://localhost:5012/Nuts&Seeds', formdata, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

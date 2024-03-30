@@ -11,7 +11,7 @@ function ShoppingCartBar({
 	onQuantityChange,
 })
  {
-	console.log(products)
+	
 	return (
 		<div
 			className="modal"

@@ -6,7 +6,7 @@ import Navbar from "./Navbar.jsx";
 import ShoppingCartBar from "./ShoppingCartBar.jsx";
 import ShoppingCart from "./ShoppingCart.jsx";
 
-export default function Header({productsInCart, onQuantityChange, fetchCart}) {
+export default function Header({productsInCart, onQuantityChange, onProductRemove, fetchCart, cart}) {
 
     return (
         <div>
@@ -27,7 +27,7 @@ export default function Header({productsInCart, onQuantityChange, fetchCart}) {
             </div>
             <div className="bg-yellow h-[114px] w-[100%] fixed z-20">
                 <Logo />                
-                <ShoppingCart productsInCart={productsInCart} onQuantityChange={onQuantityChange} fetchCart={fetchCart}/>
+                <ShoppingCart productsInCart={productsInCart} onQuantityChange={onQuantityChange} onProductRemove={onProductRemove} Cart={cart} fetchCart={fetchCart}/>
                 <Buttons />
                 <SearchBar />
                 <Navbar />

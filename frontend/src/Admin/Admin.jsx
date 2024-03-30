@@ -3,9 +3,11 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from "framer-motion";
 import toast, { Toaster } from 'react-hot-toast';
+import PDFFile from './pdfGenerate';
+import { PDFDownloadLink } from "@react-pdf/renderer";
 
 const Admin = () => {
-    axios.defaults.baseURL = `http://localhost:5010`;
+    axios.defaults.baseURL = `http://localhost:5012`;
     const [items, setItems] = useState([]);
 
     const notify = () => toast.success('Successfully deleted!');
@@ -21,7 +23,7 @@ const Admin = () => {
 
     const deleteCatagory = async (id) => {
         try {
-            const response = await axios.delete(`http://localhost:5010/catagories/${id}`);
+            const response = await axios.delete(`http://localhost:5012/catagories/${id}`);
             fetchItems()
             console.log(response);
         } catch (error) {
@@ -66,6 +68,9 @@ const Admin = () => {
 
             <div className="bg-yellow h-[114px] w-[100%] fixed z-20"></div>
             <div className=' h-[400px] pt-[200px]'>
+            <PDFDownloadLink document={<PDFFile />} filename="FORM">
+      {({loading}) => (loading ? <button>Loading Document...</button> : <button>Download</button> )}
+      </PDFDownloadLink>
                 <div>
 
                     <table className='h-[100px] items-center mx-auto'>
@@ -95,7 +100,7 @@ const Admin = () => {
                                             <td className='mx-suto'>{items._id}</td>
                                             <td className='border'>{items.name}</td>
                                             <td className='border'>
-                                                <img className="max-h-[120px] transition duration-300 mx-auto" src={'http://localhost:5010/catagories/' + items.image} alt='Catagories' />
+                                                <img className="max-h-[120px] transition duration-300 mx-auto" src={'http://localhost:5012/catagories/' + items.image} alt='Catagories' />
                                             </td>
                                             <td className='border'>
                                                 {items.image}

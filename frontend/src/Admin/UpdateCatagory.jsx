@@ -44,7 +44,7 @@ const UpdateCatagory = () => {
         formdata.append('file', files[0])
         formdata.append('name', name);
         try {
-            const response = await axios.put(`http://localhost:5010/catagories/${id}`, formdata, {
+            const response = await axios.put(`http://localhost:5012/catagories/${id}`, formdata, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -102,7 +102,7 @@ const UpdateCatagory = () => {
                                 {!isCancelled && (
                                     <div className="uploads">
                                         <ul>
-                                            <img className="h-[160px] text-center mx-auto mt-[10px]" src={'http://localhost:5010/catagories/' + image} alt="" />
+                                            <img className="h-[160px] text-center mx-auto mt-[10px]" src={'http://localhost:5012/catagories/' + image} alt="" />
                                             {image}
                                         </ul>
                                         <div className="actions ">

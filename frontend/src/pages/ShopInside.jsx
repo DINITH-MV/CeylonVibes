@@ -9,7 +9,6 @@ import "./product.css";
 const ShopInside = ({ nuts, fetchNuts, snacks, fetchSnacks, sweetners, fetchSweetners, fetchCartItems, cartItems }) => {
   const param = useParams();
   const [items, setItems] = useState([]);
-  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -40,66 +39,132 @@ const ShopInside = ({ nuts, fetchNuts, snacks, fetchSnacks, sweetners, fetchSwee
   }, [nuts, snacks, sweetners, param.id]); // nuts, snacks, sweetners as dependencies
 
 
-  
-
-useEffect(() => {
-    fetchCartItems();
-    setCart(cartItems);
-}, []);
 
 
-const handleEnter = (event) => {
-    if (event.code === "Enter") {
-        handleClick();
-    }
-};
-
-const handleClick = (id) => {
-  if (id !== "") {
-      fetch(`http://localhost:5012/list`, {
-          method: "POST",
-          body: JSON.stringify({ productId: id }),
-          headers: {
-              "Content-type": "application/json",
-          },
-      })
-      .then((res) => res.json())
-      .then((data) => {
-          console.log(data);  // Log the response data, not 'id'
-          // Assuming setCart is a function that updates the cart state
-          // Make sure setCart is defined and does what you intend
-          setCart();  
-      })
-      .catch((error) => {
-          console.error(error);
-          // Handle any error that occurred during the fetch
-      });
-  } else {
-      alert("Input is Empty");
-  }
-};
+  // useEffect(() => {
+  //     fetchCartItems();
+  //     setCart(cartItems);
+  // }, []);
 
 
-// const handleDoubleClick = (id) => {
-//     {
-//         fetch(`http://localhost:5000/list/${id}`, {
-//             method: "DELETE",
-//         })
-//             .then((res) => res.json())
-//             .then((data) => {
-//                 console.log(data);
-//                 getCart();
-//             });
-//     }
-// };
+  // const handleEnter = (event) => {
+  //     if (event.code === "Enter") {
+  //         handleClick();
+  //     }
+  // };
+
+  // const handleClick = (id) => {
+  //   if (id !== "") {
+  //       fetch(`http://localhost:5012/list`, {
+  //           method: "POST",
+  //           body: JSON.stringify({ productId: id }),
+  //           headers: {
+  //               "Content-type": "application/json",
+  //           },
+  //       })
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //           console.log(data);  // Log the response data, not 'id'
+  //           // Assuming setCart is a function that updates the cart state
+  //           // Make sure setCart is defined and does what you intend
+  //           setCart();  
+  //       })
+  //       .catch((error) => {
+  //           console.error(error);
+  //           // Handle any error that occurred during the fetch
+  //       });
+  //   } else {
+  //       alert("Input is Empty");
+  //   }
+  // };
+
+
+  // const handleDoubleClick = (id) => {
+  //     {
+  //         fetch(`http://localhost:5000/list/${id}`, {
+  //             method: "DELETE",
+  //         })
+  //             .then((res) => res.json())
+  //             .then((data) => {
+  //                 console.log(data);
+  //                 getCart();
+  //             });
+  //     }
+  // };
+
+  // for cart
+
+  const [productsInCart, setProducts] =
+    useState(
+      JSON.parse(
+        localStorage.getItem(
+          "shopping-cart"
+        )
+      ) || []
+    );
+  useEffect(() => {
+    localStorage.setItem(
+      "shopping-cart",
+      JSON.stringify(productsInCart)
+    );
+  }, [productsInCart]);
+  const addProductToCart = (product) => {
+    const newProduct = {
+      ...product,
+      count: 1,
+    };
+    setProducts([
+      ...productsInCart,
+      newProduct,
+    ]);
+  };
+
+  const onQuantityChange = (
+    productId,
+    count
+  ) => {
+    setProducts((oldState) => {
+      const productsIndex =
+        oldState.findIndex(
+          (item) =>
+            item.id === productId
+        );
+      if (productsIndex !== -1) {
+        oldState[productsIndex].count =
+          count;
+      }
+      return [...oldState];
+    });
+  };
+
+  const onProductRemove = (product) => {
+    setProducts((oldState) => {
+      console.log(setProducts)
+
+      const productsIndex =
+        oldState.findIndex(
+          (item) =>
+            item.id === product.id
+        );
+
+
+      if (productsIndex !== -1) {
+        oldState.splice(productsIndex, 1);
+      }
+      return [...oldState];
+    });
+  };
 
 
 
   return (
     <div>
-        <Header
-        fetchCart={cartItems}
-        />
+      <Header
+        productsInCart={productsInCart}
+        onQuantityChange={onQuantityChange}
+        onProductRemove={onProductRemove}
+        Cart={cartItems} fetchCart={fetchCartItems}
+      />
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -155,7 +220,7 @@ const handleClick = (id) => {
                           </div>
                           <div class="overlay-c"></div>
                           <div class="product-desc h-[175px] border-b-[2px] ">
-                            <button onClick={() => handleClick(items._id)}>
+                            <button onClick={() => addProductToCart(items)}>
                               <div className="bg-white w-[50px] h-[50px] pt-[10px] ml-[-65px] mx-auto rounded-[7px] hover:bg-[#efffb5]">
                                 <i
                                   class="fa-duotone fa-cart-circle-plus fa-2xl mt-[20px]"
@@ -208,7 +273,7 @@ const handleClick = (id) => {
             </div>
           </section>
         </div>
-        </motion.div>
+      </motion.div>
     </div>
   );
 };
