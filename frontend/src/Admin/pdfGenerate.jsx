@@ -1,87 +1,162 @@
 import React from "react";
-import { Page, Text, Image, Document, StyleSheet } from "@react-pdf/renderer";
-import LebronStretch from "../images/beauty4.png";
-import {Font} from '@react-pdf/renderer';
-import MyCustomFont from '../fonts/Anton-Regular.ttf';
+import { Page, Text, Document, StyleSheet, View, Image, Font  } from "@react-pdf/renderer";
 
 Font.register({
-  family: 'AntonFamily',
-  src: MyCustomFont
-})
+  family: 'Spirax',
+  fonts: [
+    { src: 'https://fonts.gstatic.com/s/spirax/v21/buE3poKgYNLy0F3cXktt-Csn-Q.ttf' },
+    ,
+    {
+      src: 'https://fonts.gstatic.com/s/spirax/v21/buE3poKgYNLy0F3cXktt-Csn-Q.ttf',
+      fontWeight: 'bold',
+    },
+    {
+      src: 'https://fonts.gstatic.com/s/spirax/v21/buE3poKgYNLy0F3cXktt-Csn-Q.ttf',
+      fontWeight: 'normal',
+      fontStyle: 'italic',
+    },
+  ]
+});
+Font.register({
+  family: 'Chivo',
+  fonts: [
+    { src: 'https://fonts.gstatic.com/s/chivo/v18/va9b4kzIxd1KFppkaRKvDRPJVDf_vB_ul2DSFXjQiQ.ttf' },
+    ,
+    
+    {
+      src: 'https://fonts.gstatic.com/s/chivo/v18/va9Z4kzIxd1KFrBtW-13ZHhT-jDqdFwG1GrWN33AiasJ.ttf',
+      fontWeight: 'normal',
+      fontStyle: 'italic',
+    },
+  ]
+});
 
 const styles = StyleSheet.create({
-  body: {
-    paddingTop: 35,
-    paddingBottom: 65,
-    paddingHorizontal: 35,
+  page: {
+    flexDirection: "column",
+    backgroundColor: "#dddad1",
   },
-  title: {
-    fontSize: 24,
-    textAlign: "center",
-    fontFamily: "AntonFamily",
+  logo: {
+    marginTop: 20,
+    marginLeft: 80,
+    padding: 5,
+    position: "absolute",
+    fontFamily: "Spirax",
+    fontSize: 21,
+    backgroundColor: "#fff",
+    borderRadius: 10,
   },
-  text: {
-    margin: 12,
+  report: {
+    paddingTop: 30,
+    paddingLeft: 590,
+    position: "absolute",
+    fontFamily: "Chivo",
     fontSize: 14,
-    textAlign: "justify",
-    fontFamily: "AntonFamily",
+  },
+  period: {
+    paddingTop: 50,
+    paddingLeft: 550,
+    position: "absolute",
+    fontFamily: "Chivo",
+    fontSize: 12,
+  },
 
+  title: {
+    fontSize: 16,
+    textAlign: "center",
+    paddingTop: 73,
+    marginBottom: 10,
+    fontFamily: "Chivo",
+  },
+  table: {
+    tableLayout: "fixed",
+    marginHorizontal: "auto",
+    marginTop: 10,
+  },
+  row: {
+    flexDirection: "row",
+    alignItems: "center",// This makes the row act like a grid container
+  },
+  tableHeader: {
+    marginLeft: "2px",
+    marginBottom: "2px",
+    borderStyle: "solid",
+    borderColor: "#000000",
+    padding: 5,
+    fontSize: 12,
+    width: "170px",
+    height: "32px",
+    backgroundColor: "#F6F193",
+    color: "#000",
+    textAlign: "center",
+    fontFamily: "Chivo",
+  },
+  cell: {
+    marginLeft: "2px",
+    marginBottom: "2px",
+    borderStyle: "solid",
+    borderColor: "#000000",
+    padding: 5,
+    fontSize: 12,
+    width: "170px",
+    height: "100px",
+    backgroundColor: "#FBF3D5",
   },
   image: {
-    marginVertical: 15,
-    marginHorizontal: 100,
-  },
-  header: {
+    marginLeft: "2px",
+    marginBottom: "2px",
+    borderStyle: "solid",
+    borderColor: "#000000",
+    backgroundColor: "#FBF3D5",
+    padding: 5,
     fontSize: 12,
-    marginBottom: 20,
-    textAlign: "center",
-    color: "grey",
-    fontFamily: "AntonFamily",
-  },
-  pageNumber: {
-    position: "absolute",
-    fontSize: 12,
-    bottom: 30,
-    left: 0,
-    right: 0,
-    textAlign: "center",
-    color: "grey",
-    fontFamily: "AntonFamily",
+    width: "170px",
+    height: "100px",
+    paddingHorizontal: "55px",
+    paddingVertical: "10px",
   },
 });
 
-const PDFFile = () => {
+const PDFFile = ({ items }) => {
+  // Function to split items into chunks of 4
+  const chunk = (arr, size) =>
+    Array.from({ length: Math.ceil(arr.length / size) }, (v, i) =>
+      arr.slice(i * size, i * size + size)
+    );
 
-  const pageColors = ['#f6d186', '#f67280', '#c06c84'];
-
-  const pages = [
-    {text: 'First page content goes here...', image: LebronStretch },
-    {text: 'Second page content goes here...', image: 'https://www.si.com/.image/ar_4:3%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTcwMzExMzEwNTc0MTAxODM5/lebron-dunk.jpg' },
-    {text: 'Third page content goes here...', image: 'https://s.yimg.com/ny/api/res/1.2/Aj5UoHHKnNOpdwE6Zz9GIQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MA--/https://s.yimg.com/os/creatr-uploaded-images/2023-01/b02a71d0-a774-11ed-bf7f-08714e8ad300' },
-  ]
+  // Split items into chunks of 4
+  const itemChunks = chunk(items, 4);
 
   return (
     <Document>
-      {pages.map((page, index) => {
-        return (
-          <Page key={index} style={{...styles.body, backgroundColor: pageColors[index]}}>
-          <Text style={styles.header} fixed></Text>
-          <Image style={styles.image} src={page.image} />
-          <Text style={styles.text}>
-          {page.text}
-          </Text>
-          <Text
-            style={styles.pageNumber}
-            render={({ pageNumber, totalPages }) =>
-              `${pageNumber} / ${totalPages}`
-            }
-          />
+      {itemChunks.map((items, index) => (
+        <Page key={index} size="A4" orientation="landscape" style={styles.page}>
+          <Text style={styles.logo}>CeylonVibes</Text>
+          <Text style={styles.report}>Monthly Report</Text>
+          <Text style={styles.period}>For the period ended {new Date().toLocaleDateString()}</Text>
+          <Text style={styles.title}>Catagories Table</Text>
+          <View style={styles.table}>
+            <View style={styles.row}>
+              <Text style={styles.tableHeader}>ID</Text>
+              <Text style={styles.tableHeader}>Name of the Category</Text>
+              
+          <Text style={styles.tableHeader}>Image</Text>
+              <Text style={styles.tableHeader}>Name of the image</Text>
+            </View>
+            {items.map((item) => (
+              <View key={item._id} style={styles.row}>
+                <Text style={styles.cell}>{item._id}</Text>
+                <Text style={styles.cell}>{item.name}</Text>   
+                <Image style={styles.image} source={'http://localhost:5012/catagories/' + item.image} />         
+                <Text style={styles.cell}>{item.image}</Text>
+              </View>
+            ))}
+          </View>
         </Page>
-        )
-      })}
-
+      ))}
     </Document>
   );
 };
+
 
 export default PDFFile;

@@ -120,7 +120,7 @@ console.log(cart)
   return (
         <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Shop catagories={catagories} fetchCatagories={fetchCatagories} offers={offers} fetchOffers={fetchOffers} />} />
+          {/* <Route path="/" element={<Shop catagories={catagories} fetchCatagories={fetchCatagories} offers={offers} fetchOffers={fetchOffers} />} /> */}
           <Route path="/reports" element={<Reports />} />
           <Route path="/products" element={<Products />} />
           <Route
@@ -132,7 +132,7 @@ console.log(cart)
           <Route path="/profile" element={<UserProfilePage />} />
 
           for admin panel
-          {/* <Route path="/" element={<Admin/>} /> */}
+          <Route path="/" element={<Admin/>} />
           <Route path="/addCatagory" element={<AddCatagory fetchCatagories={fetchCatagories} />} />
           <Route path="/updateCatagory/:id" element={<UpdateCatagory fetchCatagories={fetchCatagories} />} />
           <Route path="/ItemsCatagory/:id" element={<ItemsCatagory />} />

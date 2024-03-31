@@ -7,6 +7,7 @@ const AddItemsCatagory = () => {
     const [name, setName] = useState('');
     const [price, setPrice] = useState('');
     const [discPrice, setDiscPrice] = useState('');
+    const [type, setType] = useState('nuts&seeds');
     const [files, setFiles] = useState(null);
     const inputRef = useRef();
     // console.log(inputRef.current.files[0]);
@@ -27,8 +28,9 @@ const AddItemsCatagory = () => {
         formdata.append('name', name);
         formdata.append('price', price);
         formdata.append('discPrice', discPrice);
+        formdata.append('type', type);
         try {
-            const response = await axios.post('http://localhost:5012/Nuts&Seeds', formdata, {
+            const response = await axios.post('http://localhost:5012/products', formdata, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -62,6 +64,8 @@ const AddItemsCatagory = () => {
                                         onChange={(e) => setPrice(e.target.value)} placeholder="Price of the Item" className="border-none pl-[10px] p-y-[40px] text-[12pt] mb-[3px] mt-[10px] rounded-[10px] bg-[rgba(255, 255, 255, 0.6)] h-[40px] w-[320px] hover:bg-[rgb(255,255,255)]" id="name" />
                                     <input type="text" name="discPrice" htmlFor="discPrice" 
                                         onChange={(e) => setDiscPrice(e.target.value)} placeholder="Discount price of the Item" className="border-none pl-[10px] p-y-[40px] text-[12pt] mb-[3px] mt-[10px] rounded-[10px] bg-[rgba(255, 255, 255, 0.6)] h-[40px] w-[320px] hover:bg-[rgb(255,255,255)]" id="name" />
+                                    <input type="text" name="type" htmlFor="type" 
+                                        onChange={(e) => setType(e.target.value)} className="border-none pl-[10px] p-y-[40px] text-[12pt] mb-[3px] mt-[10px] rounded-[10px] bg-[rgba(255, 255, 255, 0.6)] h-[40px] w-[320px] hover:bg-[rgb(255,255,255)]" id="name" hidden/>
 
                                     <div
                                         className="flex flex-col justify-center h-[300px] border-[5px] border-dashed border-[#282727] mx-[20%] mt-[20px] mb-[20px]"

@@ -10,7 +10,7 @@ const UpdateItemsCatagory = () => {
     const [price, setPrice] = useState('');
     const [discPrice, setDiscPrice] = useState('');
     const [image, setImage] = useState('');
-    const [imageFolder, setImageFolder] = useState('');
+    const [imageFolder, setImageFolder] = useState('products');
     const [files, setFiles] = useState(null);
     const [isCancelled, setIsCancelled] = useState(false);
     const inputRef = useRef();
@@ -28,7 +28,6 @@ const UpdateItemsCatagory = () => {
             const response = await axios.get(`/api/products/${id}`);
             setName(response.data.data[0].name);
             setImage(response.data.data[0].image);
-            setImageFolder(response.data.data[0].imageFolder);
             setPrice(response.data.data[0].price);
             setDiscPrice(response.data.data[0].discPrice);
             
@@ -96,7 +95,7 @@ const UpdateItemsCatagory = () => {
                                 <div className="inputBoxes">
                                     <input type="text" name="name" htmlFor="name" value={name}
                                         onChange={(e) => setName(e.target.value)} placeholder="Name of the item" className="border-none pl-[10px] p-y-[40px] text-[12pt] mb-[3px] mt-[10px] rounded-[10px] bg-[rgba(255, 255, 255, 0.6)] h-[40px] w-[320px] hover:bg-[rgb(255,255,255)] transition-duration-70ms" id="name" />
-                                    <input type="text" name="price" htmlFor="price" value={'Rs:' + price}
+                                    <input type="text" name="price" htmlFor="price" value={ + price}
                                         onChange={(e) => setPrice(e.target.value)} placeholder="Price of the item" className="border-none pl-[10px] p-y-[40px] text-[12pt] mb-[3px] mt-[10px] rounded-[10px] bg-[rgba(255, 255, 255, 0.6)] h-[40px] w-[320px] hover:bg-[rgb(255,255,255)] transition-duration-70ms" id="name" />
                                     <input type="text" name="discPrice" htmlFor="discPrice" value={discPrice}
                                         onChange={(e) => setDiscPrice(e.target.value)} placeholder="Discount Price of the item" className="border-none pl-[10px] p-y-[40px] text-[12pt] mb-[3px] mt-[10px] rounded-[10px] bg-[rgba(255, 255, 255, 0.6)] h-[40px] w-[320px] hover:bg-[rgb(255,255,255)] transition-duration-70ms" id="name" />

@@ -68,12 +68,18 @@ const Admin = () => {
 
             <div className="bg-yellow h-[114px] w-[100%] fixed z-20"></div>
             <div className=' h-[400px] pt-[200px]'>
-            <PDFDownloadLink document={<PDFFile />} filename="FORM">
-      {({loading}) => (loading ? <button>Loading Document...</button> : <button>Download</button> )}
+            <PDFDownloadLink className='pl-[700px] mx-auto' document={<PDFFile items={items} />} fileName="category_table.pdf">
+        {({ loading }) => (loading ? <button className='bg-BrownLi rounded-md p-[7px]'><motion.button
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{
+                                duration: 1.5,
+                                delay: 4 / 10,
+                            }}>Loading...</motion.button></button> : <button className='bg-BrownLi rounded-md p-[7px] font-CantoraOne font-bold text-[14px]'>Monthly Report</button>)}
       </PDFDownloadLink>
                 <div>
 
-                    <table className='h-[100px] items-center mx-auto'>
+                    <table className='h-[100px] mt-[30px] items-center mx-auto'>
 
                         <motion.table
                             initial={{ opacity: 0 }}

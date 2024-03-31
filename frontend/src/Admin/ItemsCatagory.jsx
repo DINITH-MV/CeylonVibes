@@ -93,7 +93,7 @@ const ItemsCatagory = () => {
                                             <td className='mx-suto'>{items._id}</td>
                                             <td className='border'>{items.name}</td>
                                             <td className='border'>
-                                                <img className="max-h-[120px] transition duration-300 mx-auto" src={`http://localhost:5012/${value}/` + items.image} alt='Catagories' />
+                                                <img className="max-h-[120px] transition duration-300 mx-auto" src={`http://localhost:5012/products/` + items.image} alt='Catagories' />
                                             </td>
                                             <td className='border'>
                                                 {items.image}

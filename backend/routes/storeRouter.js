@@ -188,7 +188,7 @@ router.delete("/catagories/:id", (req, res) => {
 // Create a file for save the image
 const storageForProducts = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "public/nuts&seeds");
+    cb(null, "public/products");
   },
   filename: (req, file, cb) => {
     cb(
@@ -210,6 +210,7 @@ router.post("/products", uploadProducts.single("file"), (req, res) => {
     price: req.body.price,
     discPrice: req.body.discPrice,
     image: req.file.filename,
+    type: req.body.type,
   })
     .then((result) => res.json(result))
     .catch((err) => res.log(err));
