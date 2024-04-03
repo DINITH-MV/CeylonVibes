@@ -1,11 +1,11 @@
 import React from 'react';
-import FoodPic from '../../../images/food4.png'
+import FoodPic from '../../../images/Organic Items/food4.png'
 
 const HeaderText = () => {
     return (
         <div >
             <iframe style={{display: 'none'}} src="https://www.youtube.com/embed/tSc8WROtNfc?si=8k-XkJNC-b8DRTtn&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
-            <div className="font-CantoraOne ml-[13.5%] mt-[150pt] text-7xl absolute text-green z-21">
+            <div className="font-CantoraOne ml-[13.5%] mt-[150pt] text-7xl absolute text-[#8c9861] z-21">
                 Embark on <br />the path <br />to wellness
                 <div className="font-Abel text-2xl mt-[45px]">
                     Eat Clean, Live Green, and Feel Amazing

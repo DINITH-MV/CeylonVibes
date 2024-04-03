@@ -29,3 +29,9 @@ code {
 code {
   color: #a07628;
 }
+
+@font-face {
+  font-family: 'Spirax';
+  src: url('./font/Spirax-Regular.ttf');
+}
+

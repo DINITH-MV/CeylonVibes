@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { ClerkProvider } from '@clerk/clerk-react'
+import { ThemeProvider } from '@material-tailwind/react';
+import { MaterialTailwindControllerProvider } from '@/Admin Panel/context';
+import "../public/css/tailwind.css";
+import { BrowserRouter } from 'react-router-dom';
 
 // Import your publishable key
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
@@ -14,10 +18,15 @@ if (!PUBLISHABLE_KEY) {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <BrowserRouter>
+     <ThemeProvider>
+        <MaterialTailwindControllerProvider>
      <ClerkProvider  publishableKey={PUBLISHABLE_KEY}  >
-    <App />
+          <App />
         </ClerkProvider>
-
+        </MaterialTailwindControllerProvider>
+      </ThemeProvider>
+      </BrowserRouter>
   </React.StrictMode>
 );
 
