@@ -23,6 +23,21 @@ router.get("/api/catagories", (req, res) => {
     });
 });
 
+router.get("/api/catagoriesSearch", (req, res) => {
+  const searchValue = req.query.name;
+  Catagory.find({
+    name: { $regex: searchValue, $options: 'i' } // This will search for the name case-insensitively
+  })
+    .then((items) => {
+      console.log(items);
+      res.status(200).json({ message: "Items fetched successfully", data: items });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ message: "Server error" });
+    });
+});
+
 router.get("/api/lists", (req, res) => {
   List.find()
     .then((item) => {

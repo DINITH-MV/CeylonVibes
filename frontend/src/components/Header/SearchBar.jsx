@@ -1,6 +1,25 @@
-import React from "react";
+import axios from "axios";
+import { useState } from "react";
 
-export default function SearchBar() {
+export const SearchBar = ({ setResults }) => {
+  const [input, setInput] = useState("");
+  axios.defaults.baseURL = `http://localhost:5012`;
+
+  const fetchData = (value) => {
+    axios.get(`api/catagoriesSearch?name=${value}`)
+      .then((response) => {
+        setResults(response.data.data); // Assuming the server sends back an object with a 'data' property
+      })
+      .catch((error) => {
+        console.error("Error fetching data: ", error);
+      });
+  };
+
+  const handleChange = (value) => {
+    setInput(value);
+    fetchData(value);
+  };
+
   return (
     <div className="">
       <div
@@ -10,8 +29,9 @@ export default function SearchBar() {
         <div class="relative mx-auto font-bold">
           <input
             class="border-2 border-[#a07628] bg-[#f9f9e9] h-11 w-[200px] pl-5 pr-16 rounded-[14px] text-[13pt] focus:outline-none"
-            type="search"
-            name="search"
+            
+            value={input}
+            onChange={(e) => handleChange(e.target.value)}
             placeholder="Search"
           />
           <button type="submit" class="absolute right-0 top-0 mt-3 mr-4">

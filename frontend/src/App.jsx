@@ -128,6 +128,7 @@ const App = () => {
       <Route path="/profile" element={<UserProfilePage />} />
 
       for admin panel
+
       <Route path="/dashboard/*" element={<Dashboard />} ></Route>
       <Route path="/admin/*" element={<Navigate to="/dashboard/home" replace />} />
       <Route path="/addCatagory" element={<AddCatagory fetchCatagories={fetchCatagories} />} />
@@ -135,6 +136,7 @@ const App = () => {
       <Route path="/ItemsCatagory/:id" element={<ItemsCatagory />} />
       <Route path="/addItemsCatagory" element={<AddItemsCatagory fetchItemsCatagory={fetchItemsCatagory} />} />
       <Route path="/updateItemsCatagory/:id" element={<UpdateItemsCatagory />} />
+
     </Routes>
   );
 };
