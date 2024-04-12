@@ -28,7 +28,7 @@ export default function Header({ productsInCart, onQuantityChange, onProductRemo
             </div>
             <div className="bg-yellow h-[114px] w-[100%] fixed z-20">
                 <Logo />
-                <ShoppingCart productsInCart={productsInCart} onQuantityChange={onQuantityChange} onProductRemove={onProductRemove} Cart={cart} fetchCart={fetchCart} />
+                <ShoppingCart Cart={cart} fetchCart={fetchCart} />
                 <Buttons />
                 <SearchBar setResults={setResults} />
                 <Navbar />

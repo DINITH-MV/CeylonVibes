@@ -2,13 +2,13 @@ import React from "react";
 import "./shoppingCartBar.css";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { GlobalproductsInCart } from "@/pages/ShopInside";
+import { GlobalonQuantityChange } from "@/pages/ShopInside";
+import { GlobalonProductRemove } from "@/pages/ShopInside";
 
 function ShoppingCartBar({
 	visibilty,
-	products,
-	onProductRemove,
 	onClose,
-	onQuantityChange,
 })
  {
 	
@@ -32,13 +32,13 @@ function ShoppingCartBar({
 					</button>
 				</div>
 				<div className="cart-products">
-					{products && products.length === 0 && (
+					{GlobalproductsInCart && GlobalproductsInCart.length === 0 && (
 						<span className="empty-text">
 							Your basket is
 							currently empty
 						</span>
 					)}
-					{Array.isArray(products) && products.map((product) => (
+					{Array.isArray(GlobalproductsInCart) && GlobalproductsInCart.map((product) => (
 						<div
 							className="cart-product"
 							key={product.id}>
@@ -66,7 +66,7 @@ function ShoppingCartBar({
 								onChange={(
 									event
 								) => {
-									onQuantityChange(
+									GlobalonQuantityChange(
 										product.id,
 										event
 											.target
@@ -88,7 +88,7 @@ function ShoppingCartBar({
 							<button
 								className="btn remove-btn"
 								onClick={() =>
-									onProductRemove(
+									GlobalonProductRemove(
 										product
 									)
 								}>
@@ -98,7 +98,7 @@ function ShoppingCartBar({
 							</button>
 						</div>
 					))}
-					{products && products.length > 0 && (
+					{GlobalproductsInCart && GlobalproductsInCart.length > 0 && (
 						<button className="p-[5px] text-center mx-auto rounded-[7px] mt-[12px] bg-[#b3f18e]">
 							Proceed to checkout
 						</button>

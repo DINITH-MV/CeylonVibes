@@ -5,6 +5,11 @@ import { useParams } from "react-router";
 import GradientOpen3 from "../components/Organic Items/Content/GradientOpen3";
 import { motion } from "framer-motion";
 import "./product.css";
+import Cookies from 'js-cookie';
+
+export let GlobalproductsInCart;
+export let GlobalonQuantityChange;
+export let GlobalonProductRemove;
 
 const ShopInside = ({ nuts, fetchNuts, snacks, fetchSnacks, sweetners, fetchSweetners, fetchCartItems, cartItems }) => {
   const param = useParams();
@@ -94,20 +99,27 @@ const ShopInside = ({ nuts, fetchNuts, snacks, fetchSnacks, sweetners, fetchSwee
 
   // for cart
 
-  const [productsInCart, setProducts] =
-    useState(
-      JSON.parse(
-        localStorage.getItem(
-          "shopping-cart"
-        )
-      ) || []
-    );
+  
+  const cartFromLocalStorage = localStorage.getItem('shopping-cart');
+
+  // Use the cart from cookies if it exists, otherwise use the cart from local storage
+  const initialCart = 
+       JSON.parse(cartFromLocalStorage)
+      ;
+
+  const [productsInCart, setProducts] = useState(initialCart);
+
+
   useEffect(() => {
-    localStorage.setItem(
-      "shopping-cart",
-      JSON.stringify(productsInCart)
-    );
+    const cartData = JSON.stringify(productsInCart);
+
+    
+
+    localStorage.setItem("shopping-cart", cartData);
   }, [productsInCart]);
+
+  GlobalproductsInCart = productsInCart;
+
   const addProductToCart = (product) => {
     const newProduct = {
       ...product,
@@ -137,6 +149,8 @@ const ShopInside = ({ nuts, fetchNuts, snacks, fetchSnacks, sweetners, fetchSwee
     });
   };
 
+  GlobalonQuantityChange = onQuantityChange;
+
   const onProductRemove = (product) => {
     setProducts((oldState) => {
       console.log(setProducts)
@@ -155,14 +169,11 @@ const ShopInside = ({ nuts, fetchNuts, snacks, fetchSnacks, sweetners, fetchSwee
     });
   };
 
-
+  GlobalonProductRemove = onProductRemove;
 
   return (
     <div>
       <Header
-        productsInCart={productsInCart}
-        onQuantityChange={onQuantityChange}
-        onProductRemove={onProductRemove}
         Cart={cartItems} fetchCart={fetchCartItems}
       />
       <motion.div
