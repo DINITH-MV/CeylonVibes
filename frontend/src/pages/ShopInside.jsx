@@ -100,23 +100,26 @@ const ShopInside = ({ nuts, fetchNuts, snacks, fetchSnacks, sweetners, fetchSwee
   // for cart
 
   
-  const cartFromLocalStorage = localStorage.getItem('shopping-cart');
-
+  const cartFromCookie = Cookies.get('shopping-cart');
+  
   // Use the cart from cookies if it exists, otherwise use the cart from local storage
-  const initialCart = 
-       JSON.parse(cartFromLocalStorage)
-      ;
-
+  const initialCart = cartFromCookie && cartFromCookie !== 'undefined' 
+    ? JSON.parse(cartFromCookie) 
+    : [];
+  
   const [productsInCart, setProducts] = useState(initialCart);
+  
 
 
   useEffect(() => {
-    const cartData = JSON.stringify(productsInCart);
+    const interval = setInterval(() => {
+      const cartData = JSON.stringify(productsInCart);
+      Cookies.set("shopping-cart", cartData);
+    }, 1000); // Set cookie every 3 seconds
 
-    
-
-    localStorage.setItem("shopping-cart", cartData);
+    return () => clearInterval(interval); // Clean up on component unmount
   }, [productsInCart]);
+  
 
   GlobalproductsInCart = productsInCart;
 
@@ -131,19 +134,11 @@ const ShopInside = ({ nuts, fetchNuts, snacks, fetchSnacks, sweetners, fetchSwee
     ]);
   };
 
-  const onQuantityChange = (
-    productId,
-    count
-  ) => {
+  const onQuantityChange = (productId, count) => {
     setProducts((oldState) => {
-      const productsIndex =
-        oldState.findIndex(
-          (item) =>
-            item.id === productId
-        );
+      const productsIndex = oldState.findIndex((item) => item.id === productId);
       if (productsIndex !== -1) {
-        oldState[productsIndex].count =
-          count;
+        oldState[productsIndex].count = count;
       }
       return [...oldState];
     });

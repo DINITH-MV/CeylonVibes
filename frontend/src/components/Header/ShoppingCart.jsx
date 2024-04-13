@@ -1,18 +1,27 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react";
 import ShoppingCartBar from "./ShoppingCartBar";
 import { GlobalproductsInCart } from "@/pages/ShopInside";
 import Cookies from "js-cookie";
 
 export default function ShoppingCart({ fetchCart, Cart }) {
+  const [cartsVisibilty, setCartVisible] = useState(false);
+  const [productsInCart, setProductsInCart] = useState([]);
 
-    const [cartsVisibilty, setCartVisible] =
-        useState(false);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const cartFromCookie = Cookies.get('shopping-cart');
+      setProductsInCart(
+        cartFromCookie && cartFromCookie !== 'undefined' ? JSON.parse(cartFromCookie) : []
+      );
+    }, 2000); 
 
-    // const cartFromCookie = Cookies.get('shopping-cart');
-    // let [productsInCart, setProductsInCart] = useState(
-    //     cartFromCookie && cartFromCookie !== 'undefined' ? JSON.parse(cartFromCookie) : []
-    // );
-    // setProductsInCart = GlobalproductsInCart
+    return () => clearInterval(interval); 
+  }, []);
+
+  useEffect(() => {
+    setProductsInCart(GlobalproductsInCart);
+  }, [GlobalproductsInCart]);
+
     return (
         <div>
             <ShoppingCartBar visibilty={cartsVisibilty} fetchCart={fetchCart} Cart={Cart}
@@ -29,11 +38,11 @@ export default function ShoppingCart({ fetchCart, Cart }) {
 
                         <i class="fa-sharp fa-light fa-bag-shopping fa-shake " style={{ color: "#d89f5a" }}></i>
 
-                        {GlobalproductsInCart && GlobalproductsInCart.length >
+                        {productsInCart && productsInCart.length >
                             0 && (
                                 <span className="text-[10px] rounded-[20px] border ml-[0px] top-[20px] pl-[2pt] pr-[3pt] pt-[2px] pb-[3px] *:h-[30px] bg-midnight text-[#fff]">
                                     {
-                                        GlobalproductsInCart.length
+                                        productsInCart.length
                                     }
                                 </span>
                             )}

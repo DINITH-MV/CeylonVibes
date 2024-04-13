@@ -15,9 +15,13 @@ import GradientClose2 from "../components/Organic Items/Content/GradientClose2.j
 import Footer from "../components/Footer/Footer.jsx";
 import { motion } from "framer-motion";
 import { GlobalproductsInCart } from "./ShopInside.jsx";
+import { useUser } from '@clerk/clerk-react';
+
 
 const Shop = ({ catagories, fetchCatagories, offers, fetchOffers }) => {
-  // State and useEffect hooks
+
+  
+  
   return (
     <div>
       <motion.div
