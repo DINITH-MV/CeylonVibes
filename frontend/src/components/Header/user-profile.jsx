@@ -3,6 +3,7 @@ import { SearchBar } from "./SearchBar"
 import Logo from "./logo"
 
 export default function UserProfilePage() {
+  
   return (
     <div>
 

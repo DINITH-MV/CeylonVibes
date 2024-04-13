@@ -48,7 +48,7 @@ const AddCatagory = () => {
         setFiles(event.dataTransfer.files)
     };
 
-    // send files to the server // learn from my other video
+
     const handleUpload = async (e) => {
         const formdata = new FormData()
         formdata.append('file', files[0])
@@ -126,6 +126,7 @@ const AddCatagory = () => {
                                                 <button type="button" onClick={() => inputRef.current.click()}>Select Files</button>
                                             </div>
                                         </div>
+                                        
                                         {files && (
                                             <div className="uploads">
                                                 <ul>

@@ -43,9 +43,6 @@ const ShopInside = ({ nuts, fetchNuts, snacks, fetchSnacks, sweetners, fetchSwee
     }
   }, [nuts, snacks, sweetners, param.id]); // nuts, snacks, sweetners as dependencies
 
-
-
-
   // useEffect(() => {
   //     fetchCartItems();
   //     setCart(cartItems);
@@ -98,7 +95,6 @@ const ShopInside = ({ nuts, fetchNuts, snacks, fetchSnacks, sweetners, fetchSwee
   // };
 
   // for cart
-
   
   const cartFromCookie = Cookies.get('shopping-cart');
   
@@ -119,8 +115,6 @@ const ShopInside = ({ nuts, fetchNuts, snacks, fetchSnacks, sweetners, fetchSwee
 
     return () => clearInterval(interval); // Clean up on component unmount
   }, [productsInCart]);
-  
-
   GlobalproductsInCart = productsInCart;
 
   const addProductToCart = (product) => {
@@ -143,7 +137,6 @@ const ShopInside = ({ nuts, fetchNuts, snacks, fetchSnacks, sweetners, fetchSwee
       return [...oldState];
     });
   };
-
   GlobalonQuantityChange = onQuantityChange;
 
   const onProductRemove = (product) => {
@@ -163,9 +156,9 @@ const ShopInside = ({ nuts, fetchNuts, snacks, fetchSnacks, sweetners, fetchSwee
       return [...oldState];
     });
   };
-
   GlobalonProductRemove = onProductRemove;
 
+  console.log(productsInCart)
   return (
     <div>
       <Header

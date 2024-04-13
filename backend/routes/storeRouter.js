@@ -1,5 +1,5 @@
 import express from "express";
-import { Catagory, Offers, Products, List } from "../models/storeModel.js";
+import { Catagory, Offers, Products, List, Cart} from "../models/storeModel.js";
 import path from "path";
 import multer from "multer";
 import MongoClient from "mongodb";
@@ -23,132 +23,22 @@ router.get("/api/catagories", (req, res) => {
     });
 });
 
-router.get("/api/catagoriesSearch", (req, res) => {
-  const searchValue = req.query.name;
-  Catagory.find({
-    name: { $regex: searchValue, $options: 'i' } // This will search for the name case-insensitively
-  })
-    .then((items) => {
-      console.log(items);
-      res.status(200).json({ message: "Items fetched successfully", data: items });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({ message: "Server error" });
-    });
-});
-
-router.get("/api/lists", (req, res) => {
-  List.find()
-    .then((item) => {
-      console.log(item);
-      res
-        .status(200)
-        .json({ message: "Item fetched successfully", data: item });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({ message: "Server error" });
-    });
-});
-
 // For update in Read
 router.get("/api/catagories/:id", (req, res) => {
   const { id } = req.params;
   Catagory.find({ _id: id })
-    .then((item) => {
-      console.log(item);
-      res
-        .status(200)
-        .json({ message: "Item fetched successfully", data: item });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({ message: "Server error" });
-    });
+  .then((item) => {
+    console.log(item);
+    res
+    .status(200)
+    .json({ message: "Item fetched successfully", data: item });
+  })
+  .catch((err) => {
+    console.log(err);
+    res.status(500).json({ message: "Server error" });
+  });
 });
 
-// Routes for Nuts & Seeds
-// For Read
-router.get("/api/Nuts&Seeds", (req, res) => {
-  Products.find({ type: "nuts&seeds" })
-    .then((item) => {
-      console.log(item);
-      res
-        .status(200)
-        .json({ message: "Item fetched successfully", data: item });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({ message: "Server error" });
-    });
-});
-
-// For update in Read
-router.get("/api/products/:id", (req, res) => {
-  const { id } = req.params;
-  Products.find({ _id: id })
-    .then((item) => {
-      console.log(item);
-      res
-        .status(200)
-        .json({ message: "Item fetched successfully", data: item });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({ message: "Server error" });
-    });
-});
-
-// Routes for Snacks
-// for Read
-router.get("/api/Snacks", (req, res) => {
-  Products.find({ type: "snacks" })
-    .then((item) => {
-      console.log(item);
-      res
-        .status(200)
-        .json({ message: "Item fetched successfully", data: item });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({ message: "Server error" });
-    });
-});
-
-// Routes for Sweetners
-// for Read
-router.get("/api/Sweetners", (req, res) => {
-  Products.find({ type: "sweetners" })
-    .then((item) => {
-      console.log(item);
-      res
-        .status(200)
-        .json({ message: "Item fetched successfully", data: item });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({ message: "Server error" });
-    });
-});
-
-// Routes for Offers
-// for Read
-router.get("/api/offers", (req, res) => {
-  Offers.find()
-    .then((item) => {
-      console.log(item);
-      res
-        .status(200)
-        .json({ message: "Item fetched successfully", data: item });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({ message: "Server error" });
-    });
-});
-
-// For Categories
 // Create a file for save the image
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -199,7 +89,51 @@ router.delete("/catagories/:id", (req, res) => {
     .catch((err) => console.log(err)); // Use console.log to log errors
 });
 
-// For Nuts
+router.get("/api/catagoriesSearch", (req, res) => {
+  const searchValue = req.query.name;
+  Catagory.find({
+    name: { $regex: searchValue, $options: 'i' } // This will search for the name case-insensitively
+  })
+    .then((items) => {
+      console.log(items);
+      res.status(200).json({ message: "Items fetched successfully", data: items });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ message: "Server error" });
+    });
+});
+
+router.get("/api/lists", (req, res) => {
+  List.find()
+    .then((item) => {
+      console.log(item);
+      res
+        .status(200)
+        .json({ message: "Item fetched successfully", data: item });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ message: "Server error" });
+    });
+});
+
+// For update in Read
+router.get("/api/products/:id", (req, res) => {
+  const { id } = req.params;
+  Products.find({ _id: id })
+    .then((item) => {
+      console.log(item);
+      res
+        .status(200)
+        .json({ message: "Item fetched successfully", data: item });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ message: "Server error" });
+    });
+});
+
 // Create a file for save the image
 const storageForProducts = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -260,6 +194,97 @@ router.delete("/products/:id", (req, res) => {
       }
     })
     .catch((err) => console.log(err)); // Use console.log to log errors
+});
+
+// Routes for Cart
+// for post
+
+router.post('/cart', async (request, response) => {
+  try {
+    if (
+      !request.body.userID ||
+      !request.body.cartCount
+    ) {
+      return response.status(400).send({
+        message: 'Send all required fields',
+      });
+    }
+    const newCart = {
+      userID: request.body.userID,
+      cartCount: request.body.cartCount,
+    };
+
+    const Carts = await Cart.create(newCart);
+
+    return response.status(201).send(Carts);
+  } catch (error) {
+    console.log(error.message);
+    response.status(500).send({ message: error.message });
+  }
+});
+
+// Routes for Nuts & Seeds
+// For Read
+router.get("/api/Nuts&Seeds", (req, res) => {
+  Products.find({ type: "nuts&seeds" })
+    .then((item) => {
+      console.log(item);
+      res
+        .status(200)
+        .json({ message: "Item fetched successfully", data: item });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ message: "Server error" });
+    });
+});
+
+// Routes for Snacks
+// for Read
+router.get("/api/Snacks", (req, res) => {
+  Products.find({ type: "snacks" })
+    .then((item) => {
+      console.log(item);
+      res
+        .status(200)
+        .json({ message: "Item fetched successfully", data: item });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ message: "Server error" });
+    });
+});
+
+// Routes for Sweetners
+// for Read
+router.get("/api/Sweetners", (req, res) => {
+  Products.find({ type: "sweetners" })
+    .then((item) => {
+      console.log(item);
+      res
+        .status(200)
+        .json({ message: "Item fetched successfully", data: item });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ message: "Server error" });
+    });
+});
+
+// Routes for Offers
+// for Read
+router.get("/api/offers", (req, res) => {
+  Offers.find()
+    .then((item) => {
+      console.log(item);
+      res
+        .status(200)
+        .json({ message: "Item fetched successfully", data: item });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ message: "Server error" });
+    });
 });
 
 // For Cart

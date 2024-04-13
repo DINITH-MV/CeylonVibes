@@ -4,23 +4,23 @@ import { GlobalproductsInCart } from "@/pages/ShopInside";
 import Cookies from "js-cookie";
 
 export default function ShoppingCart({ fetchCart, Cart }) {
-  const [cartsVisibilty, setCartVisible] = useState(false);
-  const [productsInCart, setProductsInCart] = useState([]);
+    const [cartsVisibilty, setCartVisible] = useState(false);
+    const [productsInCart, setProductsInCart] = useState([]);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const cartFromCookie = Cookies.get('shopping-cart');
-      setProductsInCart(
-        cartFromCookie && cartFromCookie !== 'undefined' ? JSON.parse(cartFromCookie) : []
-      );
-    }, 2000); 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            const cartFromCookie = Cookies.get('shopping-cart');
+            setProductsInCart(
+                cartFromCookie && cartFromCookie !== 'undefined' ? JSON.parse(cartFromCookie) : []
+            );
+        }, 2000);
 
-    return () => clearInterval(interval); 
-  }, []);
+        return () => clearInterval(interval);
+    }, []);
 
-  useEffect(() => {
-    setProductsInCart(GlobalproductsInCart);
-  }, [GlobalproductsInCart]);
+    useEffect(() => {
+        setProductsInCart(GlobalproductsInCart);
+    }, [GlobalproductsInCart]);
 
     return (
         <div>
@@ -38,14 +38,16 @@ export default function ShoppingCart({ fetchCart, Cart }) {
 
                         <i class="fa-sharp fa-light fa-bag-shopping fa-shake " style={{ color: "#d89f5a" }}></i>
 
-                        {productsInCart && productsInCart.length >
-                            0 && (
+                        {(
+                            (GlobalproductsInCart || productsInCart) &&
+                            (GlobalproductsInCart || productsInCart).length > 0 &&
+                            (
                                 <span className="text-[10px] rounded-[20px] border ml-[0px] top-[20px] pl-[2pt] pr-[3pt] pt-[2px] pb-[3px] *:h-[30px] bg-midnight text-[#fff]">
-                                    {
-                                        productsInCart.length
-                                    }
+                                    {(GlobalproductsInCart || productsInCart).length}
                                 </span>
-                            )}
+                            )
+                        )}
+
                     </button>
                 </div>
             </div>

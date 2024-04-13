@@ -62,3 +62,14 @@ const ItemsSchema = new Schema({
 });
 
 export const List = mongoose.model("items", ItemsSchema);
+
+const cartSchema = new Schema({
+  userID: {
+    type: String,
+  },
+  cartCount: {
+    type: String,
+  },
+});
+
+export const Cart = mongoose.model("carts", cartSchema);

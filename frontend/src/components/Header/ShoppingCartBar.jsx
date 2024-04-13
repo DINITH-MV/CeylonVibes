@@ -1,17 +1,58 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./shoppingCartBar.css";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { GlobalproductsInCart } from "@/pages/ShopInside";
 import { GlobalonQuantityChange } from "@/pages/ShopInside";
 import { GlobalonProductRemove } from "@/pages/ShopInside";
+import { useUser } from "@clerk/clerk-react"
+import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
-function ShoppingCartBar({
-	visibilty,
-	onClose,
-})
- {
-	
+function ShoppingCartBar({ visibilty, onClose }) {
+
+	const { user } = useUser();
+	let userID;
+
+	try {
+		const userId = user.id;
+		userID = userId;
+	  } catch (error) {
+		console.error("Error reading user.id:", error);
+	  }
+
+	console.log(userID)
+
+	const navigate = useNavigate();
+
+	let cartCount;
+
+	if (GlobalproductsInCart !== undefined) {
+		cartCount = GlobalproductsInCart.length;
+		console.log(cartCount);
+	} else {
+		console.log("GlobalproductsInCart is null");
+	}
+
+	const handlePayment = async (e) => {
+		const data = {
+			userID,
+			cartCount
+		};
+		axios
+			.post('http://localhost:5012/cart', data)
+			.then((response) => {
+				// Assuming response.data is an array
+				for (let i = 0; i < response.data.length; i++) {
+					alert(response.data[i]);
+				}
+				navigate('/');
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	}
+
 	return (
 		<div
 			className="modal"
@@ -73,10 +114,10 @@ function ShoppingCartBar({
 											.value
 									);
 								}}>
-								{[	...Array(10	).keys(),].map(
+								{[...Array(10).keys(),].map(
 									(number) => {
 										const num =
-											number +1;
+											number + 1;
 										return (
 											<option
 												value={num}
@@ -99,7 +140,7 @@ function ShoppingCartBar({
 						</div>
 					))}
 					{GlobalproductsInCart && GlobalproductsInCart.length > 0 && (
-						<button className="p-[5px] text-center mx-auto rounded-[7px] mt-[12px] bg-[#b3f18e]">
+						<button className="p-[5px] text-center mx-auto rounded-[7px] mt-[12px] bg-[#b3f18e]" onClick={handlePayment}>
 							Proceed to checkout
 						</button>
 					)}
