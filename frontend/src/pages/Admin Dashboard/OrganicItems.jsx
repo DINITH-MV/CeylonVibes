@@ -76,22 +76,23 @@ export function OrganicItems() {
   return (
     <div className="mt-12 mb-8 flex flex-col gap-12">
       <Card>
-        <CardHeader variant="gradient" color="gray" className="mb-8 p-6">
-          <Typography variant="h6" color="white">
-            <PDFDownloadLink className='ml-[810px] mt-[-5px] rounded-[7px] mx-auto absolute bg-[#a0803b]' document={<PDFFile items={items} />} fileName="Report-category_table.pdf">
+        <CardHeader variant="gradient" color="gray" className="mb-8 p-8">
+          <Typography variant="h5" color="white">
+            <PDFDownloadLink className='ml-[910px] mt-[-5px] rounded-[7px] mx-auto absolute bg-[#a0803b]' document={<PDFFile items={items} />} fileName="Report-category_table.pdf">
               {({ loading }) => (loading ? <button className='bg-BrownLi rounded-md p-[7px] font-bold text-[14px]'><motion.button
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{
                   duration: 1.5,
                   delay: 1 / 10,
-                }}>Preparing...</motion.button></button> : <button className='bg-BrownLi rounded-md p-[7px] font-CantoraOne font-bold text-[14px]'>Monthly Report</button>)}
+                }}>Preparing...</motion.button></button> : <button className='bg-BrownLi rounded-md p-[7px] font-CantoraOne font-bold text-[17px]'>Monthly Report</button>)}
             </PDFDownloadLink>
             MANAGE CATAGORIES & PRODUCTS
           </Typography>
         </CardHeader>
         <CardBody className="overflow-x-scroll px-0 pt-0 pb-2">
-          <table className="w-full min-w-[550px] table-auto ml-[50px]">
+        <button type='button' className='p-[4px] h-[37px] w-[950px] text-[#000] mb-[20px] ml-[100px] rounded-[7px] bg-[#cbc88f]'><Link to='/AddCatagory'>CREATE A NEW CATEGORY</Link></button><br />
+          <table className="w-full min-w-[550px] table-auto ml-[100px]">
             <motion.table
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -100,11 +101,11 @@ export function OrganicItems() {
                 delay: 4 / 10,
               }}>
               <thead>
-                <tr className="">
+                <tr className="border">
                   {["Catagory", "ID", "Name", "Img", "Options"].map((el) => (
                     <th
                       key={el}
-                      className="border-b border-blue-gray-50 py-3 px-5 text-left text-[16px]"
+                      className="border-b border-r border-blue-gray-50 py-3 px-5 text-left text-[16px]"
                     >
                       <Typography
                         variant="small"
@@ -120,23 +121,23 @@ export function OrganicItems() {
                 {items?.length
                   ?
                   items.map((items) => (
-                    <tr key={items._id} className='border h-[160px] text-center text-[10.7pt]'>
-                      <td className='border w-[140px]'>
+                    <tr key={items._id} className='border h-[140px] text-center text-[10.7pt]'>
+                      <td className='border w-[160px]'>
                         <img className="max-h-[120px] transition duration-300 mx-auto" src={'http://localhost:5012/catagories/' + items.image} alt='Catagories' />
                       </td>
-                      <td className='w-[230px]'>{items._id}</td>
+                      <td className='w-[270px]'>{items._id}</td>
                       <td className='border w-[140px]'>{items.name}</td>
                       <td className='border w-[210px]'>
                         {items.image}
                       </td>
-                      <td className='flex-row align-middle w-[190px]'>
-                        <button type='button' className='p-[4px] w-[150px] mt-[10px] rounded-[7px] bg-[#cbc88f]'><Link to='/AddCatagory'>Add a Catagory</Link></button><br />
-                        <button onClick={() => updateCatagory(items._id)} className='p-[4px] w-[150px] rounded-[7px] bg-[#d0e0a0] mt-[10px] mb-[10px]'>Update Catagory</button><br />
+                      <td className='flex-row align-middle w-[170px]'>
+                        
+                        <button onClick={() => updateCatagory(items._id)} className='p-[4px] h-[37px] text-[#000] w-[150px] rounded-[7px] bg-[#d0e0a0] mt-[10px] mb-[10px]'>UPDATE Catagory</button><br />
                         <div>
                           <button onClick={() => {
                             notify();
                             deleteCatagory(items._id)
-                          }} className='p-[4px] w-[150px] rounded-[7px] bg-[rgb(168,42,42)] text-[#fff] mb-[10px]'>Delete Catagory</button>
+                          }} className='p-[4px] h-[37px] w-[150px] rounded-[7px] bg-[rgb(168,42,42)] text-[#fff] mb-[10px]'>Delete Catagory</button>
                           <Toaster position="top-center"
                             reverseOrder={false}
                             gutter={13}
@@ -165,7 +166,7 @@ export function OrganicItems() {
                           />
                         </div>
                         <button
-                          className='p-[4px] w-[150px] rounded-[7px] bg-[#eae1bf] text-[#000] mb-[10px]'><Link to={'/ItemsCatagory/' + items.name}>VIEW ITEMS</Link></button>
+                          className='p-[4px] h-[37px] w-[150px] rounded-[7px] bg-[#eae1bf] text-[#000] mb-[10px]'><Link to={'/ItemsCatagory/' + items.name}>VIEW ITEMS</Link></button>
                       </td>
                     </tr>
                   )) :
