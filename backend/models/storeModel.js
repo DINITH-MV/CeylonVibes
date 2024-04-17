@@ -6,9 +6,11 @@ const catagorySchema = new Schema(
   {
     name: {
       type: String,
+      required: true,
     },
     image: {
       type: String,
+      required: true,
     },
   },
 );
@@ -29,6 +31,15 @@ const productsSchema = new Schema({
     type: String,
   },
   type: {
+    type: String,
+  },
+  quantity: {
+    type: Number,
+  },
+  nameDesc: {
+    type: String,
+  },
+  Desc: {
     type: String,
   },
 });

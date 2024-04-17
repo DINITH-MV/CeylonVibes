@@ -160,6 +160,9 @@ router.post("/products", uploadProducts.single("file"), (req, res) => {
     discPrice: req.body.discPrice,
     image: req.file.filename,
     type: req.body.type,
+    quantity: req.body.quantity,
+    nameDesc: req.body.nameDesc,
+    Desc: req.body.description,
   })
     .then((result) => res.json(result))
     .catch((err) => res.log(err));
@@ -175,6 +178,9 @@ router.put("/products/:id", uploadProducts.single("file"), (req, res) => {
       price: req.body.price,
       discPrice: req.body.discPrice,
       image: req.file.filename,
+      quantity: req.body.quantity,
+      nameDesc: req.body.nameDesc,
+      Desc: req.body.description,
     },
     { new: true } // This option returns the updated document
   )

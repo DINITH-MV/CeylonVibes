@@ -2,7 +2,7 @@ import React from 'react';
 
 const TextGrid = () => {
     return (
-        <div className='absolute w-[100%] top-[675px] max-w-3xl mx-auto md:max-w-none md:max-3xl'>
+        <div className='absolute w-[100%] top-[700px] max-w-3xl mx-auto md:max-w-none md:max-3xl' style={{ transform: 'scale(1.1)' }}>
             <div className='text-center w-[1200px] top-[-150px] m-auto  max-w-3xl mx-auto md:max-w-none md:max-3xl'>
                 <div class="grid grid-cols-4 w-[1240px] text-[17pt] m-auto text-left mb-[10px] max-w-3xl mx-auto md:max-w-none md:max-3xl font-CantoraOne gap-[50px]">
                     <div className='pt-[55px] '>

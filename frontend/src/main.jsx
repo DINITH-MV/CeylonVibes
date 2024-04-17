@@ -4,7 +4,6 @@ import './index.css';
 import App from './App';
 import { ClerkProvider } from '@clerk/clerk-react'
 import { ThemeProvider } from '@material-tailwind/react';
-import { MaterialTailwindControllerProvider } from '@/Admin Panel/context';
 import "../public/css/tailwind.css";
 import { BrowserRouter } from 'react-router-dom';
 
@@ -19,14 +18,12 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-     <ThemeProvider>
-        <MaterialTailwindControllerProvider>
-     <ClerkProvider  publishableKey={PUBLISHABLE_KEY}  >
-          <App />
-        </ClerkProvider>
-        </MaterialTailwindControllerProvider>
+      <ThemeProvider>
+          <ClerkProvider publishableKey={PUBLISHABLE_KEY}  >
+            <App />
+          </ClerkProvider>
       </ThemeProvider>
-      </BrowserRouter>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

@@ -11,12 +11,17 @@ import "./App.css"
 import { SignedIn, SignedOut, SignInButton, UserButton, UserProfile, ClerkProvider } from "@clerk/clerk-react";
 import SignInPage from "./components/Header/sign-in.jsx";
 import UserProfilePage from "./components/Header/user-profile.jsx";
-import Dashboard from "./Admin Panel/layouts/dashboard.jsx";
-import UpdateCatagory from "./pages/Admin Dashboard/Products/productOptions/UpdateCatagory.jsx";
-import AddCatagory from "./pages/Admin Dashboard/Products/productOptions/AddCatagory.jsx";
-import ItemsCatagory from "./pages/Admin Dashboard/Products/productOptions/ItemsCatagory.jsx";
-import AddItemsCatagory from "./pages/Admin Dashboard/Products/productOptions/AddItemsCatagory.jsx";
-import UpdateItemsCatagory from "./pages/Admin Dashboard/Products/productOptions/UpdateItemsCatagory.jsx";
+import UpdateCatagory from "./pages/Admin Dashboard 2/Organic Items/UpdateCatagory.jsx";
+import AddCatagory from "./pages/Admin Dashboard 2/Organic Items/AddCatagory.jsx";
+import ItemsCatagory from "./pages/Admin Dashboard 2/Organic Items/ItemsCatagory.jsx";
+import AddItemsCatagory from "./pages/Admin Dashboard 2/Organic Items/AddItemsCatagory.jsx";
+import UpdateItemsCatagory from "./pages/Admin Dashboard 2/Organic Items/UpdateItemsCatagory.jsx";
+import Admin from "./pages/Admin Dashboard 2/Admin.jsx";
+import Products from "./components/products/Products.jsx";
+import Search from "./components/products/Search.jsx";
+import AddProduct from "./pages/Admin Dashboard 2/Organic Items/AddProduct.jsx";
+import ListProducts from "./pages/Admin Dashboard 2/Organic Items/OrganicItems.jsx";
+import OrganicItems from "./pages/Admin Dashboard 2/Organic Items/OrganicItems.jsx";
 
 const App = () => {
   console.disableYellowBox = true;
@@ -129,14 +134,26 @@ const App = () => {
 
       for admin panel
 
-      <Route path="/dashboard/*" element={<Dashboard />} ></Route>
-      <Route path="/admin/*" element={<Navigate to="/dashboard/home" replace />} />
-      <Route path="/addCatagory" element={<AddCatagory fetchCatagories={fetchCatagories} />} />
-      <Route path="/updateCatagory/:id" element={<UpdateCatagory  />} />
-      <Route path="/ItemsCatagory/:id" element={<ItemsCatagory />} />
-      <Route path="/addItemsCatagory" element={<AddItemsCatagory fetchItemsCatagory={fetchItemsCatagory} />} />
-      <Route path="/updateItemsCatagory/:id" element={<UpdateItemsCatagory />} />
 
+
+
+
+
+
+
+      <Route path="admin" element={<Admin />} >
+        <Route path="search" element={<Search />} />
+        <Route path="list" element={<OrganicItems />} />
+        <Route path="AddCatagory" element={<AddCatagory fetchCatagories={fetchCatagories} />} />
+        <Route path="ItemsCatagory/:id" element={<ItemsCatagory />} />
+        <Route path="AddItemsCatagory/:id" element={<AddItemsCatagory fetchItemsCatagory={fetchItemsCatagory} />} />
+        <Route path="updateCatagory/:id" element={<UpdateCatagory />} />
+        <Route path="updateItemsCatagory/:id" element={<UpdateItemsCatagory />} />
+      </Route>
+
+      <Route path="products" element={<Products />}>
+        <Route path="add" element={<AddProduct />} />
+      </Route>
     </Routes>
   );
 };

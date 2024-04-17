@@ -6,6 +6,7 @@ import GradientOpen3 from "../components/Organic Items/Content/GradientOpen3";
 import { motion } from "framer-motion";
 import "./product.css";
 import Cookies from 'js-cookie';
+import axios from "axios";
 
 export let GlobalproductsInCart;
 export let GlobalonQuantityChange;
@@ -14,6 +15,7 @@ export let GlobalonProductRemove;
 const ShopInside = ({ nuts, fetchNuts, snacks, fetchSnacks, sweetners, fetchSweetners, fetchCartItems, cartItems }) => {
   const param = useParams();
   const [items, setItems] = useState([]);
+  const [viewProducts, setProductItem] = useState([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -42,6 +44,19 @@ const ShopInside = ({ nuts, fetchNuts, snacks, fetchSnacks, sweetners, fetchSwee
       setItems(sweetners);
     }
   }, [nuts, snacks, sweetners, param.id]); // nuts, snacks, sweetners as dependencies
+
+  const viewItem = async (id) => {
+    if (id === null) {
+      return;
+    }
+
+    try {
+      const response = await axios.get(`http://localhost:5012/api/products/${id}`);
+      setProductItem(response.data.data);
+    } catch (error) {
+      console.error("Error fetching Nuts category:", error);
+    }
+  }
 
   // useEffect(() => {
   //     fetchCartItems();
@@ -95,17 +110,15 @@ const ShopInside = ({ nuts, fetchNuts, snacks, fetchSnacks, sweetners, fetchSwee
   // };
 
   // for cart
-  
-  const cartFromCookie = Cookies.get('shopping-cart');
-  
-  // Use the cart from cookies if it exists, otherwise use the cart from local storage
-  const initialCart = cartFromCookie && cartFromCookie !== 'undefined' 
-    ? JSON.parse(cartFromCookie) 
-    : [];
-  
-  const [productsInCart, setProducts] = useState(initialCart);
-  
 
+  const cartFromCookie = Cookies.get('shopping-cart');
+
+  // Use the cart from cookies if it exists, otherwise use the cart from local storage
+  const initialCart = cartFromCookie && cartFromCookie !== 'undefined'
+    ? JSON.parse(cartFromCookie)
+    : [];
+
+  const [productsInCart, setProducts] = useState(initialCart);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -159,8 +172,22 @@ const ShopInside = ({ nuts, fetchNuts, snacks, fetchSnacks, sweetners, fetchSwee
   GlobalonProductRemove = onProductRemove;
 
   console.log(productsInCart)
+
+  const [modal, setModal] = useState(false);
+
+  const toggleModal = () => {
+    setModal(!modal);
+  };
+
+  if (modal) {
+    document.body.classList.add('active-modal')
+  } else {
+    document.body.classList.remove('active-modal')
+  }
+
+
   return (
-    <div>
+    <div className="bg-[#fdfafa]">
       <Header
         Cart={cartItems} fetchCart={fetchCartItems}
       />
@@ -202,7 +229,7 @@ const ShopInside = ({ nuts, fetchNuts, snacks, fetchSnacks, sweetners, fetchSwee
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-[20px] max-w-sm mx-auto md:max-w-none md:max-0">
                 {items?.length ? (
                   items.map((items) => (
-                    <div className="border-[2px] rounded-[12px] bg-[#ebedec]  border-[#d6d6d6] h-[440px] w-[270px] mb-4 overflow-hidden group transition hover:border-[#428627]">
+                    <div className="border-[2px] rounded-[12px] bg-[#ebedec]  border-[#ffffff] h-[450px] w-[270px] mb-4 overflow-hidden group transition hover:border-[#ffffff]">
                       <div class="product-box">
                         <div class="product-item">
                           <div className="w-[180px] mx-auto h-[330px] flex justify-center items-center ">
@@ -218,9 +245,9 @@ const ShopInside = ({ nuts, fetchNuts, snacks, fetchSnacks, sweetners, fetchSwee
                             />
                           </div>
                           <div class="overlay-c"></div>
-                          <div class="product-desc h-[175px] border-b-[2px] ">
+                          <div class="product-desc h-[180px] border-b-[2px] border-[#000]">
                             <button onClick={() => addProductToCart(items)}>
-                              <div className="bg-white w-[50px] h-[50px] pt-[10px] ml-[-65px] mx-auto rounded-[7px] hover:bg-[#efffb5]">
+                              <div className="bg-white w-[50px] h-[50px] pt-[10px] ml-[-65px] mx-auto rounded-[7px] hover:bg-[#eaffdf]">
                                 <i
                                   class="fa-duotone fa-cart-circle-plus fa-2xl mt-[20px]"
                                   style={{
@@ -230,29 +257,33 @@ const ShopInside = ({ nuts, fetchNuts, snacks, fetchSnacks, sweetners, fetchSwee
                                 ></i>
                               </div>
                             </button>
-                            <div className="absolute bg-white w-[50px] h-[50px] pt-[14px] mt-[-50px] ml-[135px] mx-auto rounded-[7px]">
-                              <i
-                                class="fa-duotone fa-circle-info fa-2xl"
-                                style={{
-                                  "--fa-primary-color": "#006515",
-                                  "--fa-secondary-color": "#006515",
-                                }}
-                              ></i>
+                            <div className="absolute bg-white w-[50px] h-[50px] pt-[14px] mt-[-50px] ml-[135px] mx-auto rounded-[7px] hover:bg-[#eaffdf]">
+                              <button onClick={() => { toggleModal(), viewItem(items._id) }} >
+                                <i
+                                  class="fa-duotone fa-circle-info fa-2xl"
+                                  style={{
+                                    "--fa-primary-color": "#006515",
+                                    "--fa-secondary-color": "#006515",
+                                  }}
+                                ></i>
+                              </button>
                             </div>
                           </div>
 
-                          <div className="bg-white rounded-[7px] mt-[5px] text-[15pt] font-Barlow font-bold text-left pl-[20px] h-[110px] text-[#000]">
-                            <p className="absolute mt-[5px] mb-[3px]">
+
+                          <div className="bg-white rounded-[7px] mt-0 text-[15pt] font-Barlow font-bold text-left pl-[20px] h-[110px] text-[#000] mx-[7px]">
+                            <p className="absolute mt-[10px] mb-[3px]">
                               {items.name}
                             </p>
                             <div className="absolute font-normal mt-[40px]">
                               From
-                              <div className="font-bold ml-[0px]">
-                                Rs: {items.price}
-                                <strike className="ml-[8px] font-normal">
-                                  {items.discPrice}
-                                </strike>
-                              </div>
+                              {items.discPrice === '' ? (
+                                <p className="font-bold ml-[0px]">Rs:{items.price}</p>
+                              ) : (
+                                <p className="font-bold ml-[0px] line-through">Rs:{items.price}</p>
+                              )}
+                              <p className="top-0 ml-[110px] mt-[30px] font-normal absolute">{items.discPrice}</p>
+
                             </div>
                           </div>
                         </div>
@@ -267,6 +298,47 @@ const ShopInside = ({ nuts, fetchNuts, snacks, fetchSnacks, sweetners, fetchSwee
                   >
                     No Data Found
                   </td>
+                )}
+                {modal && (
+                  <div>
+                    <div className="w-[100vw] h-[100vw] top-0 left-0 right-0 bottom-0 fixed z-4">
+                      <div onClick={toggleModal} className="w-[100vw] h-[100vw] fixed bg-[#ececec56] top-0 left-0 right-0 bottom-0 "></div>
+                      {viewProducts.map((items) => (
+                        <div className="absolute top-[25%] left-[48.5%] translate-x-[-50%] translate-y-[-50%] leading-[1.4] bg-[rgb(237,237,237)] px-[28px] py-[14px] rounded-[13px] border-[2px] border-[#fff] max-w-[650px] max-h-[400px] text-[#000]">
+                          <div className="flex">
+                            <img
+                              className="h-[290px] mt-[10px] p-[5px] transition duration-300 border rounded-[12px] bg-white"
+                              src={
+                                "http://localhost:5012/" +
+                                items.imageFolder +
+                                "/" +
+                                items.image
+                              }
+                              alt=""
+                            />
+                            <div className="ml-[30px] mt-[10px] ">
+                              <h2 className="w-[330px] font-FiraSans font-bold text-[23px] mb-[20px]">{items.nameDesc}</h2>
+                              <label className="font-normal">Price : </label>
+                              {items.discPrice === '' ? (
+                                <p className="font-FiraSans font-normal text-[19px]">Rs:{items.price}</p>
+                              ) : (
+                                <p className="font-FiraSans font-normal text-[19px] line-through">Rs:{items.price}</p>
+                              )}
+                              <p className="mt-[5px] font-FiraSans font-normal text-[19px] text-justify">{items.discPrice}</p>
+                              
+                            </div>
+                          </div>
+                          <p className="font-normal">
+                            {items.Desc}
+                          </p>
+                          <button className="absolute top-0 right-0 mr-[20px] mt-[17px] text-[33px]" onClick={toggleModal}>
+                          <i class="fa-duotone fa-rectangle-xmark" style={{"--fa-primary-color": "#d3bf05", "--fa-secondary-color": "#d3bf05",}}></i>
+                          </button>
+
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 )}
               </div>
             </div>
