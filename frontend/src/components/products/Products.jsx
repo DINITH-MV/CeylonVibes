@@ -24,9 +24,9 @@ function Products() {
           Search
         </Link>
         <Link
-          to="/products/list"
+          to="/products/OrganicItems"
           onClick={() => handleButtonClick("list")}
-          className={location.pathname === "/products/list" ? "active" : "inactive"}
+          className={location.pathname === "/products/OrganicItems" ? "active" : "inactive"}
         >
           List
         </Link>

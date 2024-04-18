@@ -236,8 +236,7 @@ const ShopInside = ({ nuts, fetchNuts, snacks, fetchSnacks, sweetners, fetchSwee
                             <img
                               className="max-h-[280px] group-hover:scale-110 transition duration-300"
                               src={
-                                "http://localhost:5012/" +
-                                items.imageFolder +
+                                "http://localhost:5012/products/" +
                                 "/" +
                                 items.image
                               }
@@ -309,9 +308,7 @@ const ShopInside = ({ nuts, fetchNuts, snacks, fetchSnacks, sweetners, fetchSwee
                             <img
                               className="h-[290px] mt-[10px] p-[5px] transition duration-300 border rounded-[12px] bg-white"
                               src={
-                                "http://localhost:5012/" +
-                                items.imageFolder +
-                                "/" +
+                                "http://localhost:5012/products/" +
                                 items.image
                               }
                               alt=""

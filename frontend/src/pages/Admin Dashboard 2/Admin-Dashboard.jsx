@@ -28,15 +28,15 @@ export default function AdminDashboard() {
           <div className="border py-[6px] pb-[15px] mt-[110px] mx-[20px] rounded-[11px]">
 
             <div className="mx-auto mt-[5px] py-[13px] pl-[20px] w-[240px] rounded-[8px] bg-[#333333] text-[#ffffff] text-[14pt] hover:bg-[#000]"><i class="fa-duotone fa-house mr-[16px]" /><Link
-          to="/products/search"
-          onClick={() => handleButtonClick("search")}
-          className={location.pathname === "/products/search" ? "active" : "inactive"}
-        >Dashboard</Link></div>
+              to="/products/search"
+              onClick={() => handleButtonClick("search")}
+              className={location.pathname === "/products/search" ? "active" : "inactive"}
+            >Dashboard</Link></div>
             <div className="mx-auto mt-[10px] py-[11px] pl-[20px] w-[240px] rounded-[8px] bg-[#ffffff] text-[#414141] text-[14pt] hover:bg-[#dedede]"><i class="fa-duotone fa-leaf text-[17pt] mr-[15px]" style={{ "--fa-primary-color": "#d3bf05", "--fa-secondary-color": "#d3bf05", }} /><Link
-          to="/products/list"
-          onClick={() => handleButtonClick("list")}
-          className={location.pathname === "/products/list" ? "active" : "inactive"}
-        >Organic Items</Link></div>
+              to="/products/OrganicItems"
+              onClick={() => handleButtonClick("list")}
+              className={location.pathname === "/products/OrganicItems" ? "active" : "inactive"}
+            >Organic Items</Link></div>
             <div className="mx-auto mt-[5px] py-[11px] pl-[20px] w-[240px] rounded-[8px] bg-[#ffffff] text-[#414141] text-[14pt] hover:bg-[#dedede]"><i class="fa-duotone fa-envelope mr-[18px] ml-[-1px] pt-[5px] text-[17pt]" style={{ "--fa-primary-color": "#d3bf05", "--fa-secondary-color": "#d3bf05", }} />Notifications</div>
             <div className="mx-auto mt-[5px] py-[11px] pl-[20px] w-[240px] rounded-[8px] bg-[#ffffff] text-[#414141] text-[14pt] hover:bg-[#dedede]"><i class="fa-duotone fa-gear mr-[18px] ml-[4px]" style={{ "--fa-primary-color": "#d3bf05", "--fa-secondary-color": "#d3bf05", }} />Settings</div>
             <Outlet />

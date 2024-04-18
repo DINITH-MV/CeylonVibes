@@ -18,7 +18,7 @@ import AddItemsCatagory from "./pages/Admin Dashboard 2/Organic Items/AddItemsCa
 import UpdateItemsCatagory from "./pages/Admin Dashboard 2/Organic Items/UpdateItemsCatagory.jsx";
 import Admin from "./pages/Admin Dashboard 2/Admin.jsx";
 import Products from "./components/products/Products.jsx";
-import Search from "./components/products/Search.jsx";
+import Search from "./pages/Admin Dashboard 2/Organic Items/Search.jsx";
 import AddProduct from "./pages/Admin Dashboard 2/Organic Items/AddProduct.jsx";
 import ListProducts from "./pages/Admin Dashboard 2/Organic Items/OrganicItems.jsx";
 import OrganicItems from "./pages/Admin Dashboard 2/Organic Items/OrganicItems.jsx";
@@ -134,16 +134,9 @@ const App = () => {
 
       for admin panel
 
-
-
-
-
-
-
-
       <Route path="admin" element={<Admin />} >
         <Route path="search" element={<Search />} />
-        <Route path="list" element={<OrganicItems />} />
+        <Route path="OrganicItems" element={<OrganicItems />} />
         <Route path="AddCatagory" element={<AddCatagory fetchCatagories={fetchCatagories} />} />
         <Route path="ItemsCatagory/:id" element={<ItemsCatagory />} />
         <Route path="AddItemsCatagory/:id" element={<AddItemsCatagory fetchItemsCatagory={fetchItemsCatagory} />} />

@@ -285,7 +285,7 @@ router.get("/api/offers", (req, res) => {
       console.log(item);
       res
         .status(200)
-        .json({ message: "Item fetched successfully", data: item });
+        .json({ message: "offers fetched successfully", data: item });
     })
     .catch((err) => {
       console.log(err);

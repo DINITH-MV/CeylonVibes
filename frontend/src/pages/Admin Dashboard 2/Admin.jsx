@@ -15,7 +15,7 @@ export default function Admin() {
         setSelectedButton(button);
     };
     return (
-        <div className="bg-[#f0f0f0] h-[100%] mt-[-20px] pb-[100px]">
+        <div className="bg-[#f0f0f0] h-[1400px] mt-[-20px] pb-[100px]">
             <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css" />
 
             <div className="flex pt-[40px] ml-[20px]">
@@ -35,10 +35,10 @@ export default function Admin() {
 
                         <div className="ml-0 mr-0 mt-[5px] py-[13px] pl-[10px] w-[265px] rounded-[8px] text-[14pt] ">
                             <Link
-                                to="/admin/list"
+                                to="/admin/OrganicItems"
                                 onClick={() => handleButtonClick("list")}
-                                className={location.pathname === "/admin/list"|| location.pathname === "/admin/ItemsCatagory/Nuts%20&%20Seeds" || location.pathname === "/admin/ItemsCatagory/Snacks" || location.pathname === "/admin/AddCatagory" || location.pathname === "/admin/AddItemsCatagory"? "mt-[5px] py-[13px] pl-[20px] pr-[67px] w-[240px] rounded-[8px] bg-[#333333] text-[#ffffff] text-[14pt] hover:bg-[#000]" : "mt-[5px] py-[13px] pl-[20px] pr-[67px] w-[240px] rounded-[8px] bg-[#ffffff] text-[#414141] text-[14pt] hover:bg-[#dedede]"} >
-                                <i class={location.pathname === "/admin/list"|| location.pathname === "/admin/ItemsCatagory/Nuts%20&%20Seeds" || location.pathname === "/admin/ItemsCatagory/Snacks" || location.pathname === "/admin/addCatagory" || location.pathname === "/admin/AddCatagory" || location.pathname === "/admin/AddItemsCatagory" ? "fa-duotone fa-leaf text-[17pt] mr-[15px]" : "fa-duotone fa-leaf text-[17pt] mr-[15px] text-[#d3bf05]"} />Organic Items
+                                className={location.pathname === "/admin/OrganicItems"|| location.pathname === "/admin/ItemsCatagory/Nuts%20&%20Seeds" || location.pathname === "/admin/ItemsCatagory/Snacks" || location.pathname === "/admin/AddCatagory" || location.pathname === "/admin/AddItemsCatagory"? "mt-[5px] py-[13px] pl-[20px] pr-[67px] w-[240px] rounded-[8px] bg-[#333333] text-[#ffffff] text-[14pt] hover:bg-[#000]" : "mt-[5px] py-[13px] pl-[20px] pr-[67px] w-[240px] rounded-[8px] bg-[#ffffff] text-[#414141] text-[14pt] hover:bg-[#dedede]"} >
+                                <i class={location.pathname === "/admin/OrganicItems"|| location.pathname === "/admin/ItemsCatagory/Nuts%20&%20Seeds" || location.pathname === "/admin/ItemsCatagory/Snacks" || location.pathname === "/admin/addCatagory" || location.pathname === "/admin/AddCatagory" || location.pathname === "/admin/AddItemsCatagory" ? "fa-duotone fa-leaf text-[17pt] mr-[15px]" : "fa-duotone fa-leaf text-[17pt] mr-[15px] text-[#d3bf05]"} />Organic Items
                             </Link>
                         </div>                  
 

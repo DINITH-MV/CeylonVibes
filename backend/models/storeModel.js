@@ -15,7 +15,7 @@ const catagorySchema = new Schema(
   },
 );
 
-export const Catagory = mongoose.model("catagory", catagorySchema);
+export const Catagory = mongoose.model("newcatagories", catagorySchema);
 
 const productsSchema = new Schema({  
   name: {

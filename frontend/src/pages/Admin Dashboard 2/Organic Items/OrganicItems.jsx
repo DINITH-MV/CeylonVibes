@@ -104,7 +104,7 @@ function OrganicItems() {
 
                   <thead>
                     <tr className="border">
-                      {["Catagory", "ID", "Name", "Img", "Options"].map((el) => (
+                      {["Catagory",  "Name","ID", "Img", "Options"].map((el) => (
                         <th
                           key={el}
                           className="border-b border-r border-blue-gray-50 py-3 px-5 text-left text-[16px]"
@@ -127,8 +127,8 @@ function OrganicItems() {
                           <td className='border w-[160px]'>
                             <img className="max-h-[120px] transition duration-300 mx-auto" src={'http://localhost:5012/catagories/' + items.image} alt='Catagories' />
                           </td>
-                          <td className='w-[270px]'>{items._id}</td>
                           <td className='border w-[140px]'>{items.name}</td>
+                          <td className='w-[270px]'>{items._id}</td>
                           <td className='border w-[210px]'>
                             {items.image}
                           </td>

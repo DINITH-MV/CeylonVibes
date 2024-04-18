@@ -135,9 +135,9 @@ const AddItemsCatagory = () => {
                                                     onChange={(e) => setName(e.target.value)} placeholder="Name of the Item" className="border-none pl-[10px] p-y-[40px] text-[12pt] mb-[3px] mt-[10px] rounded-[10px] bg-[rgba(255, 255, 255, 0.6)] h-[40px] w-[320px] hover:bg-[rgb(255,255,255)]" id="name" />
                                                 <input type="text" name="nameDesc" htmlFor="nameDesc"
                                                     onChange={(e) => setNameDesc(e.target.value)} placeholder="More about the Product" className="border-none pl-[10px] p-y-[40px] text-[12pt] mb-[3px] mt-[10px] rounded-[10px] bg-[rgba(255, 255, 255, 0.6)] h-[40px] w-[320px] hover:bg-[rgb(255,255,255)]" id="name" />
-                                                <input type="text" name="price" htmlFor="price"
+                                                <input type="number" name="price" htmlFor="price"
                                                     onChange={(e) => setPrice(e.target.value)} placeholder="Price of the Item" className="border-none pl-[10px] p-y-[40px] text-[12pt] mb-[3px] mt-[10px] rounded-[10px] bg-[rgba(255, 255, 255, 0.6)] h-[40px] w-[320px] hover:bg-[rgb(255,255,255)]" id="name" />
-                                                <input type="text" name="discPrice" htmlFor="discPrice"
+                                                <input type="number" name="discPrice" htmlFor="discPrice"
                                                     onChange={(e) => setDiscPrice(e.target.value)} placeholder="Discount price of the Item" className="border-none pl-[10px] p-y-[40px] text-[12pt] mb-[3px] mt-[10px] rounded-[10px] bg-[rgba(255, 255, 255, 0.6)] h-[40px] w-[320px] hover:bg-[rgb(255,255,255)]" id="name" />
 
                                                 <div className="mb-3 w-50 flex mt-[10px]">
