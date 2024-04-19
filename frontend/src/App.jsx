@@ -95,15 +95,6 @@ const App = () => {
     }
   };
 
-  // for cart
-  //   const fetchCart = () => {
-  //     fetch("http://localhost:5000/list")
-  //         .then((res) => res.json())
-  //         .then((data) => {
-  //             setCart(data);
-  //             console.log(cart)
-  //         });
-  // };
   const fetchCart = async () => {
     try {
       const response = await axios.get("/api/lists");
@@ -116,9 +107,6 @@ const App = () => {
   console.log(cart)
 
   // for admin panel
-
-
-
 
   return (
     <Routes>
