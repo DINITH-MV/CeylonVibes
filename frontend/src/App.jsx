@@ -22,6 +22,7 @@ import Search from "./pages/Admin Dashboard 2/Organic Items/Search.jsx";
 import AddProduct from "./pages/Admin Dashboard 2/Organic Items/AddProduct.jsx";
 import ListProducts from "./pages/Admin Dashboard 2/Organic Items/OrganicItems.jsx";
 import OrganicItems from "./pages/Admin Dashboard 2/Organic Items/OrganicItems.jsx";
+import Home from "./pages/Home.jsx";
 
 const App = () => {
   console.disableYellowBox = true;
@@ -119,6 +120,7 @@ const App = () => {
       <Route path="/sign-in" element={<SignInPage />} />
       <Route path="/sign-up" element={<SignedOut />} />
       <Route path="/profile" element={<UserProfilePage />} />
+      <Route path="/Home" element={<Home catagories={catagories} fetchCatagories={fetchCatagories} offers={offers} fetchOffers={fetchOffers} />} />
 
       for admin panel
 
