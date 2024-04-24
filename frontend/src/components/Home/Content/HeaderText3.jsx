@@ -1,20 +1,20 @@
 import React from 'react';
-import tourism2 from '../../../images/Organic Items/food6.jpg'
+import tourism2 from '../../../images/Organic Items/food61.jpg'
 
 
 const HeaderText3 = () => {
     return (
-        <div className='mb-[400px]'>
-            <div className="font-CantoraOne ml-[13.5%] mt-[30pt] text-7xl absolute text-[#ffffff] z-21 ">
+        <div className='mb-[420px]'>
+            <div className="font-CantoraOne ml-[13.5%] mt-[20pt] text-7xl absolute text-[#ffffff] z-21 ">
                 <div className='absolute w-[900px] left-[1%] top-[-30px] '>
-                    <img src={tourism2} className='h-[380px] rounded-[17px] border-[7px] border-[#dcdcdc]' alt="" />
+                    <img src={tourism2} className='h-[440px] rounded-[17px] border-[7px] border-[#b69e81]' alt="" />
                 </div>
-                <div className='ml-[104%] text-[#7b7b7b] text-right w-[520px]'>
-                    <div className='mt-[-40px]' />Explore, Connect<div className='mb-[13px]' /> Adventure <div className='mb-[13px]' />Memories 
-                    <div className="font-Abel text-2xl mt-[20px]">
-                    Highlighting the exploration of new places, connecting with different cultures or environments
-                    </div>
-                    <button className='text-[18px] text-[#fff] font-Coda bg-[#000] p-[10px] rounded-[12px] mt-[-40px]'>View page</button>
+                <div className='ml-[104%] text-[#8c9861] text-right w-[520px] mt-[-10px]'>
+                Embark on <div className='mb-[10px]'/>the path <div className='mb-[10px]'/>to wellness
+                    <div className="font-Abel text-2xl mt-[30px] mb-[10px]">
+                        Eat Clean, Live Green, and Feel Amazing
+                    </div>   
+                    <button className='text-[18px] text-[#fff] font-Coda bg-[#000] p-[10px] rounded-[12px] '>View page</button>
                 </div>
             </div>
 

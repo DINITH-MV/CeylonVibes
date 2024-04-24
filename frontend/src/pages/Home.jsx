@@ -19,6 +19,9 @@ import { useUser } from '@clerk/clerk-react';
 import HeaderText1 from "@/components/Home/Content/HeaderText1.jsx";
 import HeaderText2 from "@/components/Home/Content/HeaderText2.jsx";
 import HeaderText3 from "@/components/Home/Content/HeaderText3.jsx";
+import HeaderText4 from "@/components/Home/Content/HeaderText4.jsx";
+import GradientOpen3 from "@/components/Home/Content/GradientOpen3.jsx";
+import HeaderText5 from "@/components/Home/Content/HeaderText5.jsx";
 
 
 const Home = ({ catagories, fetchCatagories, offers, fetchOffers }) => {
@@ -48,9 +51,11 @@ const Home = ({ catagories, fetchCatagories, offers, fetchOffers }) => {
           <GradientOpen2 />
           <HeaderText3 />
           <GradientClose2 />
-          <div className="bg-[#ffb372] h-[755px] w-[100%] mb-0 relative">
-            <CarouselAnimation offers={offers} fetchOffers={fetchOffers} />
+          <div className="bg-[#ffb372] h-[455px] w-[100%] mb-0 relative"> 
+          <HeaderText4 />
           </div>
+          <GradientOpen3/>
+          <HeaderText5 />
         </div>
         <Footer />
       </motion.div>
