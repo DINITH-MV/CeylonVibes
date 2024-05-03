@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Spinner from '../Spinner';
 import { Link } from 'react-router-dom';
 
 const ServiceConfirm = () => {
@@ -78,13 +77,13 @@ const ServiceConfirm = () => {
         <>
           {showConfirmation && (
             <div className="fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 flex justify-center items-center">
-            <div className="bg-[#F3F4F6] p-10 rounded shadow-md">
+              <div className="bg-[#F3F4F6] p-10 rounded shadow-md">
                 <p className='text-lg font-semibold mb-4'>Are you sure you want to delete this appointment?</p>
                 <div className='flex justify-between'>
-                <Link to="/s">
-                  <button className='bg-[#DC2626] hover:bg-[#B91C1C] text-white font-bold py-2 px-4 mr-2 rounded' onClick={confirmDelete}>
-                    Yes, Delete
-                  </button>
+                  <Link to="/s">
+                    <button className='bg-[#DC2626] hover:bg-[#B91C1C] text-white font-bold py-2 px-4 mr-2 rounded' onClick={confirmDelete}>
+                      Yes, Delete
+                    </button>
                   </Link>
                   <button className='bg-[#9CA3AF] hover:bg-[#6B7280] text-black font-bold py-2 px-4 rounded' onClick={() => setShowConfirmation(false)}>
                     Cancel
@@ -94,7 +93,7 @@ const ServiceConfirm = () => {
             </div>
           )}
 
-         
+
 
           <table className='w-full border-separate border-spacing-2'>
             <thead>

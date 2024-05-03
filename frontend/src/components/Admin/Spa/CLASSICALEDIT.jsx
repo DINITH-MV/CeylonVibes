@@ -26,8 +26,8 @@ const CLASSICALEDIT = () => {
   return (
     <div className='p-4'>
       <div className='flex justify-between items-center'>
-        <h1 className='text-4xl text-black my-4 mb-8 mt-10 font-mono antialiased font-medium'>Classical SPA Rituals</h1>
-        <Link to='/classicalSpaRituals/createclassical'>
+        <h1 className='text-4xl text-black my-4 mb-8 font-mono antialiased font-medium'>Classical SPA Rituals</h1>
+        <Link to='/admin/classicalSpaRituals/createclassical'>
         <button className = 'p-3 bg-[#2563EB] hover:bg-[#1E3A8A] text-white font-bold py-2 px-4 rounded transition duration-200 '> Add a service </button>
         </Link>
       </div>

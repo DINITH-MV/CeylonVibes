@@ -30,6 +30,8 @@ import EditMenu from "./components/Admin/Spa/editMenu.jsx";
 import ShowMenu from "./components/Admin/Spa/showMenu.jsx";
 import EditClassical from "./components/Admin/Spa/editClassical.jsx";
 import ShowClassical from "./components/Admin/Spa/showClassical.jsx";
+import CreateMenu from "./components/Admin/Spa/createMenu.jsx";
+import CreateClassical from "./components/Admin/Spa/createeClassical.jsx";
 
 const App = () => {
   console.disableYellowBox = true;
@@ -144,6 +146,9 @@ const App = () => {
         <Route path="spa" element={<SpaCategory />} />
         <Route path="spa-menu-edit-service" element={<MenuEditPage />} />
         <Route path="classical-spa-rituals-edit-service" element={<ClassicalEditPage />} />
+
+        <Route path="ayurvedicSpaMenu/createMenu" element={<CreateMenu />} />
+        <Route path="classicalSpaRituals/createclassical" element={<CreateClassical/>} />
 
         <Route path="ayurvedicSpaMenu/edit/:id" element={<EditMenu/>}/>
         <Route path="classicalSpaRituals/edit/:id" element={<EditClassical/>}/>
