@@ -1,5 +1,5 @@
 import React from 'react';
-import events from '../../../images/event.jpg'
+import events from '../../../images/Home/event.jpg'
 
 
 const HeaderText5 = () => {

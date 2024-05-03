@@ -1,9 +1,9 @@
-import { SearchBar } from "../../components/Header/SearchBar"
+import { SearchBar } from "../Header/SearchBar"
 import {
   CardHeader,
   Typography,
 } from "@material-tailwind/react";
-import Logo from "../../components/Header/logo"
+import Logo from "../Header/logo"
 import { useState } from "react";
 import { Link, useLocation, Outlet } from "react-router-dom";
 
@@ -37,6 +37,11 @@ export default function AdminDashboard() {
               onClick={() => handleButtonClick("list")}
               className={location.pathname === "/products/OrganicItems" ? "active" : "inactive"}
             >Organic Items</Link></div>
+            <div className="mx-auto mt-[10px] py-[11px] pl-[20px] w-[240px] rounded-[8px] bg-[#ffffff] text-[#414141] text-[14pt] hover:bg-[#dedede]"><i class="fa-duotone fa-leaf text-[17pt] mr-[15px]" style={{ "--fa-primary-color": "#d3bf05", "--fa-secondary-color": "#d3bf05", }} /><Link
+              to="/products/OrganicItems"
+              onClick={() => handleButtonClick("spa")}
+              className={location.pathname === "/products/OrganicItems" ? "active" : "inactive"}
+            >SPA</Link></div>
             <div className="mx-auto mt-[5px] py-[11px] pl-[20px] w-[240px] rounded-[8px] bg-[#ffffff] text-[#414141] text-[14pt] hover:bg-[#dedede]"><i class="fa-duotone fa-envelope mr-[18px] ml-[-1px] pt-[5px] text-[17pt]" style={{ "--fa-primary-color": "#d3bf05", "--fa-secondary-color": "#d3bf05", }} />Notifications</div>
             <div className="mx-auto mt-[5px] py-[11px] pl-[20px] w-[240px] rounded-[8px] bg-[#ffffff] text-[#414141] text-[14pt] hover:bg-[#dedede]"><i class="fa-duotone fa-gear mr-[18px] ml-[4px]" style={{ "--fa-primary-color": "#d3bf05", "--fa-secondary-color": "#d3bf05", }} />Settings</div>
             <Outlet />

@@ -1,6 +1,6 @@
-import { SearchBar } from "../../components/Header/SearchBar"
+import { SearchBar } from "../Header/SearchBar"
 
-import Logo from "../../components/Header/logo"
+import Logo from "../Header/logo"
 import { useState } from "react";
 import { Link, useLocation, Outlet } from "react-router-dom";
 
@@ -37,10 +37,19 @@ export default function Admin() {
                             <Link
                                 to="/admin/OrganicItems"
                                 onClick={() => handleButtonClick("list")}
-                                className={location.pathname === "/admin/OrganicItems"|| location.pathname === "/admin/ItemsCatagory/Nuts%20&%20Seeds" || location.pathname === "/admin/ItemsCatagory/Snacks" || location.pathname === "/admin/AddCatagory" || location.pathname === "/admin/AddItemsCatagory"? "mt-[5px] py-[13px] pl-[20px] pr-[67px] w-[240px] rounded-[8px] bg-[#333333] text-[#ffffff] text-[14pt] hover:bg-[#000]" : "mt-[5px] py-[13px] pl-[20px] pr-[67px] w-[240px] rounded-[8px] bg-[#ffffff] text-[#414141] text-[14pt] hover:bg-[#dedede]"} >
-                                <i class={location.pathname === "/admin/OrganicItems"|| location.pathname === "/admin/ItemsCatagory/Nuts%20&%20Seeds" || location.pathname === "/admin/ItemsCatagory/Snacks" || location.pathname === "/admin/addCatagory" || location.pathname === "/admin/AddCatagory" || location.pathname === "/admin/AddItemsCatagory" ? "fa-duotone fa-leaf text-[17pt] mr-[15px]" : "fa-duotone fa-leaf text-[17pt] mr-[15px] text-[#d3bf05]"} />Organic Items
+                                className={location.pathname === "/admin/OrganicItems" || location.pathname === "/admin/ItemsCatagory/Nuts%20&%20Seeds" || location.pathname === "/admin/ItemsCatagory/Snacks" || location.pathname === "/admin/AddCatagory" || location.pathname === "/admin/AddItemsCatagory" ? "mt-[5px] py-[13px] pl-[20px] pr-[67px] w-[240px] rounded-[8px] bg-[#333333] text-[#ffffff] text-[14pt] hover:bg-[#000]" : "mt-[5px] py-[13px] pl-[20px] pr-[67px] w-[240px] rounded-[8px] bg-[#ffffff] text-[#414141] text-[14pt] hover:bg-[#dedede]"} >
+                                <i class={location.pathname === "/admin/OrganicItems" || location.pathname === "/admin/ItemsCatagory/Nuts%20&%20Seeds" || location.pathname === "/admin/ItemsCatagory/Snacks" || location.pathname === "/admin/addCatagory" || location.pathname === "/admin/AddCatagory" || location.pathname === "/admin/AddItemsCatagory" ? "fa-duotone fa-leaf text-[17pt] mr-[15px]" : "fa-duotone fa-leaf text-[17pt] mr-[15px] text-[#d3bf05]"} />Organic Items
                             </Link>
-                        </div>                  
+                        </div>
+
+                        <div className="ml-0 mr-0 mt-[5px] py-[13px] pl-[10px] w-[265px] rounded-[8px] text-[14pt] ">
+                            <Link
+                                to="/admin/SPA"
+                                onClick={() => handleButtonClick("spa")}
+                                className={location.pathname === "/admin/SPA" || location.pathname === "/admin/ItemsCatagory/Nuts%20&%20Seeds" || location.pathname === "/admin/ItemsCatagory/Snacks" || location.pathname === "/admin/AddCatagory" || location.pathname === "/admin/AddItemsCatagory" ? "mt-[5px] py-[13px] pl-[20px] pr-[67px] w-[240px] rounded-[8px] bg-[#333333] text-[#ffffff] text-[14pt] hover:bg-[#000]" : "mt-[5px] py-[13px] pl-[20px] pr-[67px] w-[240px] rounded-[8px] bg-[#ffffff] text-[#414141] text-[14pt] hover:bg-[#dedede]"} >
+                                <i class={location.pathname === "/admin/SPA" || location.pathname === "/admin/ItemsCatagory/Nuts%20&%20Seeds" || location.pathname === "/admin/ItemsCatagory/Snacks" || location.pathname === "/admin/addCatagory" || location.pathname === "/admin/AddCatagory" || location.pathname === "/admin/AddItemsCatagory" ? "fa-duotone fa-leaf text-[17pt] mr-[15px]" : "fa-duotone fa-leaf text-[17pt] mr-[15px] text-[#d3bf05]"} />SPA
+                            </Link>
+                        </div>
 
                         <div className="mx-auto mt-[5px] py-[11px] pl-[20px] w-[240px] rounded-[8px] bg-[#ffffff] text-[#414141] text-[14pt] hover:bg-[#dedede]"><i class="fa-duotone fa-envelope mr-[18px] ml-[-1px] pt-[5px] text-[17pt]" style={{ "--fa-primary-color": "#d3bf05", "--fa-secondary-color": "#d3bf05", }} />Notifications</div>
 
@@ -57,7 +66,7 @@ export default function Admin() {
                         </div>
                         <div className="pt-[20px] pl-[380px]"><SearchBar /></div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>

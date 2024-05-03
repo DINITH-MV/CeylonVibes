@@ -16,13 +16,13 @@ import AddCatagory from "./pages/Admin Dashboard/Organic Items/AddCatagory.jsx";
 import ItemsCatagory from "./pages/Admin Dashboard/Organic Items/ItemsCatagory.jsx";
 import AddItemsCatagory from "./pages/Admin Dashboard/Organic Items/AddItemsCatagory.jsx";
 import UpdateItemsCatagory from "./pages/Admin Dashboard/Organic Items/UpdateItemsCatagory.jsx";
-import Admin from "./pages/Admin Dashboard/Admin.jsx";
-import Products from "./components/products/Products.jsx";
+import Admin from "./components/Admin/Admin.jsx";
 import Search from "./pages/Admin Dashboard/Organic Items/Search.jsx";
 import AddProduct from "./pages/Admin Dashboard/Organic Items/AddProduct.jsx";
 import ListProducts from "./pages/Admin Dashboard/Organic Items/OrganicItems.jsx";
 import OrganicItems from "./pages/Admin Dashboard/Organic Items/OrganicItems.jsx";
 import Home from "./pages/Home.jsx";
+import SpaCategory from "./pages/Admin Dashboard/SPA/SpaCategory.jsx";
 
 const App = () => {
   console.disableYellowBox = true;
@@ -124,6 +124,7 @@ const App = () => {
 
       for admin panel
 
+      {/* For Products */}
       <Route path="admin" element={<Admin />} >
         <Route path="search" element={<Search />} />
         <Route path="OrganicItems" element={<OrganicItems />} />
@@ -132,11 +133,25 @@ const App = () => {
         <Route path="AddItemsCatagory/:id" element={<AddItemsCatagory fetchItemsCatagory={fetchItemsCatagory} />} />
         <Route path="updateCatagory/:id" element={<UpdateCatagory />} />
         <Route path="updateItemsCatagory/:id" element={<UpdateItemsCatagory />} />
-      </Route>
 
-      <Route path="products" element={<Products />}>
-        <Route path="add" element={<AddProduct />} />
+        <Route path="SPA" element={<SpaCategory/>} />
       </Route>
+ 
+
+      {/* For Spa */}
+      {/* <Route path="/spaadmin" element={<SPAADMINHOMEPAGE />} /> */}
+      {/* <Route path="/spa-menu-edit-service" element={<MenuEditPage />} /> */}
+      {/* <Route path="/classical-spa-rituals-edit-service" element={<ClassicalEditPage />} /> */}
+      {/* <Route path="/generate-report" element={<SPAREPORTGENERATIONPAGE />} />
+      <Route path="/ayurvedicSpaMenu/createMenu" element={<CreateMenu />} />
+      <Route path="/ayurvedicSpaMenu/details/:id" element={<ShowMenu/>}/>
+      <Route path="/ayurvedicSpaMenu/edit/:id" element={<EditMenu/>}/>
+      <Route path="/ayurvedicSpaMenu/delete/:id" element={<DeleteMenu/>}/>
+      <Route path="/classicalSpaRituals/createclassical" element={<CreateClassical/>} />
+      <Route path="/classicalSpaRituals/details/:id" element={<ShowClassical/>}/>
+      <Route path="/classicalSpaRituals/edit/:id" element={<EditClassical/>}/>
+      <Route path="/classicalSpaRituals/delete/:id" element={<DeleteClassical/>}/>
+      <Route path="/spa-admin-appointment" element={<AdminAppointment/>}/> */}
     </Routes>
   );
 };

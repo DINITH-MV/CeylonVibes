@@ -1,5 +1,5 @@
 import React from 'react';
-import tourism2 from '../../../images/tourism4.jpg'
+import tourism2 from '../../../images/Home/tourism4.jpg'
 
 
 const HeaderText1 = () => {

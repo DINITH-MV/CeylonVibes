@@ -1,5 +1,5 @@
 import React from 'react';
-import article from '../../../images/articles.webp'
+import article from '../../../images/Home/articles.webp'
 
 
 const HeaderText4 = () => {
