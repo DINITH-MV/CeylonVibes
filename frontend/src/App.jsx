@@ -32,6 +32,9 @@ import EditClassical from "./components/Admin/Spa/editClassical.jsx";
 import ShowClassical from "./components/Admin/Spa/showClassical.jsx";
 import CreateMenu from "./components/Admin/Spa/createMenu.jsx";
 import CreateClassical from "./components/Admin/Spa/createeClassical.jsx";
+import DeleteMenu from "./components/Admin/Spa/deleteMenu.jsx";
+import DeleteClassical from "./components/Admin/Spa/deleteClassical.jsx";
+import SPAREPORTGENERATIONPAGE from "./pages/Admin Dashboard/SPA/SpaReportGeneration.jsx";
 
 const App = () => {
   console.disableYellowBox = true;
@@ -155,6 +158,11 @@ const App = () => {
 
         <Route path="ayurvedicSpaMenu/details/:id" element={<ShowMenu/>}/>
         <Route path="classicalSpaRituals/details/:id" element={<ShowClassical/>}/>
+
+        <Route path="ayurvedicSpaMenu/delete/:id" element={<DeleteMenu/>}/>
+        <Route path="classicalSpaRituals/delete/:id" element={<DeleteClassical/>}/>
+
+        <Route path="generate-report" element={<SPAREPORTGENERATIONPAGE />} />
 
         <Route path="spa-admin-appointment" element={<AdminAppointment />} />
 

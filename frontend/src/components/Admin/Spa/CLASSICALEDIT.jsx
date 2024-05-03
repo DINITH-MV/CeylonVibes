@@ -59,7 +59,7 @@ const CLASSICALEDIT = () => {
                     <Link to={`/admin/classicalSpaRituals/edit/${item._id}`}>
                     <button className = 'p-3 bg-[#F59E0B] hover:bg-[#D97706] text-white font-bold py-2 px-4 rounded transition duration-200 '> Edit </button>
                     </Link>
-                    <Link to={`/classicalSpaRituals/delete/${item._id}`}>
+                    <Link to={`/admin/classicalSpaRituals/delete/${item._id}`}>
                     <button className = 'p-3 bg-[#DC2626] hover:bg-[#B91C1C] text-black font-bold py-2 px-4 rounded transition duration-200 '> Delete </button>
                     </Link>
                   </div>

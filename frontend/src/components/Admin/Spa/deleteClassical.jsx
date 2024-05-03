@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import {
+    CardHeader,
+    Typography,
+    Card
+} from "@material-tailwind/react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-
-
 
 const DeleteClassical = () => {
     const [loading, setLoading] = useState(false);
@@ -15,7 +18,7 @@ const DeleteClassical = () => {
             .delete(`http://localhost:5555/classicalSPA/${id}`)
             .then(() => {
                 setLoading(false);
-                navigate('/classical-spa-rituals-edit-service');
+                navigate('/admin/classical-spa-rituals-edit-service');
             })
             .catch((error) => {
                 setLoading(false);
@@ -26,6 +29,14 @@ const DeleteClassical = () => {
 
 
     return (
+        <div className="absolute ml-[320px] top-[110px] w-[1120px]">
+
+            <Card className='mt-[50px]'>
+                <CardHeader variant="gradient" color="gray" className="mb-8 p-6">
+                    <Typography variant="h6" color="white">
+                        UPDATE THE EXISTING CATAGORIES
+                    </Typography>
+                </CardHeader>
         <div className='p-4'>
             <h1 className='text-3xl text-black my-4 mb-8 mt-10 font-mono antialiased font-medium'> Delete a 'Classical SPA Ritual' Service</h1>
 
@@ -36,6 +47,8 @@ const DeleteClassical = () => {
                     Yes, Delete it !
                 </button>
             </div>
+        </div>
+        </Card>
         </div>
     )
 }

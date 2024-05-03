@@ -27,7 +27,7 @@ const CreateMenu = () => {
         axios
             .post('http://localhost:5555/ayurvedicSPA', data)
             .then(() => {
-                navigate('/spa-menu-edit-service');
+                navigate('/admin/spa-menu-edit-service');
             })
             .catch((error) => {
                 alert('An error happened. PLease check console');

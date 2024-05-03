@@ -18,15 +18,10 @@ function SpaAdminHP() {
           <div className="ayurvedic-spa bg-white p-6 rounded-lg shadow-md mb-8">
             <img src={Spamenu} alt="Ayurvedic-spa-menu" className="w-full h-64 object-cover mb-4" />
             <h4 className="text-3xl font-mono antialiased text-gray-800 mb-2 font-weight-700">AYURVEDIC SPA MENU</h4>
-            <div className="button-container flex justify-between">
-              <Link to="/ayurvedic-spa-menu">
-                <button className="bg-[#059669] hover:bg-[#065F46] text-white font-bold py-2 px-4 rounded transition duration-200">
-                  View for More
-                </button>
-              </Link>
+            <div className="button-container flex justify-center">             
               <Link to="/admin/spa-menu-edit-service">
                 <button className="bg-[#059669] hover:bg-[#065F46] text-white font-bold py-2 px-4 rounded transition duration-200">
-                  Edit Services
+                  Show Services
                 </button>
               </Link>
             </div>
@@ -37,12 +32,7 @@ function SpaAdminHP() {
           <div className="classical-spa-rituals bg-white p-6 rounded-lg shadow-md mb-8">
             <img src={Classicalspa} alt="classical-spa-rituals" className="w-full h-64 object-cover mb-4" />
             <h4 className="text-3xl font-mono antialiased text-gray-800 mb-2">CLASSICAL SPA RITUALS</h4>
-            <div className="button-container flex justify-between">
-              <Link to="/admin/ayurvedic-spa-classical">
-                <button className="bg-[#059669] hover:bg-[#065F46] text-white font-bold py-2 px-4 rounded transition duration-200">
-                  View for More
-                </button>
-              </Link>
+            <div className="button-container flex justify-center">             
               <Link to="/admin/classical-spa-rituals-edit-service">
                 <button className="bg-[#059669] hover:bg-[#065F46] text-white font-bold py-2 px-4 rounded transition duration-200">
                   Edit Services
@@ -59,7 +49,7 @@ function SpaAdminHP() {
           </Link>
          <br/>
 
-        <Link to="/generate-report">
+        <Link to="/admin/generate-report">
           <button className="bg-[#EF4444] hover:bg-[#B91C1C] text-white font-bold py-2 px-4 rounded transition duration-200 mt-4" onClick={handleReportClick}>
             Check SPA Report
           </button>

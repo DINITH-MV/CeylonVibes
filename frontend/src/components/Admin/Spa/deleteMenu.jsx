@@ -1,4 +1,9 @@
 import React, { useState } from "react";
+import {
+    CardHeader,
+    Typography,
+    Card
+} from "@material-tailwind/react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -15,7 +20,7 @@ const DeleteMenu = () => {
             .delete(`http://localhost:5555/ayurvedicSPA/${id}`)
             .then(() => {
                 setLoading(false);
-                navigate('/spa-menu-edit-service');
+                navigate('/admin/spa-menu-edit-service');
             })
             .catch((error) => {
                 setLoading(false);
@@ -26,6 +31,14 @@ const DeleteMenu = () => {
 
 
     return (
+        <div className="absolute ml-[320px] top-[110px] w-[1120px]">
+
+            <Card className='mt-[50px]'>
+                <CardHeader variant="gradient" color="gray" className="mb-8 p-6">
+                    <Typography variant="h6" color="white">
+                        UPDATE THE EXISTING CATAGORIES
+                    </Typography>
+                </CardHeader>
         <div className='p-4'>
             <h1 className='text-3xl text-black my-4 mb-8 mt-10 font-mono antialiased font-medium'> Delete a 'Ayurvedic SPA Menu' Service</h1>
 
@@ -36,6 +49,8 @@ const DeleteMenu = () => {
                     Yes, Delete it !
                 </button>
             </div>
+        </div>
+        </Card>
         </div>
     )
 }
