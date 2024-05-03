@@ -11,17 +11,17 @@ import "./App.css"
 import { SignedIn, SignedOut, SignInButton, UserButton, UserProfile, ClerkProvider } from "@clerk/clerk-react";
 import SignInPage from "./components/Header/sign-in.jsx";
 import UserProfilePage from "./components/Header/user-profile.jsx";
-import UpdateCatagory from "./pages/Admin Dashboard 2/Organic Items/UpdateCatagory.jsx";
-import AddCatagory from "./pages/Admin Dashboard 2/Organic Items/AddCatagory.jsx";
-import ItemsCatagory from "./pages/Admin Dashboard 2/Organic Items/ItemsCatagory.jsx";
-import AddItemsCatagory from "./pages/Admin Dashboard 2/Organic Items/AddItemsCatagory.jsx";
-import UpdateItemsCatagory from "./pages/Admin Dashboard 2/Organic Items/UpdateItemsCatagory.jsx";
-import Admin from "./pages/Admin Dashboard 2/Admin.jsx";
+import UpdateCatagory from "./pages/Admin Dashboard/Organic Items/UpdateCatagory.jsx";
+import AddCatagory from "./pages/Admin Dashboard/Organic Items/AddCatagory.jsx";
+import ItemsCatagory from "./pages/Admin Dashboard/Organic Items/ItemsCatagory.jsx";
+import AddItemsCatagory from "./pages/Admin Dashboard/Organic Items/AddItemsCatagory.jsx";
+import UpdateItemsCatagory from "./pages/Admin Dashboard/Organic Items/UpdateItemsCatagory.jsx";
+import Admin from "./pages/Admin Dashboard/Admin.jsx";
 import Products from "./components/products/Products.jsx";
-import Search from "./pages/Admin Dashboard 2/Organic Items/Search.jsx";
-import AddProduct from "./pages/Admin Dashboard 2/Organic Items/AddProduct.jsx";
-import ListProducts from "./pages/Admin Dashboard 2/Organic Items/OrganicItems.jsx";
-import OrganicItems from "./pages/Admin Dashboard 2/Organic Items/OrganicItems.jsx";
+import Search from "./pages/Admin Dashboard/Organic Items/Search.jsx";
+import AddProduct from "./pages/Admin Dashboard/Organic Items/AddProduct.jsx";
+import ListProducts from "./pages/Admin Dashboard/Organic Items/OrganicItems.jsx";
+import OrganicItems from "./pages/Admin Dashboard/Organic Items/OrganicItems.jsx";
 import Home from "./pages/Home.jsx";
 
 const App = () => {
