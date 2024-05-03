@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-import Spinner from "../Spinner";
 import { Link } from 'react-router-dom';
 import { BsInfoCircle } from "react-icons/bs";
 
@@ -17,11 +16,9 @@ const AdminApp = () => {
       .get('http://localhost:5555/appointmentSPA')
       .then((response) => {
         setAppointmentSpa(response.data.data);
-        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
-        setLoading(false);
       });
   }, [deleteSuccess]); // Refresh appointments list when deleteSuccess state changes
 
@@ -53,9 +50,6 @@ const AdminApp = () => {
       <div className='flex justify-between items-center'>
         <h1 className='flex justify-center text-4xl text-black my-4 mb-8 mt-10 font-mono antialiased font-medium'>SPA Appointment List</h1>
       </div>
-      {loading ? (
-        <Spinner />
-      ) : (
         <div className="flex justify-center">
           <table className='w-[1300px] border-collapse'>
             <thead>
@@ -95,8 +89,6 @@ const AdminApp = () => {
             </tbody>
           </table>
         </div>
-      )}
-
       {/* Confirmation Modal */}
       {showConfirmation && (
         <div className="fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 flex justify-center items-center">

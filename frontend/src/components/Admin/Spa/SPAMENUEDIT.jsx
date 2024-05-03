@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-import Spinner from "../Spinner";
+
 import { Link } from 'react-router-dom';
 import { AiOutlineEdit } from "react-icons/ai";
 import { BsInfoCircle } from "react-icons/bs";
@@ -16,11 +16,9 @@ const SPAEDITMENU = () => {
       .get('http://localhost:5555/ayurvedicSPA')
       .then((response) => {
         setAyurvedicSpa(response.data.data);
-        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
-        setLoading(false);
       });
   }, []);
 
@@ -32,9 +30,7 @@ const SPAEDITMENU = () => {
           <button className = 'p-3 bg-[#2563EB] hover:bg-[#1E3A8A] text-white font-bold py-2 px-4 rounded transition duration-200 '> Add a service </button>
         </Link>
       </div>
-      {loading ? (
-        <Spinner />
-      ) : (
+      
         <div className="flex justify-center">
         <table className='w-[1300px] border-collapse'>
           <thead>
@@ -75,7 +71,6 @@ const SPAEDITMENU = () => {
         </table>
       </div>
       
-      )}
     </div>
   );
 };

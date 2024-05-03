@@ -44,10 +44,10 @@ export default function Admin() {
 
                         <div className="ml-0 mr-0 mt-[5px] py-[13px] pl-[10px] w-[265px] rounded-[8px] text-[14pt] ">
                             <Link
-                                to="/admin/SPA"
+                                to="/admin/spa"
                                 onClick={() => handleButtonClick("spa")}
-                                className={location.pathname === "/admin/SPA" || location.pathname === "/admin/ItemsCatagory/Nuts%20&%20Seeds" || location.pathname === "/admin/ItemsCatagory/Snacks" || location.pathname === "/admin/AddCatagory" || location.pathname === "/admin/AddItemsCatagory" ? "mt-[5px] py-[13px] pl-[20px] pr-[67px] w-[240px] rounded-[8px] bg-[#333333] text-[#ffffff] text-[14pt] hover:bg-[#000]" : "mt-[5px] py-[13px] pl-[20px] pr-[67px] w-[240px] rounded-[8px] bg-[#ffffff] text-[#414141] text-[14pt] hover:bg-[#dedede]"} >
-                                <i class={location.pathname === "/admin/SPA" || location.pathname === "/admin/ItemsCatagory/Nuts%20&%20Seeds" || location.pathname === "/admin/ItemsCatagory/Snacks" || location.pathname === "/admin/addCatagory" || location.pathname === "/admin/AddCatagory" || location.pathname === "/admin/AddItemsCatagory" ? "fa-duotone fa-leaf text-[17pt] mr-[15px]" : "fa-duotone fa-leaf text-[17pt] mr-[15px] text-[#d3bf05]"} />SPA
+                                className={location.pathname === "/admin/spa" || location.pathname === "/admin/ItemsCatagory/Nuts%20&%20Seeds" || location.pathname === "/admin/ItemsCatagory/Snacks" || location.pathname === "/admin/AddCatagory" || location.pathname === "/admin/AddItemsCatagory" ? "mt-[5px] py-[13px] pl-[20px] pr-[67px] w-[240px] rounded-[8px] bg-[#333333] text-[#ffffff] text-[14pt] hover:bg-[#000]" : "mt-[5px] py-[13px] pl-[20px] pr-[67px] w-[240px] rounded-[8px] bg-[#ffffff] text-[#414141] text-[14pt] hover:bg-[#dedede]"} >
+                                <i class={location.pathname === "/admin/spa" || location.pathname === "/admin/ItemsCatagory/Nuts%20&%20Seeds" || location.pathname === "/admin/ItemsCatagory/Snacks" || location.pathname === "/admin/addCatagory" || location.pathname === "/admin/AddCatagory" || location.pathname === "/admin/AddItemsCatagory" ? "fa-duotone fa-leaf text-[17pt] mr-[15px]" : "fa-duotone fa-leaf text-[17pt] mr-[15px] text-[#d3bf05]"} />SPA
                             </Link>
                         </div>
 

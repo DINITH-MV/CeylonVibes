@@ -23,6 +23,10 @@ import ListProducts from "./pages/Admin Dashboard/Organic Items/OrganicItems.jsx
 import OrganicItems from "./pages/Admin Dashboard/Organic Items/OrganicItems.jsx";
 import Home from "./pages/Home.jsx";
 import SpaCategory from "./pages/Admin Dashboard/SPA/SpaCategory.jsx";
+import MenuEditPage from "./pages/Admin Dashboard/SPA/SpaMenuEdit.jsx";
+import AdminAppointment from "./pages/Admin Dashboard/SPA/AdminAppointment.jsx";
+import ClassicalEditPage from "./pages/Admin Dashboard/SPA/ClassicalSpaEdit.jsx";
+import EditMenu from "./components/Admin/Spa/editMenu.jsx";
 
 const App = () => {
   console.disableYellowBox = true;
@@ -134,14 +138,20 @@ const App = () => {
         <Route path="updateCatagory/:id" element={<UpdateCatagory />} />
         <Route path="updateItemsCatagory/:id" element={<UpdateItemsCatagory />} />
 
-        <Route path="SPA" element={<SpaCategory/>} />
+        <Route path="spa" element={<SpaCategory />} />
+        <Route path="spa-menu-edit-service" element={<MenuEditPage />} />
+        <Route path="classical-spa-rituals-edit-service" element={<ClassicalEditPage />} />
+
+        <Route path="ayurvedicSpaMenu/edit/:id" element={<EditMenu/>}/>
+
+        <Route path="spa-admin-appointment" element={<AdminAppointment />} />
+
       </Route>
- 
+
 
       {/* For Spa */}
       {/* <Route path="/spaadmin" element={<SPAADMINHOMEPAGE />} /> */}
       {/* <Route path="/spa-menu-edit-service" element={<MenuEditPage />} /> */}
-      {/* <Route path="/classical-spa-rituals-edit-service" element={<ClassicalEditPage />} /> */}
       {/* <Route path="/generate-report" element={<SPAREPORTGENERATIONPAGE />} />
       <Route path="/ayurvedicSpaMenu/createMenu" element={<CreateMenu />} />
       <Route path="/ayurvedicSpaMenu/details/:id" element={<ShowMenu/>}/>

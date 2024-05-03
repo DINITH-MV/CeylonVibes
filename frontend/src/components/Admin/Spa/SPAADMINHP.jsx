@@ -12,7 +12,7 @@ function SpaAdminHP() {
   };
 
   return (
-    <div className="bg-[#FDE68A]">
+    <div className="bg-[#FDE68A] ml-[140px]">
       <div className="spa-menu p-12 max-w-7.5xl mx-auto text-center">
         <div className="flex justify-center spa-categories grid grid-cols-1 gap-8">
           <div className="ayurvedic-spa bg-white p-6 rounded-lg shadow-md mb-8">
@@ -24,7 +24,7 @@ function SpaAdminHP() {
                   View for More
                 </button>
               </Link>
-              <Link to="/spa-menu-edit-service">
+              <Link to="/admin/spa-menu-edit-service">
                 <button className="bg-[#059669] hover:bg-[#065F46] text-white font-bold py-2 px-4 rounded transition duration-200">
                   Edit Services
                 </button>
@@ -43,7 +43,7 @@ function SpaAdminHP() {
                   View for More
                 </button>
               </Link>
-              <Link to="/classical-spa-rituals-edit-service">
+              <Link to="/admin/classical-spa-rituals-edit-service">
                 <button className="bg-[#059669] hover:bg-[#065F46] text-white font-bold py-2 px-4 rounded transition duration-200">
                   Edit Services
                 </button>
@@ -52,7 +52,7 @@ function SpaAdminHP() {
           </div>
         </div>
         
-        <Link to ="/spa-admin-appointment">
+        <Link to ="/admin/spa-admin-appointment">
         <button className="bg-[#fbc40f] hover:bg-[#F59E0B] text-black font-bold py-2 px-4 rounded transition duration-200 mt-4" onClick={handleReportClick}>
             Check SPA Appointments 
           </button>

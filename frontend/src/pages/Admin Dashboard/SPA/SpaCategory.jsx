@@ -15,63 +15,8 @@ import SpaAdminHP from '@/components/Admin/Spa/SPAADMINHP';
 
 
 function SpaCategory() {
-  axios.defaults.baseURL = `http://localhost:5012`;
-  const [items, setItems] = useState([]);
 
-  const fetchItems = async () => {
-    try {
-      const response = await axios.get("/api/catagories");
-      setItems(response.data.data);
-    } catch (error) {
-      console.error("Error fetching users:", error);
-    }
-  };
-
-  const Navigate = useNavigate();
-
-  useEffect(() => {
-    fetchItems()
-  }, [])
-
-  const notify = () => toast.success('Successfully deleted!');
-
-  const deleteCatagory = async (id) => {
-    try {
-      const response = await axios.delete(`http://localhost:5012/catagories/${id}`);
-      fetchItems()
-      console.log(response);
-    } catch (error) {
-      if (error.response) {
-        // The request was made and the server responded with a status code
-        // that falls out of the range of 2xx
-        console.error("Error status:", error.response.status);
-        console.error("Error data:", error.response.data);
-      } else if (error.request) {
-        // The request was made but no response was received
-        console.error("No response received:", error.request);
-      } else {
-        // Something happened in setting up the request that triggered an Error
-        console.error("Error message:", error.message);
-      }
-      console.error("Error config:", error.config);
-    }
-  }
-
-  const updateCatagory = (id) => {
-    Navigate(`/admin/updateCatagory/${id}`)
-  }
-
-  const itemsCatagory = () => {
-    Navigate('/itemsCatagory')
-  }
-
-  const SnacksCatagory = () => {
-    Navigate('/itemsCatagory')
-  }
-
-  useEffect(() => {
-    fetchItems()
-  }, [])
+  var items = 0;
 
   return (
     <>
@@ -88,7 +33,7 @@ function SpaCategory() {
                     delay: 1 / 10,
                   }}>Preparing...</motion.button></button> : <button className='bg-BrownLi rounded-md p-[11px] font-CantoraOne font-bold text-[17px]'>Monthly Report</button>)}
               </PDFDownloadLink>
-              MANAGE CATAGORIES & PRODUCTS
+              MANAGE SPA
             </Typography>
           </CardHeader>
           <CardBody className="ml-[-40px] pt-0 pb-2">
