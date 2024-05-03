@@ -38,7 +38,7 @@ function SpaAdminHP() {
             <img src={Classicalspa} alt="classical-spa-rituals" className="w-full h-64 object-cover mb-4" />
             <h4 className="text-3xl font-mono antialiased text-gray-800 mb-2">CLASSICAL SPA RITUALS</h4>
             <div className="button-container flex justify-between">
-              <Link to="/ayurvedic-spa-classical">
+              <Link to="/admin/ayurvedic-spa-classical">
                 <button className="bg-[#059669] hover:bg-[#065F46] text-white font-bold py-2 px-4 rounded transition duration-200">
                   View for More
                 </button>

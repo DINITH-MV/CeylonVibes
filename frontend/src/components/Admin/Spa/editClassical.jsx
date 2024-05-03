@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-import Spinner from "../Spinner";
 
 const EditClassical = () => {
      const [topic, settopic] = useState('');
@@ -12,7 +11,6 @@ const EditClassical = () => {
      const navigate = useNavigate();
      const {id} = useParams();
      useEffect(() => {
-        setLoading(true);
         axios
           .get(`http://localhost:5555/classicalSPA/${id}`)
           .then((response) => {
@@ -20,16 +18,11 @@ const EditClassical = () => {
             setdescription(response.data.description);
             setTime(response.data.Time);
             setPrice(response.data.Price);
-            setLoading(false); 
-
           })
           .catch((error) => {
-            setLoading(false);
             alert('An error occurred. Please check console')
-            console.log(error);
           });
       }, []);
-
 
      const handleEditClassical = () => {
      const data = {
@@ -42,11 +35,9 @@ const EditClassical = () => {
     axios
       .put(`http://localhost:5555/classicalSPA/${id}`, data)
       .then(() => {
-        setLoading(false);
         navigate('/classical-spa-rituals-edit-service');
       })
       .catch((error) => {
-        setLoading(false);
         alert ('An error happened. PLease check console');
         console.log(error);
       });

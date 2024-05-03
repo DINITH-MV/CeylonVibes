@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-import Spinner from "../Spinner";
 
 const EditMenu = () => {
      const [topic, settopic] = useState('');
@@ -20,11 +19,9 @@ const EditMenu = () => {
             setdescription(response.data.description);
             setTime(response.data.Time);
             setPrice(response.data.Price);
-            setLoading(false); 
 
           })
           .catch((error) => {
-            setLoading(false);
             alert('An error occurred. Please check console')
             console.log(error);
           });
@@ -56,7 +53,7 @@ const EditMenu = () => {
     return (
         <div className = 'p-4'>
             <h1 className='text-3xl text-black my-4 mb-8 mt-10 font-mono antialiased font-medium'> Edit a 'Ayurvedic SPA Menu' Service</h1>
-        {loading ? <Spinner/> : ''}
+       
         <div className = 'flex flex-col border-2 border-[#059669] rounded-xl w-[700px] p-4 mx-auto'>
         <div className= 'my-4'>
             <label className = 'text-xl mr-4 text-[#374151]'> Topic </label>

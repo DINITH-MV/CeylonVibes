@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import Spinner from "../Spinner";
 
 const ShowMenu = () => {
   const [ayurvedicSPA, setAyurvedicSpa] = useState([]);
@@ -14,20 +13,15 @@ const ShowMenu = () => {
       .get(`http://localhost:5555/ayurvedicSPA/${id}`)
       .then((response) => {
         setAyurvedicSpa(response.data);
-        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
-        setLoading(false);
       });
   }, []);
 
     return (
         <div className='p-4'>
         <h1 className='text-3xl text-black my-4 mb-8 mt-10 font-mono antialiased font-medium'> Show Ayurvedic SPA Menu Service</h1>
-        {loading ? (
-            <Spinner/>
-        ) : (
             <div className ='flex flex-col border-2 border-[#059669] rounded-xl w-fit p-4'>
             <div className='my-4'>
                 <span className = 'text-xl mr-4 text-[#059669]'>ID</span>
@@ -50,7 +44,6 @@ const ShowMenu = () => {
                 <span>{ayurvedicSPA.Price}</span>
             </div>
             </div>
-        )}
         </div>
     )
 }

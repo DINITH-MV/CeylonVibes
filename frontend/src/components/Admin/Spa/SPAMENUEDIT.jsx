@@ -53,10 +53,10 @@ const SPAEDITMENU = () => {
                 <td className='border border-gray-400 px-4 py-2 max-md:hidden'>{item.Price}</td>
                 <td className='border border-gray-400 px-4 py-2 text-center'>
                   <div className='flex justify-center gap-x-4'>
-                    <Link to={`/ayurvedicSpaMenu/details/${item._id}`}>
+                    <Link to={`/admin/ayurvedicSpaMenu/details/${item._id}`}>
                       <BsInfoCircle className='text-2xl text-[#065F46]' />
                     </Link>
-                    <Link to={`/ayurvedicSpaMenu/edit/${item._id}`}>
+                    <Link to={`/admin/ayurvedicSpaMenu/edit/${item._id}`}>
                       <button className = 'p-3 bg-[#F59E0B] hover:bg-[#D97706] text-white font-bold py-2 px-4 rounded transition duration-200 '> Edit </button>
 
                     </Link>

@@ -27,6 +27,9 @@ import MenuEditPage from "./pages/Admin Dashboard/SPA/SpaMenuEdit.jsx";
 import AdminAppointment from "./pages/Admin Dashboard/SPA/AdminAppointment.jsx";
 import ClassicalEditPage from "./pages/Admin Dashboard/SPA/ClassicalSpaEdit.jsx";
 import EditMenu from "./components/Admin/Spa/editMenu.jsx";
+import ShowMenu from "./components/Admin/Spa/showMenu.jsx";
+import EditClassical from "./components/Admin/Spa/editClassical.jsx";
+import ShowClassical from "./components/Admin/Spa/showClassical.jsx";
 
 const App = () => {
   console.disableYellowBox = true;
@@ -143,6 +146,10 @@ const App = () => {
         <Route path="classical-spa-rituals-edit-service" element={<ClassicalEditPage />} />
 
         <Route path="ayurvedicSpaMenu/edit/:id" element={<EditMenu/>}/>
+        <Route path="classicalSpaRituals/edit/:id" element={<EditClassical/>}/>
+
+        <Route path="ayurvedicSpaMenu/details/:id" element={<ShowMenu/>}/>
+        <Route path="classicalSpaRituals/details/:id" element={<ShowClassical/>}/>
 
         <Route path="spa-admin-appointment" element={<AdminAppointment />} />
 
