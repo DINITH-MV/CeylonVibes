@@ -19,7 +19,6 @@ import UpdateItemsCatagory from "./pages/Admin Dashboard/Organic Items/UpdateIte
 import Admin from "./components/Admin/Admin.jsx";
 import Search from "./pages/Admin Dashboard/Organic Items/Search.jsx";
 import AddProduct from "./pages/Admin Dashboard/Organic Items/AddProduct.jsx";
-import ListProducts from "./pages/Admin Dashboard/Organic Items/OrganicItems.jsx";
 import OrganicItems from "./pages/Admin Dashboard/Organic Items/OrganicItems.jsx";
 import Home from "./pages/Home.jsx";
 import SpaCategory from "./pages/Admin Dashboard/SPA/SpaCategory.jsx";
