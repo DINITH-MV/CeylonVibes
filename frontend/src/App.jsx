@@ -128,6 +128,7 @@ const App = () => {
         path="/shopInside/:id"
         element={<ShopInside nuts={nuts} fetchNuts={fetchNuts} snacks={snacks} fetchSnacks={fetchSnacks} sweetners={sweetners} fetchSweetners={fetchSweetners} fetchCartItems={fetchCart} cartItems={cart} />}
       />
+      
       <Route path="/sign-in" element={<SignInPage />} />
       <Route path="/sign-up" element={<SignedOut />} />
       <Route path="/profile" element={<UserProfilePage />} />
