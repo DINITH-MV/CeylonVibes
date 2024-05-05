@@ -43,7 +43,14 @@ import AdminRentList from "./pages/Admin Dashboard/Rentals/AdminViewRents.jsx";
 import EventPage from "./pages/Admin Dashboard/Events/EventPage.jsx";
 import EventForm from "./components/Admin/Events/eventadd.jsx";
 import UpdateEventForm from "./components/Admin/Events/eventsedit.jsx";
-import BookingAdminHome from "./pages/Admin Dashboard/Tours/TourAdminHome.jsx";
+import BookingAdminHome from "./pages/Admin Dashboard/Tours/BookingAdminHome.jsx";
+import CreateTours from "./pages/Admin Dashboard/Tours/CreateTours.jsx";
+import EditTours from "./pages/Admin Dashboard/Tours/EditTours.jsx";
+import DeleteTours from "./pages/Admin Dashboard/Tours/DeleteTours.jsx";
+import ShowTours from "./pages/Admin Dashboard/Tours/ShowTours.jsx";
+import DeleteBooking from "./pages/Admin Dashboard/Tours/DeleteBookings.jsx";
+import ShowBookings from "./pages/Admin Dashboard/Tours/ShowBookings.jsx";
+import TourAdminHome from "./pages/Admin Dashboard/Tours/TourAdminHome.jsx";
 
 const App = () => {
   console.disableYellowBox = true;
@@ -160,13 +167,13 @@ const App = () => {
         <Route path="spa-menu-edit-service" element={<MenuEditPage />} />
         <Route path="classical-spa-rituals-edit-service" element={<ClassicalEditPage />} />
         <Route path="ayurvedicSpaMenu/createMenu" element={<CreateMenu />} />
-        <Route path="classicalSpaRituals/createclassical" element={<CreateClassical/>} />
-        <Route path="ayurvedicSpaMenu/edit/:id" element={<EditMenu/>}/>
-        <Route path="classicalSpaRituals/edit/:id" element={<EditClassical/>}/>
-        <Route path="ayurvedicSpaMenu/details/:id" element={<ShowMenu/>}/>
-        <Route path="classicalSpaRituals/details/:id" element={<ShowClassical/>}/>
-        <Route path="ayurvedicSpaMenu/delete/:id" element={<DeleteMenu/>}/>
-        <Route path="classicalSpaRituals/delete/:id" element={<DeleteClassical/>}/>
+        <Route path="classicalSpaRituals/createclassical" element={<CreateClassical />} />
+        <Route path="ayurvedicSpaMenu/edit/:id" element={<EditMenu />} />
+        <Route path="classicalSpaRituals/edit/:id" element={<EditClassical />} />
+        <Route path="ayurvedicSpaMenu/details/:id" element={<ShowMenu />} />
+        <Route path="classicalSpaRituals/details/:id" element={<ShowClassical />} />
+        <Route path="ayurvedicSpaMenu/delete/:id" element={<DeleteMenu />} />
+        <Route path="classicalSpaRituals/delete/:id" element={<DeleteClassical />} />
         <Route path="generate-report" element={<SPAREPORTGENERATIONPAGE />} />
 
         <Route path="articles" element={<AdminArticleList />} />
@@ -179,12 +186,18 @@ const App = () => {
         <Route path="admin-rent" element={<AdminRentList />} />
 
         <Route path="events" element={<EventPage />} />
-        <Route path="addevent" element={<EventForm />} />  
-        <Route path="editevent/:eventId" element={<UpdateEventForm/>} /> 
+        <Route path="addevent" element={<EventForm />} />
+        <Route path="editevent/:eventId" element={<UpdateEventForm />} />
 
-        <Route path="tours" element={<BookingAdminHome />} />
-        <Route path='/tours/create' element={<CreateTours />} />
-        
+        <Route path="tours" element={<TourAdminHome />} />
+        <Route path="create" element={<CreateTours />} />
+        <Route path="tedit/:id" element={<EditTours />} />
+        <Route path="tdelete/:id" element={<DeleteTours />} />
+        <Route path="tdetails/:id" element={<ShowTours />} />
+        <Route path="bookings" element={<BookingAdminHome />} />
+        <Route path="bdelete/:id" element={<DeleteBooking />} />
+        <Route path="bdetails/:id" element={<ShowBookings />} />
+
       </Route>
 
 

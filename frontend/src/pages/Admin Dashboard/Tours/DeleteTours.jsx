@@ -1,6 +1,11 @@
 import React, { useState } from 'react'
-import BackButton from '../../components/Tours/BackButton';
-
+import {
+    Card,
+    CardBody,
+    CardHeader,
+    Typography,
+  } from "@material-tailwind/react";
+import BackButton from '@/components/Admin/Tours/BackButton';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSnackbar } from 'notistack';
@@ -26,10 +31,20 @@ const DeleteTours = () => {
             })
     }
     return (
+        <div className="absolute ml-[320px] top-[110px] w-[1120px]">
+        <div className="mt-12 mb-8 flex flex-col gap-12">
+          <Card>
+            <CardHeader variant="gradient" color="gray" className="mb-8 p-8">
+              <Typography variant="h5" color="white">
+              
+                MANAGE RENTALS
+              </Typography>
+            </CardHeader>
+            <CardBody className="overflow-x-scroll px-0 pt-0 pb-2 mx-[60px]">
         <div className=''>
             <BackButton />
             <h1 className='text-3xl my-4'>Delete Tour</h1>
-            {loading ? <Spinner /> : ''}
+
             <div className='flex flex-col items-center border-2 border-sky-400 rounded-xl w-[600px] p-8 mx-auto'>
                 <h3 className='text-2xl'>Are you sure you want to delete this Tour ?</h3>
 
@@ -40,6 +55,11 @@ const DeleteTours = () => {
                 </button>
             </div>
         </div>
+        </CardBody>
+        </Card>
+
+      </div>
+    </div>
     )
 }
 

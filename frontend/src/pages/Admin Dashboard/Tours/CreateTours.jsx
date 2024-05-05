@@ -1,9 +1,13 @@
 import React, { useState } from "react";
+import {
+  Card,
+  CardBody,
+  CardHeader,
+  Typography,
+} from "@material-tailwind/react";
 import { Link } from "react-router-dom";
-import Footer from "../../components/Footer/Footer";
 import firebase from "firebase/compat/app"; // Import Firebase
 import "firebase/compat/storage"; // Import Firebase storage module
-import TourLogo from "../../components/Tours/TOURLOGO";
 
 const CreateTours = () => {
   const [formData, setFormData] = useState({
@@ -72,8 +76,18 @@ const CreateTours = () => {
   };
 
   return (
-    <div><TourLogo/>
-    <div className="w-screen h-screen bg-green-400 flex ">
+    <div className="absolute ml-[320px] top-[110px] w-[1120px]">
+    <div className="mt-12 mb-8 flex flex-col gap-12">
+      <Card className="bg-green-400 ">
+        <CardHeader variant="gradient" color="gray" className="mb-8 p-8">
+          <Typography variant="h5" color="white">
+          
+            ADD A NEW TOUR
+          </Typography>
+        </CardHeader>
+        <CardBody className="px-0 pt-0 pb-2 mx-[60px]">
+    <div>
+    <div className="flex ">
       
       <div className=" border rounded-xl h-fit shadow-lg mx-auto my-auto justify-center bg-slate-800">
         <div className="p-5">
@@ -173,9 +187,13 @@ const CreateTours = () => {
               </Link>
             </div>
           </form></center>
-          <Footer/>
         </div>
       </div>
+      </div>
+    </div>
+    </CardBody>
+        </Card>
+
       </div>
     </div>
   );

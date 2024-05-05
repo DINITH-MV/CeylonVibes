@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { Card, CardBody, CardHeader, Typography } from '@material-tailwind/react';
 import axios from 'axios';
-import BackButton from '../../components/Tours/BackButton';
- 
+import BackButton from '@/components/Admin/Tours/BackButton';
+
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSnackbar } from 'notistack';
 
@@ -42,21 +43,31 @@ const EditTours = () => {
             .put(`http://localhost:5560/tours/${id}`, data)
             .then(() => {
                 setLoading(false);
-                enqueueSnackbar('Tour edited successfully', { variant: 'success'});
+                enqueueSnackbar('Tour edited successfully', { variant: 'success' });
                 navigate('/');
             })
             .catch(error => {
                 setLoading(false);
-                enqueueSnackbar('Error editing tour', { variant: 'error'});
+                enqueueSnackbar('Error editing tour', { variant: 'error' });
                 console.error(error);
             });
     };
 
     return (
+        <div className="absolute ml-[320px] top-[110px] w-[1120px]">
+        <div className="mt-12 mb-8 flex flex-col gap-12">
+          <Card>
+            <CardHeader variant="gradient" color="gray" className="mb-8 p-8">
+              <Typography variant="h5" color="white">
+              
+                MANAGE RENTALS
+              </Typography>
+            </CardHeader>
+            <CardBody className="px-0 pt-0 pb-2 mx-[60px]">
         <div className=' bg-sky-500'>
             <BackButton />
             <h1 className='text-4xl font-Satisfy text-center font-bold mb-4 text-white'>Edit Tour</h1>
-            {loading ? <Spinner /> : ''}
+
             <div className='flex flex-col border-2 bg-blue-200 rounded-xl w-[600px] p-4 mx-auto'>
                 <div className='my-4'>
                     <label className='text-xl mr-4 text-gray-500'>Title</label>
@@ -107,6 +118,11 @@ const EditTours = () => {
                 <button className='p-2 bg-sky-500 m-8' onClick={handleEditTour}>Save</button>
             </div>
         </div>
+        </CardBody>
+        </Card>
+
+      </div>
+    </div>
     );
 };
 

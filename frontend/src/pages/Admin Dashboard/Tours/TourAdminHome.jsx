@@ -49,18 +49,19 @@ const TourAdminHome = () => {
                   delay: 1 / 10,
                 }}>Preparing...</motion.button></button> : <button className='bg-BrownLi rounded-md p-[11px] font-CantoraOne font-bold text-[17px]'>Monthly Report</button>)}
             </PDFDownloadLink>
-            MANAGE RENTALS
+            MANAGE TOURS
           </Typography>
         </CardHeader>
         <CardBody className="overflow-x-scroll px-0 pt-0 pb-2 mx-[60px]">
+        <button type='button' className='p-[4px] h-[50px] w-[960px] text-[#666666] font-bold text-[14pt] mb-[20px] ml-[20px] rounded-[7px] bg-[#cbc88f]'><Link to='/admin/bookings'>View Tour Bookings</Link></button>
     <div className=" bg-blue-100">
       <div className="flex justify-between items-center">
         <h1 className="text-[18pt] px-96 font-bold my-8 text-center">Tours List</h1>
         
-        <Link to="/admin/create">
-          <MdOutlineAddBox className="text-sky-800 text-5xl" />
-        </Link>
       </div>
+        <Link to="/admin/create">
+           <button type='button' className='p-[4px] h-[50px] w-[960px] text-[#666666] font-bold text-[14pt] mb-[20px] ml-[20px] rounded-[7px] bg-[#fbfcff]'><Link to='/admin/admin-rent'>Add a new Tour</Link></button>
+        </Link>
 
       <div className="overflow-x-auto">
         <table className="border-separate border-spacing-2 w-full">
@@ -84,13 +85,13 @@ const TourAdminHome = () => {
                     <p className='w-64 text-black '>Description: {tour.description.substring(0, 100)}</p>
                     <p className='w-64 text-black'>Views: {tour.views}</p>
                     <div className="flex justify-center gap-x-4 text-black">
-                      <Link to={`/tours/details/${tour._id}`}>
+                      <Link to={`/admin/tdetails/${tour._id}`}>
                         <BsInfoCircle className="text-2xl text-green-300" />
                       </Link>
-                      <Link to={`/tours/edit/${tour._id}`}>
+                      <Link to={`/admin/tedit/${tour._id}`}>
                         <AiOutlineEdit className="text-2xl text-yellow-600" />
                       </Link>
-                      <Link to={`/tours/delete/${tour._id}`}>
+                      <Link to={`/admin/tdelete/${tour._id}`}>
                         <MdOutlineDelete className="text-2xl text-red-600" />
                       </Link>
                     </div>
@@ -101,11 +102,7 @@ const TourAdminHome = () => {
           </tbody>
         </table>
 
-        <Link to="/bookings1">
-          <button className="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded mt-4">
-            Bookings
-          </button>
-        </Link>
+        
       </div>
     </div>
     </CardBody>

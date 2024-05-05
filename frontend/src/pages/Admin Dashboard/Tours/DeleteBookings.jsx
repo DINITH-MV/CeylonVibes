@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-import BackButton from '../../components/Tours/BackButton';
-
+import { Card, CardBody, CardHeader, Typography } from '@material-tailwind/react';
 import axios from 'axios';
-import Footer from '../../components/Footer/Footer';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSnackbar } from 'notistack';
-import TourLogo from '../../components/Tours/TOURLOGO';
+import BackButton from '@/components/Admin/Tours/BackButton';
 
 const DeleteBooking = () => {
     const [loading, setLoading] = useState(false);
@@ -30,6 +28,16 @@ const DeleteBooking = () => {
     }
 
     return (
+        <div className="absolute ml-[320px] top-[110px] w-[1120px]">
+        <div className="mt-12 mb-8 flex flex-col gap-12">
+          <Card>
+            <CardHeader variant="gradient" color="gray" className="mb-8 p-8">
+              <Typography variant="h5" color="white">
+             
+                MANAGE RENTALS
+              </Typography>
+            </CardHeader>
+            <CardBody className="overflow-x-scroll px-0 pt-0 pb-2 mx-[60px]">
         <div className=''>
             <BackButton />
             <h1 className='text-3xl my-4'>Delete Booking</h1>
@@ -43,6 +51,11 @@ const DeleteBooking = () => {
                 </button>
             </div>
         </div >
+        </CardBody>
+        </Card>
+
+      </div>
+    </div>
     );
 }
 
