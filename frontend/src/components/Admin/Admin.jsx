@@ -20,7 +20,7 @@ export default function Admin() {
 
             <div className="flex pt-[40px] ml-[20px]">
 
-                <div className="w-[310px] h-[900px] mr-[10px] border border-[#d3d3d3] rounded-[14px] bg-[#ffffff]">
+                <div className="w-[310px] h-[2000px] mr-[10px] border border-[#d3d3d3] rounded-[14px] bg-[#ffffff]">
                     <div className="mt-[30px] ml-[55px] font-Spirax absolute text-[24pt] px-[10px] border border-[#000] rounded-[11px] py-[8px]">CeylonVibes</div>
                     <div className="border py-[6px] pb-[15px] mt-[110px] mx-[20px] rounded-[11px]">
 
@@ -48,6 +48,22 @@ export default function Admin() {
                                 onClick={() => handleButtonClick("spa")}
                                 className={location.pathname === "/admin/spa" || location.pathname === "/admin/spa-admin-appointment" || location.pathname === "/admin/classical-spa-rituals-edit-service" || location.pathname === "/admin/ayurvedic-spa-classical" || location.pathname === "/admin/spa-menu-edit-service" ? "mt-[5px] py-[13px] pl-[20px] pr-[152px] w-[240px] rounded-[8px] bg-[#333333] text-[#ffffff] text-[14pt] hover:bg-[#000]" : "mt-[5px] py-[13px] pl-[20px] pr-[152px] w-[240px] rounded-[8px] bg-[#ffffff] text-[#414141] text-[14pt] hover:bg-[#dedede]"} >
                                 <i class={location.pathname === "/admin/spa" || location.pathname === "/admin/spa-admin-appointment" || location.pathname === "/admin/classical-spa-rituals-edit-service" || location.pathname === "/admin/ayurvedic-spa-classical" || location.pathname === "/admin/spa-menu-edit-service" || location.pathname === "/admin/AddItemsCatagory" ? "fa-duotone fa-leaf text-[17pt] mr-[15px]" : "fa-duotone fa-leaf text-[17pt] mr-[15px] text-[#d3bf05]"} />SPA
+                            </Link>
+                        </div>
+                        <div className="ml-0 mr-0 mt-[5px] py-[13px] pl-[10px] w-[265px] rounded-[8px] text-[14pt] ">
+                            <Link
+                                to="/admin/articles"
+                                onClick={() => handleButtonClick("articles")}
+                                className={location.pathname === "/admin/articles" || location.pathname === "/admin/spa-admin-appointment" || location.pathname === "/admin/classical-spa-rituals-edit-service" || location.pathname === "/admin/ayurvedic-spa-classical" || location.pathname === "/admin/spa-menu-edit-service" ? "mt-[5px] py-[13px] pl-[20px] pr-[122px] w-[240px] rounded-[8px] bg-[#333333] text-[#ffffff] text-[14pt] hover:bg-[#000]" : "mt-[5px] py-[13px] pl-[20px] pr-[122px] w-[240px] rounded-[8px] bg-[#ffffff] text-[#414141] text-[14pt] hover:bg-[#dedede]"} >
+                                <i class={location.pathname === "/admin/articles" || location.pathname === "/admin/spa-admin-appointment" || location.pathname === "/admin/classical-spa-rituals-edit-service" || location.pathname === "/admin/ayurvedic-spa-classical" || location.pathname === "/admin/spa-menu-edit-service" || location.pathname === "/admin/AddItemsCatagory" ? "fa-duotone fa-leaf text-[17pt] mr-[15px]" : "fa-duotone fa-leaf text-[17pt] mr-[15px] text-[#d3bf05]"} />Articles
+                            </Link>
+                        </div>
+                        <div className="ml-0 mr-0 mt-[5px] py-[13px] pl-[10px] w-[265px] rounded-[8px] text-[14pt] ">
+                            <Link
+                                to="/admin/articles"
+                                onClick={() => handleButtonClick("rentals")}
+                                className={location.pathname === "/admin/rentals" || location.pathname === "/admin/spa-admin-appointment" || location.pathname === "/admin/classical-spa-rituals-edit-service" || location.pathname === "/admin/ayurvedic-spa-classical" || location.pathname === "/admin/spa-menu-edit-service" ? "mt-[5px] py-[13px] pl-[20px] pr-[122px] w-[240px] rounded-[8px] bg-[#333333] text-[#ffffff] text-[14pt] hover:bg-[#000]" : "mt-[5px] py-[13px] pl-[20px] pr-[122px] w-[240px] rounded-[8px] bg-[#ffffff] text-[#414141] text-[14pt] hover:bg-[#dedede]"} >
+                                <i class={location.pathname === "/admin/rentals" || location.pathname === "/admin/spa-admin-appointment" || location.pathname === "/admin/classical-spa-rituals-edit-service" || location.pathname === "/admin/ayurvedic-spa-classical" || location.pathname === "/admin/spa-menu-edit-service" || location.pathname === "/admin/AddItemsCatagory" ? "fa-duotone fa-leaf text-[17pt] mr-[15px]" : "fa-duotone fa-leaf text-[17pt] mr-[15px] text-[#d3bf05]"} />Rentals
                             </Link>
                         </div>
 

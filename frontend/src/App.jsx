@@ -34,6 +34,9 @@ import CreateClassical from "./components/Admin/Spa/createeClassical.jsx";
 import DeleteMenu from "./components/Admin/Spa/deleteMenu.jsx";
 import DeleteClassical from "./components/Admin/Spa/deleteClassical.jsx";
 import SPAREPORTGENERATIONPAGE from "./pages/Admin Dashboard/SPA/SpaReportGeneration.jsx";
+import AdminArticleList from "./pages/Admin Dashboard/Articles/AdminArticleView.jsx";
+import UpdateArticleForm from "./pages/Admin Dashboard/Articles/UpdateArticle.jsx";
+import AddArticleForm from "./pages/Admin Dashboard/Articles/AddArticleForm.jsx";
 
 const App = () => {
   console.disableYellowBox = true;
@@ -128,7 +131,7 @@ const App = () => {
         path="/shopInside/:id"
         element={<ShopInside nuts={nuts} fetchNuts={fetchNuts} snacks={snacks} fetchSnacks={fetchSnacks} sweetners={sweetners} fetchSweetners={fetchSweetners} fetchCartItems={fetchCart} cartItems={cart} />}
       />
-      
+
       <Route path="/sign-in" element={<SignInPage />} />
       <Route path="/sign-up" element={<SignedOut />} />
       <Route path="/profile" element={<UserProfilePage />} />
@@ -149,23 +152,22 @@ const App = () => {
         <Route path="spa" element={<SpaCategory />} />
         <Route path="spa-menu-edit-service" element={<MenuEditPage />} />
         <Route path="classical-spa-rituals-edit-service" element={<ClassicalEditPage />} />
-
         <Route path="ayurvedicSpaMenu/createMenu" element={<CreateMenu />} />
         <Route path="classicalSpaRituals/createclassical" element={<CreateClassical/>} />
-
         <Route path="ayurvedicSpaMenu/edit/:id" element={<EditMenu/>}/>
         <Route path="classicalSpaRituals/edit/:id" element={<EditClassical/>}/>
-
         <Route path="ayurvedicSpaMenu/details/:id" element={<ShowMenu/>}/>
         <Route path="classicalSpaRituals/details/:id" element={<ShowClassical/>}/>
-
         <Route path="ayurvedicSpaMenu/delete/:id" element={<DeleteMenu/>}/>
         <Route path="classicalSpaRituals/delete/:id" element={<DeleteClassical/>}/>
-
         <Route path="generate-report" element={<SPAREPORTGENERATIONPAGE />} />
-
         <Route path="spa-admin-appointment" element={<AdminAppointment />} />
 
+        <Route path="articles" element={<AdminArticleList />} />
+        <Route path="update-article/:id" element={<UpdateArticleForm />} />
+        <Route path="add-article" element={<AddArticleForm />} />
+
+        
       </Route>
 
 
