@@ -23,7 +23,6 @@ import OrganicItems from "./pages/Admin Dashboard/Organic Items/OrganicItems.jsx
 import Home from "./pages/Home.jsx";
 import SpaCategory from "./pages/Admin Dashboard/SPA/SpaCategory.jsx";
 import MenuEditPage from "./pages/Admin Dashboard/SPA/SpaMenuEdit.jsx";
-import AdminAppointment from "./pages/Admin Dashboard/SPA/AdminAppointment.jsx";
 import ClassicalEditPage from "./pages/Admin Dashboard/SPA/ClassicalSpaEdit.jsx";
 import EditMenu from "./components/Admin/Spa/editMenu.jsx";
 import ShowMenu from "./components/Admin/Spa/showMenu.jsx";
@@ -41,6 +40,7 @@ import AdminCarList from "./pages/Admin Dashboard/Rentals/AdminViewCars.jsx";
 import UpdateCarForm from "./pages/Admin Dashboard/Rentals/UpdateCarForm.jsx";
 import AddCarForm from "./pages/Admin Dashboard/Rentals/AddCarsForm.jsx";
 import AdminRentList from "./pages/Admin Dashboard/Rentals/AdminViewRents.jsx";
+import EventPage from "./pages/Admin Dashboard/Events/EventPage.jsx";
 
 const App = () => {
   console.disableYellowBox = true;
@@ -165,7 +165,6 @@ const App = () => {
         <Route path="ayurvedicSpaMenu/delete/:id" element={<DeleteMenu/>}/>
         <Route path="classicalSpaRituals/delete/:id" element={<DeleteClassical/>}/>
         <Route path="generate-report" element={<SPAREPORTGENERATIONPAGE />} />
-        <Route path="spa-admin-appointment" element={<AdminAppointment />} />
 
         <Route path="articles" element={<AdminArticleList />} />
         <Route path="update-article/:id" element={<UpdateArticleForm />} />
@@ -175,6 +174,9 @@ const App = () => {
         <Route path="update-car/:id" element={<UpdateCarForm />} />
         <Route path="add-car" element={<AddCarForm />} />
         <Route path="admin-rent" element={<AdminRentList />} />
+
+        <Route path="events" element={<EventPage />} />
+        <Route path="/evetadd" element={<EventForm />} />  
 
       </Route>
 

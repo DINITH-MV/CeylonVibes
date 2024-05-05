@@ -66,6 +66,14 @@ export default function Admin() {
                                 <i class={location.pathname === "/admin/rentals" || location.pathname === "/admin/add-car" || location.pathname.startsWith("/admin/update-car") ? "fa-duotone fa-cars text-[17pt] mr-[15px]" : "fa-duotone fa-cars text-[17pt] mr-[15px] text-[#d3bf05]"} />Rentals
                             </Link>
                         </div>
+                        <div className="ml-0 mr-0 mt-[5px] py-[13px] pl-[10px] w-[265px] rounded-[8px] text-[14pt] ">
+                            <Link
+                                to="/admin/events"
+                                onClick={() => handleButtonClick("events")}
+                                className={location.pathname === "/admin/events" || location.pathname === "/admin/add-car" || location.pathname.startsWith("/admin/update-car") ? "mt-[5px] py-[13px] pl-[20px] pr-[116px] w-[240px] rounded-[8px] bg-[#333333] text-[#ffffff] text-[14pt] hover:bg-[#000]" : "mt-[5px] py-[13px] pl-[20px] pr-[116px] w-[240px] rounded-[8px] bg-[#ffffff] text-[#414141] text-[14pt] hover:bg-[#dedede]"} >
+                                <i class={location.pathname === "/admin/events" || location.pathname === "/admin/add-car" || location.pathname.startsWith("/admin/update-car") ? "fa-duotone fa-cars text-[17pt] mr-[15px]" : "fa-duotone fa-cars text-[17pt] mr-[15px] text-[#d3bf05]"} />Rentals
+                            </Link>
+                        </div>
 
                         <div className="mx-auto mt-[5px] py-[11px] pl-[20px] w-[240px] rounded-[8px] bg-[#ffffff] text-[#414141] text-[14pt] hover:bg-[#dedede]"><i class="fa-duotone fa-envelope mr-[18px] ml-[-1px] pt-[5px] text-[17pt]" style={{ "--fa-primary-color": "#d3bf05", "--fa-secondary-color": "#d3bf05", }} />Notifications</div>
 
