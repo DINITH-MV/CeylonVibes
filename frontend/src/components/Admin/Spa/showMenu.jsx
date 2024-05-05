@@ -30,10 +30,10 @@ const ShowMenu = () => {
             <Card className='mt-[50px]'>
                 <CardHeader variant="gradient" color="gray" className="mb-8 p-6">
                     <Typography variant="h6" color="white">
-                        UPDATE THE EXISTING CATAGORIES
+                        SHOW SPA APPOINTMENT
                     </Typography>
                 </CardHeader>
-                <div className='p-4'>
+                <div className='p-4 mx-[60px]'>
                     <h1 className='text-3xl text-black my-4 mb-8 mt-10 font-mono antialiased font-medium'> Show Ayurvedic SPA Menu Service</h1>
                     <div className='flex flex-col border-2 border-[#059669] rounded-xl w-fit p-4'>
                         <div className='my-4'>

@@ -16,7 +16,7 @@ function MenuEditPage() {
         <Card className='mt-[50px]'>
           <CardHeader variant="gradient" color="gray" className="mb-8 p-6">
             <Typography variant="h6" color="white">
-              UPDATE THE EXISTING CATAGORIES
+              SHOW SPA MENU
             </Typography>
           </CardHeader>
 

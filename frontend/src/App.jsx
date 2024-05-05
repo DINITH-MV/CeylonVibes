@@ -40,6 +40,7 @@ import AddArticleForm from "./pages/Admin Dashboard/Articles/AddArticleForm.jsx"
 import AdminCarList from "./pages/Admin Dashboard/Rentals/AdminViewCars.jsx";
 import UpdateCarForm from "./pages/Admin Dashboard/Rentals/UpdateCarForm.jsx";
 import AddCarForm from "./pages/Admin Dashboard/Rentals/AddCarsForm.jsx";
+import AdminRentList from "./pages/Admin Dashboard/Rentals/AdminViewRents.jsx";
 
 const App = () => {
   console.disableYellowBox = true;
@@ -173,6 +174,7 @@ const App = () => {
         <Route path="rentals" element={<AdminCarList />} />
         <Route path="update-car/:id" element={<UpdateCarForm />} />
         <Route path="add-car" element={<AddCarForm />} />
+        <Route path="admin-rent" element={<AdminRentList />} />
 
       </Route>
 

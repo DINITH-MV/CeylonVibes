@@ -84,16 +84,16 @@ const AddArticleForm = () => {
   return (
     <div className="absolute ml-[320px] top-[110px] w-[1120px]">
       <div className="mt-12 mb-8 flex flex-col gap-12">
-        <Card>
+        <Card className="bg-[#fff1ed]">
           <CardHeader variant="gradient" color="gray" className="mb-8 p-8">
             <Typography variant="h5" color="white">
               
-              MANAGE PRODUCTS
+              ADD AN ARTICLE
             </Typography>
           </CardHeader>
-          <CardBody className="overflow-x-scroll px-0 pt-0 pb-2">
-            <div style={{ minHeight: '100vh', padding: 40 }}>
-              <div className=" w-fit bg-[#fff1ed] border rounded-xl h-fit shadow-lg mx-auto my-auto justify-center">
+          <CardBody className=" px-0 pt-0  h-[700px]">
+            <div style={{ minHeight: '100vh', padding: 40 }} >
+              <div className=" w-fit border rounded-xl shadow-lg mx-auto my-auto justify-center bg-[#fff]">
                 <div className="p-5 ">
                   <h2 className="text-4xl font-Satisfy text-center font-bold mb-4">
                     Add Article

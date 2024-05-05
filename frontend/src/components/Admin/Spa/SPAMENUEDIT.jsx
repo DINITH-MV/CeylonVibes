@@ -23,7 +23,7 @@ const SPAEDITMENU = () => {
   }, []);
 
   return (
-    <div className='p-4'>
+    <div className='p-4 mx-[60px]'>
       <div className='flex justify-between items-center'>
         <h1 className='flex justify-center text-4xl text-black my-4 mb-8 mt-10 font-mono antialiased font-medium'> Ayurvedic SPA Menu</h1>
         <Link to='/admin/ayurvedicSpaMenu/createMenu'>

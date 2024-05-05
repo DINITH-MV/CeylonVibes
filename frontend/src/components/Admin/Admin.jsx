@@ -46,7 +46,7 @@ export default function Admin() {
                             <Link
                                 to="/admin/spa"
                                 onClick={() => handleButtonClick("spa")}
-                                className={location.pathname === "/admin/spa" || location.pathname === "/admin/spa-admin-appointment" || location.pathname.startsWith("/admin/classical-spa-rituals-edit-service") || location.pathname === "/admin/ayurvedic-spa-classical" || location.pathname.startsWith("/admin/spa-menu-edit-service") || location.pathname.startsWith("/admin/ayurvedicSpaMenu") || location.pathname.startsWith("/admin/classicalSpaRituals") ? "mt-[5px] py-[13px] pl-[20px] pr-[152px] w-[240px] rounded-[8px] bg-[#333333] text-[#ffffff] text-[14pt] hover:bg-[#000]" : "mt-[5px] py-[13px] pl-[20px] pr-[152px] w-[240px] rounded-[8px] bg-[#ffffff] text-[#414141] text-[14pt] hover:bg-[#dedede]"} >
+                                className={location.pathname === "/admin/spa" || location.pathname === "/admin/spa-admin-appointment" || location.pathname.startsWith("/admin/classical-spa-rituals-edit-service") || location.pathname === "/admin/ayurvedic-spa-classical" || location.pathname.startsWith("/admin/spa-menu-edit-service") || location.pathname.startsWith("/admin/ayurvedicSpaMenu") || location.pathname.startsWith("/admin/classicalSpaRituals") ? "mt-[5px] py-[13px] pl-[20px] pr-[148px] w-[240px] rounded-[8px] bg-[#333333] text-[#ffffff] text-[14pt] hover:bg-[#000]" : "mt-[5px] py-[13px] pl-[20px] pr-[148px] w-[240px] rounded-[8px] bg-[#ffffff] text-[#414141] text-[14pt] hover:bg-[#dedede]"} >
                                 <i class={location.pathname === "/admin/spa" || location.pathname === "/admin/spa-admin-appointment" || location.pathname.startsWith("/admin/classical-spa-rituals-edit-service") || location.pathname === "/admin/ayurvedic-spa-classical" || location.pathname.startsWith("/admin/spa-menu-edit-service") || location.pathname.startsWith("/admin/ayurvedicSpaMenu") || location.pathname.startsWith("/admin/classicalSpaRituals")? "fa-duotone fa-spa text-[17pt] mr-[15px]" : "fa-duotone fa-spa text-[17pt] mr-[15px] text-[#d3bf05]"} />SPA
                             </Link>
                         </div>
@@ -55,15 +55,15 @@ export default function Admin() {
                                 to="/admin/articles"
                                 onClick={() => handleButtonClick("articles")}
                                 className={location.pathname === "/admin/articles" || location.pathname.startsWith("/admin/update-article") || location.pathname === "/admin/add-article" ? "mt-[5px] py-[13px] pl-[20px] pr-[122px] w-[240px] rounded-[8px] bg-[#333333] text-[#ffffff] text-[14pt] hover:bg-[#000]" : "mt-[5px] py-[13px] pl-[20px] pr-[122px] w-[240px] rounded-[8px] bg-[#ffffff] text-[#414141] text-[14pt] hover:bg-[#dedede]"} >
-                                <i class={location.pathname === "/admin/articles" || location.pathname.startsWith("/admin/update-article") || location.pathname === "/admin/add-article" ? "fa-duotone fa-leaf text-[17pt] mr-[15px]" : "fa-duotone fa-leaf text-[17pt] mr-[15px] text-[#d3bf05]"} />Articles
+                                <i class={location.pathname === "/admin/articles" || location.pathname.startsWith("/admin/update-article") || location.pathname === "/admin/add-article" ? "fa-duotone fa-newspaper text-[17pt] mr-[15px]" : "fa-duotone fa-newspaper text-[17pt] mr-[15px] text-[#d3bf05]"} />Articles
                             </Link>
                         </div>
                         <div className="ml-0 mr-0 mt-[5px] py-[13px] pl-[10px] w-[265px] rounded-[8px] text-[14pt] ">
                             <Link
                                 to="/admin/rentals"
                                 onClick={() => handleButtonClick("rentals")}
-                                className={location.pathname === "/admin/rentals" || location.pathname === "/admin/add-car" || location.pathname.startsWith("/admin/update-car") ? "mt-[5px] py-[13px] pl-[20px] pr-[122px] w-[240px] rounded-[8px] bg-[#333333] text-[#ffffff] text-[14pt] hover:bg-[#000]" : "mt-[5px] py-[13px] pl-[20px] pr-[122px] w-[240px] rounded-[8px] bg-[#ffffff] text-[#414141] text-[14pt] hover:bg-[#dedede]"} >
-                                <i class={location.pathname === "/admin/rentals" || location.pathname === "/admin/add-car" || location.pathname.startsWith("/admin/update-car") ? "fa-duotone fa-leaf text-[17pt] mr-[15px]" : "fa-duotone fa-leaf text-[17pt] mr-[15px] text-[#d3bf05]"} />Rentals
+                                className={location.pathname === "/admin/rentals" || location.pathname === "/admin/add-car" || location.pathname.startsWith("/admin/update-car") ? "mt-[5px] py-[13px] pl-[20px] pr-[116px] w-[240px] rounded-[8px] bg-[#333333] text-[#ffffff] text-[14pt] hover:bg-[#000]" : "mt-[5px] py-[13px] pl-[20px] pr-[116px] w-[240px] rounded-[8px] bg-[#ffffff] text-[#414141] text-[14pt] hover:bg-[#dedede]"} >
+                                <i class={location.pathname === "/admin/rentals" || location.pathname === "/admin/add-car" || location.pathname.startsWith("/admin/update-car") ? "fa-duotone fa-cars text-[17pt] mr-[15px]" : "fa-duotone fa-cars text-[17pt] mr-[15px] text-[#d3bf05]"} />Rentals
                             </Link>
                         </div>
 

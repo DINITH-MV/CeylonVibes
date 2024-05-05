@@ -69,17 +69,17 @@ const AdminCarList = () => {
               MANAGE RENTALS
             </Typography>
           </CardHeader>
-          <CardBody className="overflow-x-scroll px-0 pt-0 pb-2 mx-[20px]">
+          <CardBody className="overflow-x-scroll px-0 pt-0 pb-2 mx-[60px]">
+          <button type='button' className='p-[4px] h-[50px] w-[960px] text-[#666666] font-bold text-[14pt] mb-[20px] ml-[20px] rounded-[7px] bg-[#cbc88f]'><Link to='/admin/admin-rent'>View Rentals</Link></button>
             <div className="container mx-auto p-5 ">
-              <div className="flex items-center justify-between">
-                <h2 className="text-4xl font-bold mb-4 text-center">Vehicle List</h2>
+                <h2 className="text-[18pt] font-bold mb-4 text-center">VEHICLE LIST</h2>
                 <Link to="/admin/add-car">
-                  <button className=" text-white bg-black pl-4 pr-4 pt-2 pb-2 border  hover:text-black right-10 hover:bg-white transition-colors duration-300 bottom-10 rounded-xl">
-                    Add Vehicles
+                <button type='button' className='p-[4px] h-[37px] w-[960px] text-[#fff] mb-[20px] rounded-[7px] bg-[#69992f]'>
+                    Add a Vehicle
                   </button>
                 </Link>
-              </div>
-              <table className="min-w-full rounded-xl overflow-hidden">
+              
+              <table className="min-w-full mt-[3px] rounded-xl overflow-hidden">
                 <thead className="bg-yellowDr">
                   <tr>
                     <th className="border px-4 py-2 text-left">Image</th>
@@ -117,7 +117,7 @@ const AdminCarList = () => {
                           Delete
                         </button>
                         <Link to={`/admin/update-car/${car._id}`}>
-                          <button className="pl-2 pr-2 pt-2 pb-2 border-none rounded-xl w-full font-semibold bg-greenNa hover:bg-green">
+                          <button className="pl-2 pr-2 pt-2 pb-2 text-[#fff] border-none rounded-xl w-full font-semibold bg-greenNa hover:bg-green">
                             Update
                           </button>
                         </Link>

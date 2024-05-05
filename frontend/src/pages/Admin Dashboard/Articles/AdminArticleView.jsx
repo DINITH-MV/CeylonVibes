@@ -80,21 +80,18 @@ const AdminArticleList = () => {
                     delay: 1 / 10,
                   }}>Preparing...</motion.button></button> : <button className='bg-BrownLi rounded-md p-[11px] font-CantoraOne font-bold text-[17px]'>Monthly Report</button>)}
               </PDFDownloadLink>
-              MANAGE PRODUCTS
+              MANAGE ARTICLES
             </Typography>
           </CardHeader>
-          <CardBody className="overflow-x-scroll px-0 pt-0 pb-2 mx-[30px]">
+          <CardBody className="overflow-x-scroll px-0 pt-0 pb-2 mx-[60px]">
             <div className="container mx-auto p-5">
-              <div className="flex items-center justify-between">
-                <h2 className="text-4xl font-bold mb-4 text-center">Article List</h2>
-
+            <h2 className="text-[18pt] font-bold mb-4 text-center">ARTICLE LIST</h2>
                 <Link to="/admin/add-article">
-                  <button className="text-white bg-black pl-4 pr-4 pt-2 pb-2 border hover:text-black right-10 hover:bg-white transition-colors duration-300 bottom-10 rounded-xl">
-                    Add Article
+                <button className="pl-2 pr-2 pt-2 pb-[10px] mb-[20px] text-[#fff] border-none rounded-[7px] w-full font-semibold bg-greenNa hover:bg-green">
+                    Add an Article
                   </button>
                 </Link>
-              </div>
-              <table className="rounded-xl overflow-hidden">
+              <table className="min-w-full rounded-xl overflow-hidden">
                 <thead className="bg-yellowDr">
                   <tr>
                     <th className="border px-4 py-2 text-left">Image</th>
@@ -130,7 +127,7 @@ const AdminArticleList = () => {
                           Delete
                         </button>
                         <Link to={`/admin/update-article/${article._id}`}>
-                          <button className="pl-2 pr-2 pt-2 pb-2 border-none rounded-xl w-full font-semibold bg-greenNa hover:bg-green">
+                          <button className="pl-2 pr-2 pt-2 pb-2 text-[#fff] border-none rounded-xl w-full font-semibold bg-greenNa hover:bg-green">
                             Update
                           </button>
                         </Link>
