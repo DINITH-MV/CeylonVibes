@@ -48,7 +48,7 @@ const AddArticleForm = () => {
       return;
     }
     try {
-      const response = await fetch("http://localhost:3000/api/articles", {
+      const response = await fetch("http://localhost:7000/api/articles", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

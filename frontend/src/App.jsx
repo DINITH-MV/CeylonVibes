@@ -37,6 +37,9 @@ import SPAREPORTGENERATIONPAGE from "./pages/Admin Dashboard/SPA/SpaReportGenera
 import AdminArticleList from "./pages/Admin Dashboard/Articles/AdminArticleView.jsx";
 import UpdateArticleForm from "./pages/Admin Dashboard/Articles/UpdateArticle.jsx";
 import AddArticleForm from "./pages/Admin Dashboard/Articles/AddArticleForm.jsx";
+import AdminCarList from "./pages/Admin Dashboard/Rentals/AdminViewCars.jsx";
+import UpdateCarForm from "./pages/Admin Dashboard/Rentals/UpdateCarForm.jsx";
+import AddCarForm from "./pages/Admin Dashboard/Rentals/AddCarsForm.jsx";
 
 const App = () => {
   console.disableYellowBox = true;
@@ -167,7 +170,10 @@ const App = () => {
         <Route path="update-article/:id" element={<UpdateArticleForm />} />
         <Route path="add-article" element={<AddArticleForm />} />
 
-        
+        <Route path="rentals" element={<AdminCarList />} />
+        <Route path="update-car/:id" element={<UpdateCarForm />} />
+        <Route path="add-car" element={<AddCarForm />} />
+
       </Route>
 
 

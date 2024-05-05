@@ -19,7 +19,7 @@ const AdminArticleList = () => {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/articles");
+        const response = await fetch("http://localhost:7000/api/articles");
         if (!response.ok) {
           throw new Error("Failed to fetch article data");
         }
@@ -29,7 +29,7 @@ const AdminArticleList = () => {
         // Fetch view counts for each article
         for (const article of articlesData) {
           const response = await axios.get(
-            `http://localhost:3000/api/articles/${article._id}`
+            `http://localhost:7000/api/articles/${article._id}`
           );
           viewCounts[article._id] = response.data.article.views;
         }
@@ -52,7 +52,7 @@ const AdminArticleList = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/api/articles/${id}`);
+      await axios.delete(`http://localhost:7000/api/articles/${id}`);
       setArticlesWithViews((prevArticles) =>
         prevArticles.filter((article) => article._id !== id)
       );

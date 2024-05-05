@@ -17,7 +17,7 @@ const UpdateArticleForm = () => {
     const fetchArticleDetails = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3000/api/articles/${id}`
+          `http://localhost:7000/api/articles/${id}`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch article details");
@@ -61,7 +61,7 @@ const UpdateArticleForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:3000/api/articles/${id}`, {
+      const response = await fetch(`http://localhost:7000/api/articles/${id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
