@@ -41,6 +41,9 @@ import UpdateCarForm from "./pages/Admin Dashboard/Rentals/UpdateCarForm.jsx";
 import AddCarForm from "./pages/Admin Dashboard/Rentals/AddCarsForm.jsx";
 import AdminRentList from "./pages/Admin Dashboard/Rentals/AdminViewRents.jsx";
 import EventPage from "./pages/Admin Dashboard/Events/EventPage.jsx";
+import EventForm from "./components/Admin/Events/eventadd.jsx";
+import UpdateEventForm from "./components/Admin/Events/eventsedit.jsx";
+import BookingAdminHome from "./pages/Admin Dashboard/Tours/TourAdminHome.jsx";
 
 const App = () => {
   console.disableYellowBox = true;
@@ -176,8 +179,12 @@ const App = () => {
         <Route path="admin-rent" element={<AdminRentList />} />
 
         <Route path="events" element={<EventPage />} />
-        <Route path="/evetadd" element={<EventForm />} />  
+        <Route path="addevent" element={<EventForm />} />  
+        <Route path="editevent/:eventId" element={<UpdateEventForm/>} /> 
 
+        <Route path="tours" element={<BookingAdminHome />} />
+        <Route path='/tours/create' element={<CreateTours />} />
+        
       </Route>
 
 

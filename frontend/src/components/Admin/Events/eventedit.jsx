@@ -217,13 +217,13 @@ const PDFFile = ({ items }) => (
 // Event Table Component
 const EventTable = ({ events, onDelete }) => {
   return (
-    <div className="container mx-auto p-5">
-      <h2 className="text-[18pt] font-bold mb-4 text-center">Events</h2>      
-       <Link to="/addevent">
-       <button className="pl-2 pr-2 pt-2 pb-[10px] mb-[20px] text-[#fff] border-none rounded-[7px] w-full font-semibold bg-greenNa hover:bg-green">
-                  Add Events
-                </button>
-              </Link>
+    <div className="container mx-auto p-5 mt-[-25px]">
+      <h2 className="text-[18pt] font-bold mb-4 text-center">Events</h2>
+      <Link to="/admin/addevent">
+        <button className="pl-2 pr-2 pt-2 pb-[10px] mb-[20px] text-[#fff] border-none rounded-[7px] w-full font-semibold bg-greenNa hover:bg-green">
+          Add Events
+        </button>
+      </Link>
       <table className="min-w-full rounded-xl overflow-hidden">
         <thead className="bg-yellowDr">
           <tr>
@@ -259,7 +259,7 @@ const EventTable = ({ events, onDelete }) => {
                 duration-300 rounded-xl bg-[#FF0000] hover:bg-lightRed" onClick={() => onDelete(event._id)}>
                   Delete
                 </button>
-                <Link to={`/editevent/${event._id}`}>
+                <Link to={`/admin/editevent/${event._id}`}>
                   <button className="pl-2 pr-2 pt-2 pb-2 border-none rounded-xl w-full font-semibold bg-greenNa hover:bg-green">
                     Edit
                   </button>
@@ -328,7 +328,7 @@ const EventseditPage = () => {
               {loading && <div className="text-center">Loading...</div>}
               {error && <div className="text-center text-red-500">{error}</div>}
               <EventTable events={events} onDelete={handleDeleteEvent} />
-             
+
             </div>
           </CardBody>
         </Card>

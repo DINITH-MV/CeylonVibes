@@ -76,8 +76,6 @@ function AyurvedicSpaClassical() {
 
       {loading ? (
         <p>Loading...</p>
-      ) : error ? (
-        <p>Error: {error}</p>
       ) : filteredServices.length === 0 ? (
         <p>No Services Found</p>
       ) : (

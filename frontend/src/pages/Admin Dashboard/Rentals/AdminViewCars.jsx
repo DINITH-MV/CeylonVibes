@@ -43,14 +43,7 @@ const AdminCarList = () => {
     }
   };
 
-  if (loading) {
-    return <div className="text-center mt-4">Loading...</div>;
-  }
-
-  if (error) {
-    return <div className="text-center mt-4">Error: {error}</div>;
-  }
-
+ 
   return (
     <div className="absolute ml-[320px] top-[110px] w-[1120px]">
       <div className="mt-12 mb-8 flex flex-col gap-12">

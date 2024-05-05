@@ -72,7 +72,7 @@ const ServiceConfirm = () => {
       </div>
 
       {loading ? (
-        <Spinner />
+        < />
       ) : (
         <>
           {showConfirmation && (

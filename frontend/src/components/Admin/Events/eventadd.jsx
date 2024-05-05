@@ -1,7 +1,14 @@
 import React, { useState } from "react";
+import {
+  Card,
+  CardBody,
+  CardHeader,
+  Typography,
+} from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 import firebase from "firebase/compat/app"; // Import Firebase
 import "firebase/compat/storage"; // Import Firebase storage module
+import { PDFDownloadLink } from "@react-pdf/renderer";
 
 const EventForm = () => {
   //create a array name formData 
@@ -78,7 +85,17 @@ const EventForm = () => {
   };
 
   return (
-    <div className="w-screen h-screen bg-[#bc272722] flex ">
+    <div className="absolute ml-[320px] top-[110px] w-[1120px]">
+    <div className="mt-12 mb-8 flex flex-col gap-12">
+      <Card className="bg-[#bc272722] ">
+        <CardHeader variant="gradient" color="gray" className="mb-8 p-8">
+          <Typography variant="h5" color="white">
+           
+            ADD AN EVENT
+          </Typography>
+        </CardHeader>
+        <CardBody className="overflow-x-scroll px-0 pt-0 pb-2 mx-[60px]">
+    <div className=" h-screen flex ">
       <div className="max-w-md bg-white border rounded-xl h-fit shadow-lg mx-auto my-auto justify-center">
         <div className="p-5">
           <h2 className="text-4xl font-Satisfy text-center font-bold mb-4">
@@ -205,13 +222,18 @@ const EventForm = () => {
               >
                 Add Event
               </button>
-              <Link to="/admin-view">
+              <Link to="/admin/events">
                 <button className="bg-silver text-black border px-4 py-2 rounded hover:bg-BrownLi transition-colors duration-300">
                   Back
                 </button>
               </Link>
             </div>
         </div>
+      </div>
+    </div>
+    </CardBody>
+        </Card>
+
       </div>
     </div>
   );
