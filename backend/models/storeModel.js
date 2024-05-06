@@ -78,9 +78,9 @@ const cartSchema = new Schema({
   userID: {
     type: String,
   },
-  cartCount: {
+  products: {
     type: String,
   },
 });
 
-export const Cart = mongoose.model("carts", cartSchema);
+export const Cart = mongoose.model("Productcarts", cartSchema);

@@ -8,6 +8,8 @@ import { GlobalonProductRemove } from "@/pages/OrganicItems/ShopInside";
 import { useUser } from "@clerk/clerk-react"
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
+
 
 function ShoppingCartBar({ visibilty, onClose }) {
 
@@ -34,25 +36,46 @@ function ShoppingCartBar({ visibilty, onClose }) {
 		console.log("GlobalproductsInCart is null");
 	}
 
-	const handlePayment = async (e) => {
+	const notify = () => {
+		if (userID === undefined) {
+			toast.error('User should be signed in'); // Display the toast notification 
+		} else {
+			toast.promise(
+				handlePayment(),
+				{
+					loading: "Saving...",
+					success: <b>Payment Success!</b>
+				}
+			);
+		}
+	};
+	
+	// Assuming GlobalproductsInCart is an array of objects containing product information
+// Assuming GlobalproductsInCart is an array of objects containing product information
+
+
+
+const handlePayment = async () => {		
+		const products = GlobalproductsInCart.map(product => `${product._id}-${product.name}`).join('\n');
+		console.log(products)
 		const data = {
 			userID,
-			cartCount
+			products
 		};
-		axios
-			.post('http://localhost:5012/cart', data)
-			.then((response) => {
-				// Assuming response.data is an array
-				for (let i = 0; i < response.data.length; i++) {
-					alert(response.data[i]);
-				}
-				navigate('/');
-			})
-			.catch((error) => {
-				console.log(error);
-			});
+	
+		try {
+			const response = await axios.post('http://localhost:5012/cart', data);
+			console.log(response);
+			// Assuming response.data is an array
+			for (let i = 0; i < response.data.length; i++) {
+				alert(response.data[i]);
+			}
+			navigate('/');
+		} catch (error) {
+			console.log(error);
+		}
 	}
-
+	
 	return (
 		<div
 			className="modal"
@@ -94,9 +117,10 @@ function ShoppingCartBar({ visibilty, onClose }) {
 									{product.name}
 								</h3>
 								<span className="product-price">
+									Rs:
 									{product.price *
 										product.count}
-									$
+
 								</span>
 							</div>
 							<select
@@ -140,10 +164,36 @@ function ShoppingCartBar({ visibilty, onClose }) {
 						</div>
 					))}
 					{GlobalproductsInCart && GlobalproductsInCart.length > 0 && (
-						<button className="p-[5px] text-center mx-auto rounded-[7px] mt-[12px] bg-[#b3f18e]" onClick={handlePayment}>
+						<button className="p-[5px] text-center mx-auto rounded-[7px] mt-[12px] bg-[#b3f18e]" onClick={notify}>
 							Proceed to checkout
 						</button>
 					)}
+					<Toaster position="top-center"
+                                                        reverseOrder={false}
+                                                        gutter={13}
+                                                        containerClassName=""
+                                                        containerStyle={{}}
+                                                        toastOptions={{
+                                                            // Define default options
+                                                            className: '',
+                                                            duration: 5000,
+                                                            style: {
+                                                                background: '#363636',
+                                                                color: '#fff',
+                                                                boxShadow: '0px 0px 0px rgba(0, 0, 0, 0.2)',
+                                                                padding: '4px 4px 4px 8px',
+                                                            },
+
+                                                            // Default options for specific types
+                                                            success: {
+                                                                duration: 3000,
+                                                                theme: {
+                                                                    primary: 'green',
+                                                                    secondary: 'black',
+                                                                },
+                                                            },
+                                                        }}
+                                                    />
 				</div>
 			</div>
 		</div>

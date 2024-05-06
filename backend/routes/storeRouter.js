@@ -209,7 +209,7 @@ router.post('/cart', async (request, response) => {
   try {
     if (
       !request.body.userID ||
-      !request.body.cartCount
+      !request.body.products
     ) {
       return response.status(400).send({
         message: 'Send all required fields',
@@ -217,7 +217,7 @@ router.post('/cart', async (request, response) => {
     }
     const newCart = {
       userID: request.body.userID,
-      cartCount: request.body.cartCount,
+      products: request.body.products,
     };
 
     const Carts = await Cart.create(newCart);
