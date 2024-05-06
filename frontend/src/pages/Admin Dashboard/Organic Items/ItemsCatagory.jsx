@@ -8,7 +8,7 @@ import {
     CardHeader,
     Typography,
 } from "@material-tailwind/react";
-import PDFFile from '../Create Report/pdfItemTable';
+import PDFFile from '../Create Report/OrganicItemTable';
 import { PDFDownloadLink } from "@react-pdf/renderer";
 
 const ItemsCatagory = () => {

@@ -6,7 +6,7 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import axios from 'axios';
-import PDFFile from '../Create Report/pdfCatagoryTable';
+import PDFFile from '../Create Report/OrganicCatagoryTable';
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from "framer-motion";
@@ -24,7 +24,7 @@ function SpaCategory() {
         <Card>
           <CardHeader variant="gradient" color="gray" className="mb-8 p-8">
             <Typography variant="h5" color="white">
-              <PDFDownloadLink className='ml-[880px] mt-[-10px] rounded-[7px] mx-auto absolute bg-[#a0803b]' document={<PDFFile items={items} />} fileName="Report-category_table.pdf">
+              <PDFDownloadLink className='ml-[880px] mt-[-10px] rounded-[7px] mx-auto absolute bg-[#a0803b]' document={<PDFFile items={items} />} fileName="SPA_table.pdf">
                 {({ loading }) => (loading ? <button className='bg-BrownLi rounded-md p-[11px] font-CantoraOne font-bold text-[17px]'><motion.button
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -45,8 +45,8 @@ function SpaCategory() {
                   duration: 5,
                   delay: 4 / 10,
                 }}>
-               <SpaAdminHP/>
-               
+                <SpaAdminHP />
+
               </motion.div>
             </div>
           </CardBody>

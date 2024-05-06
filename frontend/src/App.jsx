@@ -4,7 +4,6 @@ import FoodCatagory from "./components/Organic Items/Content/FoodCatagory.jsx";
 import { Navigate, Route, Router, Routes } from "react-router";
 import ShopInside from "./pages/ShopInside.jsx";
 import Header from "./components/Header/Header.jsx";
-import Reports from "./pages/Reports.jsx";
 import axios from "axios";
 import Image from "./components/Organic Items/Content/image.jsx";
 import "./App.css"
@@ -140,7 +139,6 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Shop catagories={catagories} fetchCatagories={fetchCatagories} offers={offers} fetchOffers={fetchOffers} />} />
-      <Route path="/reports" element={<Reports />} />
       <Route
         path="/shopInside/:id"
         element={<ShopInside nuts={nuts} fetchNuts={fetchNuts} snacks={snacks} fetchSnacks={fetchSnacks} sweetners={sweetners} fetchSweetners={fetchSweetners} fetchCartItems={fetchCart} cartItems={cart} />}

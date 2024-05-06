@@ -6,7 +6,7 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import axios from 'axios';
-import PDFFile from '../Create Report/pdfCatagoryTable';
+import PDFFile from '../Create Report/OrganicCatagoryTable';
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from "framer-motion";
@@ -104,7 +104,7 @@ function OrganicItems() {
 
                   <thead>
                     <tr className="border">
-                      {["Catagory",  "Name","ID", "Img", "Options"].map((el) => (
+                      {["Catagory", "Name", "ID", "Img", "Options"].map((el) => (
                         <th
                           key={el}
                           className="border-b border-r border-blue-gray-50 py-3 px-5 text-left text-[16px]"
