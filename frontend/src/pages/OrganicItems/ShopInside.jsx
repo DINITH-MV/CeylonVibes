@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Products from "../images/Organic Items/food6.jpg";
-import Header from "../components/Header/Header";
+import Products from "../../images/Organic Items/food6.jpg";
+import Header from "../../components/Header/Header";
 import { useParams } from "react-router";
-import GradientOpen3 from "../components/Organic Items/Content/GradientOpen3";
+import GradientOpen3 from "../../components/Organic Items/GradientOpen3";
 import { motion } from "framer-motion";
 import "./product.css";
 import Cookies from 'js-cookie';
@@ -322,14 +322,14 @@ const ShopInside = ({ nuts, fetchNuts, snacks, fetchSnacks, sweetners, fetchSwee
                                 <p className="font-FiraSans font-normal text-[19px] line-through">Rs:{items.price}</p>
                               )}
                               <p className="mt-[5px] font-FiraSans font-normal text-[19px] text-justify">{items.discPrice}</p>
-                              
+
                             </div>
                           </div>
                           <p className="font-normal">
                             {items.Desc}
                           </p>
                           <button className="absolute top-0 right-0 mr-[20px] mt-[17px] text-[33px]" onClick={toggleModal}>
-                          <i class="fa-duotone fa-rectangle-xmark" style={{"--fa-primary-color": "#d3bf05", "--fa-secondary-color": "#d3bf05",}}></i>
+                            <i class="fa-duotone fa-rectangle-xmark" style={{ "--fa-primary-color": "#d3bf05", "--fa-secondary-color": "#d3bf05", }}></i>
                           </button>
 
                         </div>

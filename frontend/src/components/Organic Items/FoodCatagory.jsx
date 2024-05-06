@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Nuts from '../../../pages/Shop'
+import Nuts from '../../pages/OrganicItems/Shop'
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 
@@ -22,12 +22,12 @@ const FoodCatagory = ({ items, fetchItems }) => {
     return (
 
         <div>
-            
+
             <div>
                 <div className="absolute text-[#000000] transition-shadow text-center font-Protest w-[100%] top-[-10px] text-[36pt] tracking-wide">
                     Natural Food Catagories
-                               
-                </div> 
+
+                </div>
                 <div>
 
                     <section className="py-16 z-30 font-Barlow font-bold pt-[120px]">
@@ -42,14 +42,14 @@ const FoodCatagory = ({ items, fetchItems }) => {
                                 {items?.length
                                     ?
                                     items.map((items) => (
-                                        <div  className='border-[2px] rounded-[9px] bg-[#edf0efc9]  border-[#ffffff] h-[410px] w-[270px] mb-4 overflow-hidden group transition'>
-                                        <Link to={'/shopInside/' + items.name}>   
-                                            <div className="w-full h-full pt-[10px]" >
-                                                <div className="w-[200px] mx-auto h-[330px] flex justify-center items-center ">
-                                                    <img className="max-h-[310px] group-hover:scale-110 transition duration-300" src={'http://localhost:5012/catagories/' + items.image} alt="" />
-                                                </div>
+                                        <div className='border-[2px] rounded-[9px] bg-[#edf0efc9]  border-[#ffffff] h-[410px] w-[270px] mb-4 overflow-hidden group transition'>
+                                            <Link to={'/shopInside/' + items.name}>
+                                                <div className="w-full h-full pt-[10px]" >
+                                                    <div className="w-[200px] mx-auto h-[330px] flex justify-center items-center ">
+                                                        <img className="max-h-[310px] group-hover:scale-110 transition duration-300" src={'http://localhost:5012/catagories/' + items.image} alt="" />
+                                                    </div>
                                                     <div href="#" className="mt-[5px] text-[15pt] text-center h-[50px]">{items.name}</div>
-                                            </div>
+                                                </div>
                                             </Link>
                                         </div>
 

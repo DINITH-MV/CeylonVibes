@@ -1,6 +1,6 @@
 import React from 'react';
-import banner from '../../../images/Organic Items/beauty.png'
-import banner2 from '../../../images/Organic Items/jojoba.png'
+import banner from '../../images/Organic Items/beauty.png'
+import banner2 from '../../images/Organic Items/jojoba.png'
 
 
 export default function Banner() {

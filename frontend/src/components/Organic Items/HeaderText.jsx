@@ -1,5 +1,5 @@
 import React from 'react';
-import FoodPic from '../../../images/Organic Items/food4.png'
+import FoodPic from '../../images/Organic Items/food4.png'
 
 const HeaderText = () => {
     return (

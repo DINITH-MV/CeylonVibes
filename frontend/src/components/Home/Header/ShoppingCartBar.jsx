@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import "./shoppingCartBar.css";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { RiDeleteBin6Line } from "react-icons/ri";
-import { GlobalproductsInCart } from "@/pages/ShopInside";
-import { GlobalonQuantityChange } from "@/pages/ShopInside";
-import { GlobalonProductRemove } from "@/pages/ShopInside";
+import { GlobalproductsInCart } from "@/pages/OrganicItems/ShopInside";
+import { GlobalonQuantityChange } from "@/pages/OrganicItems/ShopInside";
+import { GlobalonProductRemove } from "@/pages/OrganicItems/ShopInside";
 import { useUser } from "@clerk/clerk-react"
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
@@ -17,9 +17,9 @@ function ShoppingCartBar({ visibilty, onClose }) {
 	try {
 		const userId = user.id;
 		userID = userId;
-	  } catch (error) {
+	} catch (error) {
 		console.error("Error reading user.id:", error);
-	  }
+	}
 
 	console.log(userID)
 

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Logo from './logo.jsx'
 import Buttons from "./Buttons.jsx"
 import Navbar from "./Navbar.jsx";
-import ShoppingCartBar from "./ShoppingCartBar.jsx";
 import ShoppingCart from "./ShoppingCart.jsx";
 import { SearchBar } from "./SearchBar.jsx";
 import { SearchResultsList } from "./SearchResultsList";

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ShoppingCartBar from "./ShoppingCartBar";
-import { GlobalproductsInCart } from "@/pages/ShopInside";
+import { GlobalproductsInCart } from "@/pages/OrganicItems/ShopInside";
 import Cookies from "js-cookie";
 
 export default function ShoppingCart({ fetchCart, Cart }) {
