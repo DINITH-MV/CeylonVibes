@@ -107,7 +107,7 @@ const handlePayment = async () => {
 							className="cart-product"
 							key={product.id}>
 							<img
-								src={'http://localhost:5012/' + product.imageFolder + '/' +
+								src={'http://localhost:5012/products' + '/' +
 									product.image
 								}
 								alt={product.name}
