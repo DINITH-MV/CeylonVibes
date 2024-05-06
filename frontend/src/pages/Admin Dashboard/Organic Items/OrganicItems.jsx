@@ -78,7 +78,7 @@ function OrganicItems() {
         <Card>
           <CardHeader variant="gradient" color="gray" className="mb-8 p-8">
             <Typography variant="h5" color="white">
-              <PDFDownloadLink className='ml-[880px] mt-[-10px] rounded-[7px] mx-auto absolute bg-[#a0803b]' document={<PDFFile items={items} />} fileName="Report-category_table.pdf">
+              <PDFDownloadLink className='ml-[880px] mt-[-10px] rounded-[7px] mx-auto absolute bg-[#a0803b]' document={<PDFFile items={items} />} fileName="items_table.pdf">
                 {({ loading }) => (loading ? <button className='bg-BrownLi rounded-md p-[11px] font-CantoraOne font-bold text-[17px]'><motion.button
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
