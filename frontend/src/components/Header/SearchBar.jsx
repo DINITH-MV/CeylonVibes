@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export const SearchBar = ({ setResults }) => {
   const [input, setInput] = useState("");
-  axios.defaults.baseURL = `http://localhost:5012`;
+  axios.defaults.baseURL = `http://localhost:5555`;
 
   const fetchData = (value) => {
     axios.get(`api/productsSearch?name=${value}`)
@@ -29,7 +29,7 @@ export const SearchBar = ({ setResults }) => {
         <div class="relative mx-auto font-bold">
           <input
             class="border-2 border-[#a07628] bg-[#f9f9e9] h-11 w-[200px] pl-5 pr-16 rounded-[14px] text-[13pt] focus:outline-none"
-            
+
             value={input}
             onChange={(e) => handleChange(e.target.value)}
             placeholder="Search"

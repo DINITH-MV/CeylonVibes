@@ -49,7 +49,7 @@ const CarouselAnimation = ({ offers, fetchOffers }) => {
                                     {/* <Link to='/shopInside' > */}
                                     <div className="w-full h-full">
                                         <div className="w-[180px] mx-auto h-[330px] flex justify-center items-center ">
-                                            <img className="max-h-[270px] group-hover:scale-110 transition duration-300" src={'http://localhost:5012/offers/' + offers.image} alt="" />
+                                            <img className="max-h-[270px] group-hover:scale-110 transition duration-300" src={'http://localhost:5555/offers/' + offers.image} alt="" />
                                         </div>
                                         <div className="bg-white rounded-[7px] mt-[-5px] text-[15pt] font-Barlow font-bold text-left pl-[20px] h-[110px]">
                                             <div href="#" className="pt-[5px] mb-[3px]">{offers.name}</div>

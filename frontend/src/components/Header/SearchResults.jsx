@@ -31,7 +31,7 @@ export const SearchResult = ({ result, productId }) => {
                 <img
                   className="h-[290px] mt-[10px] p-[5px] transition duration-300 border rounded-[12px] bg-white"
                   src={
-                    "http://localhost:5012/products/" +
+                    "http://localhost:5555/products/" +
                     productId.image
                   }
                   alt=""

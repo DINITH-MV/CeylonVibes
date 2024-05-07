@@ -1,5 +1,5 @@
 import React from "react";
-import { Page, Text, Document, StyleSheet, View, Image, Font  } from "@react-pdf/renderer";
+import { Page, Text, Document, StyleSheet, View, Image, Font } from "@react-pdf/renderer";
 
 Font.register({
   family: 'Spirax',
@@ -22,7 +22,7 @@ Font.register({
   fonts: [
     { src: 'https://fonts.gstatic.com/s/chivo/v18/va9b4kzIxd1KFppkaRKvDRPJVDf_vB_ul2DSFXjQiQ.ttf' },
     ,
-    
+
     {
       src: 'https://fonts.gstatic.com/s/chivo/v18/va9Z4kzIxd1KFrBtW-13ZHhT-jDqdFwG1GrWN33AiasJ.ttf',
       fontWeight: 'normal',
@@ -139,15 +139,15 @@ const PDFFile = ({ items }) => {
             <View style={styles.row}>
               <Text style={styles.tableHeader}>ID</Text>
               <Text style={styles.tableHeader}>Name of the Category</Text>
-              
-          <Text style={styles.tableHeader}>Image</Text>
+
+              <Text style={styles.tableHeader}>Image</Text>
               <Text style={styles.tableHeader}>Name of the image</Text>
             </View>
             {items.map((item) => (
               <View key={item._id} style={styles.row}>
                 <Text style={styles.cell}>{item._id}</Text>
-                <Text style={styles.cell}>{item.name}</Text>   
-                <Image style={styles.image} source={'http://localhost:5012/catagories/' + item.image} />         
+                <Text style={styles.cell}>{item.name}</Text>
+                <Image style={styles.image} source={'http://localhost:5555/catagories/' + item.image} />
                 <Text style={styles.cell}>{item.image}</Text>
               </View>
             ))}

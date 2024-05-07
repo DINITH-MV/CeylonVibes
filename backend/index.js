@@ -33,20 +33,19 @@ mongoDBURL.once("open", () => {
 
 // // Routes
 // app.get('/api/catagories', (req, res) => {
-  //   Catagory.find().then(item => {
-    //     console.log(item);
-    //     res.status(200).json({ message: 'Item fetched successfully', data: item, });
-    //   })
-    //     .catch(err => {
-      //       console.log(err);
-      //       res.status(500).json({ message: 'Server error' });
-      //     });
-      // });
-      
-      
-      app.use("/", catagoryRoutes);
-      // Add routes for CRUD operations for users and products here
-      
-      app.listen(port, () => {
-        console.log(`Server running on port ${port}`);
-      });
+//   Catagory.find().then(item => {
+//     console.log(item);
+//     res.status(200).json({ message: 'Item fetched successfully', data: item, });
+//   })
+//     .catch(err => {
+//       console.log(err);
+//       res.status(500).json({ message: 'Server error' });
+//     });
+// });
+
+app.use("/", catagoryRoutes);
+// Add routes for CRUD operations for users and products here
+
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});

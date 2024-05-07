@@ -95,7 +95,7 @@ const AddItemsCatagory = () => {
         formdata.append('quantity', quantity);
         formdata.append('description', description);
         try {
-            const response = await axios.post('http://localhost:5012/products', formdata, {
+            const response = await axios.post('http://localhost:5555/products', formdata, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

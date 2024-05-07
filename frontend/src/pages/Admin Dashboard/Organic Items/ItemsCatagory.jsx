@@ -12,7 +12,7 @@ import PDFFile from '../Create Report/OrganicItemTable';
 import { PDFDownloadLink } from "@react-pdf/renderer";
 
 const ItemsCatagory = () => {
-    axios.defaults.baseURL = `http://localhost:5012`;
+    axios.defaults.baseURL = `http://localhost:5555`;
     const [items, setItems] = useState([]);
 
     const catagoryName = useParams().id;
@@ -37,7 +37,7 @@ const ItemsCatagory = () => {
 
     const deleteItemsCatagory = async (id) => {
         try {
-            const response = await axios.delete(`http://localhost:5012/products/${id}`);
+            const response = await axios.delete(`http://localhost:5555/products/${id}`);
             fetchItems()
             console.log(response);
         } catch (error) {
@@ -125,7 +125,7 @@ const ItemsCatagory = () => {
                                                 items.map((items) => (
                                                     <tr key={items._id} className='border h-[160px] text-center'>
                                                         <td className='border w-[110px]'>
-                                                            <img className="max-h-[120px] transition duration-300 mx-auto" src={`http://localhost:5012/products/` + items.image} alt='Catagories' />
+                                                            <img className="max-h-[120px] transition duration-300 mx-auto" src={`http://localhost:5555/products/` + items.image} alt='Catagories' />
                                                         </td>
                                                         <td className='w-[240px]'>{items._id}</td>
                                                         <td className='border w-[180px]'>{items.name}</td>

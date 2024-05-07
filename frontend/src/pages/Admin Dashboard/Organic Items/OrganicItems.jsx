@@ -14,7 +14,7 @@ import toast, { Toaster } from 'react-hot-toast';
 
 
 function OrganicItems() {
-  axios.defaults.baseURL = `http://localhost:5012`;
+  axios.defaults.baseURL = `http://localhost:5555`;
   const [items, setItems] = useState([]);
 
   const fetchItems = async () => {
@@ -36,7 +36,7 @@ function OrganicItems() {
 
   const deleteCatagory = async (id) => {
     try {
-      const response = await axios.delete(`http://localhost:5012/catagories/${id}`);
+      const response = await axios.delete(`http://localhost:5555/catagories/${id}`);
       fetchItems()
       console.log(response);
     } catch (error) {
@@ -125,7 +125,7 @@ function OrganicItems() {
                       items.map((items) => (
                         <tr key={items._id} className='border h-[140px] text-center text-[10.7pt]'>
                           <td className='border w-[160px]'>
-                            <img className="max-h-[120px] transition duration-300 mx-auto" src={'http://localhost:5012/catagories/' + items.image} alt='Catagories' />
+                            <img className="max-h-[120px] transition duration-300 mx-auto" src={'http://localhost:5555/catagories/' + items.image} alt='Catagories' />
                           </td>
                           <td className='border w-[140px]'>{items.name}</td>
                           <td className='w-[270px]'>{items._id}</td>

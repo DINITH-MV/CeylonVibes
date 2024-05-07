@@ -46,7 +46,7 @@ const FoodCatagory = ({ items, fetchItems }) => {
                                             <Link to={'/shopInside/' + items.name}>
                                                 <div className="w-full h-full pt-[10px]" >
                                                     <div className="w-[200px] mx-auto h-[330px] flex justify-center items-center ">
-                                                        <img className="max-h-[310px] group-hover:scale-110 transition duration-300" src={'http://localhost:5012/catagories/' + items.image} alt="" />
+                                                        <img className="max-h-[310px] group-hover:scale-110 transition duration-300" src={'http://localhost:5555/catagories/' + items.image} alt="" />
                                                     </div>
                                                     <div href="#" className="mt-[5px] text-[15pt] text-center h-[50px]">{items.name}</div>
                                                 </div>
