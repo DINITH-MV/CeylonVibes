@@ -154,7 +154,7 @@ const App = () => {
 
       {/* For Products */}
       <Route path="admin" element={<Admin />} >
-        <Route path="search" element={<Search />} />
+        <Route path="dashboard" element={<Search />} />
         <Route path="OrganicItems" element={<OrganicItems />} />
         <Route path="AddCatagory" element={<AddCatagory fetchCatagories={fetchCatagories} />} />
         <Route path="ItemsCatagory/:id" element={<ItemsCatagory />} />

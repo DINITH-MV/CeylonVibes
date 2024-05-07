@@ -6,7 +6,7 @@ export const SearchBar = ({ setResults }) => {
   axios.defaults.baseURL = `http://localhost:5012`;
 
   const fetchData = (value) => {
-    axios.get(`api/catagoriesSearch?name=${value}`)
+    axios.get(`api/productsSearch?name=${value}`)
       .then((response) => {
         setResults(response.data.data); // Assuming the server sends back an object with a 'data' property
       })

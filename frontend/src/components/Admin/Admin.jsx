@@ -26,17 +26,17 @@ export default function Admin() {
 
                         <div className="ml-0 mr-0 mt-[5px] py-[13px] pl-[10px] w-[265px] rounded-[8px] text-[14pt] ">
                             <Link
-                                to="/admin/search"
-                                onClick={() => handleButtonClick("search")}
-                                className={location.pathname === "/admin/search" ? "mt-[5px] py-[13px] pl-[20px] pr-[96px] w-[240px] rounded-[8px] bg-[#333333] text-[#ffffff] text-[14pt] hover:bg-[#000]" : "mt-[5px] py-[13px] pl-[20px] pr-[96px] w-[240px] rounded-[8px] bg-[#ffffff] text-[#414141] text-[14pt] hover:bg-[#dedede]"} >
-                                <i class={location.pathname === "/admin/search" ? "fa-duotone fa-house mr-[16px]" : "fa-duotone fa-house mr-[16px] text-[#d3bf05]"} />Dashboard
+                                to="/admin/dashboard"
+                                onClick={() => handleButtonClick("dashboard")}
+                                className={location.pathname === "/admin/dashboard" ? "mt-[5px] py-[13px] pl-[20px] pr-[96px] w-[240px] rounded-[8px] bg-[#333333] text-[#ffffff] text-[14pt] hover:bg-[#000]" : "mt-[5px] py-[13px] pl-[20px] pr-[96px] w-[240px] rounded-[8px] bg-[#ffffff] text-[#414141] text-[14pt] hover:bg-[#dedede]"} >
+                                <i class={location.pathname === "/admin/dashboard" ? "fa-duotone fa-house mr-[16px]" : "fa-duotone fa-house mr-[16px] text-[#d3bf05]"} />Dashboard
                             </Link>
                         </div>
 
                         <div className="ml-0 mr-0 mt-[5px] py-[13px] pl-[10px] w-[265px] rounded-[8px] text-[14pt] ">
                             <Link
                                 to="/admin/OrganicItems"
-                                onClick={() => handleButtonClick("list")}
+                                onClick={() => handleButtonClick("items")}
                                 className={location.pathname === "/admin/OrganicItems" || location.pathname === "/admin/AddCatagory" || location.pathname.startsWith("/admin/ItemsCatagory") || location.pathname.startsWith("/admin/AddItemsCatagory") || location.pathname.startsWith("/admin/updateItemsCatagory") || location.pathname.startsWith("/admin/updateCatagory")? "mt-[5px] py-[13px] pl-[20px] pr-[70px] w-[240px] rounded-[8px] bg-[#333333] text-[#ffffff] text-[14pt] hover:bg-[#000]" : "mt-[5px] py-[13px] pl-[20px] pr-[70px] w-[240px] rounded-[8px] bg-[#ffffff] text-[#414141] text-[14pt] hover:bg-[#dedede]"} >
                                 <i class={location.pathname === "/admin/OrganicItems" || location.pathname === "/admin/AddCatagory" || location.pathname.startsWith("/admin/ItemsCatagory") || location.pathname.startsWith("/admin/AddItemsCatagory") || location.pathname.startsWith("/admin/updateItemsCatagory") || location.pathname.startsWith("/admin/updateCatagory") ? "fa-duotone fa-leaf text-[17pt] mr-[16px]" : "fa-duotone fa-leaf text-[17pt] mr-[16px] text-[#d3bf05]"} />Organic Items
                             </Link>
@@ -98,11 +98,11 @@ export default function Admin() {
 
                 <div className="w-[1120px] ml-[20px]">
                     <div className="h-[90px] flex bg-[#ffffff] rounded-[14px] border border-[#cfcfcf]">
-                        <div className="pt-[20px] pl-[30px] text-[12pt]">
-                            <div className="w-[170px] ">ADMIN DASHBOARD</div>
+                        <div className="pt-[27px] pl-[30px] text-[16pt] font-bold">
+                            <div className="w-[240px] font-semibold ">ADMIN DASHBOARD</div>
                             {/* <div className="font-bold">DASHBOARD</div> */}
                         </div>
-                        <div className="pt-[20px] pl-[380px]"><SearchBar /></div>
+                        <div className="pt-[20px] pl-[310px]"><SearchBar /></div>
                     </div>
 
                 </div>

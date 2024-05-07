@@ -89,9 +89,9 @@ router.delete("/catagories/:id", (req, res) => {
     .catch((err) => console.log(err)); // Use console.log to log errors
 });
 
-router.get("/api/catagoriesSearch", (req, res) => {
+router.get("/api/productsSearch", (req, res) => {
   const searchValue = req.query.name;
-  Catagory.find({
+  Products.find({
     name: { $regex: searchValue, $options: 'i' } // This will search for the name case-insensitively
   })
     .then((items) => {
