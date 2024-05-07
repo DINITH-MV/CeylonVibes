@@ -48,7 +48,7 @@ const AddArticleForm = () => {
       return;
     }
     try {
-      const response = await fetch("http://localhost:7000/api/articles", {
+      const response = await fetch("http://localhost:5555/api/articles", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -87,7 +87,7 @@ const AddArticleForm = () => {
         <Card className="bg-[#fff1ed]">
           <CardHeader variant="gradient" color="gray" className="mb-8 p-8">
             <Typography variant="h5" color="white">
-              
+
               ADD AN ARTICLE
             </Typography>
           </CardHeader>

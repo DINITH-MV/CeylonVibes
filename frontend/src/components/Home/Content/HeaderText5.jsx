@@ -4,7 +4,7 @@ import events from '../../../images/Home/event.jpg'
 
 const HeaderText5 = () => {
     return (
-        <div className='mb-[498px]'>
+        <div className='mb-[398px]'>
             <div className="font-CantoraOne ml-[13.5%] mt-[60pt] text-7xl absolute text-[#ffffff] z-21">
                 <div className='absolute w-[900px] left-[3%] top-[-30px] '>
                     <img src={events} className='h-[350px] rounded-[17px] border-[7px] border-[#ce794bd8]' alt="" />

@@ -19,7 +19,7 @@ const AdminArticleList = () => {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const response = await fetch("http://localhost:7000/api/articles");
+        const response = await fetch("http://localhost:5555/api/articles");
         if (!response.ok) {
           throw new Error("Failed to fetch article data");
         }
@@ -29,7 +29,7 @@ const AdminArticleList = () => {
         // Fetch view counts for each article
         for (const article of articlesData) {
           const response = await axios.get(
-            `http://localhost:7000/api/articles/${article._id}`
+            `http://localhost:5555/api/articles/${article._id}`
           );
           viewCounts[article._id] = response.data.article.views;
         }
@@ -52,7 +52,7 @@ const AdminArticleList = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:7000/api/articles/${id}`);
+      await axios.delete(`http://localhost:5555/api/articles/${id}`);
       setArticlesWithViews((prevArticles) =>
         prevArticles.filter((article) => article._id !== id)
       );
@@ -85,12 +85,12 @@ const AdminArticleList = () => {
           </CardHeader>
           <CardBody className="overflow-x-scroll px-0 pt-0 pb-2 mx-[60px]">
             <div className="container mx-auto p-5">
-            <h2 className="text-[18pt] font-bold mb-4 text-center">ARTICLE LIST</h2>
-                <Link to="/admin/add-article">
+              <h2 className="text-[18pt] font-bold mb-4 text-center">ARTICLE LIST</h2>
+              <Link to="/admin/add-article">
                 <button className="pl-2 pr-2 pt-2 pb-[10px] mb-[20px] text-[#fff] border-none rounded-[7px] w-full font-semibold bg-greenNa hover:bg-green">
-                    Add an Article
-                  </button>
-                </Link>
+                  Add an Article
+                </button>
+              </Link>
               <table className="min-w-full rounded-xl overflow-hidden">
                 <thead className="bg-yellowDr">
                   <tr>

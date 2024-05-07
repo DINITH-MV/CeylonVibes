@@ -49,18 +49,18 @@ function ShoppingCartBar({ visibilty, onClose }) {
 			);
 		}
 	};
-	
-	// Assuming GlobalproductsInCart is an array of objects containing product information
-// Assuming GlobalproductsInCart is an array of objects containing product information
 
-const handlePayment = async () => {		
+	// Assuming GlobalproductsInCart is an array of objects containing product information
+	// Assuming GlobalproductsInCart is an array of objects containing product information
+
+	const handlePayment = async () => {
 		const products = GlobalproductsInCart.map(product => `${product._id}-${product.name}`).join('\n');
 		console.log(products)
 		const data = {
 			userID,
 			products
 		};
-	
+
 		try {
 			const response = await axios.post('http://localhost:5012/cart', data);
 			console.log(response);
@@ -73,7 +73,7 @@ const handlePayment = async () => {
 			console.log(error);
 		}
 	}
-	
+
 	return (
 		<div
 			className="modal"
@@ -167,31 +167,31 @@ const handlePayment = async () => {
 						</button>
 					)}
 					<Toaster position="top-center"
-                                                        reverseOrder={false}
-                                                        gutter={13}
-                                                        containerClassName=""
-                                                        containerStyle={{}}
-                                                        toastOptions={{
-                                                            // Define default options
-                                                            className: '',
-                                                            duration: 5000,
-                                                            style: {
-                                                                background: '#363636',
-                                                                color: '#fff',
-                                                                boxShadow: '0px 0px 0px rgba(0, 0, 0, 0.2)',
-                                                                padding: '4px 4px 4px 8px',
-                                                            },
+						reverseOrder={false}
+						gutter={13}
+						containerClassName=""
+						containerStyle={{}}
+						toastOptions={{
+							// Define default options
+							className: '',
+							duration: 5000,
+							style: {
+								background: '#363636',
+								color: '#fff',
+								boxShadow: '0px 0px 0px rgba(0, 0, 0, 0.2)',
+								padding: '4px 4px 4px 8px',
+							},
 
-                                                            // Default options for specific types
-                                                            success: {
-                                                                duration: 3000,
-                                                                theme: {
-                                                                    primary: 'green',
-                                                                    secondary: 'black',
-                                                                },
-                                                            },
-                                                        }}
-                                                    />
+							// Default options for specific types
+							success: {
+								duration: 5555,
+								theme: {
+									primary: 'green',
+									secondary: 'black',
+								},
+							},
+						}}
+					/>
 				</div>
 			</div>
 		</div>

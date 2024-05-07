@@ -21,7 +21,7 @@ const TourAdminHome = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("http://localhost:5560/tours")
+      .get("http://localhost:5555/tours")
       .then((response) => {
         setTours(response.data.data);
         setLoading(false);
@@ -72,8 +72,8 @@ const TourAdminHome = () => {
               </div>
               <div className=' h-5'></div>
               <Link to="/admin/create">
-           <button type='button' className='p-[4px] h-[50px] w-[840px] text-[#666666] font-bold text-[14pt] mb-[20px] mx-[60px] rounded-[7px] bg-[#fbfcff]'><Link to='/admin/create'>Add a new Tour</Link></button>
-        </Link>
+                <button type='button' className='p-[4px] h-[50px] w-[840px] text-[#666666] font-bold text-[14pt] mb-[20px] mx-[60px] rounded-[7px] bg-[#fbfcff]'><Link to='/admin/create'>Add a new Tour</Link></button>
+              </Link>
               <div className='h-5'></div>
               <div className="overflow-x-auto">
                 <table className="mx-[60px]">

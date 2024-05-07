@@ -13,6 +13,7 @@ import HeaderText3 from "../../components/Home/Content/HeaderText3.jsx";
 import HeaderText4 from "../../components/Home/Content/HeaderText4.jsx";
 import GradientOpen3 from "../../components/Home/Content/GradientOpen3.jsx";
 import HeaderText5 from "../../components/Home/Content/HeaderText5.jsx";
+import HeaderText6 from "@/components/Home/Content/HeaderText6.jsx";
 
 const Home = () => {
 
@@ -44,6 +45,10 @@ const Home = () => {
           </div>
           <GradientOpen3 />
           <HeaderText5 />
+          <GradientClose/>
+          <div className="bg-[#ffb372] h-[505px] w-[100%] mb-0 relative">
+            <HeaderText6 />
+          </div>
         </div>
         <Footer />
       </motion.div>

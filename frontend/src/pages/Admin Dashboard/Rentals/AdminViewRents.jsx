@@ -19,7 +19,7 @@ const AdminRentList = () => {
   useEffect(() => {
     const fetchRents = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/rents");
+        const response = await fetch("http://localhost:5555/api/rents");
         if (!response.ok) {
           throw new Error("Failed to fetch rent data");
         }
@@ -86,7 +86,7 @@ const AdminRentList = () => {
                     <tr key={rent._id} className="bg-white hover:bg-yellow">
 
                       <td className="border px-4 py-2 ">{rent._id}</td>
-                      <td className="border px-4 py-2 ">{rent.User_ID}</td>
+                      <td className="border px-4 py-2 ">{rent.User_ID.substring(0, 14)}</td>
                       <td className="border px-4 py-2 ">{rent.date}</td>
                       <td className="border px-4 py-2 ">{rent.starttime}</td>
                       <td className="border px-4 py-2 ">{rent.endtime}</td>

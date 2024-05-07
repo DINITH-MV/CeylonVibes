@@ -62,8 +62,8 @@ export default function Admin() {
                             <Link
                                 to="/admin/rentals"
                                 onClick={() => handleButtonClick("rentals")}
-                                className={location.pathname === "/admin/rentals" || location.pathname === "/admin/add-car" || location.pathname.startsWith("/admin/update-car") ? "mt-[5px] py-[13px] pl-[20px] pr-[125px] w-[240px] rounded-[8px] bg-[#333333] text-[#ffffff] text-[14pt] hover:bg-[#000]" : "mt-[5px] py-[13px] pl-[20px] pr-[125px] w-[240px] rounded-[8px] bg-[#ffffff] text-[#414141] text-[14pt] hover:bg-[#dedede]"} >
-                                <i class={location.pathname === "/admin/rentals" || location.pathname === "/admin/add-car" || location.pathname.startsWith("/admin/update-car") ? "fa-duotone fa-cars ml-[-2px] text-[17pt] mr-[13px]" : "fa-duotone fa-cars text-[17pt] ml-[-2px] mr-[13px] text-[#d3bf05]"} />Rentals
+                                className={location.pathname === "/admin/rentals" || location.pathname === "/admin/add-car" || location.pathname === "/admin/admin-rent"|| location.pathname.startsWith("/admin/update-car") ? "mt-[5px] py-[13px] pl-[20px] pr-[125px] w-[240px] rounded-[8px] bg-[#333333] text-[#ffffff] text-[14pt] hover:bg-[#000]" : "mt-[5px] py-[13px] pl-[20px] pr-[125px] w-[240px] rounded-[8px] bg-[#ffffff] text-[#414141] text-[14pt] hover:bg-[#dedede]"} >
+                                <i class={location.pathname === "/admin/rentals" || location.pathname === "/admin/add-car"|| location.pathname === "/admin/admin-rent" || location.pathname.startsWith("/admin/update-car") ? "fa-duotone fa-cars ml-[-2px] text-[17pt] mr-[13px]" : "fa-duotone fa-cars text-[17pt] ml-[-2px] mr-[13px] text-[#d3bf05]"} />Rentals
                             </Link>
                         </div>
                         <div className="ml-0 mr-0 mt-[5px] py-[13px] pl-[10px] w-[265px] rounded-[8px] text-[14pt] ">

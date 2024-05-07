@@ -13,7 +13,7 @@ const BookingAdminHome = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("http://localhost:5560/bookings")
+      .get("http://localhost:5555/bookings")
       .then((response) => {
         setBookings(response.data.data);
         setLoading(false);

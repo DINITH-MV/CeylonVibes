@@ -19,7 +19,7 @@ const AdminCarList = () => {
   useEffect(() => {
     const fetchCars = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/cars");
+        const response = await fetch("http://localhost:5555/api/cars");
         if (!response.ok) {
           throw new Error("Failed to fetch car data");
         }
@@ -36,34 +36,34 @@ const AdminCarList = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/api/cars/${id}`);
+      await axios.delete(`http://localhost:5555/api/cars/${id}`);
       setCars((prevCars) => prevCars.filter((car) => car._id !== id));
     } catch (error) {
       console.error("Error deleting car:", error);
     }
   };
 
- 
+
   return (
     <div className="absolute ml-[320px] top-[110px] w-[1120px]">
       <div className="mt-12 mb-8 flex flex-col gap-12">
         <Card>
           <CardHeader variant="gradient" color="gray" className="mb-8 p-8">
             <Typography variant="h5" color="white">
-              
+
               MANAGE VEHICLES
             </Typography>
           </CardHeader>
           <CardBody className="overflow-x-scroll px-0 pt-0 pb-2 mx-[60px]">
-          <button type='button' className='p-[4px] h-[50px] w-[960px] text-[#666666] font-bold text-[14pt] mb-[20px] ml-[20px] rounded-[7px] bg-[#cbc88f]'><Link to='/admin/admin-rent'>View Rentals</Link></button>
+            <button type='button' className='p-[4px] h-[50px] w-[960px] text-[#666666] font-bold text-[14pt] mb-[20px] ml-[20px] rounded-[7px] bg-[#cbc88f]'><Link to='/admin/admin-rent'>View Rentals</Link></button>
             <div className="container mx-auto p-5 ">
-                <h2 className="text-[18pt] font-bold mb-4 text-center">VEHICLE LIST</h2>
-                <Link to="/admin/add-car">
+              <h2 className="text-[18pt] font-bold mb-4 text-center">VEHICLE LIST</h2>
+              <Link to="/admin/add-car">
                 <button type='button' className='p-[4px] h-[37px] w-[960px] text-[#fff] mb-[20px] rounded-[7px] bg-[#69992f]'>
-                    Add a Vehicle
-                  </button>
-                </Link>
-              
+                  Add a Vehicle
+                </button>
+              </Link>
+
               <table className="min-w-full mt-[3px] rounded-xl overflow-hidden">
                 <thead className="bg-yellowDr">
                   <tr>

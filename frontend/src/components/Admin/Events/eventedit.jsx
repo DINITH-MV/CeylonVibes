@@ -282,7 +282,7 @@ const EventseditPage = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await axios.get("http://localhost:5557/events");
+        const response = await axios.get("http://localhost:5555/events");
         setEvents(response.data);
         setLoading(false);
       } catch (error) {
@@ -298,7 +298,7 @@ const EventseditPage = () => {
   // Handle Event Deletion
   const handleDeleteEvent = async (eventId) => {
     try {
-      await axios.delete(`http://localhost:5557/events/${eventId}`);
+      await axios.delete(`http://localhost:5555/events/${eventId}`);
       setEvents((prevEvents) => prevEvents.filter((event) => event._id !== eventId));
     } catch (error) {
       console.error("Error deleting event:", error);

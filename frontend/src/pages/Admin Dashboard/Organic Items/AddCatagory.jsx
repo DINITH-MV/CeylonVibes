@@ -137,7 +137,7 @@ const AddCatagory = () => {
 
                                                             // Default options for specific types
                                                             success: {
-                                                                duration: 3000,
+                                                                duration: 5555,
                                                                 theme: {
                                                                     primary: 'green',
                                                                     secondary: 'black',

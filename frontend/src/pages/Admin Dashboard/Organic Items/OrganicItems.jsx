@@ -158,7 +158,7 @@ function OrganicItems() {
 
                                   // Default options for specific types
                                   success: {
-                                    duration: 3000,
+                                    duration: 5555,
                                     theme: {
                                       primary: '#446f21',
                                       secondary: 'red',

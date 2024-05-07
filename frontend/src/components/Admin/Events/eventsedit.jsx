@@ -62,7 +62,7 @@ const EditEventPage = () => {
   useEffect(() => {
     const fetchEventData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5557/events/${eventId}`);
+        const response = await axios.get(`http://localhost:5555/events/${eventId}`);
         if (response.status === 200) {
           setEventData(response.data);
         } else {
@@ -101,7 +101,7 @@ const EditEventPage = () => {
         formData = { ...formData, imageUrl: eventData.imageUrl };
       }
 
-      await axios.put(`http://localhost:5557/events/${eventId}`, formData);
+      await axios.put(`http://localhost:5555/events/${eventId}`, formData);
       console.log("Event updated successfully");
       setUpdateError(null);
       window.alert("Event updated successfully"); // Show alert message

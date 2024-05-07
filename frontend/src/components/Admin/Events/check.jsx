@@ -15,7 +15,7 @@
 //     const fetchCars = async () => {
 //       try {
 //         const response = await fetch(
-//           `http://localhost:3000/api/cars?category=Car&brand=${searchQuery}`
+//           `http://localhost:5555/api/cars?category=Car&brand=${searchQuery}`
 //         );
 
 //         if (!response.ok) {

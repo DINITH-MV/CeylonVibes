@@ -46,11 +46,11 @@ const CreateTours = () => {
       console.log("No file selected");
     }
   };
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5560/tours", {
+      const response = await fetch("http://localhost:5555/tours", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -77,121 +77,121 @@ const CreateTours = () => {
 
   return (
     <div className="absolute ml-[320px] top-[110px] w-[1120px]">
-    <div className="mt-12 mb-8 flex flex-col gap-12">
-      <Card className="bg-green-400 ">
-        <CardHeader variant="gradient" color="gray" className="mb-8 p-8">
-          <Typography variant="h5" color="white">
-          
-            ADD A NEW TOUR
-          </Typography>
-        </CardHeader>
-        <CardBody className="px-0 pt-0 pb-2 mx-[60px]">
-    <div>
-    <div className="flex ">
-      
-      <div className=" border rounded-xl h-fit shadow-lg mx-auto my-auto justify-center bg-slate-800">
-        <div className="p-5">
-          <h2 className="text-4xl font-Satisfy text-center font-bold mb-4 text-white">
-            Add Tour
-          </h2>
-          <center><form onSubmit={handleSubmit} className="space-y-4 max-w-md">
-            <div>
-              <label htmlFor="image" className="block mb-1 text-white">
-                Image:
-              </label>
-              <input
-                type="file"
-                id="image"
-                required
-                onChange={handleFileUpload}
-                accept="image/*"
-                className="border rounded p-2 w-full"
-              />
-            </div>
-            {loading ? <p className="text-pretty">Uploading image...</p> : ""}
-            {/* Input fields */}
-            <div>
-              <label htmlFor="title" className="block mb-1 text-white">
-                Title:
-              </label>
-              <input
-                type="text"
-                id="title"
-                name="title"
-                value={formData.title}
-                onChange={handleChange}
-                className="w-full border rounded-md px-3 py-2"
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="price" className="block mb-1 text-white">
-                Price:
-              </label>
-              <input
-                type="text"
-                id="price"
-                name="price"
-                value={formData.price}
-                onChange={handleChange}
-                className="w-full border rounded-md px-3 py-2"
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="description" className="block mb-1 text-white">
-                Description:
-              </label>
-              <input
-                type="text"
-                id="description"
-                name="description"
-                value={formData.description}
-                onChange={handleChange}
-                className="w-full border rounded-md px-3 py-2"
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="Category" className="block mb-1 text-white">
-                Category:
-              </label>
-              <select  
-                id="Category"
-                name="Category"
-                value={formData.Category}
-                onChange={handleChange}
-                className="w-full border rounded-md px-3 py-2"
-                required
-              >
-                <option value="">Select a category</option>
-                <option value="hikes">Hikes</option>
-                <option value="camping">Camping</option>
-                <option value="heritage">Heritage</option>
-                <option value="wildlife">Wildlife</option>
-                <option value="beaches">Beaches</option>
-              </select>
-            </div>
+      <div className="mt-12 mb-8 flex flex-col gap-12">
+        <Card className="bg-green-400 ">
+          <CardHeader variant="gradient" color="gray" className="mb-8 p-8">
+            <Typography variant="h5" color="white">
 
-            <div className="flex justify-between">
-              <button
-                type="submit"
-                className="bg-tahiti border px-4 py-2 rounded hover:bg-blue-600 text-white"
-              >
-                Add Tour
-              </button>
-              <Link to="/">
-                <button className="bg-silver text-white border px-4 py-2 rounded hover:bg-BrownLi transition-colors duration-300">
-                  Back
-                </button>
-              </Link>
+              ADD A NEW TOUR
+            </Typography>
+          </CardHeader>
+          <CardBody className="px-0 pt-0 pb-2 mx-[60px]">
+            <div>
+              <div className="flex ">
+
+                <div className=" border rounded-xl h-fit shadow-lg mx-auto my-auto justify-center bg-slate-800">
+                  <div className="p-5">
+                    <h2 className="text-4xl font-Satisfy text-center font-bold mb-4 text-white">
+                      Add Tour
+                    </h2>
+                    <center><form onSubmit={handleSubmit} className="space-y-4 max-w-md">
+                      <div>
+                        <label htmlFor="image" className="block mb-1 text-white">
+                          Image:
+                        </label>
+                        <input
+                          type="file"
+                          id="image"
+                          required
+                          onChange={handleFileUpload}
+                          accept="image/*"
+                          className="border rounded p-2 w-full"
+                        />
+                      </div>
+                      {loading ? <p className="text-pretty">Uploading image...</p> : ""}
+                      {/* Input fields */}
+                      <div>
+                        <label htmlFor="title" className="block mb-1 text-white">
+                          Title:
+                        </label>
+                        <input
+                          type="text"
+                          id="title"
+                          name="title"
+                          value={formData.title}
+                          onChange={handleChange}
+                          className="w-full border rounded-md px-3 py-2"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="price" className="block mb-1 text-white">
+                          Price:
+                        </label>
+                        <input
+                          type="text"
+                          id="price"
+                          name="price"
+                          value={formData.price}
+                          onChange={handleChange}
+                          className="w-full border rounded-md px-3 py-2"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="description" className="block mb-1 text-white">
+                          Description:
+                        </label>
+                        <input
+                          type="text"
+                          id="description"
+                          name="description"
+                          value={formData.description}
+                          onChange={handleChange}
+                          className="w-full border rounded-md px-3 py-2"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="Category" className="block mb-1 text-white">
+                          Category:
+                        </label>
+                        <select
+                          id="Category"
+                          name="Category"
+                          value={formData.Category}
+                          onChange={handleChange}
+                          className="w-full border rounded-md px-3 py-2"
+                          required
+                        >
+                          <option value="">Select a category</option>
+                          <option value="hikes">Hikes</option>
+                          <option value="camping">Camping</option>
+                          <option value="heritage">Heritage</option>
+                          <option value="wildlife">Wildlife</option>
+                          <option value="beaches">Beaches</option>
+                        </select>
+                      </div>
+
+                      <div className="flex justify-between">
+                        <button
+                          type="submit"
+                          className="bg-tahiti border px-4 py-2 rounded hover:bg-blue-600 text-white"
+                        >
+                          Add Tour
+                        </button>
+                        <Link to="/">
+                          <button className="bg-silver text-white border px-4 py-2 rounded hover:bg-BrownLi transition-colors duration-300">
+                            Back
+                          </button>
+                        </Link>
+                      </div>
+                    </form></center>
+                  </div>
+                </div>
+              </div>
             </div>
-          </form></center>
-        </div>
-      </div>
-      </div>
-    </div>
-    </CardBody>
+          </CardBody>
         </Card>
 
       </div>

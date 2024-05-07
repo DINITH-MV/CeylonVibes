@@ -15,7 +15,7 @@ function EventComponent() {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await axios.get("http://localhost:5557/events/festival");
+        const response = await axios.get("http://localhost:5555/events/festival");
         setEvents(response.data);
         setLoading(false);
       } catch (error) {
@@ -29,7 +29,7 @@ function EventComponent() {
   }, []);
 
   return (
-    
+
     <div className=" flex flex-wrap justify-center">
       <div className="flex flex-wrap justify-center">
         {events.map((event, index) => (
@@ -58,41 +58,41 @@ function EventComponent() {
         ))}
       </div>
     </div>
-    
+
   );
 }
 
 function Festival() {
   return (
-    <div className="h-24 bg-[#eba5f1]"> 
-      <EventHeader/>
-      <br/>
-    <div className="pt-[100px] flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <div className="flex justify-center mb-4">
-       <Link to="/music1" >
-        <button className="bg-[#9d6262d3] text-Black font-bold py-2 px-4 rounded mr-4">
-          Music Events
-        </button>
-        </Link>
-        <Link to="/sport1" >
-        <button className="bg-[#9d6262d3] text-Black font-bold py-2 px-4 rounded mr-4">
-          Sports Events
-        </button>
-        </Link>
-        <Link to="/fes1" >
-        <button className="bg-[#381864d8] text-Black font-bold py-2 px-4 rounded mr-4">
-          Festival Events
-        </button>
-        </Link>
-        <Link to="/food1" >
-        <button className="bg-[#9d6262d3] text-Black font-bold py-2 px-4 rounded">
-          Food Events
-        </button>
-        </Link>
+    <div className="h-24 bg-[#eba5f1]">
+      <EventHeader />
+      <br />
+      <div className="pt-[100px] flex flex-col items-center justify-center min-h-screen bg-gray-100">
+        <div className="flex justify-center mb-4">
+          <Link to="/music1" >
+            <button className="bg-[#9d6262d3] text-Black font-bold py-2 px-4 rounded mr-4">
+              Music Events
+            </button>
+          </Link>
+          <Link to="/sport1" >
+            <button className="bg-[#9d6262d3] text-Black font-bold py-2 px-4 rounded mr-4">
+              Sports Events
+            </button>
+          </Link>
+          <Link to="/fes1" >
+            <button className="bg-[#381864d8] text-Black font-bold py-2 px-4 rounded mr-4">
+              Festival Events
+            </button>
+          </Link>
+          <Link to="/food1" >
+            <button className="bg-[#9d6262d3] text-Black font-bold py-2 px-4 rounded">
+              Food Events
+            </button>
+          </Link>
+        </div>
+        <EventComponent />
       </div>
-      <EventComponent />
-    </div>
-    <Footer/>
+      <Footer />
     </div>
   );
 }

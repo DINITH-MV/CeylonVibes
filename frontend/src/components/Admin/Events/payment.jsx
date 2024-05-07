@@ -15,7 +15,7 @@ const EventDetails = () => {
   useEffect(() => {
     const fetchEventData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5557/events/${id}`);
+        const response = await axios.get(`http://localhost:5555/events/${id}`);
         if (response.status === 200) {
           setEventData(response.data);
           setStandardPrice(response.data.ticketPrice); // Set standardPrice from eventData
@@ -31,16 +31,16 @@ const EventDetails = () => {
 
     fetchEventData();
   }, [id]);
-// validation
+  // validation
   const handleTicketCountChange = (e) => {
     const count = parseInt(e.target.value);//convert text to number
 
-    if (count > 5 ) {
+    if (count > 5) {
       alert("Ticket count cannot exceed 5");
 
-    } 
-    if (count < 0)
-    { alert("Ticket count cannot be less than 0");
+    }
+    if (count < 0) {
+      alert("Ticket count cannot be less than 0");
     }
     else {
       setTicketCount(count);
@@ -51,26 +51,26 @@ const EventDetails = () => {
   const totalPrice = standardPrice * ticketCount;
 
   const handleSubmit = () => {
-     //save values to variabals
-      const data = { //create array name data
-        User_ID: "lahiru",
-        date: new Date().toISOString(),// to get today date
-        TicketCount: ticketCount,
-        value: totalPrice,
-        status: "unpaid",
-        Eventid: id
-      };
-//pass the data array to database
-      axios.post("http://localhost:5557/Ticket", data)
-        .then(response => {
-          console.log("Data saved successfully:", response.data);
-          
-        })
-        .catch(error => {
-          console.error("Error saving data:", error);
-          // Handle any errors that occur during the save process
-        });
-    
+    //save values to variabals
+    const data = { //create array name data
+      User_ID: "lahiru",
+      date: new Date().toISOString(),// to get today date
+      TicketCount: ticketCount,
+      value: totalPrice,
+      status: "unpaid",
+      Eventid: id
+    };
+    //pass the data array to database
+    axios.post("http://localhost:5555/Ticket", data)
+      .then(response => {
+        console.log("Data saved successfully:", response.data);
+
+      })
+      .catch(error => {
+        console.error("Error saving data:", error);
+        // Handle any errors that occur during the save process
+      });
+
   };
 
   if (loading) return <p>Loading...</p>;
