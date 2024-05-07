@@ -53,8 +53,6 @@ function ShoppingCartBar({ visibilty, onClose }) {
 	// Assuming GlobalproductsInCart is an array of objects containing product information
 // Assuming GlobalproductsInCart is an array of objects containing product information
 
-
-
 const handlePayment = async () => {		
 		const products = GlobalproductsInCart.map(product => `${product._id}-${product.name}`).join('\n');
 		console.log(products)

@@ -46,6 +46,11 @@ import ShowTours from "./pages/Admin Dashboard/Tours/ShowTours.jsx";
 import DeleteBooking from "./pages/Admin Dashboard/Tours/DeleteBookings.jsx";
 import ShowBookings from "./pages/Admin Dashboard/Tours/ShowBookings.jsx";
 import TourAdminHome from "./pages/Admin Dashboard/Tours/TourAdminHome.jsx";
+import PaymentAdmin from "./components/Admin/Bill/admindash.jsx";
+import Payhistory from "./components/Admin/Bill/Paymenthis.jsx";
+import AcceptedSlips from "./components/Admin/Bill/Acceptedslips.jsx";
+import ReceivedSlips from "./components/Admin/Bill/ReceivedSlips.jsx";
+import ConnectedLinkComponent from "./pages/Admin Dashboard/payment/slipview.jsx";
 
 const App = () => {
   console.disableYellowBox = true;
@@ -192,6 +197,11 @@ const App = () => {
         <Route path="bdelete/:id" element={<DeleteBooking />} />
         <Route path="bdetails/:id" element={<ShowBookings />} />
 
+        <Route path="payment" element={<PaymentAdmin />} />
+        <Route path="paymentss" element={<Payhistory />} />
+        <Route path="acceptedslips" element={<AcceptedSlips />} />
+        <Route path="received" element={<ReceivedSlips />} />
+        <Route path="viewslip" element={<ConnectedLinkComponent />} />
       </Route>
 
     </Routes>
