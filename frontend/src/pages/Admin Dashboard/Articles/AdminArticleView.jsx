@@ -121,7 +121,7 @@ const AdminArticleList = () => {
                       <td className="border px-4 py-2">{article.views}</td>
                       <td className="border px-4 py-2">
                         <button
-                          className="pl-2 pr-2 pt-2 pb-2 border-none font-semibold mb-2 transition-colors w-full duration-300 rounded-xl  bg-red hover:bg-lightRed"
+                          className="text-center bg-red-500 rounded-xl text-white h-[40px] w-[100px] mb-[10px]"
                           onClick={() => handleDelete(article._id)}
                         >
                           Delete

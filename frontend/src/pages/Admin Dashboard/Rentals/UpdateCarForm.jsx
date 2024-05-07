@@ -21,6 +21,10 @@ const UpdateCarForm = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     const fetchCarDetails = async () => {
       try {
         const response = await fetch(`http://localhost:5555/api/cars/${id}`);
@@ -85,7 +89,7 @@ const UpdateCarForm = () => {
       if (response.ok) {
         console.log(data);
         alert("Car details updated successfully");
-        navigate("/admin-view");
+        navigate("/admin/rentals");
       } else {
         throw new Error(data.message || "Failed to update car details");
       }

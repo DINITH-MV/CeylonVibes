@@ -10,6 +10,10 @@ const TourCusHome = () => {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
+
+    useEffect(() => {
         setLoading(true);
         axios
             .get("http://localhost:5555/tours")

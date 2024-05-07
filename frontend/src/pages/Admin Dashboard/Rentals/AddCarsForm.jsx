@@ -71,7 +71,7 @@ const AddCarForm = () => {
       if (response.ok) {
         console.log(data);
         alert("Vehicle added successfully");
-        navigate("/admin-view");
+        navigate("/admin/rentals");
         // Optionally, reset the form fields
         setBrand("");
         setPrice("");

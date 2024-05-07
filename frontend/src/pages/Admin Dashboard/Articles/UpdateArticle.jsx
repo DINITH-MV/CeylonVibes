@@ -1,4 +1,10 @@
 import React, { useState, useEffect } from "react";
+import {
+  Card,
+  CardBody,
+  CardHeader,
+  Typography,
+} from "@material-tailwind/react";
 import firebase from "firebase/compat/app";
 import "firebase/compat/storage";
 import { Link, useParams, useNavigate } from "react-router-dom";
@@ -12,6 +18,10 @@ const UpdateArticleForm = () => {
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     const fetchArticleDetails = async () => {
@@ -89,7 +99,17 @@ const UpdateArticleForm = () => {
   };
 
   return (
-    <div className="w-screen h-full bg-[#f0a70a22] flex p-10">
+    <div className="absolute ml-[320px] top-[110px] w-[1120px]">
+    <div className="mt-12 mb-8 flex flex-col gap-12">
+      <Card className="bg-[#fff1ed]">
+        <CardHeader variant="gradient" color="gray" className="mb-8 p-8">
+          <Typography variant="h5" color="white">
+
+            UPDATE THE ARTICLE
+          </Typography>
+        </CardHeader>
+        <CardBody className=" px-0 pt-0  h-[1000px]">
+    <div className="h-full flex p-10">
       <div className=" bg-white border rounded-xl h-fit shadow-lg mx-auto my-auto justify-center">
         <div className="p-5">
           <h2 className="text-4xl font-Satisfy text-center font-bold mb-4">
@@ -196,6 +216,11 @@ const UpdateArticleForm = () => {
             </div>
           </form>
         </div>
+      </div>
+    </div>
+    </CardBody>
+        </Card>
+
       </div>
     </div>
   );

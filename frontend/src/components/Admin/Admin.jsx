@@ -78,8 +78,8 @@ export default function Admin() {
                             <Link
                                 to="/admin/tours"
                                 onClick={() => handleButtonClick("tours")}
-                                className={location.pathname === "/admin/tours" || location.pathname === "/admin/addevent" || location.pathname === "/admin/bookings"|| location.pathname.startsWith("/admin/editevent/") ? "mt-[5px] py-[13px] pl-[20px] pr-[141px] w-[240px] rounded-[8px] bg-[#333333] text-[#ffffff] text-[14pt] hover:bg-[#000]" : "mt-[5px] py-[13px] pl-[20px] pr-[141px] w-[240px] rounded-[8px] bg-[#ffffff] text-[#414141] text-[14pt] hover:bg-[#dedede]"} >
-                                <i class={location.pathname === "/admin/tours" || location.pathname === "/admin/addevent"|| location.pathname === "/admin/bookings" || location.pathname.startsWith("/admin/editevent/") ? "fa-duotone fa-location-dot text-[17pt] ml-[2px] mr-[19px]" : "fa-duotone fa-location-dot text-[17pt] ml-[2px] mr-[19px] text-[#d3bf05]"} />Tours
+                                className={location.pathname === "/admin/tours" || location.pathname === "/admin/addevent" || location.pathname === "/admin/bookings"|| location.pathname.startsWith("/admin/tedit/") ? "mt-[5px] py-[13px] pl-[20px] pr-[141px] w-[240px] rounded-[8px] bg-[#333333] text-[#ffffff] text-[14pt] hover:bg-[#000]" : "mt-[5px] py-[13px] pl-[20px] pr-[141px] w-[240px] rounded-[8px] bg-[#ffffff] text-[#414141] text-[14pt] hover:bg-[#dedede]"} >
+                                <i class={location.pathname === "/admin/tours" || location.pathname === "/admin/addevent"|| location.pathname === "/admin/bookings" || location.pathname.startsWith("/admin/tedit/") ? "fa-duotone fa-location-dot text-[17pt] ml-[2px] mr-[19px]" : "fa-duotone fa-location-dot text-[17pt] ml-[2px] mr-[19px] text-[#d3bf05]"} />Tours
                             </Link>
                         </div>
                         <div className="ml-[0px] mr-0 mt-[5px] py-[13px] pl-[10px] w-[265px] rounded-[8px] text-[14pt] ">

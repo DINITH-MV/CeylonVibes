@@ -28,6 +28,10 @@ const EditEventPage = () => {
   const [submitting, setSubmitting] = useState(false);
   const [updateError, setUpdateError] = useState(null);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   const handleChange = (e) => {
     setEventData({ ...eventData, [e.target.name]: e.target.value });
   };

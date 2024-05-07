@@ -7,6 +7,8 @@ import {
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
+
+
 const EditMenu = () => {
   const [topic, settopic] = useState('');
   const [description, setdescription] = useState('');
@@ -15,6 +17,11 @@ const EditMenu = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { id } = useParams();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   useEffect(() => {
     setLoading(true);
     axios
@@ -45,7 +52,7 @@ const EditMenu = () => {
       .put(`http://localhost:5555/ayurvedicSPA/${id}`, data)
       .then(() => {
         setLoading(false);
-        navigate('/spa-menu-edit-service');
+        navigate('/admin/spa-menu-edit-service');
       })
       .catch((error) => {
         setLoading(false);

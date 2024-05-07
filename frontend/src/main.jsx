@@ -7,6 +7,30 @@ import { ThemeProvider } from '@material-tailwind/react';
 import "../public/css/tailwind.css";
 import { BrowserRouter } from 'react-router-dom';
 
+import firebase from "firebase/compat/app";
+
+import "firebase/storage"; // Import specific Firebase services if you need them
+
+const firebaseConfig = {
+  apiKey: "AIzaSyC_GknCorE0goHp-bDUqySS7-BmrjONXE8",
+
+  authDomain: "ceylonvibes.firebaseapp.com",
+
+  projectId: "ceylonvibes",
+
+  storageBucket: "ceylonvibes.appspot.com",
+
+  messagingSenderId: "804091201630",
+
+  appId: "1:804091201630:web:234dbd999f20e197c78ccf",
+
+  measurementId: "G-D9TL6Y3L0V"
+
+};
+
+
+firebase.initializeApp(firebaseConfig);
+
 // Import your publishable key
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 

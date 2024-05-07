@@ -65,7 +65,7 @@ const AddArticleForm = () => {
       if (response.ok) {
         console.log(data);
         alert("Article added successfully");
-        navigate("/view-admin-article");
+        navigate("/admin/articles");
         // Optionally, reset the form fields
         setTitle("");
         setAuthor("");

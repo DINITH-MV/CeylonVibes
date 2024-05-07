@@ -44,7 +44,7 @@ const EditTours = () => {
             .then(() => {
                 setLoading(false);
                 enqueueSnackbar('Tour edited successfully', { variant: 'success' });
-                navigate('/');
+                navigate('/admin/tours');
             })
             .catch(error => {
                 setLoading(false);

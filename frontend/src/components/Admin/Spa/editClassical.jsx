@@ -15,6 +15,11 @@ const EditClassical = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { id } = useParams();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   useEffect(() => {
     axios
       .get(`http://localhost:5555/classicalSPA/${id}`)
@@ -39,7 +44,7 @@ const EditClassical = () => {
     axios
       .put(`http://localhost:5555/classicalSPA/${id}`, data)
       .then(() => {
-        navigate('/classical-spa-rituals-edit-service');
+        navigate('/admin/classical-spa-rituals-edit-service');
       })
       .catch((error) => {
         alert('An error happened. PLease check console');

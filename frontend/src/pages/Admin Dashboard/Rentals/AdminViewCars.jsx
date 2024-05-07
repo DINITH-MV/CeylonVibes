@@ -96,7 +96,7 @@ const AdminCarList = () => {
               "
                       >
                         <button
-                          className="pl-2 pr-2 pt-2 pb-2 border-none font-semibold mb-2 transition-colors w-full duration-300 rounded-xl  bg-red hover:bg-lightRed"
+                          className="text-center bg-red-500 rounded-xl text-white h-[40px] mb-[10px]"
                           onClick={() => handleDelete(car._id)}
                         >
                           Delete
