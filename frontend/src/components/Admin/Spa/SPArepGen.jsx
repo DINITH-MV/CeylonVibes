@@ -203,7 +203,7 @@ const ReportGeneration = () => {
 
   return (
     <div className="report-generation-page flex flex-col items-center justify-center h-screen">
-      <h2 className="text-3xl text-black my-4 mb-8 mt-10 font-mono antialiased font-medium">Generate Reports</h2>
+      <h2 className="text-3xl text-black my-4 mb-8 mt-[-470px] font-mono antialiased font-medium">Generate Reports</h2>
       <div className="report-form">
         <select value={selectedMonth} onChange={handleMonthChange}>
           <option value="">Select Month</option>

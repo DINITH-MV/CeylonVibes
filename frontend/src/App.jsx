@@ -51,6 +51,7 @@ import Payhistory from "./components/Admin/Bill/Paymenthis.jsx";
 import AcceptedSlips from "./components/Admin/Bill/Acceptedslips.jsx";
 import ReceivedSlips from "./components/Admin/Bill/ReceivedSlips.jsx";
 import ConnectedLinkComponent from "./pages/Admin Dashboard/payment/slipview.jsx";
+import AdminAppointment from "./pages/Admin Dashboard/SPA/AdminAppointment.jsx";
 
 const App = () => {
   console.disableYellowBox = true;
@@ -165,6 +166,7 @@ const App = () => {
         <Route path="spa" element={<SpaCategory />} />
         <Route path="spa-menu-edit-service" element={<MenuEditPage />} />
         <Route path="classical-spa-rituals-edit-service" element={<ClassicalEditPage />} />
+        <Route path="spaAppointment" element={<AdminAppointment />} />
         <Route path="ayurvedicSpaMenu/createMenu" element={<CreateMenu />} />
         <Route path="classicalSpaRituals/createclassical" element={<CreateClassical />} />
         <Route path="ayurvedicSpaMenu/edit/:id" element={<EditMenu />} />

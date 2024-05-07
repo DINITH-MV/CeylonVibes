@@ -42,7 +42,7 @@ function SpaAdminHP() {
           </div>
         </div>
         
-        <Link to ="/admin/spa-admin-appointment">
+        <Link to ="/admin/spaAppointment">
         <button className="bg-[#fbc40f] hover:bg-[#F59E0B] text-black font-bold py-2 px-4 rounded transition duration-200 mt-4" onClick={handleReportClick}>
             Check SPA Appointments 
           </button>

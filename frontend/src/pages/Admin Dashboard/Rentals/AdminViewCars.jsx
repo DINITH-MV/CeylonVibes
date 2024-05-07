@@ -50,16 +50,8 @@ const AdminCarList = () => {
         <Card>
           <CardHeader variant="gradient" color="gray" className="mb-8 p-8">
             <Typography variant="h5" color="white">
-              <PDFDownloadLink className='ml-[880px] mt-[-10px] rounded-[7px] mx-auto absolute bg-[#a0803b]' document={<PDFFile items={cars} />} fileName="Cars_table.pdf">
-                {({ loading }) => (loading ? <button className='bg-BrownLi rounded-md p-[11px] font-CantoraOne font-bold text-[17px]'><motion.button
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{
-                    duration: 1.5,
-                    delay: 1 / 10,
-                  }}>Preparing...</motion.button></button> : <button className='bg-BrownLi rounded-md p-[11px] font-CantoraOne font-bold text-[17px]'>Monthly Report</button>)}
-              </PDFDownloadLink>
-              MANAGE RENTALS
+              
+              MANAGE VEHICLES
             </Typography>
           </CardHeader>
           <CardBody className="overflow-x-scroll px-0 pt-0 pb-2 mx-[60px]">
