@@ -7,7 +7,7 @@ import {
     CardHeader,
     Typography,
 } from "@material-tailwind/react";
-import toast from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 import { useParams } from 'react-router-dom';
 
 const AddItemsCatagory = () => {
@@ -78,7 +78,7 @@ const AddItemsCatagory = () => {
             handleUpload(),
             {
                 loading: "Saving...",
-                success: <b>New Category Added!</b>,
+                success: <b>New Item Added Successfully!</b>,
                 error: <b>Could not save.</b>,
             }
         );
@@ -222,6 +222,32 @@ const AddItemsCatagory = () => {
                                                 </div>
                                             )}
                                             <button className="rounded-[7px] w-[300px] p-[6px] text-[#fff] bg-[#c33636] mt-[0] mb-[20px]" type="submit" >Submit</button>
+                                            <Toaster position="top-center"
+                                                        reverseOrder={false}
+                                                        gutter={13}
+                                                        containerClassName=""
+                                                        containerStyle={{}}
+                                                        toastOptions={{
+                                                            // Define default options
+                                                            className: '',
+                                                            duration: 5000,
+                                                            style: {
+                                                                background: '#363636',
+                                                                color: '#fff',
+                                                                boxShadow: '0px 0px 0px rgba(0, 0, 0, 0.2)',
+                                                                padding: '4px 4px 4px 8px',
+                                                            },
+
+                                                            // Default options for specific types
+                                                            success: {
+                                                                duration: 5555,
+                                                                theme: {
+                                                                    primary: 'green',
+                                                                    secondary: 'black',
+                                                                },
+                                                            },
+                                                        }}
+                                                    />
                                         </form>
                                     </div>
                                 </div>

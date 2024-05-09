@@ -136,7 +136,7 @@ const ReceivedSlips = () => {
           <CardHeader variant="gradient" color="gray" className="mb-8 p-8">
             <Typography variant="h5" color="white">
 
-              MANAGE TOURS
+              MANAGE RECIEVED SLIPS
             </Typography>
           </CardHeader>
           <CardBody className="overflow-x-scroll px-0 pt-0 pb-2 mx-[60px]">

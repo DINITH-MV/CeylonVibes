@@ -10,6 +10,7 @@ import {
 } from "@material-tailwind/react";
 import PDFFile from '../Create Report/OrganicItemTable';
 import { PDFDownloadLink } from "@react-pdf/renderer";
+import toast, { Toaster } from 'react-hot-toast';
 
 const ItemsCatagory = () => {
     axios.defaults.baseURL = `http://localhost:5555`;
@@ -39,7 +40,7 @@ const ItemsCatagory = () => {
         try {
             const response = await axios.delete(`http://localhost:5555/products/${id}`);
             fetchItems()
-            console.log(response);
+            toast.success("Item deleted successfully!");
         } catch (error) {
             if (error.response) {
                 // The request was made and the server responded with a status code
@@ -134,7 +135,7 @@ const ItemsCatagory = () => {
                                                         </td>
                                                         <td className='flex-row align-middle w-[200px]'>
 
-                                                            <button onClick={() => updateItemsCatagory(items._id)} className='p-[4px] py-[8px] w-[170px] rounded-[7px] bg-[#d0e0a0] mt-[10px] mb-[10px]'>Update Item</button><br />
+                                                            <button onClick={() => updateItemsCatagory(items._id)} className='p-[4px] py-[8px] w-[170px] rounded-[7px] bg-[#d0e0a0] mt-[10px] mb-[10px]'>Update</button><br />
                                                             <button onClick={() => deleteItemsCatagory(items._id)} className='p-[4px] py-[8px] w-[170px] rounded-[7px] bg-[#ba3434] text-[#fff] mb-[10px]'>Delete Item</button>
                                                         </td>
                                                     </tr>
@@ -149,7 +150,32 @@ const ItemsCatagory = () => {
                             </div>
                         </CardBody>
                     </Card>
+                    <Toaster position="top-center"
+                                                        reverseOrder={false}
+                                                        gutter={13}
+                                                        containerClassName=""
+                                                        containerStyle={{}}
+                                                        toastOptions={{
+                                                            // Define default options
+                                                            className: '',
+                                                            duration: 5000,
+                                                            style: {
+                                                                background: '#363636',
+                                                                color: '#fff',
+                                                                boxShadow: '0px 0px 0px rgba(0, 0, 0, 0.2)',
+                                                                padding: '4px 4px 4px 8px',
+                                                            },
 
+                                                            // Default options for specific types
+                                                            success: {
+                                                                duration: 5555,
+                                                                theme: {
+                                                                    primary: '#446f21',
+                                                                    secondary: 'red',
+                                                                },
+                                                            },
+                                                        }}
+                                                    />
                 </div>
             </div>
         </>

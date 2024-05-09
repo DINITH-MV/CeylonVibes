@@ -204,6 +204,7 @@ const App = () => {
         <Route path="acceptedslips" element={<AcceptedSlips />} />
         <Route path="received" element={<ReceivedSlips />} />
         <Route path="viewslip" element={<ConnectedLinkComponent />} />
+
       </Route>
 
     </Routes>

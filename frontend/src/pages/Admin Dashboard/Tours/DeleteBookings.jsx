@@ -18,7 +18,7 @@ const DeleteBooking = () => {
       .then(() => {
         setLoading(false);
         enqueueSnackbar('Booking deleted successfully', { variant: 'success' });
-        navigate('/');
+        navigate('/admin/bookings');
       })
       .catch((error) => {
         setLoading(false);

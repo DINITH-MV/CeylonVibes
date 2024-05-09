@@ -1,41 +1,12 @@
 import React from "react";
-import { Page, Text, Document, StyleSheet, View, Image, Font  } from "@react-pdf/renderer";
-
-Font.register({
-  family: 'Spirax',
-  fonts: [
-    { src: 'https://fonts.gstatic.com/s/spirax/v21/buE3poKgYNLy0F3cXktt-Csn-Q.ttf' },
-    ,
-    {
-      src: 'https://fonts.gstatic.com/s/spirax/v21/buE3poKgYNLy0F3cXktt-Csn-Q.ttf',
-      fontWeight: 'bold',
-    },
-    {
-      src: 'https://fonts.gstatic.com/s/spirax/v21/buE3poKgYNLy0F3cXktt-Csn-Q.ttf',
-      fontWeight: 'normal',
-      fontStyle: 'italic',
-    },
-  ]
-});
-Font.register({
-  family: 'Chivo',
-  fonts: [
-    { src: 'https://fonts.gstatic.com/s/chivo/v18/va9b4kzIxd1KFppkaRKvDRPJVDf_vB_ul2DSFXjQiQ.ttf' },
-    ,
-    
-    {
-      src: 'https://fonts.gstatic.com/s/chivo/v18/va9Z4kzIxd1KFrBtW-13ZHhT-jDqdFwG1GrWN33AiasJ.ttf',
-      fontWeight: 'normal',
-      fontStyle: 'italic',
-    },
-  ]
-});
+import { Page, Text, Document, StyleSheet, View } from "@react-pdf/renderer";
 
 const styles = StyleSheet.create({
   page: {
     flexDirection: "column",
     backgroundColor: "#dddad1",
   },
+  
   logo: {
     marginTop: 20,
     marginLeft: 80,
@@ -46,6 +17,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     borderRadius: 10,
   },
+
   report: {
     paddingTop: 30,
     paddingLeft: 590,
@@ -60,9 +32,8 @@ const styles = StyleSheet.create({
     fontFamily: "Chivo",
     fontSize: 12,
   },
-
   title: {
-    fontSize: 16,
+    fontSize: 25,
     textAlign: "center",
     paddingTop: 73,
     marginBottom: 10,
@@ -75,7 +46,7 @@ const styles = StyleSheet.create({
   },
   row: {
     flexDirection: "row",
-    alignItems: "center",// This makes the row act like a grid container
+    alignItems: "center",
   },
   tableHeader: {
     marginLeft: "2px",
@@ -85,48 +56,6 @@ const styles = StyleSheet.create({
     padding: 5,
     fontSize: 12,
     width: "170px",
-    height: "32px",
-    backgroundColor: "#F6F193",
-    color: "#000",
-    textAlign: "center",
-    fontFamily: "Chivo",
-  },
-  tableHeader: {
-    marginLeft: "2px",
-    marginBottom: "2px",
-    borderStyle: "solid",
-    borderColor: "#000000",
-    padding: 5,
-    fontSize: 12,
-    width: "170px",
-    height: "32px",
-    backgroundColor: "#F6F193",
-    color: "#000",
-    textAlign: "center",
-    fontFamily: "Chivo",
-  },
-  tableHeaderPrice: {
-    marginLeft: "2px",
-    marginBottom: "2px",
-    borderStyle: "solid",
-    borderColor: "#000000",
-    padding: 5,
-    fontSize: 12,
-    width: "90px",
-    height: "32px",
-    backgroundColor: "#F6F193",
-    color: "#000",
-    textAlign: "center",
-    fontFamily: "Chivo",
-  },
-  tableHeaderCount: {
-    marginLeft: "2px",
-    marginBottom: "2px",
-    borderStyle: "solid",
-    borderColor: "#000000",
-    padding: 5,
-    fontSize: 12,
-    width: "90px",
     height: "32px",
     backgroundColor: "#F6F193",
     color: "#000",
@@ -144,44 +73,30 @@ const styles = StyleSheet.create({
     height: "100px",
     backgroundColor: "#FBF3D5",
   },
-  count: {
+  totalcal: {
+    marginTop: 20,
     marginLeft: "2px",
     marginBottom: "2px",
     borderStyle: "solid",
     borderColor: "#000000",
     padding: 5,
-    fontSize: 12,
-    width: "90px",
-    height: "100px",
-    backgroundColor: "#FBF3D5",
-  },
-  price: {
-    marginLeft: "2px",
-    marginBottom: "2px",
-    borderStyle: "solid",
-    borderColor: "#000000",
-    padding: 5,
-    fontSize: 12,
-    width: "90px",
-    height: "100px",
-    backgroundColor: "#FBF3D5",
-  },
-  image: {
-    marginLeft: "2px",
-    marginBottom: "2px",
-    borderStyle: "solid",
-    borderColor: "#000000",
-    backgroundColor: "#FBF3D5",
-    padding: 5,
-    fontSize: 12,
-    width: "170px",
-    height: "100px",
-    paddingHorizontal: "55px",
-    paddingVertical: "10px",
+    fontSize: 18,
+    width: "340px",
+    height: "32px",
+    backgroundColor: "#27A1F0",
+    color: "#000",
+    textAlign: "center",
+    fontFamily: "Chivo",
   },
 });
 
 const PDFFile = ({ items }) => {
+  // Function to calculate total price
+  const totalPriceSum = items.reduce((acc, item) => acc + item.totalPrice, 0);
+
+  // Function to calculate total count
+  const totalCount = items.reduce((acc, item) => acc + item.count, 0);
+
   // Function to split items into chunks of 4
   const chunk = (arr, size) =>
     Array.from({ length: Math.ceil(arr.length / size) }, (v, i) =>
@@ -198,22 +113,27 @@ const PDFFile = ({ items }) => {
           <Text style={styles.logo}>CeylonVibes</Text>
           <Text style={styles.report}>Monthly Report</Text>
           <Text style={styles.period}>For the period ended {new Date().toLocaleDateString()}</Text>
-          <Text style={styles.title}>Tour Bookings</Text>
+          <Text style={styles.title}>Bookings Report</Text>
+          <View style={styles.totalcal}>
+            <Text>Total Earnings from tours: {totalPriceSum}/=</Text>            
+          </View>
+          <View style={styles.totalcal}>
+          <Text>Total Tickets booked: {totalCount}</Text>
+          </View>
           <View style={styles.table}>
             <View style={styles.row}>
               <Text style={styles.tableHeader}>Tour_id</Text>
               <Text style={styles.tableHeader}>Date</Text>
-              
-          <Text style={styles.tableHeaderPrice}>Total price</Text>
-          <Text style={styles.tableHeaderCount}>Count</Text>
+              <Text style={styles.tableHeader}>Total price</Text>
+              <Text style={styles.tableHeader}>Count</Text>
               <Text style={styles.tableHeader}>User_id</Text>
             </View>
             {items.map((item) => (
               <View key={item._id} style={styles.row}>
                 <Text style={styles.cell}>{item.tourId}</Text>
                 <Text style={styles.cell}>{item.date}</Text>   
-                <Text style={styles.price}>{item.totalPrice}</Text>   
-                <Text style={styles.count}>{item.count}</Text>   
+                <Text style={styles.cell}>{item.totalPrice}</Text>   
+                <Text style={styles.cell}>{item.count}</Text>   
                 <Text style={styles.cell}>{item.userId}</Text>
               </View>
             ))}
@@ -224,5 +144,4 @@ const PDFFile = ({ items }) => {
   );
 };
 
-
-export default PDFFile;
+export default PDFFile;
