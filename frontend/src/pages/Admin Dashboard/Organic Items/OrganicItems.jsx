@@ -34,18 +34,18 @@ function OrganicItems() {
 
   const notify = () => toast.success('Successfully deleted!');
 
-  const deleteCatagory = async (id) => {
+  const deleteCatagory = async (id, image) => {
     try {
       const response = await axios.delete(`http://localhost:5012/catagories/${id}`);
+      const response1 = await axios.delete(`http://localhost:5012/catImages/${image}`);
       fetchItems()
-      console.log(response);
     } catch (error) {
-      if (error.response) {
+      if (error.response || error.response1) {
         // The request was made and the server responded with a status code
         // that falls out of the range of 2xx
         console.error("Error status:", error.response.status);
         console.error("Error data:", error.response.data);
-      } else if (error.request) {
+      } else if (error.request || error.request1) {
         // The request was made but no response was received
         console.error("No response received:", error.request);
       } else {
@@ -138,7 +138,7 @@ function OrganicItems() {
                             <div>
                               <button onClick={() => {
                                 notify();
-                                deleteCatagory(items._id)
+                                deleteCatagory(items._id, items.image)
                               }} className='p-[4px] h-[37px] w-[150px] rounded-[7px] bg-[rgb(168,42,42)] text-[#fff] mb-[10px]'>Delete Catagory</button>
                               <Toaster position="top-center"
                                 reverseOrder={false}
