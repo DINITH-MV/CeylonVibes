@@ -36,8 +36,6 @@ const FoodCatagory = ({ items, fetchItems }) => {
                                 {/* {filteredProducts.map(product => {
                                     <div className="w-full h-[300px] bg-purple"></div>
                                     return <div key={product.id}> {product.title} </div>
-
-
                                 })} */}
                                 {items?.length
                                     ?
