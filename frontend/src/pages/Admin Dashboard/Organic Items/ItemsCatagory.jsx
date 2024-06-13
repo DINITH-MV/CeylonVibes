@@ -13,7 +13,7 @@ import { PDFDownloadLink } from "@react-pdf/renderer";
 import toast, { Toaster } from 'react-hot-toast';
 
 const ItemsCatagory = () => {
-    axios.defaults.baseURL = `http://localhost:5555`;
+    axios.defaults.baseURL = `http://localhost:5012`;
     const [items, setItems] = useState([]);
 
     const catagoryName = useParams().id;
@@ -38,7 +38,7 @@ const ItemsCatagory = () => {
 
     const deleteItemsCatagory = async (id) => {
         try {
-            const response = await axios.delete(`http://localhost:5555/products/${id}`);
+            const response = await axios.delete(`http://localhost:5012/products/${id}`);
             fetchItems()
             toast.success("Item deleted successfully!");
         } catch (error) {
@@ -126,7 +126,7 @@ const ItemsCatagory = () => {
                                                 items.map((items) => (
                                                     <tr key={items._id} className='border h-[160px] text-center'>
                                                         <td className='border w-[110px]'>
-                                                            <img className="max-h-[120px] transition duration-300 mx-auto" src={`http://localhost:5555/products/` + items.image} alt='Catagories' />
+                                                            <img className="max-h-[120px] transition duration-300 mx-auto" src={`http://localhost:5012/products/` + items.image} alt='Catagories' />
                                                         </td>
                                                         <td className='w-[240px]'>{items._id}</td>
                                                         <td className='border w-[180px]'>{items.name}</td>
@@ -151,31 +151,31 @@ const ItemsCatagory = () => {
                         </CardBody>
                     </Card>
                     <Toaster position="top-center"
-                                                        reverseOrder={false}
-                                                        gutter={13}
-                                                        containerClassName=""
-                                                        containerStyle={{}}
-                                                        toastOptions={{
-                                                            // Define default options
-                                                            className: '',
-                                                            duration: 5000,
-                                                            style: {
-                                                                background: '#363636',
-                                                                color: '#fff',
-                                                                boxShadow: '0px 0px 0px rgba(0, 0, 0, 0.2)',
-                                                                padding: '4px 4px 4px 8px',
-                                                            },
+                        reverseOrder={false}
+                        gutter={13}
+                        containerClassName=""
+                        containerStyle={{}}
+                        toastOptions={{
+                            // Define default options
+                            className: '',
+                            duration: 5000,
+                            style: {
+                                background: '#363636',
+                                color: '#fff',
+                                boxShadow: '0px 0px 0px rgba(0, 0, 0, 0.2)',
+                                padding: '4px 4px 4px 8px',
+                            },
 
-                                                            // Default options for specific types
-                                                            success: {
-                                                                duration: 5555,
-                                                                theme: {
-                                                                    primary: '#446f21',
-                                                                    secondary: 'red',
-                                                                },
-                                                            },
-                                                        }}
-                                                    />
+                            // Default options for specific types
+                            success: {
+                                duration: 5555,
+                                theme: {
+                                    primary: '#446f21',
+                                    secondary: 'red',
+                                },
+                            },
+                        }}
+                    />
                 </div>
             </div>
         </>

@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export const SearchBar = ({ setResults }) => {
   const [input, setInput] = useState("");
-  axios.defaults.baseURL = `http://localhost:5555`;
+  axios.defaults.baseURL = `http://localhost:5012`;
 
   const fetchData = (value) => {
     axios.get(`api/productsSearch?name=${value}`)

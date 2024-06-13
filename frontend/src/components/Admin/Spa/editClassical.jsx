@@ -22,7 +22,7 @@ const EditClassical = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5555/classicalSPA/${id}`)
+      .get(`http://localhost:5012/classicalSPA/${id}`)
       .then((response) => {
         settopic(response.data.topic);
         setdescription(response.data.description);
@@ -42,7 +42,7 @@ const EditClassical = () => {
       Price,
     };
     axios
-      .put(`http://localhost:5555/classicalSPA/${id}`, data)
+      .put(`http://localhost:5012/classicalSPA/${id}`, data)
       .then(() => {
         navigate('/admin/classical-spa-rituals-edit-service');
       })

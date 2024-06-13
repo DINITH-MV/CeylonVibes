@@ -13,7 +13,7 @@ const SPAEDITMENU = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get('http://localhost:5555/ayurvedicSPA')
+      .get('http://localhost:5012/ayurvedicSPA')
       .then((response) => {
         setAyurvedicSpa(response.data.data);
       })
@@ -27,11 +27,11 @@ const SPAEDITMENU = () => {
       <div className='flex justify-between items-center'>
         <h1 className='flex justify-center text-4xl text-black my-4 mb-8 mt-10 font-mono antialiased font-medium'> Ayurvedic SPA Menu</h1>
         <Link to='/admin/ayurvedicSpaMenu/createMenu'>
-          <button className = 'p-3 bg-[#2563EB] hover:bg-[#1E3A8A] text-white font-bold py-2 px-4 rounded transition duration-200 '> Add a service </button>
+          <button className='p-3 bg-[#2563EB] hover:bg-[#1E3A8A] text-white font-bold py-2 px-4 rounded transition duration-200 '> Add a service </button>
         </Link>
       </div>
-      
-        <div className="flex justify-center">
+
+      <div className="flex justify-center">
         <table className='w-[1300px] border-collapse'>
           <thead>
             <tr className='bg-gray-200'>
@@ -57,11 +57,11 @@ const SPAEDITMENU = () => {
                       <BsInfoCircle className='text-2xl text-[#065F46]' />
                     </Link>
                     <Link to={`/admin/ayurvedicSpaMenu/edit/${item._id}`}>
-                      <button className = 'p-3 bg-[#F59E0B] hover:bg-[#D97706] text-white font-bold py-2 px-4 rounded transition duration-200 '> Edit </button>
+                      <button className='p-3 bg-[#F59E0B] hover:bg-[#D97706] text-white font-bold py-2 px-4 rounded transition duration-200 '> Edit </button>
 
                     </Link>
                     <Link to={`/admin/ayurvedicSpaMenu/delete/${item._id}`}>
-                    <button className = 'p-3 bg-[#DC2626] hover:bg-[#B91C1C] text-black font-bold py-2 px-4 rounded transition duration-200 '> Delete </button>
+                      <button className='p-3 bg-[#DC2626] hover:bg-[#B91C1C] text-black font-bold py-2 px-4 rounded transition duration-200 '> Delete </button>
                     </Link>
                   </div>
                 </td>
@@ -70,7 +70,7 @@ const SPAEDITMENU = () => {
           </tbody>
         </table>
       </div>
-      
+
     </div>
   );
 };

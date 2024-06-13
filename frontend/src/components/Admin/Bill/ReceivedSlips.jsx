@@ -21,7 +21,7 @@ const ReceivedSlips = () => {
   useEffect(() => {
     const fetchSlips = async () => {
       try {
-        const response = await axios.get("http://localhost:5555/slips");
+        const response = await axios.get("http://localhost:5012/slips");
         setReceivedSlips(response.data.filter(slip => slip.status === 'pending'));
       } catch (error) {
         console.error('Error fetching slips:', error);
@@ -38,38 +38,38 @@ const ReceivedSlips = () => {
     try {
       const fetchBills = async () => {
         try {
-          const response = await axios.get("http://localhost:5555/bill");
+          const response = await axios.get("http://localhost:5012/bill");
           const unpaidBills = response.data.filter(
             (bill) => bill.status === 'pending' && bill.User_ID === user_id
           );
 
           unpaidBills.forEach(async (bill) => {
-            await axios.put(`http://localhost:5555/bill/${bill._id}`, { status: "paid" });
+            await axios.put(`http://localhost:5012/bill/${bill._id}`, { status: "paid" });
           });
         } catch (error) {
           console.error('Error fetching bills:', error);
         }
       };
-      await axios.post("http://localhost:5555/pay", {
+      await axios.post("http://localhost:5012/pay", {
         User_ID: user_id,
         pmethod: "Slip",
         date: currentDate,
         Value: value,
       });
-      await axios.put(`http://localhost:5555/slips/${id}`, { status: "Accepted" });
+      await axios.put(`http://localhost:5012/slips/${id}`, { status: "Accepted" });
       setReceivedSlips(prevSlips =>
         prevSlips.filter(slip => slip._id !== id)
       );
 
       // Create new notification
-      await axios.post("http://localhost:5555/noti", {
+      await axios.post("http://localhost:5012/noti", {
         date: currentTimeSL, // Include current date in the notification payload
         status: "unread",
         description: "Your slip has been Accepted",
         topic: "Slip",
         userID: id,
       });
-      await axios.post("http://localhost:5555/pay", {
+      await axios.post("http://localhost:5012/pay", {
         User_ID: user_id,
         date: currentDate,
         Value: value
@@ -91,16 +91,16 @@ const ReceivedSlips = () => {
     try {
       const fetchBills = async () => {
         try {
-          const response = await axios.get("http://localhost:5555/bill");
+          const response = await axios.get("http://localhost:5012/bill");
           const unpaidBills = response.data.filter(
             (bill) => bill.status === 'pending' && bill.User_ID === user_id
           );
-          await axios.put(`http://localhost:5555/slips/${id}`, { status: "Rejected" });
+          await axios.put(`http://localhost:5012/slips/${id}`, { status: "Rejected" });
           setReceivedSlips(prevSlips =>
             prevSlips.filter(slip => slip._id !== id)
           );
           await Promise.all(unpaidBills.map(async (bill) => {
-            await axios.put(`http://localhost:5555/bill/${bill._id}`, { status: "unpaid" });
+            await axios.put(`http://localhost:5012/bill/${bill._id}`, { status: "unpaid" });
           }));
         } catch (error) {
           console.error('Error fetching bills:', error);
@@ -110,7 +110,7 @@ const ReceivedSlips = () => {
       await fetchBills();
 
       // Create new notification
-      await axios.post("http://localhost:5555/noti", {
+      await axios.post("http://localhost:5012/noti", {
         date: new Date().toISOString(),
         status: "unread",
         description: "Your slip has been rejected",

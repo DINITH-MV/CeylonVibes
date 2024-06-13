@@ -15,7 +15,7 @@ const ShowTours = () => {
   const fetchTourDetails = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`http://localhost:5555/tours/${id}`);
+      const response = await axios.get(`http://localhost:5012/tours/${id}`);
       setTour(response.data);
     } catch (error) {
       console.error('Error fetching tour:', error);

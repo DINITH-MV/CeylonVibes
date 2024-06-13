@@ -18,7 +18,7 @@ const Payhistory = () => {
   useEffect(() => {
     const fetchPayments = async () => {
       try {
-        const response = await axios.get("http://localhost:5555/pay");
+        const response = await axios.get("http://localhost:5012/pay");
         setPayments(response.data);
         const billExists = response.data.some(payment => payment.billAvailable);
         setBillAvailable(billExists);
@@ -64,7 +64,7 @@ const Payhistory = () => {
   //      try {
   //        // Iterate through filteredSlips array and delete each slip
   //        for (const slip of filteredPayments) {
-  //          await axios.delete(`http://localhost:5555/pay/${slip._id}`);
+  //          await axios.delete(`http://localhost:5012/pay/${slip._id}`);
   //        }
   //        setPayments([]); // Clear the state after deletion
   //     } catch (error) {

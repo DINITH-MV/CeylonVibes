@@ -24,7 +24,7 @@ const CreateClassical = () => {
             Price,
         };
         axios
-            .post('http://localhost:5555/classicalSPA', data)
+            .post('http://localhost:5012/classicalSPA', data)
             .then(() => {
                 navigate('/admin/classical-spa-rituals-edit-service');
             })
@@ -38,12 +38,12 @@ const CreateClassical = () => {
     return (
         <div className="absolute ml-[320px] top-[110px] w-[1120px]">
 
-                <Card className='mt-[50px]'>
-                    <CardHeader variant="gradient" color="gray" className="mb-8 p-6">
-                        <Typography variant="h6" color="white">
-                            CREATE CLASSICAL SPA RITUAL SERVICE
-                        </Typography>
-                        </CardHeader>
+            <Card className='mt-[50px]'>
+                <CardHeader variant="gradient" color="gray" className="mb-8 p-6">
+                    <Typography variant="h6" color="white">
+                        CREATE CLASSICAL SPA RITUAL SERVICE
+                    </Typography>
+                </CardHeader>
                 <div className='p-4'>
                     <h1 className='text-3xl text-black text-center mb-8 font-mono antialiased font-medium'> Create a New 'Classical SPA Ritual' Service</h1>
 

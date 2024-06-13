@@ -27,7 +27,7 @@ const UpdateCarForm = () => {
   useEffect(() => {
     const fetchCarDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:5555/api/cars/${id}`);
+        const response = await fetch(`http://localhost:5012/api/cars/${id}`);
         if (!response.ok) {
           throw new Error("Failed to fetch car details");
         }
@@ -71,7 +71,7 @@ const UpdateCarForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:5555/api/cars/${id}`, {
+      const response = await fetch(`http://localhost:5012/api/cars/${id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

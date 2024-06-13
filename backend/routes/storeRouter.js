@@ -9,6 +9,7 @@ import {
 import path from "path";
 import multer from "multer";
 import MongoClient from "mongodb";
+import fs from 'fs';
 
 const router = express();
 
@@ -80,6 +81,17 @@ router.put("/catagories/:id", upload.single("file"), (req, res) => {
     .catch((err) => console.log(err)); // Use console.log to log errors
 });
 
+function deleteImageFile(filename) {
+const filePath = path.join(filename, "public/catagories", Catagory.image);
+  fs.unlink(filePath, (err) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ message: "Failed to delete image file" });
+    }
+  });
+}
+
+
 // Delete existing catagories
 router.delete("/catagories/:id", (req, res) => {
   const id = req.params.id; // Use req.params to access route parameters
@@ -93,13 +105,7 @@ router.delete("/catagories/:id", (req, res) => {
     })
     .catch((err) => console.log(err)); // Use console.log to log errors
 
-  const filePath = path.join(__dirname, "public/categories", Catagory.image);
-  fs.unlink(filePath, (err) => {
-    if (err) {
-      console.error(err);
-      return res.status(500).json({ message: "Failed to delete image file" });
-    }
-  });
+  
 });
 
 router.get("/api/productsSearch", (req, res) => {

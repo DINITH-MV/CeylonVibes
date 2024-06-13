@@ -27,7 +27,7 @@ const UpdateArticleForm = () => {
     const fetchArticleDetails = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5555/api/articles/${id}`
+          `http://localhost:5012/api/articles/${id}`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch article details");
@@ -71,7 +71,7 @@ const UpdateArticleForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:5555/api/articles/${id}`, {
+      const response = await fetch(`http://localhost:5012/api/articles/${id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -100,125 +100,125 @@ const UpdateArticleForm = () => {
 
   return (
     <div className="absolute ml-[320px] top-[110px] w-[1120px]">
-    <div className="mt-12 mb-8 flex flex-col gap-12">
-      <Card className="bg-[#fff1ed]">
-        <CardHeader variant="gradient" color="gray" className="mb-8 p-8">
-          <Typography variant="h5" color="white">
+      <div className="mt-12 mb-8 flex flex-col gap-12">
+        <Card className="bg-[#fff1ed]">
+          <CardHeader variant="gradient" color="gray" className="mb-8 p-8">
+            <Typography variant="h5" color="white">
 
-            UPDATE THE ARTICLE
-          </Typography>
-        </CardHeader>
-        <CardBody className=" px-0 pt-0  h-[1000px]">
-    <div className="h-full flex p-10">
-      <div className=" bg-white border rounded-xl h-fit shadow-lg mx-auto my-auto justify-center">
-        <div className="p-5">
-          <h2 className="text-4xl font-Satisfy text-center font-bold mb-4">
-            Update Article Details
-          </h2>
-          <form onSubmit={handleSubmit} className="space-y-4 flex">
-            <div>
-              <div className="flex">
-                <div className="mr-5">
-                  <label htmlFor="image" className="block mb-1">
-                    Image:
-                  </label>
-                  <input
-                    type="file"
-                    id="image"
-                    onChange={handleFileUpload}
-                    accept="image/*"
-                    className="border rounded p-2 w-full"
-                  />
-                  <img src={imageUrl} className="w-96 h-auto" alt="" />
-                  {loading ? (
-                    <p className="text-pretty">Uploading image...</p>
-                  ) : (
-                    <p className="text-green">Image Uploaded</p>
-                  )}
-                </div>
-                <div className="ml-5">
-                  <div>
-                    <label htmlFor="title" className="block mb-1">
-                      Title:
-                    </label>
-                    <input
-                      type="text"
-                      id="title"
-                      value={title}
-                      onChange={(e) => setTitle(e.target.value)}
-                      className="border rounded p-2 w-full"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="author" className="block mb-1">
-                      Author:
-                    </label>
-                    <input
-                      type="text"
-                      id="author"
-                      value={author}
-                      onChange={(e) => setAuthor(e.target.value)}
-                      className="border rounded p-2 w-full"
-                    />
-                  </div>
+              UPDATE THE ARTICLE
+            </Typography>
+          </CardHeader>
+          <CardBody className=" px-0 pt-0  h-[1000px]">
+            <div className="h-full flex p-10">
+              <div className=" bg-white border rounded-xl h-fit shadow-lg mx-auto my-auto justify-center">
+                <div className="p-5">
+                  <h2 className="text-4xl font-Satisfy text-center font-bold mb-4">
+                    Update Article Details
+                  </h2>
+                  <form onSubmit={handleSubmit} className="space-y-4 flex">
+                    <div>
+                      <div className="flex">
+                        <div className="mr-5">
+                          <label htmlFor="image" className="block mb-1">
+                            Image:
+                          </label>
+                          <input
+                            type="file"
+                            id="image"
+                            onChange={handleFileUpload}
+                            accept="image/*"
+                            className="border rounded p-2 w-full"
+                          />
+                          <img src={imageUrl} className="w-96 h-auto" alt="" />
+                          {loading ? (
+                            <p className="text-pretty">Uploading image...</p>
+                          ) : (
+                            <p className="text-green">Image Uploaded</p>
+                          )}
+                        </div>
+                        <div className="ml-5">
+                          <div>
+                            <label htmlFor="title" className="block mb-1">
+                              Title:
+                            </label>
+                            <input
+                              type="text"
+                              id="title"
+                              value={title}
+                              onChange={(e) => setTitle(e.target.value)}
+                              className="border rounded p-2 w-full"
+                            />
+                          </div>
+                          <div>
+                            <label htmlFor="author" className="block mb-1">
+                              Author:
+                            </label>
+                            <input
+                              type="text"
+                              id="author"
+                              value={author}
+                              onChange={(e) => setAuthor(e.target.value)}
+                              className="border rounded p-2 w-full"
+                            />
+                          </div>
 
-                  <div>
-                    <label htmlFor="category" className="block mb-1">
-                      Category:
-                    </label>
-                    <select
-                      id="category"
-                      value={category}
-                      onChange={(e) => setCategory(e.target.value)}
-                      className="border rounded p-2 w-full"
-                    >
-                      <option value="">Select Category</option>
-                      <option value="Attractions and Landmarks">
-                        Attractions and Landmarks
-                      </option>
-                      <option value="Natural Wonders">Natural Wonders</option>
-                      <option value="Cultural Experience">
-                        Cultural Experience
-                      </option>
-                      <option value="Historical Sites">Historical Sites</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div>
-                  <div>
-                    <label htmlFor="description" className="block mb-1">
-                      Description:
-                    </label>
-                    <textarea
-                      id="description"
-                      value={description}
-                      onChange={(e) => setDescription(e.target.value)}
-                      className="border rounded p-2 w-full h-32"
-                    />
-                  </div>
-                  <div className="flex justify-between mt-5">
-                    <button
-                      type="submit"
-                      className="bg-tahiti text-black border px-4 py-2 mr-3 rounded hover:bg-blue-600"
-                    >
-                      Update Article Details
-                    </button>
-                    <Link to="/view-admin-article">
-                      <button className="bg-silver text-black border px-4 py-2 rounded hover:bg-BrownLi transition-colors duration-300">
-                        Back
-                      </button>
-                    </Link>
-                  </div>
+                          <div>
+                            <label htmlFor="category" className="block mb-1">
+                              Category:
+                            </label>
+                            <select
+                              id="category"
+                              value={category}
+                              onChange={(e) => setCategory(e.target.value)}
+                              className="border rounded p-2 w-full"
+                            >
+                              <option value="">Select Category</option>
+                              <option value="Attractions and Landmarks">
+                                Attractions and Landmarks
+                              </option>
+                              <option value="Natural Wonders">Natural Wonders</option>
+                              <option value="Cultural Experience">
+                                Cultural Experience
+                              </option>
+                              <option value="Historical Sites">Historical Sites</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <div>
+                          <div>
+                            <label htmlFor="description" className="block mb-1">
+                              Description:
+                            </label>
+                            <textarea
+                              id="description"
+                              value={description}
+                              onChange={(e) => setDescription(e.target.value)}
+                              className="border rounded p-2 w-full h-32"
+                            />
+                          </div>
+                          <div className="flex justify-between mt-5">
+                            <button
+                              type="submit"
+                              className="bg-tahiti text-black border px-4 py-2 mr-3 rounded hover:bg-blue-600"
+                            >
+                              Update Article Details
+                            </button>
+                            <Link to="/view-admin-article">
+                              <button className="bg-silver text-black border px-4 py-2 rounded hover:bg-BrownLi transition-colors duration-300">
+                                Back
+                              </button>
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
-          </form>
-        </div>
-      </div>
-    </div>
-    </CardBody>
+          </CardBody>
         </Card>
 
       </div>

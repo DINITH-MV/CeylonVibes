@@ -17,7 +17,7 @@ const ShowBookings = () => {
   const fetchBookingDetails = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`http://localhost:5555/bookings/${id}`);
+      const response = await axios.get(`http://localhost:5012/bookings/${id}`);
       setBooking(response.data);
       setLoading(false);
     } catch (error) {

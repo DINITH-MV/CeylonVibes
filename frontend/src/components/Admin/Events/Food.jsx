@@ -16,7 +16,7 @@ function EventComponent() {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await axios.get("http://localhost:5555/events/food");
+        const response = await axios.get("http://localhost:5012/events/food");
         setEvents(response.data);
         setLoading(false);
       } catch (error) {

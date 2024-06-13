@@ -53,7 +53,7 @@ const AddCarForm = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5555/api/cars", {
+      const response = await fetch("http://localhost:5012/api/cars", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

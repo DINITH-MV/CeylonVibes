@@ -25,7 +25,7 @@ function AyurvedicSpaMenu() {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const response = await axios.get("http://localhost:5555/ayurvedicSPA");
+        const response = await axios.get("http://localhost:5012/ayurvedicSPA");
         setServices(response.data.data);
         setLoading(false);
       } catch (error) {
@@ -68,7 +68,7 @@ function AyurvedicSpaMenu() {
 
       <br />
       <br />
-      
+
       {loading ? (
         <p>Loading...</p>
       ) : error ? (

@@ -15,7 +15,7 @@ const ShowMenu = () => {
     useEffect(() => {
         setLoading(true);
         axios
-            .get(`http://localhost:5555/ayurvedicSPA/${id}`)
+            .get(`http://localhost:5012/ayurvedicSPA/${id}`)
             .then((response) => {
                 setAyurvedicSpa(response.data);
             })

@@ -14,7 +14,7 @@ const DeleteBooking = () => {
   const handleDeleteBooking = () => {
     setLoading(true);
     axios
-      .delete(`http://localhost:5555/bookings/${id}`)
+      .delete(`http://localhost:5012/bookings/${id}`)
       .then(() => {
         setLoading(false);
         enqueueSnackbar('Booking deleted successfully', { variant: 'success' });

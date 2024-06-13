@@ -18,7 +18,7 @@ const DeleteTours = () => {
   const handleDeleteTour = () => {
     setLoading(true);
     axios
-      .delete(`http://localhost:5555/tours/${id}`)
+      .delete(`http://localhost:5012/tours/${id}`)
       .then(() => {
         setLoading(false);
         enqueueSnackbar('Book deleted successfully', { variant: 'success' });

@@ -25,7 +25,7 @@ function AyurvedicSpaClassical() {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const response = await axios.get("http://localhost:5555/classicalSPA");
+        const response = await axios.get("http://localhost:5012/classicalSPA");
         setServices(response.data.data);
         setLoading(false);
       } catch (error) {
@@ -48,11 +48,11 @@ function AyurvedicSpaClassical() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100" style={{ backgroundImage: `url(${classicalspa})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <div className="flex justify-center w-full mb-10">
         <h1 className="text-5xl font-bold font-mono antialiased font-weight-600 text-white mr-8">
           Classical SPA Ritual Menu

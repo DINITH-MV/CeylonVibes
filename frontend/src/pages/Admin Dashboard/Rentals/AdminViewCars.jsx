@@ -19,7 +19,7 @@ const AdminCarList = () => {
   useEffect(() => {
     const fetchCars = async () => {
       try {
-        const response = await fetch("http://localhost:5555/api/cars");
+        const response = await fetch("http://localhost:5012/api/cars");
         if (!response.ok) {
           throw new Error("Failed to fetch car data");
         }
@@ -36,7 +36,7 @@ const AdminCarList = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5555/api/cars/${id}`);
+      await axios.delete(`http://localhost:5012/api/cars/${id}`);
       setCars((prevCars) => prevCars.filter((car) => car._id !== id));
     } catch (error) {
       console.error("Error deleting car:", error);

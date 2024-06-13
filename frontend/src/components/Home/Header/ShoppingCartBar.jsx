@@ -40,7 +40,7 @@ function ShoppingCartBar({ visibilty, onClose }) {
 			cartCount
 		};
 		axios
-			.post('http://localhost:5555/cart', data)
+			.post('http://localhost:5012/cart', data)
 			.then((response) => {
 				// Assuming response.data is an array
 				for (let i = 0; i < response.data.length; i++) {
@@ -84,7 +84,7 @@ function ShoppingCartBar({ visibilty, onClose }) {
 							className="cart-product"
 							key={product.id}>
 							<img
-								src={'http://localhost:5555/' + product.imageFolder + '/' +
+								src={'http://localhost:5012/' + product.imageFolder + '/' +
 									product.image
 								}
 								alt={product.name}

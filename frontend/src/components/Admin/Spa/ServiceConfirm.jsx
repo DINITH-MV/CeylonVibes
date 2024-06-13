@@ -12,7 +12,7 @@ const ServiceConfirm = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get('http://localhost:5555/appointmentSPA')
+      .get('http://localhost:5012/appointmentSPA')
       .then((response) => {
         const appointments = response.data.data;
         if (appointments.length > 0) {
@@ -31,7 +31,7 @@ const ServiceConfirm = () => {
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:5555/appointmentSPA/${id}`)
+      .delete(`http://localhost:5012/appointmentSPA/${id}`)
       .then((response) => {
         // Filter out the deleted appointment from state
         setAppointmentSpa((prevAppointments) =>

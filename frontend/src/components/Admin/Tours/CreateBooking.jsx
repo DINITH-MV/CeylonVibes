@@ -15,7 +15,7 @@ const CreateBooking = ({ onCancel, tourId }) => {
     useEffect(() => {
         const fetchTourDetails = async () => {
             try {
-                const response = await axios.get(`http://localhost:5555/tours/${tourId}`);
+                const response = await axios.get(`http://localhost:5012/tours/${tourId}`);
                 setTour(response.data);
             } catch (error) {
                 console.error('Error fetching tour:', error);
@@ -44,7 +44,7 @@ const CreateBooking = ({ onCancel, tourId }) => {
         };
         setLoading(true);
         axios
-            .post('http://localhost:5555/bookings', data)
+            .post('http://localhost:5012/bookings', data)
             .then(() => {
                 setLoading(false);
                 enqueueSnackbar('Booking created successfully', { variant: 'success' });

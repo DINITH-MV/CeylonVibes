@@ -21,7 +21,7 @@ const TourAdminHome = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("http://localhost:5555/tours")
+      .get("http://localhost:5012/tours")
       .then((response) => {
         setTours(response.data.data);
         setLoading(false);

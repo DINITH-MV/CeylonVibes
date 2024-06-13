@@ -19,7 +19,7 @@ const AdminRentList = () => {
   useEffect(() => {
     const fetchRents = async () => {
       try {
-        const response = await fetch("http://localhost:5555/api/rents");
+        const response = await fetch("http://localhost:5012/api/rents");
         if (!response.ok) {
           throw new Error("Failed to fetch rent data");
         }
@@ -50,7 +50,7 @@ const AdminRentList = () => {
         <Card>
           <CardHeader variant="gradient" color="gray" className="mb-8 p-8">
             <Typography variant="h5" color="white">
-            <PDFDownloadLink className='ml-[880px] mt-[-10px] rounded-[7px] mx-auto absolute bg-[#a0803b]' document={<PDFFile items={rents1} />} fileName="Rentals_table.pdf">
+              <PDFDownloadLink className='ml-[880px] mt-[-10px] rounded-[7px] mx-auto absolute bg-[#a0803b]' document={<PDFFile items={rents1} />} fileName="Rentals_table.pdf">
                 {({ loading }) => (loading ? <button className='bg-BrownLi rounded-md p-[11px] font-CantoraOne font-bold text-[17px]'><motion.button
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -69,7 +69,7 @@ const AdminRentList = () => {
 
               </div>
 
-             
+
               <table className="min-w-full rounded-xl overflow-hidden">
                 <thead className="bg-yellowDr">
                   <tr>

@@ -50,7 +50,7 @@ const CreateTours = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5555/tours", {
+      const response = await fetch("http://localhost:5012/tours", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

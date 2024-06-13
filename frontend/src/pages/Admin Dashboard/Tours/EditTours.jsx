@@ -18,7 +18,7 @@ const EditTours = () => {
 
     useEffect(() => {
         setLoading(true);
-        axios.get(`http://localhost:5555/tours/${id}`)
+        axios.get(`http://localhost:5012/tours/${id}`)
             .then((response) => {
                 setPrice(response.data.price);
                 setDescription(response.data.description);
@@ -40,7 +40,7 @@ const EditTours = () => {
         };
         setLoading(true);
         axios
-            .put(`http://localhost:5555/tours/${id}`, data)
+            .put(`http://localhost:5012/tours/${id}`, data)
             .then(() => {
                 setLoading(false);
                 enqueueSnackbar('Tour edited successfully', { variant: 'success' });

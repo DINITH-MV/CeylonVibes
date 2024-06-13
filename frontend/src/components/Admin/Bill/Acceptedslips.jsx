@@ -18,7 +18,7 @@ const AcceptedSlips = () => {
   useEffect(() => {
     const fetchAcceptedSlips = async () => {
       try {
-        const response = await axios.get("http://localhost:5555/slips");
+        const response = await axios.get("http://localhost:5012/slips");
         setAcceptedSlips(response.data.filter(slip => slip.status === 'Accepted'));
         const billExists = response.data.some(slip => slip.status === 'Accepted' && slip.billAvailable);
         setBillAvailable(billExists);
@@ -63,7 +63,7 @@ const AcceptedSlips = () => {
   //   try {
   //     // Iterate through filteredSlips array and delete each slip
   //     for (const slip of filteredSlips) {
-  //       await axios.delete(`http://localhost:5555/slips/${slip._id}`);
+  //       await axios.delete(`http://localhost:5012/slips/${slip._id}`);
   //     }
   //     setAcceptedSlips([]); // Clear the state after deletion
   //   } catch (error) {

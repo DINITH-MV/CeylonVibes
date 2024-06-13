@@ -8,9 +8,9 @@ const Appointment = () => {
   const [date, setDate] = useState('');
   const [phoneNo, setPhoneNo] = useState('');
   const [email, setEmail] = useState('');
-  
 
-  
+
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -24,7 +24,7 @@ const Appointment = () => {
     };
 
     try {
-      const response = await axios.post('http://localhost:5555/appointmentSPA', data);
+      const response = await axios.post('http://localhost:5012/appointmentSPA', data);
       const newAppointment = response.data; // This contains the newly created appointment object with its ID
 
       // Redirect to the Service Confirm page
@@ -75,7 +75,7 @@ const Appointment = () => {
 
 
   return (
-    
+
     <div className="flex justify-center items-center h-screen bg-[#fcecae]">
       <div className="max-w-xl w-full px-6 py-4 shadow-2xl bg-white rounded overflow-hidden">
         <br></br>

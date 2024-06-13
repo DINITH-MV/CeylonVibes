@@ -35,7 +35,7 @@ const ReportGeneration = () => {
 
     setIsLoading(true);
 
-    fetch(`http://localhost:5555/appointmentSpa`)
+    fetch(`http://localhost:5012/appointmentSpa`)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Failed to fetch appointment data');
@@ -71,32 +71,32 @@ const ReportGeneration = () => {
       format: 'a4',
     });
 
-     // Set background color for the entire page (beige)
-  doc.setFillColor(245, 245, 220); // Beige background (adjust RGB values as needed)
-  doc.rect(0, 0, doc.internal.pageSize.width, doc.internal.pageSize.height, 'F');
+    // Set background color for the entire page (beige)
+    doc.setFillColor(245, 245, 220); // Beige background (adjust RGB values as needed)
+    doc.rect(0, 0, doc.internal.pageSize.width, doc.internal.pageSize.height, 'F');
 
-   // Define dimensions and styling for the white box
-  const boxWidth = 60; // Width of the white box (adjust as needed)
-  const boxHeight = 15; // Height of the white box (adjust as needed)
-  const borderRadius = 5; // Border radius for rounded corners
-  const boxX = 10; // X-coordinate for the white box
-  const boxY = 8; // Y-coordinate for the white box
+    // Define dimensions and styling for the white box
+    const boxWidth = 60; // Width of the white box (adjust as needed)
+    const boxHeight = 15; // Height of the white box (adjust as needed)
+    const borderRadius = 5; // Border radius for rounded corners
+    const boxX = 10; // X-coordinate for the white box
+    const boxY = 8; // Y-coordinate for the white box
 
-  // Draw the white box
-  doc.setFillColor(255, 255, 255); // White color for the box background
-  doc.roundedRect(boxX, boxY, boxWidth, boxHeight, borderRadius, borderRadius, 'F'); // Draw filled rounded rectangle (white box)
-  
-  // Add custom text ("CeylonVibes") inside the white box
-  doc.setFont('Spirax'); // Set font to 'Spirax'
-  doc.setFontSize(18); // Set font size to 18
+    // Draw the white box
+    doc.setFillColor(255, 255, 255); // White color for the box background
+    doc.roundedRect(boxX, boxY, boxWidth, boxHeight, borderRadius, borderRadius, 'F'); // Draw filled rounded rectangle (white box)
 
-  const text = 'CeylonVibes';
-  const textWidth = doc.getStringUnitWidth(text) * doc.internal.getFontSize() / doc.internal.scaleFactor;
-  const textX = boxX + (boxWidth - textWidth) / 2; // Center text horizontally within the box
-  const textY = boxY + (boxHeight - 18) / 2 + 18 / 2; // Center text vertically within the box
+    // Add custom text ("CeylonVibes") inside the white box
+    doc.setFont('Spirax'); // Set font to 'Spirax'
+    doc.setFontSize(18); // Set font size to 18
 
-  doc.setTextColor(0, 0, 0); // Set text color to black
-  doc.text(text, textX, textY); // Add text inside the white box
+    const text = 'CeylonVibes';
+    const textWidth = doc.getStringUnitWidth(text) * doc.internal.getFontSize() / doc.internal.scaleFactor;
+    const textX = boxX + (boxWidth - textWidth) / 2; // Center text horizontally within the box
+    const textY = boxY + (boxHeight - 18) / 2 + 18 / 2; // Center text vertically within the box
+
+    doc.setTextColor(0, 0, 0); // Set text color to black
+    doc.text(text, textX, textY); // Add text inside the white box
 
 
     doc.setFont('helvetica', 'bold');
@@ -167,10 +167,10 @@ const ReportGeneration = () => {
         drawTableHeaders();
         startY += rowHeight;
       }
-      
+
       doc.rect(10, startY, colWidth, rowHeight);
       doc.text(appointment.name, 15, startY + 8);
-      
+
       doc.setFillColor(230, 230, 230); // Light gray background
       doc.rect(60, startY, colWidth, rowHeight, 'F');
       doc.setTextColor(0, 0, 0);

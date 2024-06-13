@@ -25,7 +25,7 @@ const EditMenu = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://localhost:5555/ayurvedicSPA/${id}`)
+      .get(`http://localhost:5012/ayurvedicSPA/${id}`)
       .then((response) => {
         settopic(response.data.topic);
         setdescription(response.data.description);
@@ -49,7 +49,7 @@ const EditMenu = () => {
     };
     setLoading(true);
     axios
-      .put(`http://localhost:5555/ayurvedicSPA/${id}`, data)
+      .put(`http://localhost:5012/ayurvedicSPA/${id}`, data)
       .then(() => {
         setLoading(false);
         navigate('/admin/spa-menu-edit-service');

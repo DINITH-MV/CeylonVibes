@@ -147,7 +147,7 @@ const PDFFile = ({ items }) => {
               <View key={item._id} style={styles.row}>
                 <Text style={styles.cell}>{item._id}</Text>
                 <Text style={styles.cell}>{item.name}</Text>
-                <Image style={styles.image} source={'http://localhost:5555/products/' + item.image} />
+                <Image style={styles.image} source={'http://localhost:5012/products/' + item.image} />
                 <Text style={styles.cell}>{item.image}</Text>
               </View>
             ))}

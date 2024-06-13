@@ -95,7 +95,7 @@ const AddItemsCatagory = () => {
         formdata.append('quantity', quantity);
         formdata.append('description', description);
         try {
-            const response = await axios.post('http://localhost:5555/products', formdata, {
+            const response = await axios.post('http://localhost:5012/products', formdata, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -223,31 +223,31 @@ const AddItemsCatagory = () => {
                                             )}
                                             <button className="rounded-[7px] w-[300px] p-[6px] text-[#fff] bg-[#c33636] mt-[0] mb-[20px]" type="submit" >Submit</button>
                                             <Toaster position="top-center"
-                                                        reverseOrder={false}
-                                                        gutter={13}
-                                                        containerClassName=""
-                                                        containerStyle={{}}
-                                                        toastOptions={{
-                                                            // Define default options
-                                                            className: '',
-                                                            duration: 5000,
-                                                            style: {
-                                                                background: '#363636',
-                                                                color: '#fff',
-                                                                boxShadow: '0px 0px 0px rgba(0, 0, 0, 0.2)',
-                                                                padding: '4px 4px 4px 8px',
-                                                            },
+                                                reverseOrder={false}
+                                                gutter={13}
+                                                containerClassName=""
+                                                containerStyle={{}}
+                                                toastOptions={{
+                                                    // Define default options
+                                                    className: '',
+                                                    duration: 5000,
+                                                    style: {
+                                                        background: '#363636',
+                                                        color: '#fff',
+                                                        boxShadow: '0px 0px 0px rgba(0, 0, 0, 0.2)',
+                                                        padding: '4px 4px 4px 8px',
+                                                    },
 
-                                                            // Default options for specific types
-                                                            success: {
-                                                                duration: 5555,
-                                                                theme: {
-                                                                    primary: 'green',
-                                                                    secondary: 'black',
-                                                                },
-                                                            },
-                                                        }}
-                                                    />
+                                                    // Default options for specific types
+                                                    success: {
+                                                        duration: 5555,
+                                                        theme: {
+                                                            primary: 'green',
+                                                            secondary: 'black',
+                                                        },
+                                                    },
+                                                }}
+                                            />
                                         </form>
                                     </div>
                                 </div>

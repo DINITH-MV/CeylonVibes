@@ -69,7 +69,7 @@ const UpdateItemsCatagory = () => {
         formdata.append('quantity', quantity);
         formdata.append('description', description);
         try {
-            const response = await axios.put(`http://localhost:5555/products/${id}`, formdata, {
+            const response = await axios.put(`http://localhost:5012/products/${id}`, formdata, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -150,7 +150,7 @@ const UpdateItemsCatagory = () => {
                                             {!isCancelled && (
                                                 <div className="uploads">
                                                     <ul>
-                                                        <img className="h-[160px] text-center mx-auto mt-[10px]" src={`http://localhost:5555/` + imageFolder + '/' + image} alt="" />
+                                                        <img className="h-[160px] text-center mx-auto mt-[10px]" src={`http://localhost:5012/` + imageFolder + '/' + image} alt="" />
                                                         {image}
                                                     </ul>
                                                     <div className="actions ">

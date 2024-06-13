@@ -19,7 +19,7 @@ const EventPack = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await axios.get("http://localhost:5555/events/music");
+        const response = await axios.get("http://localhost:5012/events/music");
         setEvents(response.data);
       } catch (error) {
         console.error("Error fetching events:", error);

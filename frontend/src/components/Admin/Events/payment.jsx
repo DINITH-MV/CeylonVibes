@@ -15,7 +15,7 @@ const EventDetails = () => {
   useEffect(() => {
     const fetchEventData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5555/events/${id}`);
+        const response = await axios.get(`http://localhost:5012/events/${id}`);
         if (response.status === 200) {
           setEventData(response.data);
           setStandardPrice(response.data.ticketPrice); // Set standardPrice from eventData
@@ -61,7 +61,7 @@ const EventDetails = () => {
       Eventid: id
     };
     //pass the data array to database
-    axios.post("http://localhost:5555/Ticket", data)
+    axios.post("http://localhost:5012/Ticket", data)
       .then(response => {
         console.log("Data saved successfully:", response.data);
 
