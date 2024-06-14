@@ -1,5 +1,6 @@
 import React from 'react';
 import tourism2 from '../../../images/Organic Items/food61.jpg'
+import { Link } from 'react-router-dom';
 
 
 const HeaderText3 = () => {
@@ -10,11 +11,13 @@ const HeaderText3 = () => {
                     <img src={tourism2} className='h-[440px] rounded-[17px] border-[7px] border-[#b69e81]' alt="" />
                 </div>
                 <div className='ml-[104%] text-[#8c9861] text-right w-[520px] mt-[-10px]'>
-                Embark on <div className='mb-[10px]'/>the path <div className='mb-[10px]'/>to wellness
+                    Embark on <div className='mb-[10px]' />the path <div className='mb-[10px]' />to wellness
                     <div className="font-Abel text-2xl mt-[30px] mb-[10px]">
                         Eat Clean, Live Green, and Feel Amazing
-                    </div>   
-                    <button className='text-[18px] text-[#fff] font-Coda bg-[#000] p-[10px] rounded-[12px] '>View page</button>
+                    </div>
+                    <Link to='/Shop'>
+                        <button className='text-[18px] text-[#fff] font-Coda bg-[#000] p-[10px] rounded-[12px] '>View page</button>
+                    </Link>
                 </div>
             </div>
 
