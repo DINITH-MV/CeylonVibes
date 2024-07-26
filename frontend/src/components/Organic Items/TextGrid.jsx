@@ -23,16 +23,16 @@ const TextGrid = () => {
                     </div>
                 </div>
                 <div class="font-Abel grid grid-cols-4 w-[1240px] text-[15pt] m-auto text-justify max-w-3xl mx-auto md:max-w-none md:max-0  gap-[50px]">
-                    <div className='border-l-[4px] mt-[3px] pr-6 pl-6 mr-9 h-[190px] pt-[6pt] rounded-[7px] bg-greenWh'>
+                    <div className='border-l-[4px] border-[#000] mt-[3px] pr-6 pl-6 mr-9 h-[190px] pt-[6pt] rounded-[7px] bg-greenWh'>
                         You can find all kinds of organic products online, from fresh produce to snacks and beverages.
                     </div>
-                    <div className='border-l-[4px] pr-6 pl-6 mr-9 mt-[2px] h-[200px] pt-[6pt] rounded-[7px] bg-greenWh'>
+                    <div className='border-l-[4px] border-[#000] pr-6 pl-6 mr-9 mt-[2px] h-[200px] pt-[6pt] rounded-[7px] bg-greenWh'>
                         You can order your products online and have them delivered to your doorstep at your preferred time.
                     </div>
-                    <div className='border-l-[4px] pr-6 pl-6 mr-9 h-[190px] mt-[-30px]  pt-[6pt] rounded-[7px] bg-greenWh'>
+                    <div className='border-l-[4px] border-[#000] pr-6 pl-6 mr-9 h-[190px] mt-[-30px]  pt-[6pt] rounded-[7px] bg-greenWh'>
                         You can choose from different delivery frequencies and payment options for your online orders.
                     </div>
-                    <div className='border-l-[4px] pr-6 pl-6 mr-9 mt-[-30px] h-[160px] pt-[6pt] rounded-[7px] bg-greenWh'>
+                    <div className='border-l-[4px] border-[#000] pr-6 pl-6 mr-9 mt-[-30px] h-[160px] pt-[6pt] rounded-[7px] bg-greenWh'>
                         You can learn more about the origin, quality, and certification of the products you buy online.
                     </div>
                 </div>
