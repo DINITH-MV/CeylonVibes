@@ -140,6 +140,7 @@ const App = () => {
 
   return (
     <Routes>
+      <Route path="/" element={<Home catagories={catagories} fetchCatagories={fetchCatagories} offers={offers} fetchOffers={fetchOffers} />} />
       <Route path="/Shop" element={<Shop catagories={catagories} fetchCatagories={fetchCatagories} offers={offers} fetchOffers={fetchOffers} />} />
       <Route
         path="/shopInside/:id"
@@ -149,7 +150,6 @@ const App = () => {
       <Route path="/sign-in" element={<SignInPage />} />
       <Route path="/sign-up" element={<SignedOut />} />
       <Route path="/profile" element={<UserProfilePage />} />
-      <Route path="/Home" element={<Home catagories={catagories} fetchCatagories={fetchCatagories} offers={offers} fetchOffers={fetchOffers} />} />
 
       for admin panel
 

@@ -10,8 +10,8 @@ import { SearchResultsList } from "./SearchResultsList";
 export default function Header({ productsInCart, onQuantityChange, onProductRemove, fetchCart, cart }) {
     const [results, setResults] = useState([]);
     return (
-        <div>
-            <div>
+        <div >
+            <div >
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
                 <link href="https://fonts.googleapis.com/css2?family=Barlow&display=swap" rel="stylesheet" />

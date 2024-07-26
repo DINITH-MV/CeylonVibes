@@ -6,7 +6,7 @@ import Header from "../../components/Home/Header/Header.jsx";
 import GradientOpen2 from "../../components/Home/Content/GradientOpen2.jsx";
 import GradientClose2 from "../../components/Home/Content/GradientClose2.jsx";
 import Footer from "../../components/Footer/Footer.jsx";
-import { motion } from "framer-motion";
+import { motion, transform } from "framer-motion";
 import HeaderText1 from "../../components/Home/Content/HeaderText1.jsx";
 import HeaderText2 from "../../components/Home/Content/HeaderText2.jsx";
 import HeaderText3 from "../../components/Home/Content/HeaderText3.jsx";
@@ -28,7 +28,7 @@ const Home = () => {
         }}
       >
         <Header />
-        <div>
+        <div className="scale-110 pt-[180px] mb-[226px]">
           <HeaderText />
           <div className="bg-[#ffb372] h-[570px] w-[100%] mb-0 "></div>
           <GradientOpen />
