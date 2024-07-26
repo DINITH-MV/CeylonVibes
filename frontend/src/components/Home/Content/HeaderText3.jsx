@@ -1,9 +1,15 @@
 import React from 'react';
 import tourism2 from '../../../images/Organic Items/food61.jpg'
 import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 
 const HeaderText3 = () => {
+
+    const handleClick = () => {
+        toast.success('Wellcome to the Organic Store');
+    }
+
     return (
         <div className='mb-[420px]'>
             <div className="font-CantoraOne ml-[13.5%] mt-[20pt] text-7xl absolute text-[#ffffff] z-21 ">
@@ -16,7 +22,7 @@ const HeaderText3 = () => {
                         Eat Clean, Live Green, and Feel Amazing
                     </div>
                     <Link to='/Shop'>
-                        <button className='text-[18px] text-[#fff] font-Coda bg-[#000] p-[10px] rounded-[12px] ' >View page</button>
+                        <button className='text-[18px] text-[#fff] font-Coda bg-[#000] p-[10px] rounded-[12px] cursor-crosshair'  onClick={() => handleClick()} >View page</button>
                     </Link>
                 </div>
             </div>

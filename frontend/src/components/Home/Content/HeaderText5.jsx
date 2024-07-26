@@ -6,7 +6,7 @@ import toast from 'react-hot-toast';
 const HeaderText5 = () => {
 
     const handleClick = () => {
-        toast.error('Allowed to view\n ONLY Organic Store page');
+        toast.error('Allowed to VIEW ONLY Organic Store');
     }
 
     return (
@@ -16,11 +16,11 @@ const HeaderText5 = () => {
                     <img src={events} className='h-[350px] rounded-[17px] border-[7px] border-[#ce794bd8]' alt="" />
                 </div>
                 <div className='ml-[104%] text-[#a4603b] text-right w-[520px] mt-[-40px]'>
-                Rhythm, Energy<div className='mb-[10px]'/> <div className='mb-[10px]'/>Collective Experience
+                    Rhythm, Energy<div className='mb-[10px]' /> <div className='mb-[10px]' />Collective Experience
                     <div className="font-Abel text-2xl mt-[20px] mb-[0px]">
                         Eat Clean, Live Green, and Feel Amazing
-                    </div>   
-                    <button className='text-[18px] text-[#fff] font-Coda bg-[#000] p-[10px] rounded-[12px] '  onClick={() => handleClick()}>View page</button>
+                    </div>
+                    <button className='text-[18px] text-[#fff] font-Coda bg-[#000] p-[10px] rounded-[12px] cursor-crosshair' onClick={() => handleClick()}>View page</button>
                 </div>
             </div>
 

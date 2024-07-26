@@ -7,7 +7,7 @@ import toast, { Toaster } from 'react-hot-toast';
 const HeaderText2 = () => {
 
     const handleClick = () => {
-        toast.error('Allowed to view\n ONLY Organic Store page');
+        toast.error('Allowed to view\n ONLY Organic Store');
     }
 
     return (
@@ -18,8 +18,8 @@ const HeaderText2 = () => {
                     <div className="font-Abel text-2xl mt-[20px]">
                         Eat Clean, Live Green, and Feel Amazing
                     </div>
-                    <button className='text-[18px] text-[#fff] font-Coda bg-[#000] p-[10px] rounded-[12px] cursor-none' onClick={() => handleClick()}>View page</button>
-                    
+                    <button className='text-[18px] text-[#fff] font-Coda bg-[#000] p-[10px] rounded-[12px] cursor-crosshair' onClick={() => handleClick()}>View page</button>
+
                 </div>
                 <div className='absolute w-[900px] right-[-210%] top-[-90px] '>
                     <img src={tourism2} className='h-[440px]' alt="" />
