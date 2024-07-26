@@ -11,7 +11,7 @@ const HeaderText6 = () => {
                     <div className="font-Abel text-2xl mt-[20px]">
                         Eat Clean, Live Green, and Feel Amazing
                     </div>
-                    <button className='text-[18px] text-[#fff] font-Coda bg-[#000] p-[10px] rounded-[12px]'>View page</button>
+                    <button className='text-[18px] text-[#fff] font-Coda bg-[#000] p-[10px] rounded-[12px]'  onClick={() => handleClick()}>View page</button>
                 </div>
                 <div className='absolute w-[900px] right-[-270%] top-[-20px] '>
                     <img src={spa} className='h-[370px] rounded-[14px] border-[8px] border-[#ffffff89]' alt="" />

@@ -14,6 +14,7 @@ import HeaderText4 from "../../components/Home/Content/HeaderText4.jsx";
 import GradientOpen3 from "../../components/Home/Content/GradientOpen3.jsx";
 import HeaderText5 from "../../components/Home/Content/HeaderText5.jsx";
 import HeaderText6 from "@/components/Home/Content/HeaderText6.jsx";
+import { Toaster } from "react-hot-toast";
 
 const Home = () => {
 
@@ -28,6 +29,33 @@ const Home = () => {
         }}
       >
         <Header />
+        <Toaster position="top-center"
+                        reverseOrder={false}
+                        gutter={13}
+                        containerClassName=""
+                        containerStyle={{}}
+                        toastOptions={{
+                            // Define default options
+                            className: '',
+                            duration: 5000,
+                            style: {
+                                fontSize: '12pt',
+                                background: '#363636',
+                                color: '#fff',
+                                boxShadow: '0px 0px 0px rgba(0, 0, 0, 0.2)',
+                                position: 'left-center',
+                            },
+
+                            // Default options for specific types
+                            error: {
+                                duration: 5555,
+                                theme: {
+                                    primary: 'red',
+                                    secondary: 'white',
+                                },
+                            },
+                        }}
+                    />
         <div className="scale-110 pt-[180px] mb-[226px]">
           <HeaderText />
           <div className="bg-[#ffb372] h-[570px] w-[100%] mb-0 "></div>

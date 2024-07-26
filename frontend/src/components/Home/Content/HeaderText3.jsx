@@ -16,7 +16,7 @@ const HeaderText3 = () => {
                         Eat Clean, Live Green, and Feel Amazing
                     </div>
                     <Link to='/Shop'>
-                        <button className='text-[18px] text-[#fff] font-Coda bg-[#000] p-[10px] rounded-[12px] '>View page</button>
+                        <button className='text-[18px] text-[#fff] font-Coda bg-[#000] p-[10px] rounded-[12px] ' >View page</button>
                     </Link>
                 </div>
             </div>

@@ -14,7 +14,7 @@ const HeaderText5 = () => {
                     <div className="font-Abel text-2xl mt-[20px] mb-[0px]">
                         Eat Clean, Live Green, and Feel Amazing
                     </div>   
-                    <button className='text-[18px] text-[#fff] font-Coda bg-[#000] p-[10px] rounded-[12px] '>View page</button>
+                    <button className='text-[18px] text-[#fff] font-Coda bg-[#000] p-[10px] rounded-[12px] '  onClick={() => handleClick()}>View page</button>
                 </div>
             </div>
 
