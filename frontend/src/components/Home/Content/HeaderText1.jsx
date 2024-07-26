@@ -1,8 +1,14 @@
 import React from 'react';
 import tourism2 from '../../../images/Home/tourism4.jpg'
+import toast from 'react-hot-toast';
 
 
 const HeaderText1 = () => {
+
+    const handleClick = () => {
+        toast.error('Allowed to view\n ONLY Organic Store page');
+    }
+
     return (
         <div >
             <div className="font-CantoraOne ml-[13.5%] mt-[30pt] text-7xl absolute text-[#ffffff] z-21">
@@ -14,7 +20,7 @@ const HeaderText1 = () => {
                     <div className="font-Abel text-2xl mt-[20px] mb-[-20px]">
                     Highlighting the exploration of new places, connecting with different cultures or environments
                     </div>
-                    <button className='text-[18px] text-[#fff] font-Coda bg-[#000] p-[10px] rounded-[12px]'>View page</button>
+                    <button className='text-[18px] text-[#fff] font-Coda bg-[#000] p-[10px] rounded-[12px]'  onClick={() => handleClick()}>View page</button>
                 </div>
             </div>
 

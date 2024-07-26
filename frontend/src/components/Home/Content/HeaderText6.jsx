@@ -1,8 +1,14 @@
 import React from 'react';
 import spa from '../../../images/Home/spa4.jpg'
+import toast from 'react-hot-toast';
 
 
 const HeaderText6 = () => {
+
+    const handleClick = () => {
+        toast.error('Allowed to view\n ONLY Organic Store page');
+    }
+
     return (
         <div >
             <div className="font-CantoraOne ml-[15%] mt-[50pt] text-7xl absolute text-[#ffffff] z-21">
