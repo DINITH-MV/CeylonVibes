@@ -4,7 +4,7 @@ import FoodPic from '../../images/Organic Items/food4.png'
 const HeaderText = () => {
     return (
         <div >             
-            <div className="font-CantoraOne ml-[13.5%] mt-[150pt] text-7xl absolute text-[#8c9861] z-21">
+            <div className="font-CantoraOne ml-[13.5%] mt-[150pt] text-7xl absolute text-[#8c9861] z-21 scale-110">
                 Embark on <br />the path <br />to wellness
                 <div className="font-Abel text-2xl mt-[45px]">
                     Eat Clean, Live Green, and Feel Amazing
