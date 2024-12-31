@@ -7,7 +7,7 @@ import toast, { Toaster } from 'react-hot-toast';
 const HeaderText2 = () => {
 
     const handleClick = () => {
-        toast.error('Allowed to view\n ONLY Organic Store');
+        toast.error('Allowed to view ONLY Organic Store');
     }
 
     return (

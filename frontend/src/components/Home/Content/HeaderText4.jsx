@@ -1,6 +1,6 @@
 import React from 'react';
 import article from '../../../images/Home/articles.webp'
-
+import toast from 'react-hot-toast';
 
 const HeaderText4 = () => {
 
